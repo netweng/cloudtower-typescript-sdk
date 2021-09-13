@@ -47009,7 +47009,8 @@
 							"name",
 							"id"
 						],
-						"type": "object"
+						"type": "object",
+						"nullable": true
 					},
 					"description": {
 						"type": "string"
@@ -47123,7 +47124,6 @@
 					}
 				},
 				"required": [
-					"cluster",
 					"description",
 					"id",
 					"local_created_at",
@@ -62985,6 +62985,10 @@
 						"type": "string",
 						"nullable": true
 					},
+					"resource_rollback_error": {
+						"type": "string",
+						"nullable": true
+					},
 					"resource_rollbacked": {
 						"type": "boolean",
 						"nullable": true
@@ -63099,6 +63103,8 @@
 					"resource_id_DESC",
 					"resource_mutation_ASC",
 					"resource_mutation_DESC",
+					"resource_rollback_error_ASC",
+					"resource_rollback_error_DESC",
 					"resource_rollbacked_ASC",
 					"resource_rollbacked_DESC",
 					"resource_type_ASC",
@@ -63646,6 +63652,68 @@
 						"nullable": true
 					},
 					"resource_mutation_starts_with": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_contains": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_ends_with": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_gt": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_gte": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_in": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array",
+						"nullable": true
+					},
+					"resource_rollback_error_lt": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_lte": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_not": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_not_contains": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_not_ends_with": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_not_in": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array",
+						"nullable": true
+					},
+					"resource_rollback_error_not_starts_with": {
+						"type": "string",
+						"nullable": true
+					},
+					"resource_rollback_error_starts_with": {
 						"type": "string",
 						"nullable": true
 					},
@@ -72721,13 +72789,34 @@
 				"properties": {
 					"data": {
 						"properties": {
+							"luns": {
+								"$ref": "#/components/schemas/IscsiLunWhereInput"
+							},
+							"vmNics": {
+								"$ref": "#/components/schemas/VmNicWhereInput"
+							},
+							"nics": {
+								"$ref": "#/components/schemas/NicWhereInput"
+							},
+							"disks": {
+								"$ref": "#/components/schemas/DiskWhereInput"
+							},
+							"vmVolumes": {
+								"$ref": "#/components/schemas/VmVolumeWhereInput"
+							},
+							"vms": {
+								"$ref": "#/components/schemas/VmWhereInput"
+							},
+							"hosts": {
+								"$ref": "#/components/schemas/HostWhereInput"
+							},
 							"network": {
 								"$ref": "#/components/schemas/NetworkType"
 							},
-							"service": {
-								"type": "string"
+							"cluster": {
+								"$ref": "#/components/schemas/ClusterWhereInput"
 							},
-							"mode": {
+							"service": {
 								"type": "string"
 							},
 							"metric_type": {
@@ -73607,29 +73696,10 @@
 				"properties": {
 					"data": {
 						"properties": {
-							"vm_templates": {
-								"$ref": "#/components/schemas/VmTemplateWhereInput"
-							},
-							"vm_snapshots": {
-								"$ref": "#/components/schemas/VmSnapshotWhereInput"
-							},
-							"vm_disks": {
-								"$ref": "#/components/schemas/VmDiskWhereInput"
-							},
 							"description": {
 								"type": "string"
 							},
-							"size": {
-								"type": "number",
-								"format": "double"
-							},
-							"path": {
-								"type": "string"
-							},
 							"name": {
-								"type": "string"
-							},
-							"cluster_id": {
 								"type": "string"
 							}
 						},
@@ -76258,9 +76328,6 @@
 					"cluster_id": {
 						"type": "string"
 					},
-					"type": {
-						"$ref": "#/components/schemas/NetworkType"
-					},
 					"bond_mode": {
 						"type": "string"
 					},
@@ -76271,10 +76338,121 @@
 				"required": [
 					"nic_ids",
 					"cluster_id",
-					"type",
 					"name"
 				],
 				"type": "object"
+			},
+			"VdsCreationWithMigrateVlanParams": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/VdsCreationParams"
+					},
+					{
+						"properties": {
+							"vlan": {
+								"properties": {
+									"extra_ip": {
+										"items": {
+											"properties": {
+												"management_ip": {
+													"type": "string"
+												},
+												"host_id": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"management_ip",
+												"host_id"
+											],
+											"type": "object"
+										},
+										"type": "array"
+									},
+									"subnetmask": {
+										"type": "string"
+									},
+									"gateway_subnetmask": {
+										"type": "string"
+									},
+									"gateway_ip": {
+										"type": "string"
+									},
+									"vlan_id": {
+										"type": "number",
+										"format": "double"
+									}
+								},
+								"required": [
+									"extra_ip",
+									"subnetmask",
+									"vlan_id"
+								],
+								"type": "object"
+							}
+						},
+						"required": [
+							"vlan"
+						],
+						"type": "object"
+					}
+				]
+			},
+			"VdsCreationWithMAccessVlanParams": {
+				"allOf": [
+					{
+						"$ref": "#/components/schemas/VdsCreationParams"
+					},
+					{
+						"properties": {
+							"vlan": {
+								"properties": {
+									"extra_ip": {
+										"items": {
+											"properties": {
+												"management_ip": {
+													"type": "string"
+												},
+												"host_id": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"management_ip",
+												"host_id"
+											],
+											"type": "object"
+										},
+										"type": "array"
+									},
+									"subnetmask": {
+										"type": "string"
+									},
+									"gateway_subnetmask": {
+										"type": "string"
+									},
+									"gateway_ip": {
+										"type": "string"
+									},
+									"vlan_id": {
+										"type": "number",
+										"format": "double"
+									}
+								},
+								"required": [
+									"extra_ip",
+									"subnetmask",
+									"vlan_id"
+								],
+								"type": "object"
+							}
+						},
+						"required": [
+							"vlan"
+						],
+						"type": "object"
+					}
+				]
 			},
 			"VdsUpdationParams": {
 				"properties": {
@@ -77966,19 +78144,22 @@
 				"properties": {
 					"data": {
 						"properties": {
+							"elf_image_id": {
+								"type": "string",
+								"nullable": true
+							},
 							"vm_volume_id": {
+								"type": "string"
+							},
+							"vm_disk_id": {
 								"type": "string"
 							},
 							"bus": {
 								"$ref": "#/components/schemas/Bus"
-							},
-							"vm_disk_index": {
-								"type": "number",
-								"format": "double"
 							}
 						},
 						"required": [
-							"vm_disk_index"
+							"vm_disk_id"
 						],
 						"type": "object"
 					},
@@ -86182,6 +86363,77 @@
 				}
 			}
 		},
+		"/upload-elf-image": {
+			"post": {
+				"operationId": "CreateElfImage",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/UploadTask"
+									},
+									"type": "array"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"format": "binary"
+									},
+									"cluster_id": {
+										"type": "string"
+									},
+									"name": {
+										"type": "string"
+									},
+									"size": {
+										"type": "string"
+									},
+									"description": {
+										"type": "string"
+									},
+									"upload_task_id": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"file",
+									"cluster_id",
+									"name",
+									"size",
+									"description",
+									"upload_task_id"
+								]
+							}
+						}
+					}
+				}
+			}
+		},
 		"/update-elf-image": {
 			"post": {
 				"operationId": "UpdateElfImage",
@@ -88704,7 +88956,7 @@
 		},
 		"/mount-usb-device": {
 			"post": {
-				"operationId": "UpdateUsbDevice",
+				"operationId": "MountUsbDevice",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -88948,6 +89200,96 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/UserDeletionParams"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/create-vds-with-migrate-vlan": {
+			"post": {
+				"operationId": "CreateVdsWithMigrateVlan",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/WithTask_Vds_"
+									},
+									"type": "array"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"items": {
+									"$ref": "#/components/schemas/VdsCreationWithMigrateVlanParams"
+								},
+								"type": "array"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/create-vds-with-access-vlan": {
+			"post": {
+				"operationId": "CreateVdsWithAccessVlan",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/WithTask_Vds_"
+									},
+									"type": "array"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"items": {
+									"$ref": "#/components/schemas/VdsCreationWithMAccessVlanParams"
+								},
+								"type": "array"
 							}
 						}
 					}
@@ -90601,7 +90943,7 @@
 				}
 			}
 		},
-		"/force/restart-vm": {
+		"/force-restart-vm": {
 			"post": {
 				"operationId": "ForceRestartVm",
 				"responses": {
@@ -90643,7 +90985,7 @@
 				}
 			}
 		},
-		"/shut-down-vm": {
+		"/shutdown-vm": {
 			"post": {
 				"operationId": "ShutDownVm",
 				"responses": {
@@ -90685,7 +91027,7 @@
 				}
 			}
 		},
-		"/force/shut-down-vm": {
+		"/poweroff-vm": {
 			"post": {
 				"operationId": "ForceShutDownVm",
 				"responses": {

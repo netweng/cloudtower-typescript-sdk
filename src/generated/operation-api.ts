@@ -13418,7 +13418,7 @@ export interface GetElfDataStoresConnectionRequestBody {
 }
 
 export interface ElfImage {
-  cluster: { name: string; id: string };
+  cluster?: { name: string; id: string };
   description: string;
   entityAsyncStatus?: EntityAsyncStatus | null;
   id: string;
@@ -18375,6 +18375,7 @@ export interface Task {
   progress: number;
   resource_id?: string | null;
   resource_mutation?: string | null;
+  resource_rollback_error?: string | null;
   resource_rollbacked?: boolean | null;
   resource_type?: string | null;
   snapshot: string;
@@ -18416,6 +18417,8 @@ export type TaskOrderByInput =
   | "resource_id_DESC"
   | "resource_mutation_ASC"
   | "resource_mutation_DESC"
+  | "resource_rollback_error_ASC"
+  | "resource_rollback_error_DESC"
   | "resource_rollbacked_ASC"
   | "resource_rollbacked_DESC"
   | "resource_type_ASC"
@@ -18558,6 +18561,20 @@ export interface TaskWhereInput {
   resource_mutation_not_in?: string[] | null;
   resource_mutation_not_starts_with?: string | null;
   resource_mutation_starts_with?: string | null;
+  resource_rollback_error?: string | null;
+  resource_rollback_error_contains?: string | null;
+  resource_rollback_error_ends_with?: string | null;
+  resource_rollback_error_gt?: string | null;
+  resource_rollback_error_gte?: string | null;
+  resource_rollback_error_in?: string[] | null;
+  resource_rollback_error_lt?: string | null;
+  resource_rollback_error_lte?: string | null;
+  resource_rollback_error_not?: string | null;
+  resource_rollback_error_not_contains?: string | null;
+  resource_rollback_error_not_ends_with?: string | null;
+  resource_rollback_error_not_in?: string[] | null;
+  resource_rollback_error_not_starts_with?: string | null;
+  resource_rollback_error_starts_with?: string | null;
   resource_rollbacked?: boolean | null;
   resource_rollbacked_not?: boolean | null;
   resource_type?: string | null;
@@ -21372,9 +21389,16 @@ export interface GraphCreationParams {
 
 export interface GraphUpdationParams {
   data?: {
+    luns?: IscsiLunWhereInput;
+    vmNics?: VmNicWhereInput;
+    nics?: NicWhereInput;
+    disks?: DiskWhereInput;
+    vmVolumes?: VmVolumeWhereInput;
+    vms?: VmWhereInput;
+    hosts?: HostWhereInput;
     network?: NetworkType;
+    cluster?: ClusterWhereInput;
     service?: string;
-    mode?: string;
     metric_type?: MetricType;
     metric_count?: number;
     type?: GraphType;
@@ -21690,16 +21714,7 @@ export interface WithTaskElfImage {
 }
 
 export interface ElfImageUpdationParams {
-  data: {
-    vm_templates?: VmTemplateWhereInput;
-    vm_snapshots?: VmSnapshotWhereInput;
-    vm_disks?: VmDiskWhereInput;
-    description?: string;
-    size?: number;
-    path?: string;
-    name?: string;
-    cluster_id?: string;
-  };
+  data: { description?: string; name?: string };
   where: ElfImageWhereInput;
 }
 
@@ -22553,10 +22568,29 @@ export interface WithTaskVds {
 export interface VdsCreationParams {
   nic_ids: string[];
   cluster_id: string;
-  type: NetworkType;
   bond_mode?: string;
   name: string;
 }
+
+export type VdsCreationWithMigrateVlanParams = VdsCreationParams & {
+  vlan: {
+    extra_ip: { management_ip: string; host_id: string }[];
+    subnetmask: string;
+    gateway_subnetmask?: string;
+    gateway_ip?: string;
+    vlan_id: number;
+  };
+};
+
+export type VdsCreationWithMAccessVlanParams = VdsCreationParams & {
+  vlan: {
+    extra_ip: { management_ip: string; host_id: string }[];
+    subnetmask: string;
+    gateway_subnetmask?: string;
+    gateway_ip?: string;
+    vlan_id: number;
+  };
+};
 
 export interface VdsUpdationParams {
   data: { nicIds?: string[]; bond_mode?: string; name?: string };
@@ -23083,7 +23117,7 @@ export interface VmAddDiskParams {
 }
 
 export interface VmUpdateDiskParams {
-  data: { vm_volume_id?: string; bus?: Bus; vm_disk_index: number };
+  data: { elf_image_id?: string | null; vm_volume_id?: string; vm_disk_id: string; bus?: Bus };
   where: VmWhereInput;
 }
 
@@ -26424,6 +26458,30 @@ export namespace DeleteIscsiTarget {
   }
 }
 
+export namespace UploadElfImage {
+  /**
+   * No description
+   * @name CreateElfImage
+   * @request POST:/upload-elf-image
+   * @response `200` `(UploadTask)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace CreateElfImage {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = {
+      file: File;
+      cluster_id: string;
+      name: string;
+      size: string;
+      description: string;
+      upload_task_id: string;
+    };
+    export type RequestHeaders = {};
+    export type ResponseBody = UploadTask[];
+  }
+}
+
 export namespace UpdateElfImage {
   /**
    * No description
@@ -27430,12 +27488,12 @@ export namespace DeleteSnmpTrapReceiver {
 export namespace MountUsbDevice {
   /**
    * No description
-   * @name UpdateUsbDevice
+   * @name MountUsbDevice
    * @request POST:/mount-usb-device
    * @response `200` `(WithTaskUsbDevice)[]` Ok
    * @response `400` `string`
    */
-  export namespace UpdateUsbDevice {
+  export namespace MountUsbDevice {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = UsbDeviceMountParams;
@@ -27526,6 +27584,40 @@ export namespace DeleteUser {
     export type RequestBody = UserDeletionParams;
     export type RequestHeaders = {};
     export type ResponseBody = WithTaskDeleteUser[];
+  }
+}
+
+export namespace CreateVdsWithMigrateVlan {
+  /**
+   * No description
+   * @name CreateVdsWithMigrateVlan
+   * @request POST:/create-vds-with-migrate-vlan
+   * @response `200` `(WithTaskVds)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace CreateVdsWithMigrateVlan {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = VdsCreationWithMigrateVlanParams[];
+    export type RequestHeaders = {};
+    export type ResponseBody = WithTaskVds[];
+  }
+}
+
+export namespace CreateVdsWithAccessVlan {
+  /**
+   * No description
+   * @name CreateVdsWithAccessVlan
+   * @request POST:/create-vds-with-access-vlan
+   * @response `200` `(WithTaskVds)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace CreateVdsWithAccessVlan {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = VdsCreationWithMAccessVlanParams[];
+    export type RequestHeaders = {};
+    export type ResponseBody = WithTaskVds[];
   }
 }
 
@@ -28158,11 +28250,11 @@ export namespace RestartVm {
   }
 }
 
-export namespace Force {
+export namespace ForceRestartVm {
   /**
    * No description
    * @name ForceRestartVm
-   * @request POST:/force/restart-vm
+   * @request POST:/force-restart-vm
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28173,14 +28265,17 @@ export namespace Force {
     export type RequestHeaders = {};
     export type ResponseBody = WithTaskVm[];
   }
+}
+
+export namespace ShutdownVm {
   /**
    * No description
-   * @name ForceShutDownVm
-   * @request POST:/force/shut-down-vm
+   * @name ShutDownVm
+   * @request POST:/shutdown-vm
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
-  export namespace ForceShutDownVm {
+  export namespace ShutDownVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
@@ -28189,15 +28284,15 @@ export namespace Force {
   }
 }
 
-export namespace ShutDownVm {
+export namespace PoweroffVm {
   /**
    * No description
-   * @name ShutDownVm
-   * @request POST:/shut-down-vm
+   * @name ForceShutDownVm
+   * @request POST:/poweroff-vm
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
-  export namespace ShutDownVm {
+  export namespace ForceShutDownVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
@@ -32253,6 +32348,28 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         ...params,
       }),
   };
+  uploadElfImage = {
+    /**
+     * No description
+     *
+     * @name CreateElfImage
+     * @request POST:/upload-elf-image
+     * @response `200` `(UploadTask)[]` Ok
+     * @response `400` `string`
+     */
+    createElfImage: (
+      data: { file: File; cluster_id: string; name: string; size: string; description: string; upload_task_id: string },
+      params: RequestParams = {},
+    ) =>
+      this.request<UploadTask[], string>({
+        path: `/upload-elf-image`,
+        method: "POST",
+        body: data,
+        type: ContentType.FormData,
+        format: "json",
+        ...params,
+      }),
+  };
   updateElfImage = {
     /**
      * No description
@@ -33378,12 +33495,12 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
-     * @name UpdateUsbDevice
+     * @name MountUsbDevice
      * @request POST:/mount-usb-device
      * @response `200` `(WithTaskUsbDevice)[]` Ok
      * @response `400` `string`
      */
-    updateUsbDevice: (data: UsbDeviceMountParams, params: RequestParams = {}) =>
+    mountUsbDevice: (data: UsbDeviceMountParams, params: RequestParams = {}) =>
       this.request<WithTaskUsbDevice[], string>({
         path: `/mount-usb-device`,
         method: "POST",
@@ -33481,6 +33598,44 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     deleteUser: (data: UserDeletionParams, params: RequestParams = {}) =>
       this.request<WithTaskDeleteUser[], string>({
         path: `/delete-user`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  createVdsWithMigrateVlan = {
+    /**
+     * No description
+     *
+     * @name CreateVdsWithMigrateVlan
+     * @request POST:/create-vds-with-migrate-vlan
+     * @response `200` `(WithTaskVds)[]` Ok
+     * @response `400` `string`
+     */
+    createVdsWithMigrateVlan: (data: VdsCreationWithMigrateVlanParams[], params: RequestParams = {}) =>
+      this.request<WithTaskVds[], string>({
+        path: `/create-vds-with-migrate-vlan`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  createVdsWithAccessVlan = {
+    /**
+     * No description
+     *
+     * @name CreateVdsWithAccessVlan
+     * @request POST:/create-vds-with-access-vlan
+     * @response `200` `(WithTaskVds)[]` Ok
+     * @response `400` `string`
+     */
+    createVdsWithAccessVlan: (data: VdsCreationWithMAccessVlanParams[], params: RequestParams = {}) =>
+      this.request<WithTaskVds[], string>({
+        path: `/create-vds-with-access-vlan`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -34191,36 +34346,18 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         ...params,
       }),
   };
-  force = {
+  forceRestartVm = {
     /**
      * No description
      *
      * @name ForceRestartVm
-     * @request POST:/force/restart-vm
+     * @request POST:/force-restart-vm
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
     forceRestartVm: (data: VmOperateParams, params: RequestParams = {}) =>
       this.request<WithTaskVm[], string>({
-        path: `/force/restart-vm`,
-        method: "POST",
-        body: data,
-        type: ContentType.Json,
-        format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @name ForceShutDownVm
-     * @request POST:/force/shut-down-vm
-     * @response `200` `(WithTaskVm)[]` Ok
-     * @response `400` `string`
-     */
-    forceShutDownVm: (data: VmOperateParams, params: RequestParams = {}) =>
-      this.request<WithTaskVm[], string>({
-        path: `/force/shut-down-vm`,
+        path: `/force-restart-vm`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -34228,18 +34365,37 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         ...params,
       }),
   };
-  shutDownVm = {
+  shutdownVm = {
     /**
      * No description
      *
      * @name ShutDownVm
-     * @request POST:/shut-down-vm
+     * @request POST:/shutdown-vm
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
     shutDownVm: (data: VmOperateParams, params: RequestParams = {}) =>
       this.request<WithTaskVm[], string>({
-        path: `/shut-down-vm`,
+        path: `/shutdown-vm`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  poweroffVm = {
+    /**
+     * No description
+     *
+     * @name ForceShutDownVm
+     * @request POST:/poweroff-vm
+     * @response `200` `(WithTaskVm)[]` Ok
+     * @response `400` `string`
+     */
+    forceShutDownVm: (data: VmOperateParams, params: RequestParams = {}) =>
+      this.request<WithTaskVm[], string>({
+        path: `/poweroff-vm`,
         method: "POST",
         body: data,
         type: ContentType.Json,
