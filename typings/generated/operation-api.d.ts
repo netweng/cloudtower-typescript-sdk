@@ -9012,7 +9012,7 @@ export interface GetElfDataStoresConnectionRequestBody {
     where?: ElfDataStoreWhereInput | null;
 }
 export interface ElfImage {
-    cluster: {
+    cluster?: {
         name: string;
         id: string;
     };
@@ -12098,6 +12098,7 @@ export interface Task {
     progress: number;
     resource_id?: string | null;
     resource_mutation?: string | null;
+    resource_rollback_error?: string | null;
     resource_rollbacked?: boolean | null;
     resource_type?: string | null;
     snapshot: string;
@@ -12116,7 +12117,7 @@ export interface Task {
         id: string;
     };
 }
-export declare type TaskOrderByInput = "args_ASC" | "args_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "error_code_ASC" | "error_code_DESC" | "error_message_ASC" | "error_message_DESC" | "finished_at_ASC" | "finished_at_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "progress_ASC" | "progress_DESC" | "resource_id_ASC" | "resource_id_DESC" | "resource_mutation_ASC" | "resource_mutation_DESC" | "resource_rollbacked_ASC" | "resource_rollbacked_DESC" | "resource_type_ASC" | "resource_type_DESC" | "snapshot_ASC" | "snapshot_DESC" | "started_at_ASC" | "started_at_DESC" | "status_ASC" | "status_DESC" | "steps_ASC" | "steps_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
+export declare type TaskOrderByInput = "args_ASC" | "args_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "error_code_ASC" | "error_code_DESC" | "error_message_ASC" | "error_message_DESC" | "finished_at_ASC" | "finished_at_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "progress_ASC" | "progress_DESC" | "resource_id_ASC" | "resource_id_DESC" | "resource_mutation_ASC" | "resource_mutation_DESC" | "resource_rollback_error_ASC" | "resource_rollback_error_DESC" | "resource_rollbacked_ASC" | "resource_rollbacked_DESC" | "resource_type_ASC" | "resource_type_DESC" | "snapshot_ASC" | "snapshot_DESC" | "started_at_ASC" | "started_at_DESC" | "status_ASC" | "status_DESC" | "steps_ASC" | "steps_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface TaskWhereInput {
     AND?: TaskWhereInput[] | null;
     cluster?: ClusterWhereInput | null;
@@ -12232,6 +12233,20 @@ export interface TaskWhereInput {
     resource_mutation_not_in?: string[] | null;
     resource_mutation_not_starts_with?: string | null;
     resource_mutation_starts_with?: string | null;
+    resource_rollback_error?: string | null;
+    resource_rollback_error_contains?: string | null;
+    resource_rollback_error_ends_with?: string | null;
+    resource_rollback_error_gt?: string | null;
+    resource_rollback_error_gte?: string | null;
+    resource_rollback_error_in?: string[] | null;
+    resource_rollback_error_lt?: string | null;
+    resource_rollback_error_lte?: string | null;
+    resource_rollback_error_not?: string | null;
+    resource_rollback_error_not_contains?: string | null;
+    resource_rollback_error_not_ends_with?: string | null;
+    resource_rollback_error_not_in?: string[] | null;
+    resource_rollback_error_not_starts_with?: string | null;
+    resource_rollback_error_starts_with?: string | null;
     resource_rollbacked?: boolean | null;
     resource_rollbacked_not?: boolean | null;
     resource_type?: string | null;
@@ -14075,9 +14090,16 @@ export interface GraphCreationParams {
 }
 export interface GraphUpdationParams {
     data?: {
+        luns?: IscsiLunWhereInput;
+        vmNics?: VmNicWhereInput;
+        nics?: NicWhereInput;
+        disks?: DiskWhereInput;
+        vmVolumes?: VmVolumeWhereInput;
+        vms?: VmWhereInput;
+        hosts?: HostWhereInput;
         network?: NetworkType;
+        cluster?: ClusterWhereInput;
         service?: string;
-        mode?: string;
         metric_type?: MetricType;
         metric_count?: number;
         type?: GraphType;
@@ -14299,14 +14321,8 @@ export interface WithTaskElfImage {
 }
 export interface ElfImageUpdationParams {
     data: {
-        vm_templates?: VmTemplateWhereInput;
-        vm_snapshots?: VmSnapshotWhereInput;
-        vm_disks?: VmDiskWhereInput;
         description?: string;
-        size?: number;
-        path?: string;
         name?: string;
-        cluster_id?: string;
     };
     where: ElfImageWhereInput;
 }
@@ -15014,10 +15030,33 @@ export interface WithTaskVds {
 export interface VdsCreationParams {
     nic_ids: string[];
     cluster_id: string;
-    type: NetworkType;
     bond_mode?: string;
     name: string;
 }
+export declare type VdsCreationWithMigrateVlanParams = VdsCreationParams & {
+    vlan: {
+        extra_ip: {
+            management_ip: string;
+            host_id: string;
+        }[];
+        subnetmask: string;
+        gateway_subnetmask?: string;
+        gateway_ip?: string;
+        vlan_id: number;
+    };
+};
+export declare type VdsCreationWithMAccessVlanParams = VdsCreationParams & {
+    vlan: {
+        extra_ip: {
+            management_ip: string;
+            host_id: string;
+        }[];
+        subnetmask: string;
+        gateway_subnetmask?: string;
+        gateway_ip?: string;
+        vlan_id: number;
+    };
+};
 export interface VdsUpdationParams {
     data: {
         nicIds?: string[];
@@ -15351,7 +15390,7 @@ export interface VmCreateVmFromTemplateParams {
         nameservers?: string[];
         default_user_password?: string;
     };
-    is_full_copy?: boolean;
+    is_full_copy: boolean;
     template_id: string;
     max_bandwidth_policy?: VmDiskIoRestrictType;
     max_bandwidth?: number;
@@ -15480,9 +15519,10 @@ export interface VmAddDiskParams {
 }
 export interface VmUpdateDiskParams {
     data: {
+        elf_image_id?: string | null;
         vm_volume_id?: string;
+        vm_disk_id: string;
         bus?: Bus;
-        vm_disk_index: number;
     };
     where: VmWhereInput;
 }
@@ -17287,6 +17327,22 @@ export declare namespace DeleteIscsiTarget {
         type ResponseBody = WithTaskDeleteIscsiTarget[];
     }
 }
+export declare namespace UploadElfImage {
+    namespace CreateElfImage {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = {
+            file: File;
+            cluster_id: string;
+            name: string;
+            size: string;
+            description: string;
+            upload_task_id: string;
+        };
+        type RequestHeaders = {};
+        type ResponseBody = UploadTask[];
+    }
+}
 export declare namespace UpdateElfImage {
     namespace UpdateElfImage {
         type RequestParams = {};
@@ -17819,7 +17875,7 @@ export declare namespace DeleteSnmpTrapReceiver {
     }
 }
 export declare namespace MountUsbDevice {
-    namespace UpdateUsbDevice {
+    namespace MountUsbDevice {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = UsbDeviceMountParams;
@@ -17870,6 +17926,24 @@ export declare namespace DeleteUser {
         type RequestBody = UserDeletionParams;
         type RequestHeaders = {};
         type ResponseBody = WithTaskDeleteUser[];
+    }
+}
+export declare namespace CreateVdsWithMigrateVlan {
+    namespace CreateVdsWithMigrateVlan {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = VdsCreationWithMigrateVlanParams[];
+        type RequestHeaders = {};
+        type ResponseBody = WithTaskVds[];
+    }
+}
+export declare namespace CreateVdsWithAccessVlan {
+    namespace CreateVdsWithAccessVlan {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = VdsCreationWithMAccessVlanParams[];
+        type RequestHeaders = {};
+        type ResponseBody = WithTaskVds[];
     }
 }
 export declare namespace CreateVds {
@@ -18214,7 +18288,7 @@ export declare namespace RestartVm {
         type ResponseBody = WithTaskVm[];
     }
 }
-export declare namespace Force {
+export declare namespace ForceRestartVm {
     namespace ForceRestartVm {
         type RequestParams = {};
         type RequestQuery = {};
@@ -18222,7 +18296,9 @@ export declare namespace Force {
         type RequestHeaders = {};
         type ResponseBody = WithTaskVm[];
     }
-    namespace ForceShutDownVm {
+}
+export declare namespace ShutdownVm {
+    namespace ShutDownVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
@@ -18230,8 +18306,8 @@ export declare namespace Force {
         type ResponseBody = WithTaskVm[];
     }
 }
-export declare namespace ShutDownVm {
-    namespace ShutDownVm {
+export declare namespace PoweroffVm {
+    namespace ForceShutDownVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
@@ -18978,6 +19054,16 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     deleteIscsiTarget: {
         deleteIscsiTarget: (data: IscsiTargetDeletionParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskDeleteIscsiTarget[]>>;
     };
+    uploadElfImage: {
+        createElfImage: (data: {
+            file: File;
+            cluster_id: string;
+            name: string;
+            size: string;
+            description: string;
+            upload_task_id: string;
+        }, params?: RequestParams) => Promise<AxiosResponse<UploadTask[]>>;
+    };
     updateElfImage: {
         updateElfImage: (data: ElfImageUpdationParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskElfImage[]>>;
     };
@@ -19156,7 +19242,7 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
         deleteSnmpTrapReceiver: (data: SnmpTrapReceiverDeletionParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskDeleteSnmpTrapReceiver[]>>;
     };
     mountUsbDevice: {
-        updateUsbDevice: (data: UsbDeviceMountParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskUsbDevice[]>>;
+        mountUsbDevice: (data: UsbDeviceMountParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskUsbDevice[]>>;
     };
     unmountUsbDevice: {
         unmountUsbDevice: (data: UsbDeviceUnmountParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskUsbDevice[]>>;
@@ -19172,6 +19258,12 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     };
     deleteUser: {
         deleteUser: (data: UserDeletionParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskDeleteUser[]>>;
+    };
+    createVdsWithMigrateVlan: {
+        createVdsWithMigrateVlan: (data: VdsCreationWithMigrateVlanParams[], params?: RequestParams) => Promise<AxiosResponse<WithTaskVds[]>>;
+    };
+    createVdsWithAccessVlan: {
+        createVdsWithAccessVlan: (data: VdsCreationWithMAccessVlanParams[], params?: RequestParams) => Promise<AxiosResponse<WithTaskVds[]>>;
     };
     createVds: {
         createVds: (data: VdsCreationParams[], params?: RequestParams) => Promise<AxiosResponse<WithTaskVds[]>>;
@@ -19293,12 +19385,14 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     restartVm: {
         restartVm: (data: VmOperateParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVm[]>>;
     };
-    force: {
+    forceRestartVm: {
         forceRestartVm: (data: VmOperateParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVm[]>>;
-        forceShutDownVm: (data: VmOperateParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVm[]>>;
     };
-    shutDownVm: {
+    shutdownVm: {
         shutDownVm: (data: VmOperateParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVm[]>>;
+    };
+    poweroffVm: {
+        forceShutDownVm: (data: VmOperateParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVm[]>>;
     };
     suspendVm: {
         suspendVm: (data: VmOperateParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVm[]>>;

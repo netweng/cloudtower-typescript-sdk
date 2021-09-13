@@ -7,6 +7,11 @@
   resolved "http://192.168.26.29:7001/@exodus/schemasafe/download/@exodus/schemasafe-1.0.0-rc.4.tgz#70204ecc01f4fd720fa637fec6e999f57e9f8b9c"
   integrity sha1-cCBOzAH0/XIPpjf+xumZ9X6fi5w=
 
+"@koa/multer@^3.0.0":
+  version "3.0.0"
+  resolved "http://192.168.26.29:7001/@koa/multer/download/@koa/multer-3.0.0.tgz#439777949f28097d7b329c0b4ce3048074c862f8"
+  integrity sha1-Q5d3lJ8oCX17MpwLTOMEgHTIYvg=
+
 "@types/swagger-schema-official@2.0.21":
   version "2.0.21"
   resolved "http://192.168.26.29:7001/@types/swagger-schema-official/download/@types/swagger-schema-official-2.0.21.tgz#56812a86dcd57ba60e5c51705ee96a2b2dc9b374"
@@ -24,6 +29,11 @@ ansi-styles@^4.0.0:
   dependencies:
     color-convert "^2.0.1"
 
+append-field@^1.0.0:
+  version "1.0.0"
+  resolved "http://192.168.26.29:7001/append-field/download/append-field-1.0.0.tgz#1e3440e915f0b1203d23748e78edd7b9b5b43e56"
+  integrity sha1-HjRA6RXwsSA9I3SOeO3XubW0PlY=
+
 argparse@^2.0.1:
   version "2.0.1"
   resolved "http://192.168.26.29:7001/argparse/download/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
@@ -35,6 +45,19 @@ axios@^0.21.1, axios@^0.21.4:
   integrity sha1-xnuQ3AVo5cHPKwuFjEO6KOLtpXU=
   dependencies:
     follow-redirects "^1.14.0"
+
+buffer-from@^1.0.0:
+  version "1.1.2"
+  resolved "http://192.168.26.29:7001/buffer-from/download/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
+  integrity sha1-KxRqb9cugLT1XSVfNe1Zo6mkG9U=
+
+busboy@^0.2.11:
+  version "0.2.14"
+  resolved "http://192.168.26.29:7001/busboy/download/busboy-0.2.14.tgz#6c2a622efcf47c57bbbe1e2a9c37ad36c7925453"
+  integrity sha1-bCpiLvz0fFe7vh4qnDetNseSVFM=
+  dependencies:
+    dicer "0.2.5"
+    readable-stream "1.1.x"
 
 call-me-maybe@^1.0.1:
   version "1.0.1"
@@ -66,6 +89,34 @@ commander@^6.2.1:
   version "6.2.1"
   resolved "http://192.168.26.29:7001/commander/download/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha1-B5LraC37wyWZm7K4T93duhEKxzw=
+
+concat-stream@^1.5.2:
+  version "1.6.2"
+  resolved "http://192.168.26.29:7001/concat-stream/download/concat-stream-1.6.2.tgz#904bdf194cd3122fc675c77fc4ac3d4ff0fd1a34"
+  integrity sha1-kEvfGUzTEi/Gdcd/xKw9T/D9GjQ=
+  dependencies:
+    buffer-from "^1.0.0"
+    inherits "^2.0.3"
+    readable-stream "^2.2.2"
+    typedarray "^0.0.6"
+
+core-util-is@~1.0.0:
+  version "1.0.3"
+  resolved "http://192.168.26.29:7001/core-util-is/download/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
+  integrity sha1-pgQtNjTCsn6TKPg3uWX6yDgI24U=
+
+dicer@0.2.5:
+  version "0.2.5"
+  resolved "http://192.168.26.29:7001/dicer/download/dicer-0.2.5.tgz#5996c086bb33218c812c090bddc09cd12facb70f"
+  integrity sha1-WZbAhrszIYyBLAkL3cCc0S+stw8=
+  dependencies:
+    readable-stream "1.1.x"
+    streamsearch "0.1.2"
+
+ee-first@1.1.1:
+  version "1.1.1"
+  resolved "http://192.168.26.29:7001/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
+  integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -107,10 +158,25 @@ http2-client@^1.2.5:
   resolved "http://192.168.26.29:7001/http2-client/download/http2-client-1.3.5.tgz#20c9dc909e3cc98284dd20af2432c524086df181"
   integrity sha1-IMnckJ48yYKE3SCvJDLFJAht8YE=
 
+inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
+  version "2.0.4"
+  resolved "http://192.168.26.29:7001/inherits/download/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
+  integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
+
 is-fullwidth-code-point@^3.0.0:
   version "3.0.0"
   resolved "http://192.168.26.29:7001/is-fullwidth-code-point/download/is-fullwidth-code-point-3.0.0.tgz#f116f8064fe90b3f7844a38997c0b75051269f1d"
   integrity sha1-8Rb4Bk/pCz94RKOJl8C3UFEmnx0=
+
+isarray@0.0.1:
+  version "0.0.1"
+  resolved "http://192.168.26.29:7001/isarray/download/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
+  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
+
+isarray@~1.0.0:
+  version "1.0.0"
+  resolved "http://192.168.26.29:7001/isarray/download/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
+  integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
 js-yaml@^4.0.0:
   version "4.1.0"
@@ -130,6 +196,49 @@ make-dir@^3.1.0:
   integrity sha1-QV6WcEazp/HRhSd9hKpYIDcmoT8=
   dependencies:
     semver "^6.0.0"
+
+media-typer@0.3.0:
+  version "0.3.0"
+  resolved "http://192.168.26.29:7001/media-typer/download/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
+  integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+
+mime-db@1.49.0:
+  version "1.49.0"
+  resolved "http://192.168.26.29:7001/mime-db/download/mime-db-1.49.0.tgz#f3dfde60c99e9cf3bc9701d687778f537001cbed"
+  integrity sha1-89/eYMmenPO8lwHWh3ePU3ABy+0=
+
+mime-types@~2.1.24:
+  version "2.1.32"
+  resolved "http://192.168.26.29:7001/mime-types/download/mime-types-2.1.32.tgz#1d00e89e7de7fe02008db61001d9e02852670fd5"
+  integrity sha1-HQDonn3n/gIAjbYQAdngKFJnD9U=
+  dependencies:
+    mime-db "1.49.0"
+
+minimist@^1.2.5:
+  version "1.2.5"
+  resolved "http://192.168.26.29:7001/minimist/download/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
+  integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
+
+mkdirp@^0.5.4:
+  version "0.5.5"
+  resolved "http://192.168.26.29:7001/mkdirp/download/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
+  integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
+  dependencies:
+    minimist "^1.2.5"
+
+multer@^1.4.3:
+  version "1.4.3"
+  resolved "http://192.168.26.29:7001/multer/download/multer-1.4.3.tgz#4db352d6992e028ac0eacf7be45c6efd0264297b"
+  integrity sha1-TbNS1pkuAorA6s975Fxu/QJkKXs=
+  dependencies:
+    append-field "^1.0.0"
+    busboy "^0.2.11"
+    concat-stream "^1.5.2"
+    mkdirp "^0.5.4"
+    object-assign "^4.1.1"
+    on-finished "^2.3.0"
+    type-is "^1.6.4"
+    xtend "^4.0.0"
 
 nanoid@^3.1.22:
   version "3.1.25"
@@ -208,10 +317,50 @@ oas-validator@^5.0.8:
     should "^13.2.1"
     yaml "^1.10.0"
 
+object-assign@^4.1.1:
+  version "4.1.1"
+  resolved "http://192.168.26.29:7001/object-assign/download/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+
+on-finished@^2.3.0:
+  version "2.3.0"
+  resolved "http://192.168.26.29:7001/on-finished/download/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
+  integrity sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=
+  dependencies:
+    ee-first "1.1.1"
+
 prettier@^2.2.1:
   version "2.3.2"
   resolved "http://192.168.26.29:7001/prettier/download/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
   integrity sha1-7ygKBewlNxLkhiM9tcbyNEHnNC0=
+
+process-nextick-args@~2.0.0:
+  version "2.0.1"
+  resolved "http://192.168.26.29:7001/process-nextick-args/download/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
+  integrity sha1-eCDZsWEgzFXKmud5JoCufbptf+I=
+
+readable-stream@1.1.x:
+  version "1.1.14"
+  resolved "http://192.168.26.29:7001/readable-stream/download/readable-stream-1.1.14.tgz#7cf4c54ef648e3813084c636dd2079e166c081d9"
+  integrity sha1-fPTFTvZI44EwhMY23SB54WbAgdk=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "0.0.1"
+    string_decoder "~0.10.x"
+
+readable-stream@^2.2.2:
+  version "2.3.7"
+  resolved "http://192.168.26.29:7001/readable-stream/download/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
+  integrity sha1-Hsoc9xGu+BTAT2IlKjamL2yyO1c=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.3"
+    isarray "~1.0.0"
+    process-nextick-args "~2.0.0"
+    safe-buffer "~5.1.1"
+    string_decoder "~1.1.1"
+    util-deprecate "~1.0.1"
 
 reftools@^1.1.9:
   version "1.1.9"
@@ -222,6 +371,11 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "http://192.168.26.29:7001/require-directory/download/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
+
+safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+  version "5.1.2"
+  resolved "http://192.168.26.29:7001/safe-buffer/download/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
+  integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
 
 semver@^6.0.0:
   version "6.3.0"
@@ -272,6 +426,16 @@ should@^13.2.1:
     should-type-adaptors "^1.0.1"
     should-util "^1.0.0"
 
+spdx-license-ids@^3.0.10:
+  version "3.0.10"
+  resolved "http://192.168.26.29:7001/spdx-license-ids/download/spdx-license-ids-3.0.10.tgz#0d9becccde7003d6c658d487dd48a32f0bf3014b"
+  integrity sha1-DZvszN5wA9bGWNSH3UijLwvzAUs=
+
+streamsearch@0.1.2:
+  version "0.1.2"
+  resolved "http://192.168.26.29:7001/streamsearch/download/streamsearch-0.1.2.tgz#808b9d0e56fc273d809ba57338e929919a1a9f1a"
+  integrity sha1-gIudDlb8Jz2Am6VzOOkpkZoanxo=
+
 string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.2"
   resolved "http://192.168.26.29:7001/string-width/download/string-width-4.2.2.tgz#dafd4f9559a7585cfba529c6a0a4f73488ebd4c5"
@@ -280,6 +444,18 @@ string-width@^4.1.0, string-width@^4.2.0:
     emoji-regex "^8.0.0"
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.0"
+
+string_decoder@~0.10.x:
+  version "0.10.31"
+  resolved "http://192.168.26.29:7001/string_decoder/download/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+  integrity sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
+
+string_decoder@~1.1.1:
+  version "1.1.1"
+  resolved "http://192.168.26.29:7001/string_decoder/download/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
+  integrity sha1-nPFhG6YmhdcDCunkujQUnDrwP8g=
+  dependencies:
+    safe-buffer "~5.1.0"
 
 strip-ansi@^6.0.0:
   version "6.0.0"
@@ -329,10 +505,28 @@ swagger2openapi@^7.0.5:
     yaml "^1.10.0"
     yargs "^17.0.1"
 
+type-is@^1.6.4:
+  version "1.6.18"
+  resolved "http://192.168.26.29:7001/type-is/download/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
+  integrity sha1-TlUs0F3wlGfcvE73Od6J8s83wTE=
+  dependencies:
+    media-typer "0.3.0"
+    mime-types "~2.1.24"
+
+typedarray@^0.0.6:
+  version "0.0.6"
+  resolved "http://192.168.26.29:7001/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+  integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
 typescript@^4.2.4, typescript@^4.4.2:
   version "4.4.2"
   resolved "http://192.168.26.29:7001/typescript/download/typescript-4.4.2.tgz#6d618640d430e3569a1dfb44f7d7e600ced3ee86"
   integrity sha1-bWGGQNQw41aaHftE99fmAM7T7oY=
+
+util-deprecate@~1.0.1:
+  version "1.0.2"
+  resolved "http://192.168.26.29:7001/util-deprecate/download/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
+  integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
 wrap-ansi@^7.0.0:
   version "7.0.0"
@@ -342,6 +536,11 @@ wrap-ansi@^7.0.0:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
+
+xtend@^4.0.0:
+  version "4.0.2"
+  resolved "http://192.168.26.29:7001/xtend/download/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
+  integrity sha1-u3J3n1+kZRhrH0OPZ0+jR/2121Q=
 
 y18n@^5.0.5:
   version "5.0.8"
