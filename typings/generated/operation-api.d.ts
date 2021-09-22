@@ -6890,6 +6890,8 @@ export declare type NtpMode = "EXTERNAL" | "INTERNAL";
 export interface ClusterSettingsWhereInput {
     AND?: ClusterSettingsWhereInput[] | null;
     cluster?: ClusterWhereInput | null;
+    default_ha?: boolean | null;
+    default_ha_not?: boolean | null;
     id?: string | null;
     id_contains?: string | null;
     id_ends_with?: string | null;
@@ -8250,13 +8252,14 @@ export interface ClusterSettings {
         name: string;
         id: string;
     };
+    default_ha?: boolean | null;
     id: string;
     vm_recycle_bin?: {
         retain: number;
         enabled: boolean;
     };
 }
-export declare type ClusterSettingsOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vm_recycle_bin_ASC" | "vm_recycle_bin_DESC";
+export declare type ClusterSettingsOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "default_ha_ASC" | "default_ha_DESC" | "id_ASC" | "id_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vm_recycle_bin_ASC" | "vm_recycle_bin_DESC";
 export interface GetClusterSettingsesRequestBody {
     after?: string | null;
     before?: string | null;
@@ -8783,6 +8786,7 @@ export interface DiscoveredHost {
     }[];
     ipmi_ip?: string | null;
     is_os_in_raid1?: boolean | null;
+    product?: string | null;
     serial: string;
     version: string;
 }
@@ -14683,7 +14687,7 @@ export interface WithTaskGlobalSettings {
 }
 export interface GlobalRecycleBinUpdationParams {
     retain: number;
-    enaled: boolean;
+    enabled: boolean;
 }
 export interface WithTaskClusterSettings {
     task_id?: string | null;
@@ -14692,14 +14696,14 @@ export interface WithTaskClusterSettings {
 export interface ClusterRecycleBinCreationParams {
     data: {
         retain: number;
-        enaled: boolean;
+        enabled: boolean;
     };
     where: ClusterWhereInput;
 }
 export interface ClusterRecycleBinUpdationParams {
     data: {
         retain: number;
-        enaled: boolean;
+        enabled: boolean;
     };
     where: ClusterWhereInput;
 }

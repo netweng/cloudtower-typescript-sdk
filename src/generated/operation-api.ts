@@ -10443,6 +10443,8 @@ export type NtpMode = "EXTERNAL" | "INTERNAL";
 export interface ClusterSettingsWhereInput {
   AND?: ClusterSettingsWhereInput[] | null;
   cluster?: ClusterWhereInput | null;
+  default_ha?: boolean | null;
+  default_ha_not?: boolean | null;
   id?: string | null;
   id_contains?: string | null;
   id_ends_with?: string | null;
@@ -12336,6 +12338,7 @@ export interface GetClustersConnectionRequestBody {
 
 export interface ClusterSettings {
   cluster: { name: string; id: string };
+  default_ha?: boolean | null;
   id: string;
   vm_recycle_bin?: { retain: number; enabled: boolean };
 }
@@ -12343,6 +12346,8 @@ export interface ClusterSettings {
 export type ClusterSettingsOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
+  | "default_ha_ASC"
+  | "default_ha_DESC"
   | "id_ASC"
   | "id_DESC"
   | "updatedAt_ASC"
@@ -13073,6 +13078,7 @@ export interface DiscoveredHost {
   }[];
   ipmi_ip?: string | null;
   is_os_in_raid1?: boolean | null;
+  product?: string | null;
   serial: string;
   version: string;
 }
@@ -22192,7 +22198,7 @@ export interface WithTaskGlobalSettings {
 export interface GlobalRecycleBinUpdationParams {
   /** @format double */
   retain: number;
-  enaled: boolean;
+  enabled: boolean;
 }
 
 export interface WithTaskClusterSettings {
@@ -22201,12 +22207,12 @@ export interface WithTaskClusterSettings {
 }
 
 export interface ClusterRecycleBinCreationParams {
-  data: { retain: number; enaled: boolean };
+  data: { retain: number; enabled: boolean };
   where: ClusterWhereInput;
 }
 
 export interface ClusterRecycleBinUpdationParams {
-  data: { retain: number; enaled: boolean };
+  data: { retain: number; enabled: boolean };
   where: ClusterWhereInput;
 }
 

@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 
 const swaggerFile = path.resolve(__dirname, '../swagger-3.0.json');
-const file = fs.createWriteStream(swaggerFile);
 const generate  = () => {
   generateApi({
     name: 'operation-api.ts',
@@ -19,6 +18,7 @@ const generate  = () => {
 }
 
 process.env.LOCAL ? generate () : http.get('http://api-test.gitops-cloudtower.smartx.com/v2/api/swagger3.json', (res) => {
+  const file = fs.createWriteStream(swaggerFile);
   res.pipe(file);
   file.on('finish', () => {
     file.close(() => {
