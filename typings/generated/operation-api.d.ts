@@ -240,6 +240,7 @@ export interface ClusterWhereInput {
     entityAsyncStatus_in?: EntityAsyncStatus[] | null;
     entityAsyncStatus_not?: EntityAsyncStatus | null;
     entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    everoute_cluster?: EverouteClusterWhereInput | null;
     failure_data_space?: number | null;
     failure_data_space_gt?: number | null;
     failure_data_space_gte?: number | null;
@@ -619,6 +620,14 @@ export interface ClusterWhereInput {
     total_cpu_hz_lte?: number | null;
     total_cpu_hz_not?: number | null;
     total_cpu_hz_not_in?: number[] | null;
+    total_cpu_sockets?: number | null;
+    total_cpu_sockets_gt?: number | null;
+    total_cpu_sockets_gte?: number | null;
+    total_cpu_sockets_in?: number[] | null;
+    total_cpu_sockets_lt?: number | null;
+    total_cpu_sockets_lte?: number | null;
+    total_cpu_sockets_not?: number | null;
+    total_cpu_sockets_not_in?: number[] | null;
     total_data_capacity?: number | null;
     total_data_capacity_gt?: number | null;
     total_data_capacity_gte?: number | null;
@@ -1781,6 +1790,17 @@ export interface LabelWhereInput {
     consistency_groups_every?: ConsistencyGroupWhereInput | null;
     consistency_groups_none?: ConsistencyGroupWhereInput | null;
     consistency_groups_some?: ConsistencyGroupWhereInput | null;
+    content_library_image_num?: number | null;
+    content_library_image_num_gt?: number | null;
+    content_library_image_num_gte?: number | null;
+    content_library_image_num_in?: number[] | null;
+    content_library_image_num_lt?: number | null;
+    content_library_image_num_lte?: number | null;
+    content_library_image_num_not?: number | null;
+    content_library_image_num_not_in?: number[] | null;
+    content_library_images_every?: ContentLibraryImageWhereInput | null;
+    content_library_images_none?: ContentLibraryImageWhereInput | null;
+    content_library_images_some?: ContentLibraryImageWhereInput | null;
     createdAt?: string | null;
     createdAt_gt?: string | null;
     createdAt_gte?: string | null;
@@ -1880,6 +1900,17 @@ export interface LabelWhereInput {
     iscsi_targets_every?: IscsiTargetWhereInput | null;
     iscsi_targets_none?: IscsiTargetWhereInput | null;
     iscsi_targets_some?: IscsiTargetWhereInput | null;
+    isolation_policies_every?: IsolationPolicyWhereInput | null;
+    isolation_policies_none?: IsolationPolicyWhereInput | null;
+    isolation_policies_some?: IsolationPolicyWhereInput | null;
+    isolation_policy_num?: number | null;
+    isolation_policy_num_gt?: number | null;
+    isolation_policy_num_gte?: number | null;
+    isolation_policy_num_in?: number[] | null;
+    isolation_policy_num_lt?: number | null;
+    isolation_policy_num_lte?: number | null;
+    isolation_policy_num_not?: number | null;
+    isolation_policy_num_not_in?: number[] | null;
     key?: string | null;
     key_contains?: string | null;
     key_ends_with?: string | null;
@@ -1973,6 +2004,17 @@ export interface LabelWhereInput {
     nvmf_subsystems_none?: NvmfSubsystemWhereInput | null;
     nvmf_subsystems_some?: NvmfSubsystemWhereInput | null;
     OR?: LabelWhereInput[] | null;
+    security_policies_every?: SecurityPolicyWhereInput | null;
+    security_policies_none?: SecurityPolicyWhereInput | null;
+    security_policies_some?: SecurityPolicyWhereInput | null;
+    security_policy_num?: number | null;
+    security_policy_num_gt?: number | null;
+    security_policy_num_gte?: number | null;
+    security_policy_num_in?: number[] | null;
+    security_policy_num_lt?: number | null;
+    security_policy_num_lte?: number | null;
+    security_policy_num_not?: number | null;
+    security_policy_num_not_in?: number[] | null;
     system_vlan_num?: number | null;
     system_vlan_num_gt?: number | null;
     system_vlan_num_gte?: number | null;
@@ -2070,193 +2112,40 @@ export interface LabelWhereInput {
     vms_none?: VmWhereInput | null;
     vms_some?: VmWhereInput | null;
 }
-export interface DatacenterWhereInput {
-    AND?: DatacenterWhereInput[] | null;
-    cluster_num?: number | null;
-    cluster_num_gt?: number | null;
-    cluster_num_gte?: number | null;
-    cluster_num_in?: number[] | null;
-    cluster_num_lt?: number | null;
-    cluster_num_lte?: number | null;
-    cluster_num_not?: number | null;
-    cluster_num_not_in?: number[] | null;
+export interface ContentLibraryImageWhereInput {
+    AND?: ContentLibraryImageWhereInput[] | null;
     clusters_every?: ClusterWhereInput | null;
     clusters_none?: ClusterWhereInput | null;
     clusters_some?: ClusterWhereInput | null;
-    failure_data_space?: number | null;
-    failure_data_space_gt?: number | null;
-    failure_data_space_gte?: number | null;
-    failure_data_space_in?: number[] | null;
-    failure_data_space_lt?: number | null;
-    failure_data_space_lte?: number | null;
-    failure_data_space_not?: number | null;
-    failure_data_space_not_in?: number[] | null;
-    host_num?: number | null;
-    host_num_gt?: number | null;
-    host_num_gte?: number | null;
-    host_num_in?: number[] | null;
-    host_num_lt?: number | null;
-    host_num_lte?: number | null;
-    host_num_not?: number | null;
-    host_num_not_in?: number[] | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    labels_every?: LabelWhereInput | null;
-    labels_none?: LabelWhereInput | null;
-    labels_some?: LabelWhereInput | null;
-    name?: string | null;
-    name_contains?: string | null;
-    name_ends_with?: string | null;
-    name_gt?: string | null;
-    name_gte?: string | null;
-    name_in?: string[] | null;
-    name_lt?: string | null;
-    name_lte?: string | null;
-    name_not?: string | null;
-    name_not_contains?: string | null;
-    name_not_ends_with?: string | null;
-    name_not_in?: string[] | null;
-    name_not_starts_with?: string | null;
-    name_starts_with?: string | null;
-    NOT?: DatacenterWhereInput[] | null;
-    OR?: DatacenterWhereInput[] | null;
-    organization?: OrganizationWhereInput | null;
-    total_cpu_hz?: number | null;
-    total_cpu_hz_gt?: number | null;
-    total_cpu_hz_gte?: number | null;
-    total_cpu_hz_in?: number[] | null;
-    total_cpu_hz_lt?: number | null;
-    total_cpu_hz_lte?: number | null;
-    total_cpu_hz_not?: number | null;
-    total_cpu_hz_not_in?: number[] | null;
-    total_data_capacity?: number | null;
-    total_data_capacity_gt?: number | null;
-    total_data_capacity_gte?: number | null;
-    total_data_capacity_in?: number[] | null;
-    total_data_capacity_lt?: number | null;
-    total_data_capacity_lte?: number | null;
-    total_data_capacity_not?: number | null;
-    total_data_capacity_not_in?: number[] | null;
-    total_memory_bytes?: number | null;
-    total_memory_bytes_gt?: number | null;
-    total_memory_bytes_gte?: number | null;
-    total_memory_bytes_in?: number[] | null;
-    total_memory_bytes_lt?: number | null;
-    total_memory_bytes_lte?: number | null;
-    total_memory_bytes_not?: number | null;
-    total_memory_bytes_not_in?: number[] | null;
-    used_cpu_hz?: number | null;
-    used_cpu_hz_gt?: number | null;
-    used_cpu_hz_gte?: number | null;
-    used_cpu_hz_in?: number[] | null;
-    used_cpu_hz_lt?: number | null;
-    used_cpu_hz_lte?: number | null;
-    used_cpu_hz_not?: number | null;
-    used_cpu_hz_not_in?: number[] | null;
-    used_data_space?: number | null;
-    used_data_space_gt?: number | null;
-    used_data_space_gte?: number | null;
-    used_data_space_in?: number[] | null;
-    used_data_space_lt?: number | null;
-    used_data_space_lte?: number | null;
-    used_data_space_not?: number | null;
-    used_data_space_not_in?: number[] | null;
-    used_memory_bytes?: number | null;
-    used_memory_bytes_gt?: number | null;
-    used_memory_bytes_gte?: number | null;
-    used_memory_bytes_in?: number[] | null;
-    used_memory_bytes_lt?: number | null;
-    used_memory_bytes_lte?: number | null;
-    used_memory_bytes_not?: number | null;
-    used_memory_bytes_not_in?: number[] | null;
-    vm_num?: number | null;
-    vm_num_gt?: number | null;
-    vm_num_gte?: number | null;
-    vm_num_in?: number[] | null;
-    vm_num_lt?: number | null;
-    vm_num_lte?: number | null;
-    vm_num_not?: number | null;
-    vm_num_not_in?: number[] | null;
-}
-export interface OrganizationWhereInput {
-    AND?: OrganizationWhereInput[] | null;
-    datacenters_every?: DatacenterWhereInput | null;
-    datacenters_none?: DatacenterWhereInput | null;
-    datacenters_some?: DatacenterWhereInput | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    name?: string | null;
-    name_contains?: string | null;
-    name_ends_with?: string | null;
-    name_gt?: string | null;
-    name_gte?: string | null;
-    name_in?: string[] | null;
-    name_lt?: string | null;
-    name_lte?: string | null;
-    name_not?: string | null;
-    name_not_contains?: string | null;
-    name_not_ends_with?: string | null;
-    name_not_in?: string[] | null;
-    name_not_starts_with?: string | null;
-    name_starts_with?: string | null;
-    NOT?: OrganizationWhereInput[] | null;
-    OR?: OrganizationWhereInput[] | null;
-}
-export interface DiskWhereInput {
-    AND?: DiskWhereInput[] | null;
+    createdAt?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_not?: string | null;
+    createdAt_not_in?: string[] | null;
+    description?: string | null;
+    description_contains?: string | null;
+    description_ends_with?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_not?: string | null;
+    description_not_contains?: string | null;
+    description_not_ends_with?: string | null;
+    description_not_in?: string[] | null;
+    description_not_starts_with?: string | null;
+    description_starts_with?: string | null;
+    elf_images_every?: ElfImageWhereInput | null;
+    elf_images_none?: ElfImageWhereInput | null;
+    elf_images_some?: ElfImageWhereInput | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     entityAsyncStatus_in?: EntityAsyncStatus[] | null;
     entityAsyncStatus_not?: EntityAsyncStatus | null;
     entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-    firmware?: string | null;
-    firmware_contains?: string | null;
-    firmware_ends_with?: string | null;
-    firmware_gt?: string | null;
-    firmware_gte?: string | null;
-    firmware_in?: string[] | null;
-    firmware_lt?: string | null;
-    firmware_lte?: string | null;
-    firmware_not?: string | null;
-    firmware_not_contains?: string | null;
-    firmware_not_ends_with?: string | null;
-    firmware_not_in?: string[] | null;
-    firmware_not_starts_with?: string | null;
-    firmware_starts_with?: string | null;
-    function?: DiskFunction | null;
-    function_in?: DiskFunction[] | null;
-    function_not?: DiskFunction | null;
-    function_not_in?: DiskFunction[] | null;
-    health_status?: DiskHealthStatus | null;
-    health_status_in?: DiskHealthStatus[] | null;
-    health_status_not?: DiskHealthStatus | null;
-    health_status_not_in?: DiskHealthStatus[] | null;
-    healthy?: boolean | null;
-    healthy_not?: boolean | null;
-    host?: HostWhereInput | null;
     id?: string | null;
     id_contains?: string | null;
     id_ends_with?: string | null;
@@ -2274,36 +2163,6 @@ export interface DiskWhereInput {
     labels_every?: LabelWhereInput | null;
     labels_none?: LabelWhereInput | null;
     labels_some?: LabelWhereInput | null;
-    local_id?: string | null;
-    local_id_contains?: string | null;
-    local_id_ends_with?: string | null;
-    local_id_gt?: string | null;
-    local_id_gte?: string | null;
-    local_id_in?: string[] | null;
-    local_id_lt?: string | null;
-    local_id_lte?: string | null;
-    local_id_not?: string | null;
-    local_id_not_contains?: string | null;
-    local_id_not_ends_with?: string | null;
-    local_id_not_in?: string[] | null;
-    local_id_not_starts_with?: string | null;
-    local_id_starts_with?: string | null;
-    model?: string | null;
-    model_contains?: string | null;
-    model_ends_with?: string | null;
-    model_gt?: string | null;
-    model_gte?: string | null;
-    model_in?: string[] | null;
-    model_lt?: string | null;
-    model_lte?: string | null;
-    model_not?: string | null;
-    model_not_contains?: string | null;
-    model_not_ends_with?: string | null;
-    model_not_in?: string[] | null;
-    model_not_starts_with?: string | null;
-    model_starts_with?: string | null;
-    mounted?: boolean | null;
-    mounted_not?: boolean | null;
     name?: string | null;
     name_contains?: string | null;
     name_ends_with?: string | null;
@@ -2318,18 +2177,8 @@ export interface DiskWhereInput {
     name_not_in?: string[] | null;
     name_not_starts_with?: string | null;
     name_starts_with?: string | null;
-    NOT?: DiskWhereInput[] | null;
-    numa_node?: number | null;
-    numa_node_gt?: number | null;
-    numa_node_gte?: number | null;
-    numa_node_in?: number[] | null;
-    numa_node_lt?: number | null;
-    numa_node_lte?: number | null;
-    numa_node_not?: number | null;
-    numa_node_not_in?: number[] | null;
-    offline?: boolean | null;
-    offline_not?: boolean | null;
-    OR?: DiskWhereInput[] | null;
+    NOT?: ContentLibraryImageWhereInput[] | null;
+    OR?: ContentLibraryImageWhereInput[] | null;
     path?: string | null;
     path_contains?: string | null;
     path_ends_with?: string | null;
@@ -2344,43 +2193,240 @@ export interface DiskWhereInput {
     path_not_in?: string[] | null;
     path_not_starts_with?: string | null;
     path_starts_with?: string | null;
-    persistent_memory_type?: string | null;
-    persistent_memory_type_contains?: string | null;
-    persistent_memory_type_ends_with?: string | null;
-    persistent_memory_type_gt?: string | null;
-    persistent_memory_type_gte?: string | null;
-    persistent_memory_type_in?: string[] | null;
-    persistent_memory_type_lt?: string | null;
-    persistent_memory_type_lte?: string | null;
-    persistent_memory_type_not?: string | null;
-    persistent_memory_type_not_contains?: string | null;
-    persistent_memory_type_not_ends_with?: string | null;
-    persistent_memory_type_not_in?: string[] | null;
-    persistent_memory_type_not_starts_with?: string | null;
-    persistent_memory_type_starts_with?: string | null;
-    physical_slot_on_brick?: number | null;
-    physical_slot_on_brick_gt?: number | null;
-    physical_slot_on_brick_gte?: number | null;
-    physical_slot_on_brick_in?: number[] | null;
-    physical_slot_on_brick_lt?: number | null;
-    physical_slot_on_brick_lte?: number | null;
-    physical_slot_on_brick_not?: number | null;
-    physical_slot_on_brick_not_in?: number[] | null;
-    pmem_dimms_every?: PmemDimmWhereInput | null;
-    pmem_dimms_none?: PmemDimmWhereInput | null;
-    pmem_dimms_some?: PmemDimmWhereInput | null;
-    recommended_usage?: DiskUsage | null;
-    recommended_usage_in?: DiskUsage[] | null;
-    recommended_usage_not?: DiskUsage | null;
-    recommended_usage_not_in?: DiskUsage[] | null;
-    remaining_life_percent?: number | null;
-    remaining_life_percent_gt?: number | null;
-    remaining_life_percent_gte?: number | null;
-    remaining_life_percent_in?: number[] | null;
-    remaining_life_percent_lt?: number | null;
-    remaining_life_percent_lte?: number | null;
-    remaining_life_percent_not?: number | null;
-    remaining_life_percent_not_in?: number[] | null;
+    size?: number | null;
+    size_gt?: number | null;
+    size_gte?: number | null;
+    size_in?: number[] | null;
+    size_lt?: number | null;
+    size_lte?: number | null;
+    size_not?: number | null;
+    size_not_in?: number[] | null;
+    vm_disks_every?: VmDiskWhereInput | null;
+    vm_disks_none?: VmDiskWhereInput | null;
+    vm_disks_some?: VmDiskWhereInput | null;
+    vm_snapshots_every?: VmSnapshotWhereInput | null;
+    vm_snapshots_none?: VmSnapshotWhereInput | null;
+    vm_snapshots_some?: VmSnapshotWhereInput | null;
+    vm_templates_every?: VmTemplateWhereInput | null;
+    vm_templates_none?: VmTemplateWhereInput | null;
+    vm_templates_some?: VmTemplateWhereInput | null;
+}
+export interface ElfImageWhereInput {
+    AND?: ElfImageWhereInput[] | null;
+    cluster?: ClusterWhereInput | null;
+    content_library_image?: ContentLibraryImageWhereInput | null;
+    description?: string | null;
+    description_contains?: string | null;
+    description_ends_with?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_not?: string | null;
+    description_not_contains?: string | null;
+    description_not_ends_with?: string | null;
+    description_not_in?: string[] | null;
+    description_not_starts_with?: string | null;
+    description_starts_with?: string | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+    entityAsyncStatus_not?: EntityAsyncStatus | null;
+    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    labels_every?: LabelWhereInput | null;
+    labels_none?: LabelWhereInput | null;
+    labels_some?: LabelWhereInput | null;
+    local_created_at?: string | null;
+    local_created_at_gt?: string | null;
+    local_created_at_gte?: string | null;
+    local_created_at_in?: string[] | null;
+    local_created_at_lt?: string | null;
+    local_created_at_lte?: string | null;
+    local_created_at_not?: string | null;
+    local_created_at_not_in?: string[] | null;
+    local_id?: string | null;
+    local_id_contains?: string | null;
+    local_id_ends_with?: string | null;
+    local_id_gt?: string | null;
+    local_id_gte?: string | null;
+    local_id_in?: string[] | null;
+    local_id_lt?: string | null;
+    local_id_lte?: string | null;
+    local_id_not?: string | null;
+    local_id_not_contains?: string | null;
+    local_id_not_ends_with?: string | null;
+    local_id_not_in?: string[] | null;
+    local_id_not_starts_with?: string | null;
+    local_id_starts_with?: string | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: ElfImageWhereInput[] | null;
+    OR?: ElfImageWhereInput[] | null;
+    path?: string | null;
+    path_contains?: string | null;
+    path_ends_with?: string | null;
+    path_gt?: string | null;
+    path_gte?: string | null;
+    path_in?: string[] | null;
+    path_lt?: string | null;
+    path_lte?: string | null;
+    path_not?: string | null;
+    path_not_contains?: string | null;
+    path_not_ends_with?: string | null;
+    path_not_in?: string[] | null;
+    path_not_starts_with?: string | null;
+    path_starts_with?: string | null;
+    size?: number | null;
+    size_gt?: number | null;
+    size_gte?: number | null;
+    size_in?: number[] | null;
+    size_lt?: number | null;
+    size_lte?: number | null;
+    size_not?: number | null;
+    size_not_in?: number[] | null;
+    vm_disks_every?: VmDiskWhereInput | null;
+    vm_disks_none?: VmDiskWhereInput | null;
+    vm_disks_some?: VmDiskWhereInput | null;
+    vm_snapshots_every?: VmSnapshotWhereInput | null;
+    vm_snapshots_none?: VmSnapshotWhereInput | null;
+    vm_snapshots_some?: VmSnapshotWhereInput | null;
+    vm_templates_every?: VmTemplateWhereInput | null;
+    vm_templates_none?: VmTemplateWhereInput | null;
+    vm_templates_some?: VmTemplateWhereInput | null;
+}
+export interface VmDiskWhereInput {
+    AND?: VmDiskWhereInput[] | null;
+    boot?: number | null;
+    boot_gt?: number | null;
+    boot_gte?: number | null;
+    boot_in?: number[] | null;
+    boot_lt?: number | null;
+    boot_lte?: number | null;
+    boot_not?: number | null;
+    boot_not_in?: number[] | null;
+    bus?: Bus | null;
+    bus_in?: Bus[] | null;
+    bus_not?: Bus | null;
+    bus_not_in?: Bus[] | null;
+    cloud_init_image_name?: string | null;
+    cloud_init_image_name_contains?: string | null;
+    cloud_init_image_name_ends_with?: string | null;
+    cloud_init_image_name_gt?: string | null;
+    cloud_init_image_name_gte?: string | null;
+    cloud_init_image_name_in?: string[] | null;
+    cloud_init_image_name_lt?: string | null;
+    cloud_init_image_name_lte?: string | null;
+    cloud_init_image_name_not?: string | null;
+    cloud_init_image_name_not_contains?: string | null;
+    cloud_init_image_name_not_ends_with?: string | null;
+    cloud_init_image_name_not_in?: string[] | null;
+    cloud_init_image_name_not_starts_with?: string | null;
+    cloud_init_image_name_starts_with?: string | null;
+    cloud_init_image_path?: string | null;
+    cloud_init_image_path_contains?: string | null;
+    cloud_init_image_path_ends_with?: string | null;
+    cloud_init_image_path_gt?: string | null;
+    cloud_init_image_path_gte?: string | null;
+    cloud_init_image_path_in?: string[] | null;
+    cloud_init_image_path_lt?: string | null;
+    cloud_init_image_path_lte?: string | null;
+    cloud_init_image_path_not?: string | null;
+    cloud_init_image_path_not_contains?: string | null;
+    cloud_init_image_path_not_ends_with?: string | null;
+    cloud_init_image_path_not_in?: string[] | null;
+    cloud_init_image_path_not_starts_with?: string | null;
+    cloud_init_image_path_starts_with?: string | null;
+    device?: string | null;
+    device_contains?: string | null;
+    device_ends_with?: string | null;
+    device_gt?: string | null;
+    device_gte?: string | null;
+    device_in?: string[] | null;
+    device_lt?: string | null;
+    device_lte?: string | null;
+    device_not?: string | null;
+    device_not_contains?: string | null;
+    device_not_ends_with?: string | null;
+    device_not_in?: string[] | null;
+    device_not_starts_with?: string | null;
+    device_starts_with?: string | null;
+    disabled?: boolean | null;
+    disabled_not?: boolean | null;
+    elf_image?: ElfImageWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    key?: number | null;
+    key_gt?: number | null;
+    key_gte?: number | null;
+    key_in?: number[] | null;
+    key_lt?: number | null;
+    key_lte?: number | null;
+    key_not?: number | null;
+    key_not_in?: number[] | null;
+    max_bandwidth?: number | null;
+    max_bandwidth_gt?: number | null;
+    max_bandwidth_gte?: number | null;
+    max_bandwidth_in?: number[] | null;
+    max_bandwidth_lt?: number | null;
+    max_bandwidth_lte?: number | null;
+    max_bandwidth_not?: number | null;
+    max_bandwidth_not_in?: number[] | null;
+    max_bandwidth_policy?: VmDiskIoRestrictType | null;
+    max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
+    max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
+    max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
+    max_iops?: number | null;
+    max_iops_gt?: number | null;
+    max_iops_gte?: number | null;
+    max_iops_in?: number[] | null;
+    max_iops_lt?: number | null;
+    max_iops_lte?: number | null;
+    max_iops_not?: number | null;
+    max_iops_not_in?: number[] | null;
+    max_iops_policy?: VmDiskIoRestrictType | null;
+    max_iops_policy_in?: VmDiskIoRestrictType[] | null;
+    max_iops_policy_not?: VmDiskIoRestrictType | null;
+    max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
+    NOT?: VmDiskWhereInput[] | null;
+    OR?: VmDiskWhereInput[] | null;
     serial?: string | null;
     serial_contains?: string | null;
     serial_ends_with?: string | null;
@@ -2395,6 +2441,131 @@ export interface DiskWhereInput {
     serial_not_in?: string[] | null;
     serial_not_starts_with?: string | null;
     serial_starts_with?: string | null;
+    svt_image?: SvtImageWhereInput | null;
+    type?: VmDiskType | null;
+    type_in?: VmDiskType[] | null;
+    type_not?: VmDiskType | null;
+    type_not_in?: VmDiskType[] | null;
+    unsafe_image_path?: string | null;
+    unsafe_image_path_contains?: string | null;
+    unsafe_image_path_ends_with?: string | null;
+    unsafe_image_path_gt?: string | null;
+    unsafe_image_path_gte?: string | null;
+    unsafe_image_path_in?: string[] | null;
+    unsafe_image_path_lt?: string | null;
+    unsafe_image_path_lte?: string | null;
+    unsafe_image_path_not?: string | null;
+    unsafe_image_path_not_contains?: string | null;
+    unsafe_image_path_not_ends_with?: string | null;
+    unsafe_image_path_not_in?: string[] | null;
+    unsafe_image_path_not_starts_with?: string | null;
+    unsafe_image_path_starts_with?: string | null;
+    unsafe_image_uuid?: string | null;
+    unsafe_image_uuid_contains?: string | null;
+    unsafe_image_uuid_ends_with?: string | null;
+    unsafe_image_uuid_gt?: string | null;
+    unsafe_image_uuid_gte?: string | null;
+    unsafe_image_uuid_in?: string[] | null;
+    unsafe_image_uuid_lt?: string | null;
+    unsafe_image_uuid_lte?: string | null;
+    unsafe_image_uuid_not?: string | null;
+    unsafe_image_uuid_not_contains?: string | null;
+    unsafe_image_uuid_not_ends_with?: string | null;
+    unsafe_image_uuid_not_in?: string[] | null;
+    unsafe_image_uuid_not_starts_with?: string | null;
+    unsafe_image_uuid_starts_with?: string | null;
+    unsafe_provision?: string | null;
+    unsafe_provision_contains?: string | null;
+    unsafe_provision_ends_with?: string | null;
+    unsafe_provision_gt?: string | null;
+    unsafe_provision_gte?: string | null;
+    unsafe_provision_in?: string[] | null;
+    unsafe_provision_lt?: string | null;
+    unsafe_provision_lte?: string | null;
+    unsafe_provision_not?: string | null;
+    unsafe_provision_not_contains?: string | null;
+    unsafe_provision_not_ends_with?: string | null;
+    unsafe_provision_not_in?: string[] | null;
+    unsafe_provision_not_starts_with?: string | null;
+    unsafe_provision_starts_with?: string | null;
+    vm?: VmWhereInput | null;
+    vm_volume?: VmVolumeWhereInput | null;
+}
+export declare type Bus = "IDE" | "SCSI" | "VIRTIO";
+export declare type VmDiskIoRestrictType = "DYNAMIC" | "FORCED";
+export interface SvtImageWhereInput {
+    AND?: SvtImageWhereInput[] | null;
+    cluster?: ClusterWhereInput | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+    entityAsyncStatus_not?: EntityAsyncStatus | null;
+    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    local_created_at?: string | null;
+    local_created_at_gt?: string | null;
+    local_created_at_gte?: string | null;
+    local_created_at_in?: string[] | null;
+    local_created_at_lt?: string | null;
+    local_created_at_lte?: string | null;
+    local_created_at_not?: string | null;
+    local_created_at_not_in?: string[] | null;
+    local_id?: string | null;
+    local_id_contains?: string | null;
+    local_id_ends_with?: string | null;
+    local_id_gt?: string | null;
+    local_id_gte?: string | null;
+    local_id_in?: string[] | null;
+    local_id_lt?: string | null;
+    local_id_lte?: string | null;
+    local_id_not?: string | null;
+    local_id_not_contains?: string | null;
+    local_id_not_ends_with?: string | null;
+    local_id_not_in?: string[] | null;
+    local_id_not_starts_with?: string | null;
+    local_id_starts_with?: string | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: SvtImageWhereInput[] | null;
+    OR?: SvtImageWhereInput[] | null;
+    path?: string | null;
+    path_contains?: string | null;
+    path_ends_with?: string | null;
+    path_gt?: string | null;
+    path_gte?: string | null;
+    path_in?: string[] | null;
+    path_lt?: string | null;
+    path_lte?: string | null;
+    path_not?: string | null;
+    path_not_contains?: string | null;
+    path_not_ends_with?: string | null;
+    path_not_in?: string[] | null;
+    path_not_starts_with?: string | null;
+    path_starts_with?: string | null;
     size?: number | null;
     size_gt?: number | null;
     size_gte?: number | null;
@@ -2403,21 +2574,578 @@ export interface DiskWhereInput {
     size_lte?: number | null;
     size_not?: number | null;
     size_not_in?: number[] | null;
-    type?: DiskType | null;
-    type_in?: DiskType[] | null;
-    type_not?: DiskType | null;
-    type_not_in?: DiskType[] | null;
-    usage?: DiskUsage | null;
-    usage_in?: DiskUsage[] | null;
-    usage_not?: DiskUsage | null;
-    usage_not_in?: DiskUsage[] | null;
-    usage_status?: DiskUsageStatus | null;
-    usage_status_in?: DiskUsageStatus[] | null;
-    usage_status_not?: DiskUsageStatus | null;
-    usage_status_not_in?: DiskUsageStatus[] | null;
+    version?: number | null;
+    version_gt?: number | null;
+    version_gte?: number | null;
+    version_in?: number[] | null;
+    version_lt?: number | null;
+    version_lte?: number | null;
+    version_not?: number | null;
+    version_not_in?: number[] | null;
+    vm_disks_every?: VmDiskWhereInput | null;
+    vm_disks_none?: VmDiskWhereInput | null;
+    vm_disks_some?: VmDiskWhereInput | null;
 }
-export declare type DiskFunction = "CACHE" | "DATA" | "SMTX_SYSTEM";
-export declare type DiskHealthStatus = "HEALTHY" | "SMART_FAILED" | "SUBHEALTHY" | "UNHEALTHY";
+export declare type VmDiskType = "CD_ROM" | "DISK";
+export interface VmWhereInput {
+    AND?: VmWhereInput[] | null;
+    clock_offset?: VmClockOffset | null;
+    clock_offset_in?: VmClockOffset[] | null;
+    clock_offset_not?: VmClockOffset | null;
+    clock_offset_not_in?: VmClockOffset[] | null;
+    cluster?: ClusterWhereInput | null;
+    cpu_model?: string | null;
+    cpu_model_contains?: string | null;
+    cpu_model_ends_with?: string | null;
+    cpu_model_gt?: string | null;
+    cpu_model_gte?: string | null;
+    cpu_model_in?: string[] | null;
+    cpu_model_lt?: string | null;
+    cpu_model_lte?: string | null;
+    cpu_model_not?: string | null;
+    cpu_model_not_contains?: string | null;
+    cpu_model_not_ends_with?: string | null;
+    cpu_model_not_in?: string[] | null;
+    cpu_model_not_starts_with?: string | null;
+    cpu_model_starts_with?: string | null;
+    cpu_usage?: number | null;
+    cpu_usage_gt?: number | null;
+    cpu_usage_gte?: number | null;
+    cpu_usage_in?: number[] | null;
+    cpu_usage_lt?: number | null;
+    cpu_usage_lte?: number | null;
+    cpu_usage_not?: number | null;
+    cpu_usage_not_in?: number[] | null;
+    deleted_at?: string | null;
+    deleted_at_gt?: string | null;
+    deleted_at_gte?: string | null;
+    deleted_at_in?: string[] | null;
+    deleted_at_lt?: string | null;
+    deleted_at_lte?: string | null;
+    deleted_at_not?: string | null;
+    deleted_at_not_in?: string[] | null;
+    description?: string | null;
+    description_contains?: string | null;
+    description_ends_with?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_not?: string | null;
+    description_not_contains?: string | null;
+    description_not_ends_with?: string | null;
+    description_not_in?: string[] | null;
+    description_not_starts_with?: string | null;
+    description_starts_with?: string | null;
+    dns_servers?: string | null;
+    dns_servers_contains?: string | null;
+    dns_servers_ends_with?: string | null;
+    dns_servers_gt?: string | null;
+    dns_servers_gte?: string | null;
+    dns_servers_in?: string[] | null;
+    dns_servers_lt?: string | null;
+    dns_servers_lte?: string | null;
+    dns_servers_not?: string | null;
+    dns_servers_not_contains?: string | null;
+    dns_servers_not_ends_with?: string | null;
+    dns_servers_not_in?: string[] | null;
+    dns_servers_not_starts_with?: string | null;
+    dns_servers_starts_with?: string | null;
+    entity_filter_results_every?: VmEntityFilterResultWhereInput | null;
+    entity_filter_results_none?: VmEntityFilterResultWhereInput | null;
+    entity_filter_results_some?: VmEntityFilterResultWhereInput | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+    entityAsyncStatus_not?: EntityAsyncStatus | null;
+    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    firmware?: VmFirmware | null;
+    firmware_in?: VmFirmware[] | null;
+    firmware_not?: VmFirmware | null;
+    firmware_not_in?: VmFirmware[] | null;
+    folder?: VmFolderWhereInput | null;
+    guest_cpu_model?: string | null;
+    guest_cpu_model_contains?: string | null;
+    guest_cpu_model_ends_with?: string | null;
+    guest_cpu_model_gt?: string | null;
+    guest_cpu_model_gte?: string | null;
+    guest_cpu_model_in?: string[] | null;
+    guest_cpu_model_lt?: string | null;
+    guest_cpu_model_lte?: string | null;
+    guest_cpu_model_not?: string | null;
+    guest_cpu_model_not_contains?: string | null;
+    guest_cpu_model_not_ends_with?: string | null;
+    guest_cpu_model_not_in?: string[] | null;
+    guest_cpu_model_not_starts_with?: string | null;
+    guest_cpu_model_starts_with?: string | null;
+    guest_os_type?: VmGuestsOperationSystem | null;
+    guest_os_type_in?: VmGuestsOperationSystem[] | null;
+    guest_os_type_not?: VmGuestsOperationSystem | null;
+    guest_os_type_not_in?: VmGuestsOperationSystem[] | null;
+    guest_size_usage?: number | null;
+    guest_size_usage_gt?: number | null;
+    guest_size_usage_gte?: number | null;
+    guest_size_usage_in?: number[] | null;
+    guest_size_usage_lt?: number | null;
+    guest_size_usage_lte?: number | null;
+    guest_size_usage_not?: number | null;
+    guest_size_usage_not_in?: number[] | null;
+    guest_used_size?: number | null;
+    guest_used_size_gt?: number | null;
+    guest_used_size_gte?: number | null;
+    guest_used_size_in?: number[] | null;
+    guest_used_size_lt?: number | null;
+    guest_used_size_lte?: number | null;
+    guest_used_size_not?: number | null;
+    guest_used_size_not_in?: number[] | null;
+    ha?: boolean | null;
+    ha_not?: boolean | null;
+    host?: HostWhereInput | null;
+    hostname?: string | null;
+    hostname_contains?: string | null;
+    hostname_ends_with?: string | null;
+    hostname_gt?: string | null;
+    hostname_gte?: string | null;
+    hostname_in?: string[] | null;
+    hostname_lt?: string | null;
+    hostname_lte?: string | null;
+    hostname_not?: string | null;
+    hostname_not_contains?: string | null;
+    hostname_not_ends_with?: string | null;
+    hostname_not_in?: string[] | null;
+    hostname_not_starts_with?: string | null;
+    hostname_starts_with?: string | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    in_recycle_bin?: boolean | null;
+    in_recycle_bin_not?: boolean | null;
+    internal?: boolean | null;
+    internal_not?: boolean | null;
+    io_policy?: VmDiskIoPolicy | null;
+    io_policy_in?: VmDiskIoPolicy[] | null;
+    io_policy_not?: VmDiskIoPolicy | null;
+    io_policy_not_in?: VmDiskIoPolicy[] | null;
+    ips?: string | null;
+    ips_contains?: string | null;
+    ips_ends_with?: string | null;
+    ips_gt?: string | null;
+    ips_gte?: string | null;
+    ips_in?: string[] | null;
+    ips_lt?: string | null;
+    ips_lte?: string | null;
+    ips_not?: string | null;
+    ips_not_contains?: string | null;
+    ips_not_ends_with?: string | null;
+    ips_not_in?: string[] | null;
+    ips_not_starts_with?: string | null;
+    ips_starts_with?: string | null;
+    isolation_policy?: IsolationPolicyWhereInput | null;
+    kernel_info?: string | null;
+    kernel_info_contains?: string | null;
+    kernel_info_ends_with?: string | null;
+    kernel_info_gt?: string | null;
+    kernel_info_gte?: string | null;
+    kernel_info_in?: string[] | null;
+    kernel_info_lt?: string | null;
+    kernel_info_lte?: string | null;
+    kernel_info_not?: string | null;
+    kernel_info_not_contains?: string | null;
+    kernel_info_not_ends_with?: string | null;
+    kernel_info_not_in?: string[] | null;
+    kernel_info_not_starts_with?: string | null;
+    kernel_info_starts_with?: string | null;
+    labels_every?: LabelWhereInput | null;
+    labels_none?: LabelWhereInput | null;
+    labels_some?: LabelWhereInput | null;
+    last_shutdown_time?: string | null;
+    last_shutdown_time_gt?: string | null;
+    last_shutdown_time_gte?: string | null;
+    last_shutdown_time_in?: string[] | null;
+    last_shutdown_time_lt?: string | null;
+    last_shutdown_time_lte?: string | null;
+    last_shutdown_time_not?: string | null;
+    last_shutdown_time_not_in?: string[] | null;
+    local_created_at?: string | null;
+    local_created_at_gt?: string | null;
+    local_created_at_gte?: string | null;
+    local_created_at_in?: string[] | null;
+    local_created_at_lt?: string | null;
+    local_created_at_lte?: string | null;
+    local_created_at_not?: string | null;
+    local_created_at_not_in?: string[] | null;
+    local_id?: string | null;
+    local_id_contains?: string | null;
+    local_id_ends_with?: string | null;
+    local_id_gt?: string | null;
+    local_id_gte?: string | null;
+    local_id_in?: string[] | null;
+    local_id_lt?: string | null;
+    local_id_lte?: string | null;
+    local_id_not?: string | null;
+    local_id_not_contains?: string | null;
+    local_id_not_ends_with?: string | null;
+    local_id_not_in?: string[] | null;
+    local_id_not_starts_with?: string | null;
+    local_id_starts_with?: string | null;
+    logical_size_bytes?: number | null;
+    logical_size_bytes_gt?: number | null;
+    logical_size_bytes_gte?: number | null;
+    logical_size_bytes_in?: number[] | null;
+    logical_size_bytes_lt?: number | null;
+    logical_size_bytes_lte?: number | null;
+    logical_size_bytes_not?: number | null;
+    logical_size_bytes_not_in?: number[] | null;
+    max_bandwidth?: number | null;
+    max_bandwidth_gt?: number | null;
+    max_bandwidth_gte?: number | null;
+    max_bandwidth_in?: number[] | null;
+    max_bandwidth_lt?: number | null;
+    max_bandwidth_lte?: number | null;
+    max_bandwidth_not?: number | null;
+    max_bandwidth_not_in?: number[] | null;
+    max_bandwidth_policy?: VmDiskIoRestrictType | null;
+    max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
+    max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
+    max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
+    max_iops?: number | null;
+    max_iops_gt?: number | null;
+    max_iops_gte?: number | null;
+    max_iops_in?: number[] | null;
+    max_iops_lt?: number | null;
+    max_iops_lte?: number | null;
+    max_iops_not?: number | null;
+    max_iops_not_in?: number[] | null;
+    max_iops_policy?: VmDiskIoRestrictType | null;
+    max_iops_policy_in?: VmDiskIoRestrictType[] | null;
+    max_iops_policy_not?: VmDiskIoRestrictType | null;
+    max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
+    memory?: number | null;
+    memory_gt?: number | null;
+    memory_gte?: number | null;
+    memory_in?: number[] | null;
+    memory_lt?: number | null;
+    memory_lte?: number | null;
+    memory_not?: number | null;
+    memory_not_in?: number[] | null;
+    memory_usage?: number | null;
+    memory_usage_gt?: number | null;
+    memory_usage_gte?: number | null;
+    memory_usage_in?: number[] | null;
+    memory_usage_lt?: number | null;
+    memory_usage_lte?: number | null;
+    memory_usage_not?: number | null;
+    memory_usage_not_in?: number[] | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    nested_virtualization?: boolean | null;
+    nested_virtualization_not?: boolean | null;
+    node_ip?: string | null;
+    node_ip_contains?: string | null;
+    node_ip_ends_with?: string | null;
+    node_ip_gt?: string | null;
+    node_ip_gte?: string | null;
+    node_ip_in?: string[] | null;
+    node_ip_lt?: string | null;
+    node_ip_lte?: string | null;
+    node_ip_not?: string | null;
+    node_ip_not_contains?: string | null;
+    node_ip_not_ends_with?: string | null;
+    node_ip_not_in?: string[] | null;
+    node_ip_not_starts_with?: string | null;
+    node_ip_starts_with?: string | null;
+    NOT?: VmWhereInput[] | null;
+    OR?: VmWhereInput[] | null;
+    original_name?: string | null;
+    original_name_contains?: string | null;
+    original_name_ends_with?: string | null;
+    original_name_gt?: string | null;
+    original_name_gte?: string | null;
+    original_name_in?: string[] | null;
+    original_name_lt?: string | null;
+    original_name_lte?: string | null;
+    original_name_not?: string | null;
+    original_name_not_contains?: string | null;
+    original_name_not_ends_with?: string | null;
+    original_name_not_in?: string[] | null;
+    original_name_not_starts_with?: string | null;
+    original_name_starts_with?: string | null;
+    os?: string | null;
+    os_contains?: string | null;
+    os_ends_with?: string | null;
+    os_gt?: string | null;
+    os_gte?: string | null;
+    os_in?: string[] | null;
+    os_lt?: string | null;
+    os_lte?: string | null;
+    os_not?: string | null;
+    os_not_contains?: string | null;
+    os_not_ends_with?: string | null;
+    os_not_in?: string[] | null;
+    os_not_starts_with?: string | null;
+    os_starts_with?: string | null;
+    protected?: boolean | null;
+    protected_not?: boolean | null;
+    provisioned_size?: number | null;
+    provisioned_size_gt?: number | null;
+    provisioned_size_gte?: number | null;
+    provisioned_size_in?: number[] | null;
+    provisioned_size_lt?: number | null;
+    provisioned_size_lte?: number | null;
+    provisioned_size_not?: number | null;
+    provisioned_size_not_in?: number[] | null;
+    size?: number | null;
+    size_gt?: number | null;
+    size_gte?: number | null;
+    size_in?: number[] | null;
+    size_lt?: number | null;
+    size_lte?: number | null;
+    size_not?: number | null;
+    size_not_in?: number[] | null;
+    snapshot_plan?: SnapshotPlanWhereInput | null;
+    snapshots_every?: VmSnapshotWhereInput | null;
+    snapshots_none?: VmSnapshotWhereInput | null;
+    snapshots_some?: VmSnapshotWhereInput | null;
+    status?: VmStatus | null;
+    status_in?: VmStatus[] | null;
+    status_not?: VmStatus | null;
+    status_not_in?: VmStatus[] | null;
+    unique_size?: number | null;
+    unique_size_gt?: number | null;
+    unique_size_gte?: number | null;
+    unique_size_in?: number[] | null;
+    unique_size_lt?: number | null;
+    unique_size_lte?: number | null;
+    unique_size_not?: number | null;
+    unique_size_not_in?: number[] | null;
+    usb_devices_every?: UsbDeviceWhereInput | null;
+    usb_devices_none?: UsbDeviceWhereInput | null;
+    usb_devices_some?: UsbDeviceWhereInput | null;
+    vcpu?: number | null;
+    vcpu_gt?: number | null;
+    vcpu_gte?: number | null;
+    vcpu_in?: number[] | null;
+    vcpu_lt?: number | null;
+    vcpu_lte?: number | null;
+    vcpu_not?: number | null;
+    vcpu_not_in?: number[] | null;
+    video_type?: VmVideoType | null;
+    video_type_in?: VmVideoType[] | null;
+    video_type_not?: VmVideoType | null;
+    video_type_not_in?: VmVideoType[] | null;
+    vm_disks_every?: VmDiskWhereInput | null;
+    vm_disks_none?: VmDiskWhereInput | null;
+    vm_disks_some?: VmDiskWhereInput | null;
+    vm_nics_every?: VmNicWhereInput | null;
+    vm_nics_none?: VmNicWhereInput | null;
+    vm_nics_some?: VmNicWhereInput | null;
+    vm_placement_group_every?: VmPlacementGroupWhereInput | null;
+    vm_placement_group_none?: VmPlacementGroupWhereInput | null;
+    vm_placement_group_some?: VmPlacementGroupWhereInput | null;
+    vm_tools_status?: VmToolsStatus | null;
+    vm_tools_status_in?: VmToolsStatus[] | null;
+    vm_tools_status_not?: VmToolsStatus | null;
+    vm_tools_status_not_in?: VmToolsStatus[] | null;
+    vm_tools_version?: string | null;
+    vm_tools_version_contains?: string | null;
+    vm_tools_version_ends_with?: string | null;
+    vm_tools_version_gt?: string | null;
+    vm_tools_version_gte?: string | null;
+    vm_tools_version_in?: string[] | null;
+    vm_tools_version_lt?: string | null;
+    vm_tools_version_lte?: string | null;
+    vm_tools_version_not?: string | null;
+    vm_tools_version_not_contains?: string | null;
+    vm_tools_version_not_ends_with?: string | null;
+    vm_tools_version_not_in?: string[] | null;
+    vm_tools_version_not_starts_with?: string | null;
+    vm_tools_version_starts_with?: string | null;
+    vm_usage?: VmUsage | null;
+    vm_usage_in?: VmUsage[] | null;
+    vm_usage_not?: VmUsage | null;
+    vm_usage_not_in?: VmUsage[] | null;
+    win_opt?: boolean | null;
+    win_opt_not?: boolean | null;
+}
+export declare type VmClockOffset = "LOCALTIME" | "UTC";
+export interface VmEntityFilterResultWhereInput {
+    AND?: VmEntityFilterResultWhereInput[] | null;
+    entityFilter?: EntityFilterWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    NOT?: VmEntityFilterResultWhereInput[] | null;
+    OR?: VmEntityFilterResultWhereInput[] | null;
+    vm?: VmWhereInput | null;
+}
+export interface EntityFilterWhereInput {
+    AND?: EntityFilterWhereInput[] | null;
+    apply_to_all_clusters?: boolean | null;
+    apply_to_all_clusters_not?: boolean | null;
+    clusters_every?: ClusterWhereInput | null;
+    clusters_none?: ClusterWhereInput | null;
+    clusters_some?: ClusterWhereInput | null;
+    entity_type?: EntityType | null;
+    entity_type_in?: EntityType[] | null;
+    entity_type_not?: EntityType | null;
+    entity_type_not_in?: EntityType[] | null;
+    exec_failed_cluster_every?: ClusterWhereInput | null;
+    exec_failed_cluster_none?: ClusterWhereInput | null;
+    exec_failed_cluster_some?: ClusterWhereInput | null;
+    filter_status?: FilterStatus | null;
+    filter_status_in?: FilterStatus[] | null;
+    filter_status_not?: FilterStatus | null;
+    filter_status_not_in?: FilterStatus[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    last_executed_at?: string | null;
+    last_executed_at_gt?: string | null;
+    last_executed_at_gte?: string | null;
+    last_executed_at_in?: string[] | null;
+    last_executed_at_lt?: string | null;
+    last_executed_at_lte?: string | null;
+    last_executed_at_not?: string | null;
+    last_executed_at_not_in?: string[] | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: EntityFilterWhereInput[] | null;
+    OR?: EntityFilterWhereInput[] | null;
+    preset?: string | null;
+    preset_contains?: string | null;
+    preset_ends_with?: string | null;
+    preset_gt?: string | null;
+    preset_gte?: string | null;
+    preset_in?: string[] | null;
+    preset_lt?: string | null;
+    preset_lte?: string | null;
+    preset_not?: string | null;
+    preset_not_contains?: string | null;
+    preset_not_ends_with?: string | null;
+    preset_not_in?: string[] | null;
+    preset_not_starts_with?: string | null;
+    preset_starts_with?: string | null;
+}
+export declare type EntityType = "VM";
+export declare type FilterStatus = "EXECUTING" | "FAILED" | "INITIALIZING" | "PARTIAL_SUCCESSED" | "SUCCESSED";
+export declare type VmFirmware = "BIOS" | "UEFI";
+export interface VmFolderWhereInput {
+    AND?: VmFolderWhereInput[] | null;
+    cluster?: ClusterWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    local_id?: string | null;
+    local_id_contains?: string | null;
+    local_id_ends_with?: string | null;
+    local_id_gt?: string | null;
+    local_id_gte?: string | null;
+    local_id_in?: string[] | null;
+    local_id_lt?: string | null;
+    local_id_lte?: string | null;
+    local_id_not?: string | null;
+    local_id_not_contains?: string | null;
+    local_id_not_ends_with?: string | null;
+    local_id_not_in?: string[] | null;
+    local_id_not_starts_with?: string | null;
+    local_id_starts_with?: string | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: VmFolderWhereInput[] | null;
+    OR?: VmFolderWhereInput[] | null;
+    vm_num?: number | null;
+    vm_num_gt?: number | null;
+    vm_num_gte?: number | null;
+    vm_num_in?: number[] | null;
+    vm_num_lt?: number | null;
+    vm_num_lte?: number | null;
+    vm_num_not?: number | null;
+    vm_num_not_in?: number[] | null;
+    vms_every?: VmWhereInput | null;
+    vms_none?: VmWhereInput | null;
+    vms_some?: VmWhereInput | null;
+}
+export declare type VmGuestsOperationSystem = "LINUX" | "UNKNOWN" | "WINDOWS";
 export interface HostWhereInput {
     access_ip?: string | null;
     access_ip_contains?: string | null;
@@ -2908,6 +3636,320 @@ export interface HostWhereInput {
     zone?: ZoneWhereInput | null;
 }
 export declare type CpuFanSpeedUnit = "PERCENT" | "RPM";
+export interface DiskWhereInput {
+    AND?: DiskWhereInput[] | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+    entityAsyncStatus_not?: EntityAsyncStatus | null;
+    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    firmware?: string | null;
+    firmware_contains?: string | null;
+    firmware_ends_with?: string | null;
+    firmware_gt?: string | null;
+    firmware_gte?: string | null;
+    firmware_in?: string[] | null;
+    firmware_lt?: string | null;
+    firmware_lte?: string | null;
+    firmware_not?: string | null;
+    firmware_not_contains?: string | null;
+    firmware_not_ends_with?: string | null;
+    firmware_not_in?: string[] | null;
+    firmware_not_starts_with?: string | null;
+    firmware_starts_with?: string | null;
+    function?: DiskFunction | null;
+    function_in?: DiskFunction[] | null;
+    function_not?: DiskFunction | null;
+    function_not_in?: DiskFunction[] | null;
+    health_status?: DiskHealthStatus | null;
+    health_status_in?: DiskHealthStatus[] | null;
+    health_status_not?: DiskHealthStatus | null;
+    health_status_not_in?: DiskHealthStatus[] | null;
+    healthy?: boolean | null;
+    healthy_not?: boolean | null;
+    host?: HostWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    labels_every?: LabelWhereInput | null;
+    labels_none?: LabelWhereInput | null;
+    labels_some?: LabelWhereInput | null;
+    local_id?: string | null;
+    local_id_contains?: string | null;
+    local_id_ends_with?: string | null;
+    local_id_gt?: string | null;
+    local_id_gte?: string | null;
+    local_id_in?: string[] | null;
+    local_id_lt?: string | null;
+    local_id_lte?: string | null;
+    local_id_not?: string | null;
+    local_id_not_contains?: string | null;
+    local_id_not_ends_with?: string | null;
+    local_id_not_in?: string[] | null;
+    local_id_not_starts_with?: string | null;
+    local_id_starts_with?: string | null;
+    model?: string | null;
+    model_contains?: string | null;
+    model_ends_with?: string | null;
+    model_gt?: string | null;
+    model_gte?: string | null;
+    model_in?: string[] | null;
+    model_lt?: string | null;
+    model_lte?: string | null;
+    model_not?: string | null;
+    model_not_contains?: string | null;
+    model_not_ends_with?: string | null;
+    model_not_in?: string[] | null;
+    model_not_starts_with?: string | null;
+    model_starts_with?: string | null;
+    mounted?: boolean | null;
+    mounted_not?: boolean | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: DiskWhereInput[] | null;
+    numa_node?: number | null;
+    numa_node_gt?: number | null;
+    numa_node_gte?: number | null;
+    numa_node_in?: number[] | null;
+    numa_node_lt?: number | null;
+    numa_node_lte?: number | null;
+    numa_node_not?: number | null;
+    numa_node_not_in?: number[] | null;
+    offline?: boolean | null;
+    offline_not?: boolean | null;
+    OR?: DiskWhereInput[] | null;
+    path?: string | null;
+    path_contains?: string | null;
+    path_ends_with?: string | null;
+    path_gt?: string | null;
+    path_gte?: string | null;
+    path_in?: string[] | null;
+    path_lt?: string | null;
+    path_lte?: string | null;
+    path_not?: string | null;
+    path_not_contains?: string | null;
+    path_not_ends_with?: string | null;
+    path_not_in?: string[] | null;
+    path_not_starts_with?: string | null;
+    path_starts_with?: string | null;
+    persistent_memory_type?: string | null;
+    persistent_memory_type_contains?: string | null;
+    persistent_memory_type_ends_with?: string | null;
+    persistent_memory_type_gt?: string | null;
+    persistent_memory_type_gte?: string | null;
+    persistent_memory_type_in?: string[] | null;
+    persistent_memory_type_lt?: string | null;
+    persistent_memory_type_lte?: string | null;
+    persistent_memory_type_not?: string | null;
+    persistent_memory_type_not_contains?: string | null;
+    persistent_memory_type_not_ends_with?: string | null;
+    persistent_memory_type_not_in?: string[] | null;
+    persistent_memory_type_not_starts_with?: string | null;
+    persistent_memory_type_starts_with?: string | null;
+    physical_slot_on_brick?: number | null;
+    physical_slot_on_brick_gt?: number | null;
+    physical_slot_on_brick_gte?: number | null;
+    physical_slot_on_brick_in?: number[] | null;
+    physical_slot_on_brick_lt?: number | null;
+    physical_slot_on_brick_lte?: number | null;
+    physical_slot_on_brick_not?: number | null;
+    physical_slot_on_brick_not_in?: number[] | null;
+    pmem_dimms_every?: PmemDimmWhereInput | null;
+    pmem_dimms_none?: PmemDimmWhereInput | null;
+    pmem_dimms_some?: PmemDimmWhereInput | null;
+    recommended_usage?: DiskUsage | null;
+    recommended_usage_in?: DiskUsage[] | null;
+    recommended_usage_not?: DiskUsage | null;
+    recommended_usage_not_in?: DiskUsage[] | null;
+    remaining_life_percent?: number | null;
+    remaining_life_percent_gt?: number | null;
+    remaining_life_percent_gte?: number | null;
+    remaining_life_percent_in?: number[] | null;
+    remaining_life_percent_lt?: number | null;
+    remaining_life_percent_lte?: number | null;
+    remaining_life_percent_not?: number | null;
+    remaining_life_percent_not_in?: number[] | null;
+    serial?: string | null;
+    serial_contains?: string | null;
+    serial_ends_with?: string | null;
+    serial_gt?: string | null;
+    serial_gte?: string | null;
+    serial_in?: string[] | null;
+    serial_lt?: string | null;
+    serial_lte?: string | null;
+    serial_not?: string | null;
+    serial_not_contains?: string | null;
+    serial_not_ends_with?: string | null;
+    serial_not_in?: string[] | null;
+    serial_not_starts_with?: string | null;
+    serial_starts_with?: string | null;
+    size?: number | null;
+    size_gt?: number | null;
+    size_gte?: number | null;
+    size_in?: number[] | null;
+    size_lt?: number | null;
+    size_lte?: number | null;
+    size_not?: number | null;
+    size_not_in?: number[] | null;
+    type?: DiskType | null;
+    type_in?: DiskType[] | null;
+    type_not?: DiskType | null;
+    type_not_in?: DiskType[] | null;
+    usage?: DiskUsage | null;
+    usage_in?: DiskUsage[] | null;
+    usage_not?: DiskUsage | null;
+    usage_not_in?: DiskUsage[] | null;
+    usage_status?: DiskUsageStatus | null;
+    usage_status_in?: DiskUsageStatus[] | null;
+    usage_status_not?: DiskUsageStatus | null;
+    usage_status_not_in?: DiskUsageStatus[] | null;
+}
+export declare type DiskFunction = "CACHE" | "DATA" | "SMTX_SYSTEM";
+export declare type DiskHealthStatus = "HEALTHY" | "SMART_FAILED" | "SUBHEALTHY" | "UNHEALTHY";
+export interface PmemDimmWhereInput {
+    AND?: PmemDimmWhereInput[] | null;
+    capacity?: number | null;
+    capacity_gt?: number | null;
+    capacity_gte?: number | null;
+    capacity_in?: number[] | null;
+    capacity_lt?: number | null;
+    capacity_lte?: number | null;
+    capacity_not?: number | null;
+    capacity_not_in?: number[] | null;
+    device_locator?: string | null;
+    device_locator_contains?: string | null;
+    device_locator_ends_with?: string | null;
+    device_locator_gt?: string | null;
+    device_locator_gte?: string | null;
+    device_locator_in?: string[] | null;
+    device_locator_lt?: string | null;
+    device_locator_lte?: string | null;
+    device_locator_not?: string | null;
+    device_locator_not_contains?: string | null;
+    device_locator_not_ends_with?: string | null;
+    device_locator_not_in?: string[] | null;
+    device_locator_not_starts_with?: string | null;
+    device_locator_starts_with?: string | null;
+    disk?: DiskWhereInput | null;
+    health_status?: DiskHealthStatus | null;
+    health_status_in?: DiskHealthStatus[] | null;
+    health_status_not?: DiskHealthStatus | null;
+    health_status_not_in?: DiskHealthStatus[] | null;
+    host?: HostWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    local_id?: string | null;
+    local_id_contains?: string | null;
+    local_id_ends_with?: string | null;
+    local_id_gt?: string | null;
+    local_id_gte?: string | null;
+    local_id_in?: string[] | null;
+    local_id_lt?: string | null;
+    local_id_lte?: string | null;
+    local_id_not?: string | null;
+    local_id_not_contains?: string | null;
+    local_id_not_ends_with?: string | null;
+    local_id_not_in?: string[] | null;
+    local_id_not_starts_with?: string | null;
+    local_id_starts_with?: string | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: PmemDimmWhereInput[] | null;
+    numa_node?: number | null;
+    numa_node_gt?: number | null;
+    numa_node_gte?: number | null;
+    numa_node_in?: number[] | null;
+    numa_node_lt?: number | null;
+    numa_node_lte?: number | null;
+    numa_node_not?: number | null;
+    numa_node_not_in?: number[] | null;
+    OR?: PmemDimmWhereInput[] | null;
+    part_number?: string | null;
+    part_number_contains?: string | null;
+    part_number_ends_with?: string | null;
+    part_number_gt?: string | null;
+    part_number_gte?: string | null;
+    part_number_in?: string[] | null;
+    part_number_lt?: string | null;
+    part_number_lte?: string | null;
+    part_number_not?: string | null;
+    part_number_not_contains?: string | null;
+    part_number_not_ends_with?: string | null;
+    part_number_not_in?: string[] | null;
+    part_number_not_starts_with?: string | null;
+    part_number_starts_with?: string | null;
+    remaining_life_percent?: number | null;
+    remaining_life_percent_gt?: number | null;
+    remaining_life_percent_gte?: number | null;
+    remaining_life_percent_in?: number[] | null;
+    remaining_life_percent_lt?: number | null;
+    remaining_life_percent_lte?: number | null;
+    remaining_life_percent_not?: number | null;
+    remaining_life_percent_not_in?: number[] | null;
+    version?: string | null;
+    version_contains?: string | null;
+    version_ends_with?: string | null;
+    version_gt?: string | null;
+    version_gte?: string | null;
+    version_in?: string[] | null;
+    version_lt?: string | null;
+    version_lte?: string | null;
+    version_not?: string | null;
+    version_not_contains?: string | null;
+    version_not_ends_with?: string | null;
+    version_not_in?: string[] | null;
+    version_not_starts_with?: string | null;
+    version_starts_with?: string | null;
+}
+export declare type DiskUsage = "BOOT" | "CACHE" | "CACHE_AND_META" | "DATA" | "DATA_AND_META";
+export declare type DiskType = "HDD" | "PMem" | "SSD";
+export declare type DiskUsageStatus = "ISOLATED" | "MOUNTED" | "MOUNTING" | "PARTIAL_MOUNTED" | "UNMOUNTED" | "UNMOUNTING";
 export interface IpmiWhereInput {
     AND?: IpmiWhereInput[] | null;
     host?: HostWhereInput | null;
@@ -3217,6 +4259,7 @@ export interface VdsWhereInput {
     entityAsyncStatus_in?: EntityAsyncStatus[] | null;
     entityAsyncStatus_not?: EntityAsyncStatus | null;
     entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    everoute_cluster?: EverouteClusterWhereInput | null;
     id?: string | null;
     id_contains?: string | null;
     id_ends_with?: string | null;
@@ -3299,6 +4342,69 @@ export interface VdsWhereInput {
     vlans_num_not_in?: number[] | null;
     vlans_some?: VlanWhereInput | null;
 }
+export interface EverouteClusterWhereInput {
+    agent_elf_clusters_every?: ClusterWhereInput | null;
+    agent_elf_clusters_none?: ClusterWhereInput | null;
+    agent_elf_clusters_some?: ClusterWhereInput | null;
+    agent_elf_vdses_every?: VdsWhereInput | null;
+    agent_elf_vdses_none?: VdsWhereInput | null;
+    agent_elf_vdses_some?: VdsWhereInput | null;
+    AND?: EverouteClusterWhereInput[] | null;
+    global_default_action?: GlobalPolicyAction | null;
+    global_default_action_in?: GlobalPolicyAction[] | null;
+    global_default_action_not?: GlobalPolicyAction | null;
+    global_default_action_not_in?: GlobalPolicyAction[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: EverouteClusterWhereInput[] | null;
+    OR?: EverouteClusterWhereInput[] | null;
+    phase?: EverouteClusterPhase | null;
+    phase_in?: EverouteClusterPhase[] | null;
+    phase_not?: EverouteClusterPhase | null;
+    phase_not_in?: EverouteClusterPhase[] | null;
+    version?: string | null;
+    version_contains?: string | null;
+    version_ends_with?: string | null;
+    version_gt?: string | null;
+    version_gte?: string | null;
+    version_in?: string[] | null;
+    version_lt?: string | null;
+    version_lte?: string | null;
+    version_not?: string | null;
+    version_not_contains?: string | null;
+    version_not_ends_with?: string | null;
+    version_not_in?: string[] | null;
+    version_not_starts_with?: string | null;
+    version_starts_with?: string | null;
+}
+export declare type GlobalPolicyAction = "ALLOW" | "DROP";
+export declare type EverouteClusterPhase = "Failed" | "Pending" | "Running" | "Terminating" | "Updating" | "Upgrading";
 export interface VlanWhereInput {
     AND?: VlanWhereInput[] | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
@@ -3534,43 +4640,12 @@ export interface VmNicWhereInput {
     vm?: VmWhereInput | null;
 }
 export declare type VmNicModel = "E1000" | "SRIOV" | "VIRTIO";
-export interface VmWhereInput {
-    AND?: VmWhereInput[] | null;
-    clock_offset?: VmClockOffset | null;
-    clock_offset_in?: VmClockOffset[] | null;
-    clock_offset_not?: VmClockOffset | null;
-    clock_offset_not_in?: VmClockOffset[] | null;
-    cluster?: ClusterWhereInput | null;
-    cpu_model?: string | null;
-    cpu_model_contains?: string | null;
-    cpu_model_ends_with?: string | null;
-    cpu_model_gt?: string | null;
-    cpu_model_gte?: string | null;
-    cpu_model_in?: string[] | null;
-    cpu_model_lt?: string | null;
-    cpu_model_lte?: string | null;
-    cpu_model_not?: string | null;
-    cpu_model_not_contains?: string | null;
-    cpu_model_not_ends_with?: string | null;
-    cpu_model_not_in?: string[] | null;
-    cpu_model_not_starts_with?: string | null;
-    cpu_model_starts_with?: string | null;
-    cpu_usage?: number | null;
-    cpu_usage_gt?: number | null;
-    cpu_usage_gte?: number | null;
-    cpu_usage_in?: number[] | null;
-    cpu_usage_lt?: number | null;
-    cpu_usage_lte?: number | null;
-    cpu_usage_not?: number | null;
-    cpu_usage_not_in?: number[] | null;
-    deleted_at?: string | null;
-    deleted_at_gt?: string | null;
-    deleted_at_gte?: string | null;
-    deleted_at_in?: string[] | null;
-    deleted_at_lt?: string | null;
-    deleted_at_lte?: string | null;
-    deleted_at_not?: string | null;
-    deleted_at_not_in?: string[] | null;
+export declare type HostState = "IDLE" | "IN_USE" | "REMOVING";
+export declare type HostStatus = "CONNECTED_ERROR" | "CONNECTED_HEALTHY" | "CONNECTED_WARNING" | "CONNECTING" | "INITIALIZING" | "SESSION_EXPIRED";
+export interface UsbDeviceWhereInput {
+    AND?: UsbDeviceWhereInput[] | null;
+    binded?: boolean | null;
+    binded_not?: boolean | null;
     description?: string | null;
     description_contains?: string | null;
     description_ends_with?: string | null;
@@ -3585,83 +4660,7 @@ export interface VmWhereInput {
     description_not_in?: string[] | null;
     description_not_starts_with?: string | null;
     description_starts_with?: string | null;
-    dns_servers?: string | null;
-    dns_servers_contains?: string | null;
-    dns_servers_ends_with?: string | null;
-    dns_servers_gt?: string | null;
-    dns_servers_gte?: string | null;
-    dns_servers_in?: string[] | null;
-    dns_servers_lt?: string | null;
-    dns_servers_lte?: string | null;
-    dns_servers_not?: string | null;
-    dns_servers_not_contains?: string | null;
-    dns_servers_not_ends_with?: string | null;
-    dns_servers_not_in?: string[] | null;
-    dns_servers_not_starts_with?: string | null;
-    dns_servers_starts_with?: string | null;
-    entity_filter_results_every?: VmEntityFilterResultWhereInput | null;
-    entity_filter_results_none?: VmEntityFilterResultWhereInput | null;
-    entity_filter_results_some?: VmEntityFilterResultWhereInput | null;
-    entityAsyncStatus?: EntityAsyncStatus | null;
-    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-    entityAsyncStatus_not?: EntityAsyncStatus | null;
-    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-    firmware?: VmFirmware | null;
-    firmware_in?: VmFirmware[] | null;
-    firmware_not?: VmFirmware | null;
-    firmware_not_in?: VmFirmware[] | null;
-    folder?: VmFolderWhereInput | null;
-    guest_cpu_model?: string | null;
-    guest_cpu_model_contains?: string | null;
-    guest_cpu_model_ends_with?: string | null;
-    guest_cpu_model_gt?: string | null;
-    guest_cpu_model_gte?: string | null;
-    guest_cpu_model_in?: string[] | null;
-    guest_cpu_model_lt?: string | null;
-    guest_cpu_model_lte?: string | null;
-    guest_cpu_model_not?: string | null;
-    guest_cpu_model_not_contains?: string | null;
-    guest_cpu_model_not_ends_with?: string | null;
-    guest_cpu_model_not_in?: string[] | null;
-    guest_cpu_model_not_starts_with?: string | null;
-    guest_cpu_model_starts_with?: string | null;
-    guest_os_type?: VmGuestsOperationSystem | null;
-    guest_os_type_in?: VmGuestsOperationSystem[] | null;
-    guest_os_type_not?: VmGuestsOperationSystem | null;
-    guest_os_type_not_in?: VmGuestsOperationSystem[] | null;
-    guest_size_usage?: number | null;
-    guest_size_usage_gt?: number | null;
-    guest_size_usage_gte?: number | null;
-    guest_size_usage_in?: number[] | null;
-    guest_size_usage_lt?: number | null;
-    guest_size_usage_lte?: number | null;
-    guest_size_usage_not?: number | null;
-    guest_size_usage_not_in?: number[] | null;
-    guest_used_size?: number | null;
-    guest_used_size_gt?: number | null;
-    guest_used_size_gte?: number | null;
-    guest_used_size_in?: number[] | null;
-    guest_used_size_lt?: number | null;
-    guest_used_size_lte?: number | null;
-    guest_used_size_not?: number | null;
-    guest_used_size_not_in?: number[] | null;
-    ha?: boolean | null;
-    ha_not?: boolean | null;
     host?: HostWhereInput | null;
-    hostname?: string | null;
-    hostname_contains?: string | null;
-    hostname_ends_with?: string | null;
-    hostname_gt?: string | null;
-    hostname_gte?: string | null;
-    hostname_in?: string[] | null;
-    hostname_lt?: string | null;
-    hostname_lte?: string | null;
-    hostname_not?: string | null;
-    hostname_not_contains?: string | null;
-    hostname_not_ends_with?: string | null;
-    hostname_not_in?: string[] | null;
-    hostname_not_starts_with?: string | null;
-    hostname_starts_with?: string | null;
     id?: string | null;
     id_contains?: string | null;
     id_ends_with?: string | null;
@@ -3676,53 +4675,6 @@ export interface VmWhereInput {
     id_not_in?: string[] | null;
     id_not_starts_with?: string | null;
     id_starts_with?: string | null;
-    in_recycle_bin?: boolean | null;
-    in_recycle_bin_not?: boolean | null;
-    internal?: boolean | null;
-    internal_not?: boolean | null;
-    io_policy?: VmDiskIoPolicy | null;
-    io_policy_in?: VmDiskIoPolicy[] | null;
-    io_policy_not?: VmDiskIoPolicy | null;
-    io_policy_not_in?: VmDiskIoPolicy[] | null;
-    ips?: string | null;
-    ips_contains?: string | null;
-    ips_ends_with?: string | null;
-    ips_gt?: string | null;
-    ips_gte?: string | null;
-    ips_in?: string[] | null;
-    ips_lt?: string | null;
-    ips_lte?: string | null;
-    ips_not?: string | null;
-    ips_not_contains?: string | null;
-    ips_not_ends_with?: string | null;
-    ips_not_in?: string[] | null;
-    ips_not_starts_with?: string | null;
-    ips_starts_with?: string | null;
-    kernel_info?: string | null;
-    kernel_info_contains?: string | null;
-    kernel_info_ends_with?: string | null;
-    kernel_info_gt?: string | null;
-    kernel_info_gte?: string | null;
-    kernel_info_in?: string[] | null;
-    kernel_info_lt?: string | null;
-    kernel_info_lte?: string | null;
-    kernel_info_not?: string | null;
-    kernel_info_not_contains?: string | null;
-    kernel_info_not_ends_with?: string | null;
-    kernel_info_not_in?: string[] | null;
-    kernel_info_not_starts_with?: string | null;
-    kernel_info_starts_with?: string | null;
-    labels_every?: LabelWhereInput | null;
-    labels_none?: LabelWhereInput | null;
-    labels_some?: LabelWhereInput | null;
-    last_shutdown_time?: string | null;
-    last_shutdown_time_gt?: string | null;
-    last_shutdown_time_gte?: string | null;
-    last_shutdown_time_in?: string[] | null;
-    last_shutdown_time_lt?: string | null;
-    last_shutdown_time_lte?: string | null;
-    last_shutdown_time_not?: string | null;
-    last_shutdown_time_not_in?: string[] | null;
     local_created_at?: string | null;
     local_created_at_gt?: string | null;
     local_created_at_gte?: string | null;
@@ -3745,54 +4697,20 @@ export interface VmWhereInput {
     local_id_not_in?: string[] | null;
     local_id_not_starts_with?: string | null;
     local_id_starts_with?: string | null;
-    logical_size_bytes?: number | null;
-    logical_size_bytes_gt?: number | null;
-    logical_size_bytes_gte?: number | null;
-    logical_size_bytes_in?: number[] | null;
-    logical_size_bytes_lt?: number | null;
-    logical_size_bytes_lte?: number | null;
-    logical_size_bytes_not?: number | null;
-    logical_size_bytes_not_in?: number[] | null;
-    max_bandwidth?: number | null;
-    max_bandwidth_gt?: number | null;
-    max_bandwidth_gte?: number | null;
-    max_bandwidth_in?: number[] | null;
-    max_bandwidth_lt?: number | null;
-    max_bandwidth_lte?: number | null;
-    max_bandwidth_not?: number | null;
-    max_bandwidth_not_in?: number[] | null;
-    max_bandwidth_policy?: VmDiskIoRestrictType | null;
-    max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
-    max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
-    max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
-    max_iops?: number | null;
-    max_iops_gt?: number | null;
-    max_iops_gte?: number | null;
-    max_iops_in?: number[] | null;
-    max_iops_lt?: number | null;
-    max_iops_lte?: number | null;
-    max_iops_not?: number | null;
-    max_iops_not_in?: number[] | null;
-    max_iops_policy?: VmDiskIoRestrictType | null;
-    max_iops_policy_in?: VmDiskIoRestrictType[] | null;
-    max_iops_policy_not?: VmDiskIoRestrictType | null;
-    max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
-    memory?: number | null;
-    memory_gt?: number | null;
-    memory_gte?: number | null;
-    memory_in?: number[] | null;
-    memory_lt?: number | null;
-    memory_lte?: number | null;
-    memory_not?: number | null;
-    memory_not_in?: number[] | null;
-    memory_usage?: number | null;
-    memory_usage_gt?: number | null;
-    memory_usage_gte?: number | null;
-    memory_usage_in?: number[] | null;
-    memory_usage_lt?: number | null;
-    memory_usage_lte?: number | null;
-    memory_usage_not?: number | null;
-    memory_usage_not_in?: number[] | null;
+    manufacturer?: string | null;
+    manufacturer_contains?: string | null;
+    manufacturer_ends_with?: string | null;
+    manufacturer_gt?: string | null;
+    manufacturer_gte?: string | null;
+    manufacturer_in?: string[] | null;
+    manufacturer_lt?: string | null;
+    manufacturer_lte?: string | null;
+    manufacturer_not?: string | null;
+    manufacturer_not_contains?: string | null;
+    manufacturer_not_ends_with?: string | null;
+    manufacturer_not_in?: string[] | null;
+    manufacturer_not_starts_with?: string | null;
+    manufacturer_starts_with?: string | null;
     name?: string | null;
     name_contains?: string | null;
     name_ends_with?: string | null;
@@ -3807,62 +4725,8 @@ export interface VmWhereInput {
     name_not_in?: string[] | null;
     name_not_starts_with?: string | null;
     name_starts_with?: string | null;
-    nested_virtualization?: boolean | null;
-    nested_virtualization_not?: boolean | null;
-    node_ip?: string | null;
-    node_ip_contains?: string | null;
-    node_ip_ends_with?: string | null;
-    node_ip_gt?: string | null;
-    node_ip_gte?: string | null;
-    node_ip_in?: string[] | null;
-    node_ip_lt?: string | null;
-    node_ip_lte?: string | null;
-    node_ip_not?: string | null;
-    node_ip_not_contains?: string | null;
-    node_ip_not_ends_with?: string | null;
-    node_ip_not_in?: string[] | null;
-    node_ip_not_starts_with?: string | null;
-    node_ip_starts_with?: string | null;
-    NOT?: VmWhereInput[] | null;
-    OR?: VmWhereInput[] | null;
-    original_name?: string | null;
-    original_name_contains?: string | null;
-    original_name_ends_with?: string | null;
-    original_name_gt?: string | null;
-    original_name_gte?: string | null;
-    original_name_in?: string[] | null;
-    original_name_lt?: string | null;
-    original_name_lte?: string | null;
-    original_name_not?: string | null;
-    original_name_not_contains?: string | null;
-    original_name_not_ends_with?: string | null;
-    original_name_not_in?: string[] | null;
-    original_name_not_starts_with?: string | null;
-    original_name_starts_with?: string | null;
-    os?: string | null;
-    os_contains?: string | null;
-    os_ends_with?: string | null;
-    os_gt?: string | null;
-    os_gte?: string | null;
-    os_in?: string[] | null;
-    os_lt?: string | null;
-    os_lte?: string | null;
-    os_not?: string | null;
-    os_not_contains?: string | null;
-    os_not_ends_with?: string | null;
-    os_not_in?: string[] | null;
-    os_not_starts_with?: string | null;
-    os_starts_with?: string | null;
-    protected?: boolean | null;
-    protected_not?: boolean | null;
-    provisioned_size?: number | null;
-    provisioned_size_gt?: number | null;
-    provisioned_size_gte?: number | null;
-    provisioned_size_in?: number[] | null;
-    provisioned_size_lt?: number | null;
-    provisioned_size_lte?: number | null;
-    provisioned_size_not?: number | null;
-    provisioned_size_not_in?: number[] | null;
+    NOT?: UsbDeviceWhereInput[] | null;
+    OR?: UsbDeviceWhereInput[] | null;
     size?: number | null;
     size_gt?: number | null;
     size_gte?: number | null;
@@ -3871,107 +4735,30 @@ export interface VmWhereInput {
     size_lte?: number | null;
     size_not?: number | null;
     size_not_in?: number[] | null;
-    snapshot_plan?: SnapshotPlanWhereInput | null;
-    snapshots_every?: VmSnapshotWhereInput | null;
-    snapshots_none?: VmSnapshotWhereInput | null;
-    snapshots_some?: VmSnapshotWhereInput | null;
-    status?: VmStatus | null;
-    status_in?: VmStatus[] | null;
-    status_not?: VmStatus | null;
-    status_not_in?: VmStatus[] | null;
-    unique_size?: number | null;
-    unique_size_gt?: number | null;
-    unique_size_gte?: number | null;
-    unique_size_in?: number[] | null;
-    unique_size_lt?: number | null;
-    unique_size_lte?: number | null;
-    unique_size_not?: number | null;
-    unique_size_not_in?: number[] | null;
-    usb_devices_every?: UsbDeviceWhereInput | null;
-    usb_devices_none?: UsbDeviceWhereInput | null;
-    usb_devices_some?: UsbDeviceWhereInput | null;
-    vcpu?: number | null;
-    vcpu_gt?: number | null;
-    vcpu_gte?: number | null;
-    vcpu_in?: number[] | null;
-    vcpu_lt?: number | null;
-    vcpu_lte?: number | null;
-    vcpu_not?: number | null;
-    vcpu_not_in?: number[] | null;
-    video_type?: VmVideoType | null;
-    video_type_in?: VmVideoType[] | null;
-    video_type_not?: VmVideoType | null;
-    video_type_not_in?: VmVideoType[] | null;
-    vm_disks_every?: VmDiskWhereInput | null;
-    vm_disks_none?: VmDiskWhereInput | null;
-    vm_disks_some?: VmDiskWhereInput | null;
-    vm_nics_every?: VmNicWhereInput | null;
-    vm_nics_none?: VmNicWhereInput | null;
-    vm_nics_some?: VmNicWhereInput | null;
-    vm_placement_group_every?: VmPlacementGroupWhereInput | null;
-    vm_placement_group_none?: VmPlacementGroupWhereInput | null;
-    vm_placement_group_some?: VmPlacementGroupWhereInput | null;
-    vm_tools_status?: VmToolsStatus | null;
-    vm_tools_status_in?: VmToolsStatus[] | null;
-    vm_tools_status_not?: VmToolsStatus | null;
-    vm_tools_status_not_in?: VmToolsStatus[] | null;
-    vm_tools_version?: string | null;
-    vm_tools_version_contains?: string | null;
-    vm_tools_version_ends_with?: string | null;
-    vm_tools_version_gt?: string | null;
-    vm_tools_version_gte?: string | null;
-    vm_tools_version_in?: string[] | null;
-    vm_tools_version_lt?: string | null;
-    vm_tools_version_lte?: string | null;
-    vm_tools_version_not?: string | null;
-    vm_tools_version_not_contains?: string | null;
-    vm_tools_version_not_ends_with?: string | null;
-    vm_tools_version_not_in?: string[] | null;
-    vm_tools_version_not_starts_with?: string | null;
-    vm_tools_version_starts_with?: string | null;
-    win_opt?: boolean | null;
-    win_opt_not?: boolean | null;
-}
-export declare type VmClockOffset = "LOCALTIME" | "UTC";
-export interface VmEntityFilterResultWhereInput {
-    AND?: VmEntityFilterResultWhereInput[] | null;
-    entityFilter?: EntityFilterWhereInput | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    NOT?: VmEntityFilterResultWhereInput[] | null;
-    OR?: VmEntityFilterResultWhereInput[] | null;
+    status?: UsbDeviceStatus | null;
+    status_in?: UsbDeviceStatus[] | null;
+    status_not?: UsbDeviceStatus | null;
+    status_not_in?: UsbDeviceStatus[] | null;
+    usb_type?: string | null;
+    usb_type_contains?: string | null;
+    usb_type_ends_with?: string | null;
+    usb_type_gt?: string | null;
+    usb_type_gte?: string | null;
+    usb_type_in?: string[] | null;
+    usb_type_lt?: string | null;
+    usb_type_lte?: string | null;
+    usb_type_not?: string | null;
+    usb_type_not_contains?: string | null;
+    usb_type_not_ends_with?: string | null;
+    usb_type_not_in?: string[] | null;
+    usb_type_not_starts_with?: string | null;
+    usb_type_starts_with?: string | null;
     vm?: VmWhereInput | null;
 }
-export interface EntityFilterWhereInput {
-    AND?: EntityFilterWhereInput[] | null;
-    apply_to_all_clusters?: boolean | null;
-    apply_to_all_clusters_not?: boolean | null;
-    clusters_every?: ClusterWhereInput | null;
-    clusters_none?: ClusterWhereInput | null;
-    clusters_some?: ClusterWhereInput | null;
-    entity_type?: EntityType | null;
-    entity_type_in?: EntityType[] | null;
-    entity_type_not?: EntityType | null;
-    entity_type_not_in?: EntityType[] | null;
-    exec_failed_cluster_every?: ClusterWhereInput | null;
-    exec_failed_cluster_none?: ClusterWhereInput | null;
-    exec_failed_cluster_some?: ClusterWhereInput | null;
-    filter_status?: FilterStatus | null;
-    filter_status_in?: FilterStatus[] | null;
-    filter_status_not?: FilterStatus | null;
-    filter_status_not_in?: FilterStatus[] | null;
+export declare type UsbDeviceStatus = "EJECTED" | "NORMAL";
+export interface VsphereEsxiAccountWhereInput {
+    AND?: VsphereEsxiAccountWhereInput[] | null;
+    host?: HostWhereInput | null;
     id?: string | null;
     id_contains?: string | null;
     id_ends_with?: string | null;
@@ -3986,65 +4773,22 @@ export interface EntityFilterWhereInput {
     id_not_in?: string[] | null;
     id_not_starts_with?: string | null;
     id_starts_with?: string | null;
-    last_executed_at?: string | null;
-    last_executed_at_gt?: string | null;
-    last_executed_at_gte?: string | null;
-    last_executed_at_in?: string[] | null;
-    last_executed_at_lt?: string | null;
-    last_executed_at_lte?: string | null;
-    last_executed_at_not?: string | null;
-    last_executed_at_not_in?: string[] | null;
-    name?: string | null;
-    name_contains?: string | null;
-    name_ends_with?: string | null;
-    name_gt?: string | null;
-    name_gte?: string | null;
-    name_in?: string[] | null;
-    name_lt?: string | null;
-    name_lte?: string | null;
-    name_not?: string | null;
-    name_not_contains?: string | null;
-    name_not_ends_with?: string | null;
-    name_not_in?: string[] | null;
-    name_not_starts_with?: string | null;
-    name_starts_with?: string | null;
-    NOT?: EntityFilterWhereInput[] | null;
-    OR?: EntityFilterWhereInput[] | null;
-    preset?: string | null;
-    preset_contains?: string | null;
-    preset_ends_with?: string | null;
-    preset_gt?: string | null;
-    preset_gte?: string | null;
-    preset_in?: string[] | null;
-    preset_lt?: string | null;
-    preset_lte?: string | null;
-    preset_not?: string | null;
-    preset_not_contains?: string | null;
-    preset_not_ends_with?: string | null;
-    preset_not_in?: string[] | null;
-    preset_not_starts_with?: string | null;
-    preset_starts_with?: string | null;
-}
-export declare type EntityType = "VM";
-export declare type FilterStatus = "EXECUTING" | "FAILED" | "INITIALIZING" | "PARTIAL_SUCCESSED" | "SUCCESSED";
-export declare type VmFirmware = "BIOS" | "UEFI";
-export interface VmFolderWhereInput {
-    AND?: VmFolderWhereInput[] | null;
-    cluster?: ClusterWhereInput | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
+    ip?: string | null;
+    ip_contains?: string | null;
+    ip_ends_with?: string | null;
+    ip_gt?: string | null;
+    ip_gte?: string | null;
+    ip_in?: string[] | null;
+    ip_lt?: string | null;
+    ip_lte?: string | null;
+    ip_not?: string | null;
+    ip_not_contains?: string | null;
+    ip_not_ends_with?: string | null;
+    ip_not_in?: string[] | null;
+    ip_not_starts_with?: string | null;
+    ip_starts_with?: string | null;
+    is_valid?: boolean | null;
+    is_valid_not?: boolean | null;
     local_id?: string | null;
     local_id_contains?: string | null;
     local_id_ends_with?: string | null;
@@ -4059,6 +4803,267 @@ export interface VmFolderWhereInput {
     local_id_not_in?: string[] | null;
     local_id_not_starts_with?: string | null;
     local_id_starts_with?: string | null;
+    NOT?: VsphereEsxiAccountWhereInput[] | null;
+    OR?: VsphereEsxiAccountWhereInput[] | null;
+    password?: string | null;
+    password_contains?: string | null;
+    password_ends_with?: string | null;
+    password_gt?: string | null;
+    password_gte?: string | null;
+    password_in?: string[] | null;
+    password_lt?: string | null;
+    password_lte?: string | null;
+    password_not?: string | null;
+    password_not_contains?: string | null;
+    password_not_ends_with?: string | null;
+    password_not_in?: string[] | null;
+    password_not_starts_with?: string | null;
+    password_starts_with?: string | null;
+    port?: number | null;
+    port_gt?: number | null;
+    port_gte?: number | null;
+    port_in?: number[] | null;
+    port_lt?: number | null;
+    port_lte?: number | null;
+    port_not?: number | null;
+    port_not_in?: number[] | null;
+    username?: string | null;
+    username_contains?: string | null;
+    username_ends_with?: string | null;
+    username_gt?: string | null;
+    username_gte?: string | null;
+    username_in?: string[] | null;
+    username_lt?: string | null;
+    username_lte?: string | null;
+    username_not?: string | null;
+    username_not_contains?: string | null;
+    username_not_ends_with?: string | null;
+    username_not_in?: string[] | null;
+    username_not_starts_with?: string | null;
+    username_starts_with?: string | null;
+}
+export interface ZoneWhereInput {
+    AND?: ZoneWhereInput[] | null;
+    cluster?: ClusterWhereInput | null;
+    datacenter?: DatacenterWhereInput | null;
+    failure_data_space?: number | null;
+    failure_data_space_gt?: number | null;
+    failure_data_space_gte?: number | null;
+    failure_data_space_in?: number[] | null;
+    failure_data_space_lt?: number | null;
+    failure_data_space_lte?: number | null;
+    failure_data_space_not?: number | null;
+    failure_data_space_not_in?: number[] | null;
+    host_num?: number | null;
+    host_num_gt?: number | null;
+    host_num_gte?: number | null;
+    host_num_in?: number[] | null;
+    host_num_lt?: number | null;
+    host_num_lte?: number | null;
+    host_num_not?: number | null;
+    host_num_not_in?: number[] | null;
+    hosts_every?: HostWhereInput | null;
+    hosts_none?: HostWhereInput | null;
+    hosts_some?: HostWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    is_preferred?: boolean | null;
+    is_preferred_not?: boolean | null;
+    local_id?: string | null;
+    local_id_contains?: string | null;
+    local_id_ends_with?: string | null;
+    local_id_gt?: string | null;
+    local_id_gte?: string | null;
+    local_id_in?: string[] | null;
+    local_id_lt?: string | null;
+    local_id_lte?: string | null;
+    local_id_not?: string | null;
+    local_id_not_contains?: string | null;
+    local_id_not_ends_with?: string | null;
+    local_id_not_in?: string[] | null;
+    local_id_not_starts_with?: string | null;
+    local_id_starts_with?: string | null;
+    NOT?: ZoneWhereInput[] | null;
+    OR?: ZoneWhereInput[] | null;
+    provisioned_cpu_cores?: number | null;
+    provisioned_cpu_cores_for_active_vm?: number | null;
+    provisioned_cpu_cores_for_active_vm_gt?: number | null;
+    provisioned_cpu_cores_for_active_vm_gte?: number | null;
+    provisioned_cpu_cores_for_active_vm_in?: number[] | null;
+    provisioned_cpu_cores_for_active_vm_lt?: number | null;
+    provisioned_cpu_cores_for_active_vm_lte?: number | null;
+    provisioned_cpu_cores_for_active_vm_not?: number | null;
+    provisioned_cpu_cores_for_active_vm_not_in?: number[] | null;
+    provisioned_cpu_cores_gt?: number | null;
+    provisioned_cpu_cores_gte?: number | null;
+    provisioned_cpu_cores_in?: number[] | null;
+    provisioned_cpu_cores_lt?: number | null;
+    provisioned_cpu_cores_lte?: number | null;
+    provisioned_cpu_cores_not?: number | null;
+    provisioned_cpu_cores_not_in?: number[] | null;
+    provisioned_data_space?: number | null;
+    provisioned_data_space_gt?: number | null;
+    provisioned_data_space_gte?: number | null;
+    provisioned_data_space_in?: number[] | null;
+    provisioned_data_space_lt?: number | null;
+    provisioned_data_space_lte?: number | null;
+    provisioned_data_space_not?: number | null;
+    provisioned_data_space_not_in?: number[] | null;
+    provisioned_memory_bytes?: number | null;
+    provisioned_memory_bytes_gt?: number | null;
+    provisioned_memory_bytes_gte?: number | null;
+    provisioned_memory_bytes_in?: number[] | null;
+    provisioned_memory_bytes_lt?: number | null;
+    provisioned_memory_bytes_lte?: number | null;
+    provisioned_memory_bytes_not?: number | null;
+    provisioned_memory_bytes_not_in?: number[] | null;
+    running_vm_num?: number | null;
+    running_vm_num_gt?: number | null;
+    running_vm_num_gte?: number | null;
+    running_vm_num_in?: number[] | null;
+    running_vm_num_lt?: number | null;
+    running_vm_num_lte?: number | null;
+    running_vm_num_not?: number | null;
+    running_vm_num_not_in?: number[] | null;
+    stopped_vm_num?: number | null;
+    stopped_vm_num_gt?: number | null;
+    stopped_vm_num_gte?: number | null;
+    stopped_vm_num_in?: number[] | null;
+    stopped_vm_num_lt?: number | null;
+    stopped_vm_num_lte?: number | null;
+    stopped_vm_num_not?: number | null;
+    stopped_vm_num_not_in?: number[] | null;
+    suspended_vm_num?: number | null;
+    suspended_vm_num_gt?: number | null;
+    suspended_vm_num_gte?: number | null;
+    suspended_vm_num_in?: number[] | null;
+    suspended_vm_num_lt?: number | null;
+    suspended_vm_num_lte?: number | null;
+    suspended_vm_num_not?: number | null;
+    suspended_vm_num_not_in?: number[] | null;
+    total_cache_capacity?: number | null;
+    total_cache_capacity_gt?: number | null;
+    total_cache_capacity_gte?: number | null;
+    total_cache_capacity_in?: number[] | null;
+    total_cache_capacity_lt?: number | null;
+    total_cache_capacity_lte?: number | null;
+    total_cache_capacity_not?: number | null;
+    total_cache_capacity_not_in?: number[] | null;
+    total_cpu_cores?: number | null;
+    total_cpu_cores_gt?: number | null;
+    total_cpu_cores_gte?: number | null;
+    total_cpu_cores_in?: number[] | null;
+    total_cpu_cores_lt?: number | null;
+    total_cpu_cores_lte?: number | null;
+    total_cpu_cores_not?: number | null;
+    total_cpu_cores_not_in?: number[] | null;
+    total_cpu_hz?: number | null;
+    total_cpu_hz_gt?: number | null;
+    total_cpu_hz_gte?: number | null;
+    total_cpu_hz_in?: number[] | null;
+    total_cpu_hz_lt?: number | null;
+    total_cpu_hz_lte?: number | null;
+    total_cpu_hz_not?: number | null;
+    total_cpu_hz_not_in?: number[] | null;
+    total_data_capacity?: number | null;
+    total_data_capacity_gt?: number | null;
+    total_data_capacity_gte?: number | null;
+    total_data_capacity_in?: number[] | null;
+    total_data_capacity_lt?: number | null;
+    total_data_capacity_lte?: number | null;
+    total_data_capacity_not?: number | null;
+    total_data_capacity_not_in?: number[] | null;
+    total_memory_bytes?: number | null;
+    total_memory_bytes_gt?: number | null;
+    total_memory_bytes_gte?: number | null;
+    total_memory_bytes_in?: number[] | null;
+    total_memory_bytes_lt?: number | null;
+    total_memory_bytes_lte?: number | null;
+    total_memory_bytes_not?: number | null;
+    total_memory_bytes_not_in?: number[] | null;
+    used_data_space?: number | null;
+    used_data_space_gt?: number | null;
+    used_data_space_gte?: number | null;
+    used_data_space_in?: number[] | null;
+    used_data_space_lt?: number | null;
+    used_data_space_lte?: number | null;
+    used_data_space_not?: number | null;
+    used_data_space_not_in?: number[] | null;
+    valid_data_space?: number | null;
+    valid_data_space_gt?: number | null;
+    valid_data_space_gte?: number | null;
+    valid_data_space_in?: number[] | null;
+    valid_data_space_lt?: number | null;
+    valid_data_space_lte?: number | null;
+    valid_data_space_not?: number | null;
+    valid_data_space_not_in?: number[] | null;
+    vm_num?: number | null;
+    vm_num_gt?: number | null;
+    vm_num_gte?: number | null;
+    vm_num_in?: number[] | null;
+    vm_num_lt?: number | null;
+    vm_num_lte?: number | null;
+    vm_num_not?: number | null;
+    vm_num_not_in?: number[] | null;
+}
+export interface DatacenterWhereInput {
+    AND?: DatacenterWhereInput[] | null;
+    cluster_num?: number | null;
+    cluster_num_gt?: number | null;
+    cluster_num_gte?: number | null;
+    cluster_num_in?: number[] | null;
+    cluster_num_lt?: number | null;
+    cluster_num_lte?: number | null;
+    cluster_num_not?: number | null;
+    cluster_num_not_in?: number[] | null;
+    clusters_every?: ClusterWhereInput | null;
+    clusters_none?: ClusterWhereInput | null;
+    clusters_some?: ClusterWhereInput | null;
+    failure_data_space?: number | null;
+    failure_data_space_gt?: number | null;
+    failure_data_space_gte?: number | null;
+    failure_data_space_in?: number[] | null;
+    failure_data_space_lt?: number | null;
+    failure_data_space_lte?: number | null;
+    failure_data_space_not?: number | null;
+    failure_data_space_not_in?: number[] | null;
+    host_num?: number | null;
+    host_num_gt?: number | null;
+    host_num_gte?: number | null;
+    host_num_in?: number[] | null;
+    host_num_lt?: number | null;
+    host_num_lte?: number | null;
+    host_num_not?: number | null;
+    host_num_not_in?: number[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    labels_every?: LabelWhereInput | null;
+    labels_none?: LabelWhereInput | null;
+    labels_some?: LabelWhereInput | null;
     name?: string | null;
     name_contains?: string | null;
     name_ends_with?: string | null;
@@ -4073,8 +5078,57 @@ export interface VmFolderWhereInput {
     name_not_in?: string[] | null;
     name_not_starts_with?: string | null;
     name_starts_with?: string | null;
-    NOT?: VmFolderWhereInput[] | null;
-    OR?: VmFolderWhereInput[] | null;
+    NOT?: DatacenterWhereInput[] | null;
+    OR?: DatacenterWhereInput[] | null;
+    organization?: OrganizationWhereInput | null;
+    total_cpu_hz?: number | null;
+    total_cpu_hz_gt?: number | null;
+    total_cpu_hz_gte?: number | null;
+    total_cpu_hz_in?: number[] | null;
+    total_cpu_hz_lt?: number | null;
+    total_cpu_hz_lte?: number | null;
+    total_cpu_hz_not?: number | null;
+    total_cpu_hz_not_in?: number[] | null;
+    total_data_capacity?: number | null;
+    total_data_capacity_gt?: number | null;
+    total_data_capacity_gte?: number | null;
+    total_data_capacity_in?: number[] | null;
+    total_data_capacity_lt?: number | null;
+    total_data_capacity_lte?: number | null;
+    total_data_capacity_not?: number | null;
+    total_data_capacity_not_in?: number[] | null;
+    total_memory_bytes?: number | null;
+    total_memory_bytes_gt?: number | null;
+    total_memory_bytes_gte?: number | null;
+    total_memory_bytes_in?: number[] | null;
+    total_memory_bytes_lt?: number | null;
+    total_memory_bytes_lte?: number | null;
+    total_memory_bytes_not?: number | null;
+    total_memory_bytes_not_in?: number[] | null;
+    used_cpu_hz?: number | null;
+    used_cpu_hz_gt?: number | null;
+    used_cpu_hz_gte?: number | null;
+    used_cpu_hz_in?: number[] | null;
+    used_cpu_hz_lt?: number | null;
+    used_cpu_hz_lte?: number | null;
+    used_cpu_hz_not?: number | null;
+    used_cpu_hz_not_in?: number[] | null;
+    used_data_space?: number | null;
+    used_data_space_gt?: number | null;
+    used_data_space_gte?: number | null;
+    used_data_space_in?: number[] | null;
+    used_data_space_lt?: number | null;
+    used_data_space_lte?: number | null;
+    used_data_space_not?: number | null;
+    used_data_space_not_in?: number[] | null;
+    used_memory_bytes?: number | null;
+    used_memory_bytes_gt?: number | null;
+    used_memory_bytes_gte?: number | null;
+    used_memory_bytes_in?: number[] | null;
+    used_memory_bytes_lt?: number | null;
+    used_memory_bytes_lte?: number | null;
+    used_memory_bytes_not?: number | null;
+    used_memory_bytes_not_in?: number[] | null;
     vm_num?: number | null;
     vm_num_gt?: number | null;
     vm_num_gte?: number | null;
@@ -4083,13 +5137,73 @@ export interface VmFolderWhereInput {
     vm_num_lte?: number | null;
     vm_num_not?: number | null;
     vm_num_not_in?: number[] | null;
-    vms_every?: VmWhereInput | null;
-    vms_none?: VmWhereInput | null;
-    vms_some?: VmWhereInput | null;
 }
-export declare type VmGuestsOperationSystem = "LINUX" | "UNKNOWN" | "WINDOWS";
+export interface OrganizationWhereInput {
+    AND?: OrganizationWhereInput[] | null;
+    datacenters_every?: DatacenterWhereInput | null;
+    datacenters_none?: DatacenterWhereInput | null;
+    datacenters_some?: DatacenterWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: OrganizationWhereInput[] | null;
+    OR?: OrganizationWhereInput[] | null;
+}
 export declare type VmDiskIoPolicy = "RESTRICT_EACH_DISK" | "RESTRICT_WHOLE_VM";
-export declare type VmDiskIoRestrictType = "DYNAMIC" | "FORCED";
+export interface IsolationPolicyWhereInput {
+    AND?: IsolationPolicyWhereInput[] | null;
+    everoute_cluster?: EverouteClusterWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    labels_every?: LabelWhereInput | null;
+    labels_none?: LabelWhereInput | null;
+    labels_some?: LabelWhereInput | null;
+    mode?: IsolationMode | null;
+    mode_in?: IsolationMode[] | null;
+    mode_not?: IsolationMode | null;
+    mode_not_in?: IsolationMode[] | null;
+    NOT?: IsolationPolicyWhereInput[] | null;
+    OR?: IsolationPolicyWhereInput[] | null;
+    vm?: VmWhereInput | null;
+}
+export declare type IsolationMode = "ALL" | "PARTIAL";
 export interface SnapshotPlanWhereInput {
     AND?: SnapshotPlanWhereInput[] | null;
     auto_delete_num?: number | null;
@@ -4617,10 +5731,10 @@ export declare type SnapshotPlanExecuteStatus = "CREATED" | "FAILED" | "IN_PROGR
 export declare type SnapshotPlanTaskType = "TASK_TYPE_CLONE" | "TASK_TYPE_PROTECT" | "TASK_TYPE_ROLLBACK";
 export declare type SnapshotPlanStatus = "NORMAL" | "STOPPED" | "SUSPENDED";
 export declare type VmStatus = "DELETED" | "RUNNING" | "STOPPED" | "SUSPENDED" | "UNKNOWN";
-export interface UsbDeviceWhereInput {
-    AND?: UsbDeviceWhereInput[] | null;
-    binded?: boolean | null;
-    binded_not?: boolean | null;
+export declare type VmVideoType = "CIRRUS" | "QXL" | "VGA" | "VIRTIO";
+export interface VmPlacementGroupWhereInput {
+    AND?: VmPlacementGroupWhereInput[] | null;
+    cluster?: ClusterWhereInput | null;
     description?: string | null;
     description_contains?: string | null;
     description_ends_with?: string | null;
@@ -4635,7 +5749,12 @@ export interface UsbDeviceWhereInput {
     description_not_in?: string[] | null;
     description_not_starts_with?: string | null;
     description_starts_with?: string | null;
-    host?: HostWhereInput | null;
+    enabled?: boolean | null;
+    enabled_not?: boolean | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+    entityAsyncStatus_not?: EntityAsyncStatus | null;
+    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
     id?: string | null;
     id_contains?: string | null;
     id_ends_with?: string | null;
@@ -4672,20 +5791,14 @@ export interface UsbDeviceWhereInput {
     local_id_not_in?: string[] | null;
     local_id_not_starts_with?: string | null;
     local_id_starts_with?: string | null;
-    manufacturer?: string | null;
-    manufacturer_contains?: string | null;
-    manufacturer_ends_with?: string | null;
-    manufacturer_gt?: string | null;
-    manufacturer_gte?: string | null;
-    manufacturer_in?: string[] | null;
-    manufacturer_lt?: string | null;
-    manufacturer_lte?: string | null;
-    manufacturer_not?: string | null;
-    manufacturer_not_contains?: string | null;
-    manufacturer_not_ends_with?: string | null;
-    manufacturer_not_in?: string[] | null;
-    manufacturer_not_starts_with?: string | null;
-    manufacturer_starts_with?: string | null;
+    local_updated_at?: string | null;
+    local_updated_at_gt?: string | null;
+    local_updated_at_gte?: string | null;
+    local_updated_at_in?: string[] | null;
+    local_updated_at_lt?: string | null;
+    local_updated_at_lte?: string | null;
+    local_updated_at_not?: string | null;
+    local_updated_at_not_in?: string[] | null;
     name?: string | null;
     name_contains?: string | null;
     name_ends_with?: string | null;
@@ -4700,212 +5813,37 @@ export interface UsbDeviceWhereInput {
     name_not_in?: string[] | null;
     name_not_starts_with?: string | null;
     name_starts_with?: string | null;
-    NOT?: UsbDeviceWhereInput[] | null;
-    OR?: UsbDeviceWhereInput[] | null;
-    size?: number | null;
-    size_gt?: number | null;
-    size_gte?: number | null;
-    size_in?: number[] | null;
-    size_lt?: number | null;
-    size_lte?: number | null;
-    size_not?: number | null;
-    size_not_in?: number[] | null;
-    status?: UsbDeviceStatus | null;
-    status_in?: UsbDeviceStatus[] | null;
-    status_not?: UsbDeviceStatus | null;
-    status_not_in?: UsbDeviceStatus[] | null;
-    usb_type?: string | null;
-    usb_type_contains?: string | null;
-    usb_type_ends_with?: string | null;
-    usb_type_gt?: string | null;
-    usb_type_gte?: string | null;
-    usb_type_in?: string[] | null;
-    usb_type_lt?: string | null;
-    usb_type_lte?: string | null;
-    usb_type_not?: string | null;
-    usb_type_not_contains?: string | null;
-    usb_type_not_ends_with?: string | null;
-    usb_type_not_in?: string[] | null;
-    usb_type_not_starts_with?: string | null;
-    usb_type_starts_with?: string | null;
-    vm?: VmWhereInput | null;
+    NOT?: VmPlacementGroupWhereInput[] | null;
+    OR?: VmPlacementGroupWhereInput[] | null;
+    vm_host_must_enabled?: boolean | null;
+    vm_host_must_enabled_not?: boolean | null;
+    vm_host_must_host_uuids_every?: HostWhereInput | null;
+    vm_host_must_host_uuids_none?: HostWhereInput | null;
+    vm_host_must_host_uuids_some?: HostWhereInput | null;
+    vm_host_must_policy?: boolean | null;
+    vm_host_must_policy_not?: boolean | null;
+    vm_host_prefer_enabled?: boolean | null;
+    vm_host_prefer_enabled_not?: boolean | null;
+    vm_host_prefer_host_uuids_every?: HostWhereInput | null;
+    vm_host_prefer_host_uuids_none?: HostWhereInput | null;
+    vm_host_prefer_host_uuids_some?: HostWhereInput | null;
+    vm_host_prefer_policy?: boolean | null;
+    vm_host_prefer_policy_not?: boolean | null;
+    vm_vm_policy?: VmVmPolicy | null;
+    vm_vm_policy_enabled?: boolean | null;
+    vm_vm_policy_enabled_not?: boolean | null;
+    vm_vm_policy_in?: VmVmPolicy[] | null;
+    vm_vm_policy_not?: VmVmPolicy | null;
+    vm_vm_policy_not_in?: VmVmPolicy[] | null;
+    vms_every?: VmWhereInput | null;
+    vms_none?: VmWhereInput | null;
+    vms_some?: VmWhereInput | null;
 }
-export declare type UsbDeviceStatus = "EJECTED" | "NORMAL";
-export declare type VmVideoType = "CIRRUS" | "QXL" | "VGA" | "VIRTIO";
-export interface VmDiskWhereInput {
-    AND?: VmDiskWhereInput[] | null;
-    boot?: number | null;
-    boot_gt?: number | null;
-    boot_gte?: number | null;
-    boot_in?: number[] | null;
-    boot_lt?: number | null;
-    boot_lte?: number | null;
-    boot_not?: number | null;
-    boot_not_in?: number[] | null;
-    bus?: Bus | null;
-    bus_in?: Bus[] | null;
-    bus_not?: Bus | null;
-    bus_not_in?: Bus[] | null;
-    cloud_init_image_name?: string | null;
-    cloud_init_image_name_contains?: string | null;
-    cloud_init_image_name_ends_with?: string | null;
-    cloud_init_image_name_gt?: string | null;
-    cloud_init_image_name_gte?: string | null;
-    cloud_init_image_name_in?: string[] | null;
-    cloud_init_image_name_lt?: string | null;
-    cloud_init_image_name_lte?: string | null;
-    cloud_init_image_name_not?: string | null;
-    cloud_init_image_name_not_contains?: string | null;
-    cloud_init_image_name_not_ends_with?: string | null;
-    cloud_init_image_name_not_in?: string[] | null;
-    cloud_init_image_name_not_starts_with?: string | null;
-    cloud_init_image_name_starts_with?: string | null;
-    cloud_init_image_path?: string | null;
-    cloud_init_image_path_contains?: string | null;
-    cloud_init_image_path_ends_with?: string | null;
-    cloud_init_image_path_gt?: string | null;
-    cloud_init_image_path_gte?: string | null;
-    cloud_init_image_path_in?: string[] | null;
-    cloud_init_image_path_lt?: string | null;
-    cloud_init_image_path_lte?: string | null;
-    cloud_init_image_path_not?: string | null;
-    cloud_init_image_path_not_contains?: string | null;
-    cloud_init_image_path_not_ends_with?: string | null;
-    cloud_init_image_path_not_in?: string[] | null;
-    cloud_init_image_path_not_starts_with?: string | null;
-    cloud_init_image_path_starts_with?: string | null;
-    device?: string | null;
-    device_contains?: string | null;
-    device_ends_with?: string | null;
-    device_gt?: string | null;
-    device_gte?: string | null;
-    device_in?: string[] | null;
-    device_lt?: string | null;
-    device_lte?: string | null;
-    device_not?: string | null;
-    device_not_contains?: string | null;
-    device_not_ends_with?: string | null;
-    device_not_in?: string[] | null;
-    device_not_starts_with?: string | null;
-    device_starts_with?: string | null;
-    disabled?: boolean | null;
-    disabled_not?: boolean | null;
-    elf_image?: ElfImageWhereInput | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    key?: number | null;
-    key_gt?: number | null;
-    key_gte?: number | null;
-    key_in?: number[] | null;
-    key_lt?: number | null;
-    key_lte?: number | null;
-    key_not?: number | null;
-    key_not_in?: number[] | null;
-    max_bandwidth?: number | null;
-    max_bandwidth_gt?: number | null;
-    max_bandwidth_gte?: number | null;
-    max_bandwidth_in?: number[] | null;
-    max_bandwidth_lt?: number | null;
-    max_bandwidth_lte?: number | null;
-    max_bandwidth_not?: number | null;
-    max_bandwidth_not_in?: number[] | null;
-    max_bandwidth_policy?: VmDiskIoRestrictType | null;
-    max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
-    max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
-    max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
-    max_iops?: number | null;
-    max_iops_gt?: number | null;
-    max_iops_gte?: number | null;
-    max_iops_in?: number[] | null;
-    max_iops_lt?: number | null;
-    max_iops_lte?: number | null;
-    max_iops_not?: number | null;
-    max_iops_not_in?: number[] | null;
-    max_iops_policy?: VmDiskIoRestrictType | null;
-    max_iops_policy_in?: VmDiskIoRestrictType[] | null;
-    max_iops_policy_not?: VmDiskIoRestrictType | null;
-    max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
-    NOT?: VmDiskWhereInput[] | null;
-    OR?: VmDiskWhereInput[] | null;
-    serial?: string | null;
-    serial_contains?: string | null;
-    serial_ends_with?: string | null;
-    serial_gt?: string | null;
-    serial_gte?: string | null;
-    serial_in?: string[] | null;
-    serial_lt?: string | null;
-    serial_lte?: string | null;
-    serial_not?: string | null;
-    serial_not_contains?: string | null;
-    serial_not_ends_with?: string | null;
-    serial_not_in?: string[] | null;
-    serial_not_starts_with?: string | null;
-    serial_starts_with?: string | null;
-    svt_image?: SvtImageWhereInput | null;
-    type?: VmDiskType | null;
-    type_in?: VmDiskType[] | null;
-    type_not?: VmDiskType | null;
-    type_not_in?: VmDiskType[] | null;
-    unsafe_image_path?: string | null;
-    unsafe_image_path_contains?: string | null;
-    unsafe_image_path_ends_with?: string | null;
-    unsafe_image_path_gt?: string | null;
-    unsafe_image_path_gte?: string | null;
-    unsafe_image_path_in?: string[] | null;
-    unsafe_image_path_lt?: string | null;
-    unsafe_image_path_lte?: string | null;
-    unsafe_image_path_not?: string | null;
-    unsafe_image_path_not_contains?: string | null;
-    unsafe_image_path_not_ends_with?: string | null;
-    unsafe_image_path_not_in?: string[] | null;
-    unsafe_image_path_not_starts_with?: string | null;
-    unsafe_image_path_starts_with?: string | null;
-    unsafe_image_uuid?: string | null;
-    unsafe_image_uuid_contains?: string | null;
-    unsafe_image_uuid_ends_with?: string | null;
-    unsafe_image_uuid_gt?: string | null;
-    unsafe_image_uuid_gte?: string | null;
-    unsafe_image_uuid_in?: string[] | null;
-    unsafe_image_uuid_lt?: string | null;
-    unsafe_image_uuid_lte?: string | null;
-    unsafe_image_uuid_not?: string | null;
-    unsafe_image_uuid_not_contains?: string | null;
-    unsafe_image_uuid_not_ends_with?: string | null;
-    unsafe_image_uuid_not_in?: string[] | null;
-    unsafe_image_uuid_not_starts_with?: string | null;
-    unsafe_image_uuid_starts_with?: string | null;
-    unsafe_provision?: string | null;
-    unsafe_provision_contains?: string | null;
-    unsafe_provision_ends_with?: string | null;
-    unsafe_provision_gt?: string | null;
-    unsafe_provision_gte?: string | null;
-    unsafe_provision_in?: string[] | null;
-    unsafe_provision_lt?: string | null;
-    unsafe_provision_lte?: string | null;
-    unsafe_provision_not?: string | null;
-    unsafe_provision_not_contains?: string | null;
-    unsafe_provision_not_ends_with?: string | null;
-    unsafe_provision_not_in?: string[] | null;
-    unsafe_provision_not_starts_with?: string | null;
-    unsafe_provision_starts_with?: string | null;
-    vm?: VmWhereInput | null;
-    vm_volume?: VmVolumeWhereInput | null;
-}
-export declare type Bus = "IDE" | "SCSI" | "VIRTIO";
-export interface ElfImageWhereInput {
-    AND?: ElfImageWhereInput[] | null;
+export declare type VmVmPolicy = "MUST_DIFFERENT" | "MUST_SAME" | "PREFER_DIFFERENT" | "PREFER_SAME";
+export declare type VmToolsStatus = "NOT_INSTALLED" | "NOT_RUNNING" | "RESTRICTION" | "RUNNING";
+export declare type VmUsage = "EVEROUTE_CONTROLLER";
+export interface VmVolumeWhereInput {
+    AND?: VmVolumeWhereInput[] | null;
     cluster?: ClusterWhereInput | null;
     description?: string | null;
     description_contains?: string | null;
@@ -4921,10 +5859,26 @@ export interface ElfImageWhereInput {
     description_not_in?: string[] | null;
     description_not_starts_with?: string | null;
     description_starts_with?: string | null;
-    entityAsyncStatus?: EntityAsyncStatus | null;
-    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-    entityAsyncStatus_not?: EntityAsyncStatus | null;
-    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    elf_storage_policy?: VmVolumeElfStoragePolicyType | null;
+    elf_storage_policy_in?: VmVolumeElfStoragePolicyType[] | null;
+    elf_storage_policy_not?: VmVolumeElfStoragePolicyType | null;
+    elf_storage_policy_not_in?: VmVolumeElfStoragePolicyType[] | null;
+    guest_size_usage?: number | null;
+    guest_size_usage_gt?: number | null;
+    guest_size_usage_gte?: number | null;
+    guest_size_usage_in?: number[] | null;
+    guest_size_usage_lt?: number | null;
+    guest_size_usage_lte?: number | null;
+    guest_size_usage_not?: number | null;
+    guest_size_usage_not_in?: number[] | null;
+    guest_used_size?: number | null;
+    guest_used_size_gt?: number | null;
+    guest_used_size_gte?: number | null;
+    guest_used_size_in?: number[] | null;
+    guest_used_size_lt?: number | null;
+    guest_used_size_lte?: number | null;
+    guest_used_size_not?: number | null;
+    guest_used_size_not_in?: number[] | null;
     id?: string | null;
     id_contains?: string | null;
     id_ends_with?: string | null;
@@ -4964,6 +5918,9 @@ export interface ElfImageWhereInput {
     local_id_not_in?: string[] | null;
     local_id_not_starts_with?: string | null;
     local_id_starts_with?: string | null;
+    lun?: IscsiLunWhereInput | null;
+    mounting?: boolean | null;
+    mounting_not?: boolean | null;
     name?: string | null;
     name_contains?: string | null;
     name_ends_with?: string | null;
@@ -4978,8 +5935,8 @@ export interface ElfImageWhereInput {
     name_not_in?: string[] | null;
     name_not_starts_with?: string | null;
     name_starts_with?: string | null;
-    NOT?: ElfImageWhereInput[] | null;
-    OR?: ElfImageWhereInput[] | null;
+    NOT?: VmVolumeWhereInput[] | null;
+    OR?: VmVolumeWhereInput[] | null;
     path?: string | null;
     path_contains?: string | null;
     path_ends_with?: string | null;
@@ -4994,6 +5951,8 @@ export interface ElfImageWhereInput {
     path_not_in?: string[] | null;
     path_not_starts_with?: string | null;
     path_starts_with?: string | null;
+    sharing?: boolean | null;
+    sharing_not?: boolean | null;
     size?: number | null;
     size_gt?: number | null;
     size_gte?: number | null;
@@ -5002,16 +5961,19 @@ export interface ElfImageWhereInput {
     size_lte?: number | null;
     size_not?: number | null;
     size_not_in?: number[] | null;
+    unique_size?: number | null;
+    unique_size_gt?: number | null;
+    unique_size_gte?: number | null;
+    unique_size_in?: number[] | null;
+    unique_size_lt?: number | null;
+    unique_size_lte?: number | null;
+    unique_size_not?: number | null;
+    unique_size_not_in?: number[] | null;
     vm_disks_every?: VmDiskWhereInput | null;
     vm_disks_none?: VmDiskWhereInput | null;
     vm_disks_some?: VmDiskWhereInput | null;
-    vm_snapshots_every?: VmSnapshotWhereInput | null;
-    vm_snapshots_none?: VmSnapshotWhereInput | null;
-    vm_snapshots_some?: VmSnapshotWhereInput | null;
-    vm_templates_every?: VmTemplateWhereInput | null;
-    vm_templates_none?: VmTemplateWhereInput | null;
-    vm_templates_some?: VmTemplateWhereInput | null;
 }
+export declare type VmVolumeElfStoragePolicyType = "REPLICA_1_THICK_PROVISION" | "REPLICA_1_THIN_PROVISION" | "REPLICA_2_THICK_PROVISION" | "REPLICA_2_THIN_PROVISION" | "REPLICA_3_THICK_PROVISION" | "REPLICA_3_THIN_PROVISION";
 export interface VmTemplateWhereInput {
     AND?: VmTemplateWhereInput[] | null;
     clock_offset?: VmClockOffset | null;
@@ -5183,727 +6145,6 @@ export interface VmTemplateWhereInput {
     win_opt?: boolean | null;
     win_opt_not?: boolean | null;
 }
-export interface SvtImageWhereInput {
-    AND?: SvtImageWhereInput[] | null;
-    cluster?: ClusterWhereInput | null;
-    entityAsyncStatus?: EntityAsyncStatus | null;
-    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-    entityAsyncStatus_not?: EntityAsyncStatus | null;
-    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    local_created_at?: string | null;
-    local_created_at_gt?: string | null;
-    local_created_at_gte?: string | null;
-    local_created_at_in?: string[] | null;
-    local_created_at_lt?: string | null;
-    local_created_at_lte?: string | null;
-    local_created_at_not?: string | null;
-    local_created_at_not_in?: string[] | null;
-    local_id?: string | null;
-    local_id_contains?: string | null;
-    local_id_ends_with?: string | null;
-    local_id_gt?: string | null;
-    local_id_gte?: string | null;
-    local_id_in?: string[] | null;
-    local_id_lt?: string | null;
-    local_id_lte?: string | null;
-    local_id_not?: string | null;
-    local_id_not_contains?: string | null;
-    local_id_not_ends_with?: string | null;
-    local_id_not_in?: string[] | null;
-    local_id_not_starts_with?: string | null;
-    local_id_starts_with?: string | null;
-    name?: string | null;
-    name_contains?: string | null;
-    name_ends_with?: string | null;
-    name_gt?: string | null;
-    name_gte?: string | null;
-    name_in?: string[] | null;
-    name_lt?: string | null;
-    name_lte?: string | null;
-    name_not?: string | null;
-    name_not_contains?: string | null;
-    name_not_ends_with?: string | null;
-    name_not_in?: string[] | null;
-    name_not_starts_with?: string | null;
-    name_starts_with?: string | null;
-    NOT?: SvtImageWhereInput[] | null;
-    OR?: SvtImageWhereInput[] | null;
-    path?: string | null;
-    path_contains?: string | null;
-    path_ends_with?: string | null;
-    path_gt?: string | null;
-    path_gte?: string | null;
-    path_in?: string[] | null;
-    path_lt?: string | null;
-    path_lte?: string | null;
-    path_not?: string | null;
-    path_not_contains?: string | null;
-    path_not_ends_with?: string | null;
-    path_not_in?: string[] | null;
-    path_not_starts_with?: string | null;
-    path_starts_with?: string | null;
-    size?: number | null;
-    size_gt?: number | null;
-    size_gte?: number | null;
-    size_in?: number[] | null;
-    size_lt?: number | null;
-    size_lte?: number | null;
-    size_not?: number | null;
-    size_not_in?: number[] | null;
-    version?: number | null;
-    version_gt?: number | null;
-    version_gte?: number | null;
-    version_in?: number[] | null;
-    version_lt?: number | null;
-    version_lte?: number | null;
-    version_not?: number | null;
-    version_not_in?: number[] | null;
-    vm_disks_every?: VmDiskWhereInput | null;
-    vm_disks_none?: VmDiskWhereInput | null;
-    vm_disks_some?: VmDiskWhereInput | null;
-}
-export declare type VmDiskType = "CD_ROM" | "DISK";
-export interface VmVolumeWhereInput {
-    AND?: VmVolumeWhereInput[] | null;
-    cluster?: ClusterWhereInput | null;
-    description?: string | null;
-    description_contains?: string | null;
-    description_ends_with?: string | null;
-    description_gt?: string | null;
-    description_gte?: string | null;
-    description_in?: string[] | null;
-    description_lt?: string | null;
-    description_lte?: string | null;
-    description_not?: string | null;
-    description_not_contains?: string | null;
-    description_not_ends_with?: string | null;
-    description_not_in?: string[] | null;
-    description_not_starts_with?: string | null;
-    description_starts_with?: string | null;
-    elf_storage_policy?: VmVolumeElfStoragePolicyType | null;
-    elf_storage_policy_in?: VmVolumeElfStoragePolicyType[] | null;
-    elf_storage_policy_not?: VmVolumeElfStoragePolicyType | null;
-    elf_storage_policy_not_in?: VmVolumeElfStoragePolicyType[] | null;
-    guest_size_usage?: number | null;
-    guest_size_usage_gt?: number | null;
-    guest_size_usage_gte?: number | null;
-    guest_size_usage_in?: number[] | null;
-    guest_size_usage_lt?: number | null;
-    guest_size_usage_lte?: number | null;
-    guest_size_usage_not?: number | null;
-    guest_size_usage_not_in?: number[] | null;
-    guest_used_size?: number | null;
-    guest_used_size_gt?: number | null;
-    guest_used_size_gte?: number | null;
-    guest_used_size_in?: number[] | null;
-    guest_used_size_lt?: number | null;
-    guest_used_size_lte?: number | null;
-    guest_used_size_not?: number | null;
-    guest_used_size_not_in?: number[] | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    labels_every?: LabelWhereInput | null;
-    labels_none?: LabelWhereInput | null;
-    labels_some?: LabelWhereInput | null;
-    local_created_at?: string | null;
-    local_created_at_gt?: string | null;
-    local_created_at_gte?: string | null;
-    local_created_at_in?: string[] | null;
-    local_created_at_lt?: string | null;
-    local_created_at_lte?: string | null;
-    local_created_at_not?: string | null;
-    local_created_at_not_in?: string[] | null;
-    local_id?: string | null;
-    local_id_contains?: string | null;
-    local_id_ends_with?: string | null;
-    local_id_gt?: string | null;
-    local_id_gte?: string | null;
-    local_id_in?: string[] | null;
-    local_id_lt?: string | null;
-    local_id_lte?: string | null;
-    local_id_not?: string | null;
-    local_id_not_contains?: string | null;
-    local_id_not_ends_with?: string | null;
-    local_id_not_in?: string[] | null;
-    local_id_not_starts_with?: string | null;
-    local_id_starts_with?: string | null;
-    lun?: IscsiLunWhereInput | null;
-    mounting?: boolean | null;
-    mounting_not?: boolean | null;
-    name?: string | null;
-    name_contains?: string | null;
-    name_ends_with?: string | null;
-    name_gt?: string | null;
-    name_gte?: string | null;
-    name_in?: string[] | null;
-    name_lt?: string | null;
-    name_lte?: string | null;
-    name_not?: string | null;
-    name_not_contains?: string | null;
-    name_not_ends_with?: string | null;
-    name_not_in?: string[] | null;
-    name_not_starts_with?: string | null;
-    name_starts_with?: string | null;
-    NOT?: VmVolumeWhereInput[] | null;
-    OR?: VmVolumeWhereInput[] | null;
-    path?: string | null;
-    path_contains?: string | null;
-    path_ends_with?: string | null;
-    path_gt?: string | null;
-    path_gte?: string | null;
-    path_in?: string[] | null;
-    path_lt?: string | null;
-    path_lte?: string | null;
-    path_not?: string | null;
-    path_not_contains?: string | null;
-    path_not_ends_with?: string | null;
-    path_not_in?: string[] | null;
-    path_not_starts_with?: string | null;
-    path_starts_with?: string | null;
-    sharing?: boolean | null;
-    sharing_not?: boolean | null;
-    size?: number | null;
-    size_gt?: number | null;
-    size_gte?: number | null;
-    size_in?: number[] | null;
-    size_lt?: number | null;
-    size_lte?: number | null;
-    size_not?: number | null;
-    size_not_in?: number[] | null;
-    unique_size?: number | null;
-    unique_size_gt?: number | null;
-    unique_size_gte?: number | null;
-    unique_size_in?: number[] | null;
-    unique_size_lt?: number | null;
-    unique_size_lte?: number | null;
-    unique_size_not?: number | null;
-    unique_size_not_in?: number[] | null;
-    vm_disks_every?: VmDiskWhereInput | null;
-    vm_disks_none?: VmDiskWhereInput | null;
-    vm_disks_some?: VmDiskWhereInput | null;
-}
-export declare type VmVolumeElfStoragePolicyType = "REPLICA_1_THICK_PROVISION" | "REPLICA_1_THIN_PROVISION" | "REPLICA_2_THICK_PROVISION" | "REPLICA_2_THIN_PROVISION" | "REPLICA_3_THICK_PROVISION" | "REPLICA_3_THIN_PROVISION";
-export interface VmPlacementGroupWhereInput {
-    AND?: VmPlacementGroupWhereInput[] | null;
-    cluster?: ClusterWhereInput | null;
-    description?: string | null;
-    description_contains?: string | null;
-    description_ends_with?: string | null;
-    description_gt?: string | null;
-    description_gte?: string | null;
-    description_in?: string[] | null;
-    description_lt?: string | null;
-    description_lte?: string | null;
-    description_not?: string | null;
-    description_not_contains?: string | null;
-    description_not_ends_with?: string | null;
-    description_not_in?: string[] | null;
-    description_not_starts_with?: string | null;
-    description_starts_with?: string | null;
-    enabled?: boolean | null;
-    enabled_not?: boolean | null;
-    entityAsyncStatus?: EntityAsyncStatus | null;
-    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-    entityAsyncStatus_not?: EntityAsyncStatus | null;
-    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    local_created_at?: string | null;
-    local_created_at_gt?: string | null;
-    local_created_at_gte?: string | null;
-    local_created_at_in?: string[] | null;
-    local_created_at_lt?: string | null;
-    local_created_at_lte?: string | null;
-    local_created_at_not?: string | null;
-    local_created_at_not_in?: string[] | null;
-    local_id?: string | null;
-    local_id_contains?: string | null;
-    local_id_ends_with?: string | null;
-    local_id_gt?: string | null;
-    local_id_gte?: string | null;
-    local_id_in?: string[] | null;
-    local_id_lt?: string | null;
-    local_id_lte?: string | null;
-    local_id_not?: string | null;
-    local_id_not_contains?: string | null;
-    local_id_not_ends_with?: string | null;
-    local_id_not_in?: string[] | null;
-    local_id_not_starts_with?: string | null;
-    local_id_starts_with?: string | null;
-    local_updated_at?: string | null;
-    local_updated_at_gt?: string | null;
-    local_updated_at_gte?: string | null;
-    local_updated_at_in?: string[] | null;
-    local_updated_at_lt?: string | null;
-    local_updated_at_lte?: string | null;
-    local_updated_at_not?: string | null;
-    local_updated_at_not_in?: string[] | null;
-    name?: string | null;
-    name_contains?: string | null;
-    name_ends_with?: string | null;
-    name_gt?: string | null;
-    name_gte?: string | null;
-    name_in?: string[] | null;
-    name_lt?: string | null;
-    name_lte?: string | null;
-    name_not?: string | null;
-    name_not_contains?: string | null;
-    name_not_ends_with?: string | null;
-    name_not_in?: string[] | null;
-    name_not_starts_with?: string | null;
-    name_starts_with?: string | null;
-    NOT?: VmPlacementGroupWhereInput[] | null;
-    OR?: VmPlacementGroupWhereInput[] | null;
-    vm_host_must_enabled?: boolean | null;
-    vm_host_must_enabled_not?: boolean | null;
-    vm_host_must_host_uuids_every?: HostWhereInput | null;
-    vm_host_must_host_uuids_none?: HostWhereInput | null;
-    vm_host_must_host_uuids_some?: HostWhereInput | null;
-    vm_host_must_policy?: boolean | null;
-    vm_host_must_policy_not?: boolean | null;
-    vm_host_prefer_enabled?: boolean | null;
-    vm_host_prefer_enabled_not?: boolean | null;
-    vm_host_prefer_host_uuids_every?: HostWhereInput | null;
-    vm_host_prefer_host_uuids_none?: HostWhereInput | null;
-    vm_host_prefer_host_uuids_some?: HostWhereInput | null;
-    vm_host_prefer_policy?: boolean | null;
-    vm_host_prefer_policy_not?: boolean | null;
-    vm_vm_policy?: VmVmPolicy | null;
-    vm_vm_policy_enabled?: boolean | null;
-    vm_vm_policy_enabled_not?: boolean | null;
-    vm_vm_policy_in?: VmVmPolicy[] | null;
-    vm_vm_policy_not?: VmVmPolicy | null;
-    vm_vm_policy_not_in?: VmVmPolicy[] | null;
-    vms_every?: VmWhereInput | null;
-    vms_none?: VmWhereInput | null;
-    vms_some?: VmWhereInput | null;
-}
-export declare type VmVmPolicy = "MUST_DIFFERENT" | "MUST_SAME" | "PREFER_DIFFERENT" | "PREFER_SAME";
-export declare type VmToolsStatus = "NOT_INSTALLED" | "NOT_RUNNING" | "RESTRICTION" | "RUNNING";
-export interface PmemDimmWhereInput {
-    AND?: PmemDimmWhereInput[] | null;
-    capacity?: number | null;
-    capacity_gt?: number | null;
-    capacity_gte?: number | null;
-    capacity_in?: number[] | null;
-    capacity_lt?: number | null;
-    capacity_lte?: number | null;
-    capacity_not?: number | null;
-    capacity_not_in?: number[] | null;
-    device_locator?: string | null;
-    device_locator_contains?: string | null;
-    device_locator_ends_with?: string | null;
-    device_locator_gt?: string | null;
-    device_locator_gte?: string | null;
-    device_locator_in?: string[] | null;
-    device_locator_lt?: string | null;
-    device_locator_lte?: string | null;
-    device_locator_not?: string | null;
-    device_locator_not_contains?: string | null;
-    device_locator_not_ends_with?: string | null;
-    device_locator_not_in?: string[] | null;
-    device_locator_not_starts_with?: string | null;
-    device_locator_starts_with?: string | null;
-    disk?: DiskWhereInput | null;
-    health_status?: DiskHealthStatus | null;
-    health_status_in?: DiskHealthStatus[] | null;
-    health_status_not?: DiskHealthStatus | null;
-    health_status_not_in?: DiskHealthStatus[] | null;
-    host?: HostWhereInput | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    local_id?: string | null;
-    local_id_contains?: string | null;
-    local_id_ends_with?: string | null;
-    local_id_gt?: string | null;
-    local_id_gte?: string | null;
-    local_id_in?: string[] | null;
-    local_id_lt?: string | null;
-    local_id_lte?: string | null;
-    local_id_not?: string | null;
-    local_id_not_contains?: string | null;
-    local_id_not_ends_with?: string | null;
-    local_id_not_in?: string[] | null;
-    local_id_not_starts_with?: string | null;
-    local_id_starts_with?: string | null;
-    name?: string | null;
-    name_contains?: string | null;
-    name_ends_with?: string | null;
-    name_gt?: string | null;
-    name_gte?: string | null;
-    name_in?: string[] | null;
-    name_lt?: string | null;
-    name_lte?: string | null;
-    name_not?: string | null;
-    name_not_contains?: string | null;
-    name_not_ends_with?: string | null;
-    name_not_in?: string[] | null;
-    name_not_starts_with?: string | null;
-    name_starts_with?: string | null;
-    NOT?: PmemDimmWhereInput[] | null;
-    numa_node?: number | null;
-    numa_node_gt?: number | null;
-    numa_node_gte?: number | null;
-    numa_node_in?: number[] | null;
-    numa_node_lt?: number | null;
-    numa_node_lte?: number | null;
-    numa_node_not?: number | null;
-    numa_node_not_in?: number[] | null;
-    OR?: PmemDimmWhereInput[] | null;
-    part_number?: string | null;
-    part_number_contains?: string | null;
-    part_number_ends_with?: string | null;
-    part_number_gt?: string | null;
-    part_number_gte?: string | null;
-    part_number_in?: string[] | null;
-    part_number_lt?: string | null;
-    part_number_lte?: string | null;
-    part_number_not?: string | null;
-    part_number_not_contains?: string | null;
-    part_number_not_ends_with?: string | null;
-    part_number_not_in?: string[] | null;
-    part_number_not_starts_with?: string | null;
-    part_number_starts_with?: string | null;
-    remaining_life_percent?: number | null;
-    remaining_life_percent_gt?: number | null;
-    remaining_life_percent_gte?: number | null;
-    remaining_life_percent_in?: number[] | null;
-    remaining_life_percent_lt?: number | null;
-    remaining_life_percent_lte?: number | null;
-    remaining_life_percent_not?: number | null;
-    remaining_life_percent_not_in?: number[] | null;
-    version?: string | null;
-    version_contains?: string | null;
-    version_ends_with?: string | null;
-    version_gt?: string | null;
-    version_gte?: string | null;
-    version_in?: string[] | null;
-    version_lt?: string | null;
-    version_lte?: string | null;
-    version_not?: string | null;
-    version_not_contains?: string | null;
-    version_not_ends_with?: string | null;
-    version_not_in?: string[] | null;
-    version_not_starts_with?: string | null;
-    version_starts_with?: string | null;
-}
-export declare type HostState = "IDLE" | "IN_USE" | "REMOVING";
-export declare type HostStatus = "CONNECTED_ERROR" | "CONNECTED_HEALTHY" | "CONNECTED_WARNING" | "CONNECTING" | "INITIALIZING" | "SESSION_EXPIRED";
-export interface VsphereEsxiAccountWhereInput {
-    AND?: VsphereEsxiAccountWhereInput[] | null;
-    host?: HostWhereInput | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    ip?: string | null;
-    ip_contains?: string | null;
-    ip_ends_with?: string | null;
-    ip_gt?: string | null;
-    ip_gte?: string | null;
-    ip_in?: string[] | null;
-    ip_lt?: string | null;
-    ip_lte?: string | null;
-    ip_not?: string | null;
-    ip_not_contains?: string | null;
-    ip_not_ends_with?: string | null;
-    ip_not_in?: string[] | null;
-    ip_not_starts_with?: string | null;
-    ip_starts_with?: string | null;
-    is_valid?: boolean | null;
-    is_valid_not?: boolean | null;
-    local_id?: string | null;
-    local_id_contains?: string | null;
-    local_id_ends_with?: string | null;
-    local_id_gt?: string | null;
-    local_id_gte?: string | null;
-    local_id_in?: string[] | null;
-    local_id_lt?: string | null;
-    local_id_lte?: string | null;
-    local_id_not?: string | null;
-    local_id_not_contains?: string | null;
-    local_id_not_ends_with?: string | null;
-    local_id_not_in?: string[] | null;
-    local_id_not_starts_with?: string | null;
-    local_id_starts_with?: string | null;
-    NOT?: VsphereEsxiAccountWhereInput[] | null;
-    OR?: VsphereEsxiAccountWhereInput[] | null;
-    password?: string | null;
-    password_contains?: string | null;
-    password_ends_with?: string | null;
-    password_gt?: string | null;
-    password_gte?: string | null;
-    password_in?: string[] | null;
-    password_lt?: string | null;
-    password_lte?: string | null;
-    password_not?: string | null;
-    password_not_contains?: string | null;
-    password_not_ends_with?: string | null;
-    password_not_in?: string[] | null;
-    password_not_starts_with?: string | null;
-    password_starts_with?: string | null;
-    port?: number | null;
-    port_gt?: number | null;
-    port_gte?: number | null;
-    port_in?: number[] | null;
-    port_lt?: number | null;
-    port_lte?: number | null;
-    port_not?: number | null;
-    port_not_in?: number[] | null;
-    username?: string | null;
-    username_contains?: string | null;
-    username_ends_with?: string | null;
-    username_gt?: string | null;
-    username_gte?: string | null;
-    username_in?: string[] | null;
-    username_lt?: string | null;
-    username_lte?: string | null;
-    username_not?: string | null;
-    username_not_contains?: string | null;
-    username_not_ends_with?: string | null;
-    username_not_in?: string[] | null;
-    username_not_starts_with?: string | null;
-    username_starts_with?: string | null;
-}
-export interface ZoneWhereInput {
-    AND?: ZoneWhereInput[] | null;
-    cluster?: ClusterWhereInput | null;
-    datacenter?: DatacenterWhereInput | null;
-    failure_data_space?: number | null;
-    failure_data_space_gt?: number | null;
-    failure_data_space_gte?: number | null;
-    failure_data_space_in?: number[] | null;
-    failure_data_space_lt?: number | null;
-    failure_data_space_lte?: number | null;
-    failure_data_space_not?: number | null;
-    failure_data_space_not_in?: number[] | null;
-    host_num?: number | null;
-    host_num_gt?: number | null;
-    host_num_gte?: number | null;
-    host_num_in?: number[] | null;
-    host_num_lt?: number | null;
-    host_num_lte?: number | null;
-    host_num_not?: number | null;
-    host_num_not_in?: number[] | null;
-    hosts_every?: HostWhereInput | null;
-    hosts_none?: HostWhereInput | null;
-    hosts_some?: HostWhereInput | null;
-    id?: string | null;
-    id_contains?: string | null;
-    id_ends_with?: string | null;
-    id_gt?: string | null;
-    id_gte?: string | null;
-    id_in?: string[] | null;
-    id_lt?: string | null;
-    id_lte?: string | null;
-    id_not?: string | null;
-    id_not_contains?: string | null;
-    id_not_ends_with?: string | null;
-    id_not_in?: string[] | null;
-    id_not_starts_with?: string | null;
-    id_starts_with?: string | null;
-    is_preferred?: boolean | null;
-    is_preferred_not?: boolean | null;
-    local_id?: string | null;
-    local_id_contains?: string | null;
-    local_id_ends_with?: string | null;
-    local_id_gt?: string | null;
-    local_id_gte?: string | null;
-    local_id_in?: string[] | null;
-    local_id_lt?: string | null;
-    local_id_lte?: string | null;
-    local_id_not?: string | null;
-    local_id_not_contains?: string | null;
-    local_id_not_ends_with?: string | null;
-    local_id_not_in?: string[] | null;
-    local_id_not_starts_with?: string | null;
-    local_id_starts_with?: string | null;
-    NOT?: ZoneWhereInput[] | null;
-    OR?: ZoneWhereInput[] | null;
-    provisioned_cpu_cores?: number | null;
-    provisioned_cpu_cores_for_active_vm?: number | null;
-    provisioned_cpu_cores_for_active_vm_gt?: number | null;
-    provisioned_cpu_cores_for_active_vm_gte?: number | null;
-    provisioned_cpu_cores_for_active_vm_in?: number[] | null;
-    provisioned_cpu_cores_for_active_vm_lt?: number | null;
-    provisioned_cpu_cores_for_active_vm_lte?: number | null;
-    provisioned_cpu_cores_for_active_vm_not?: number | null;
-    provisioned_cpu_cores_for_active_vm_not_in?: number[] | null;
-    provisioned_cpu_cores_gt?: number | null;
-    provisioned_cpu_cores_gte?: number | null;
-    provisioned_cpu_cores_in?: number[] | null;
-    provisioned_cpu_cores_lt?: number | null;
-    provisioned_cpu_cores_lte?: number | null;
-    provisioned_cpu_cores_not?: number | null;
-    provisioned_cpu_cores_not_in?: number[] | null;
-    provisioned_data_space?: number | null;
-    provisioned_data_space_gt?: number | null;
-    provisioned_data_space_gte?: number | null;
-    provisioned_data_space_in?: number[] | null;
-    provisioned_data_space_lt?: number | null;
-    provisioned_data_space_lte?: number | null;
-    provisioned_data_space_not?: number | null;
-    provisioned_data_space_not_in?: number[] | null;
-    provisioned_memory_bytes?: number | null;
-    provisioned_memory_bytes_gt?: number | null;
-    provisioned_memory_bytes_gte?: number | null;
-    provisioned_memory_bytes_in?: number[] | null;
-    provisioned_memory_bytes_lt?: number | null;
-    provisioned_memory_bytes_lte?: number | null;
-    provisioned_memory_bytes_not?: number | null;
-    provisioned_memory_bytes_not_in?: number[] | null;
-    running_vm_num?: number | null;
-    running_vm_num_gt?: number | null;
-    running_vm_num_gte?: number | null;
-    running_vm_num_in?: number[] | null;
-    running_vm_num_lt?: number | null;
-    running_vm_num_lte?: number | null;
-    running_vm_num_not?: number | null;
-    running_vm_num_not_in?: number[] | null;
-    stopped_vm_num?: number | null;
-    stopped_vm_num_gt?: number | null;
-    stopped_vm_num_gte?: number | null;
-    stopped_vm_num_in?: number[] | null;
-    stopped_vm_num_lt?: number | null;
-    stopped_vm_num_lte?: number | null;
-    stopped_vm_num_not?: number | null;
-    stopped_vm_num_not_in?: number[] | null;
-    suspended_vm_num?: number | null;
-    suspended_vm_num_gt?: number | null;
-    suspended_vm_num_gte?: number | null;
-    suspended_vm_num_in?: number[] | null;
-    suspended_vm_num_lt?: number | null;
-    suspended_vm_num_lte?: number | null;
-    suspended_vm_num_not?: number | null;
-    suspended_vm_num_not_in?: number[] | null;
-    total_cache_capacity?: number | null;
-    total_cache_capacity_gt?: number | null;
-    total_cache_capacity_gte?: number | null;
-    total_cache_capacity_in?: number[] | null;
-    total_cache_capacity_lt?: number | null;
-    total_cache_capacity_lte?: number | null;
-    total_cache_capacity_not?: number | null;
-    total_cache_capacity_not_in?: number[] | null;
-    total_cpu_cores?: number | null;
-    total_cpu_cores_gt?: number | null;
-    total_cpu_cores_gte?: number | null;
-    total_cpu_cores_in?: number[] | null;
-    total_cpu_cores_lt?: number | null;
-    total_cpu_cores_lte?: number | null;
-    total_cpu_cores_not?: number | null;
-    total_cpu_cores_not_in?: number[] | null;
-    total_cpu_hz?: number | null;
-    total_cpu_hz_gt?: number | null;
-    total_cpu_hz_gte?: number | null;
-    total_cpu_hz_in?: number[] | null;
-    total_cpu_hz_lt?: number | null;
-    total_cpu_hz_lte?: number | null;
-    total_cpu_hz_not?: number | null;
-    total_cpu_hz_not_in?: number[] | null;
-    total_data_capacity?: number | null;
-    total_data_capacity_gt?: number | null;
-    total_data_capacity_gte?: number | null;
-    total_data_capacity_in?: number[] | null;
-    total_data_capacity_lt?: number | null;
-    total_data_capacity_lte?: number | null;
-    total_data_capacity_not?: number | null;
-    total_data_capacity_not_in?: number[] | null;
-    total_memory_bytes?: number | null;
-    total_memory_bytes_gt?: number | null;
-    total_memory_bytes_gte?: number | null;
-    total_memory_bytes_in?: number[] | null;
-    total_memory_bytes_lt?: number | null;
-    total_memory_bytes_lte?: number | null;
-    total_memory_bytes_not?: number | null;
-    total_memory_bytes_not_in?: number[] | null;
-    used_data_space?: number | null;
-    used_data_space_gt?: number | null;
-    used_data_space_gte?: number | null;
-    used_data_space_in?: number[] | null;
-    used_data_space_lt?: number | null;
-    used_data_space_lte?: number | null;
-    used_data_space_not?: number | null;
-    used_data_space_not_in?: number[] | null;
-    valid_data_space?: number | null;
-    valid_data_space_gt?: number | null;
-    valid_data_space_gte?: number | null;
-    valid_data_space_in?: number[] | null;
-    valid_data_space_lt?: number | null;
-    valid_data_space_lte?: number | null;
-    valid_data_space_not?: number | null;
-    valid_data_space_not_in?: number[] | null;
-    vm_num?: number | null;
-    vm_num_gt?: number | null;
-    vm_num_gte?: number | null;
-    vm_num_in?: number[] | null;
-    vm_num_lt?: number | null;
-    vm_num_lte?: number | null;
-    vm_num_not?: number | null;
-    vm_num_not_in?: number[] | null;
-}
-export declare type DiskUsage = "BOOT" | "CACHE" | "CACHE_AND_META" | "DATA" | "DATA_AND_META";
-export declare type DiskType = "HDD" | "PMem" | "SSD";
-export declare type DiskUsageStatus = "ISOLATED" | "MOUNTED" | "MOUNTING" | "PARTIAL_MOUNTED" | "UNMOUNTED" | "UNMOUNTING";
 export interface NamespaceGroupWhereInput {
     AND?: NamespaceGroupWhereInput[] | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
@@ -6883,6 +7124,57 @@ export interface NvmfNamespaceSnapshotWhereInput {
     unique_size_not?: number | null;
     unique_size_not_in?: number[] | null;
 }
+export interface SecurityPolicyWhereInput {
+    AND?: SecurityPolicyWhereInput[] | null;
+    description?: string | null;
+    description_contains?: string | null;
+    description_ends_with?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_not?: string | null;
+    description_not_contains?: string | null;
+    description_not_ends_with?: string | null;
+    description_not_in?: string[] | null;
+    description_not_starts_with?: string | null;
+    description_starts_with?: string | null;
+    everoute_cluster?: EverouteClusterWhereInput | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    labels_every?: LabelWhereInput | null;
+    labels_none?: LabelWhereInput | null;
+    labels_some?: LabelWhereInput | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: SecurityPolicyWhereInput[] | null;
+    OR?: SecurityPolicyWhereInput[] | null;
+}
 export declare type ClusterConnectorErrorCode = "LOAD_CLUSTER_FAILED" | "LOAD_CLUSTER_NETWORK_ERROR" | "LOAD_CLUSTER_NOT_FOUND" | "LOAD_CLUSTER_UNAUTHORIZED" | "LOAD_CLUSTER_UNHEALTHY";
 export declare type Hypervisor = "BLUESHARK" | "ELF" | "VMWARE" | "XENSERVER";
 export declare type LicenseType = "PERPETUAL" | "SUBSCRIPTION" | "TRIAL";
@@ -7225,7 +7517,7 @@ export interface GlobalAlertRuleWhereInput {
     unit_not?: AlertRuleUnit | null;
     unit_not_in?: AlertRuleUnit[] | null;
 }
-export declare type AlertRuleObject = "BRICK" | "CLUSTER" | "DISK" | "HYPERVISOR" | "NETWORK" | "NTP_SERVER" | "PHYSICAL_HOST" | "SCVM" | "SNAPSHOT_PLAN" | "STORAGE_CHUNK" | "STORAGE_POOL" | "SYSTEM_SERVICE" | "TIME_MACHINE_PLAN" | "VM" | "WITNESS" | "ZBS_ZONE";
+export declare type AlertRuleObject = "BRICK" | "CLUSTER" | "DISK" | "HYPERVISOR" | "NETWORK" | "NTP_SERVER" | "PHYSICAL_HOST" | "SCVM" | "SNAPSHOT_PLAN" | "STORAGE_CHUNK" | "STORAGE_POOL" | "SYSTEM_SERVICE" | "TIME_MACHINE_PLAN" | "VM" | "WITNESS" | "WITNESS_NETWORK" | "ZBS_ZONE";
 export declare type AlertRuleUnit = "BIT" | "BYTE" | "BYTE_PER_SECOND" | "CELSIUS" | "HERTZ" | "NANOSECOND" | "PERCENT" | "SECOND" | "UNIT_UNSPECIFIED";
 export interface GetAlertRulesRequestBody {
     after?: string | null;
@@ -8042,6 +8334,10 @@ export interface Cluster {
     disconnected_reason?: ClusterConnectorErrorCode | null;
     dns: string[];
     entityAsyncStatus?: EntityAsyncStatus | null;
+    everoute_cluster?: {
+        name: string;
+        id: string;
+    };
     failure_data_space?: number | null;
     has_metrox?: boolean | null;
     has_remote_backup?: boolean | null;
@@ -8186,6 +8482,7 @@ export interface Cluster {
     total_cpu_cores?: number | null;
     total_cpu_hz?: number | null;
     total_cpu_models: string[];
+    total_cpu_sockets?: number | null;
     total_data_capacity?: number | null;
     total_memory_bytes?: number | null;
     type: ClusterType;
@@ -8223,7 +8520,7 @@ export interface Cluster {
         id: string;
     }[] | null;
 }
-export declare type ClusterOrderByInput = "architecture_ASC" | "architecture_DESC" | "auto_converge_ASC" | "auto_converge_DESC" | "connect_state_ASC" | "connect_state_DESC" | "createdAt_ASC" | "createdAt_DESC" | "current_cpu_model_ASC" | "current_cpu_model_DESC" | "disconnected_date_ASC" | "disconnected_date_DESC" | "disconnected_reason_ASC" | "disconnected_reason_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "failure_data_space_ASC" | "failure_data_space_DESC" | "has_metrox_ASC" | "has_metrox_DESC" | "has_remote_backup_ASC" | "has_remote_backup_DESC" | "host_num_ASC" | "host_num_DESC" | "hypervisor_ASC" | "hypervisor_DESC" | "id_ASC" | "id_DESC" | "ip_ASC" | "ip_DESC" | "is_all_flash_ASC" | "is_all_flash_DESC" | "iscsi_vip_ASC" | "iscsi_vip_DESC" | "license_expire_date_ASC" | "license_expire_date_DESC" | "license_serial_ASC" | "license_serial_DESC" | "license_sign_date_ASC" | "license_sign_date_DESC" | "license_type_ASC" | "license_type_DESC" | "local_id_ASC" | "local_id_DESC" | "maintenance_end_date_ASC" | "maintenance_end_date_DESC" | "maintenance_start_date_ASC" | "maintenance_start_date_DESC" | "management_vip_ASC" | "management_vip_DESC" | "max_chunk_num_ASC" | "max_chunk_num_DESC" | "max_physical_data_capacity_ASC" | "max_physical_data_capacity_DESC" | "max_physical_data_capacity_per_node_ASC" | "max_physical_data_capacity_per_node_DESC" | "metro_availability_checklist_ASC" | "metro_availability_checklist_DESC" | "mgt_gateway_ASC" | "mgt_gateway_DESC" | "mgt_netmask_ASC" | "mgt_netmask_DESC" | "migration_data_size_ASC" | "migration_data_size_DESC" | "migration_speed_ASC" | "migration_speed_DESC" | "name_ASC" | "name_DESC" | "ntp_mode_ASC" | "ntp_mode_DESC" | "nvmf_enabled_ASC" | "nvmf_enabled_DESC" | "password_ASC" | "password_DESC" | "pmem_enabled_ASC" | "pmem_enabled_DESC" | "provisioned_cpu_cores_ASC" | "provisioned_cpu_cores_DESC" | "provisioned_cpu_cores_for_active_vm_ASC" | "provisioned_cpu_cores_for_active_vm_DESC" | "provisioned_for_active_vm_ratio_ASC" | "provisioned_for_active_vm_ratio_DESC" | "provisioned_memory_bytes_ASC" | "provisioned_memory_bytes_DESC" | "provisioned_ratio_ASC" | "provisioned_ratio_DESC" | "rdma_enabled_ASC" | "rdma_enabled_DESC" | "recover_data_size_ASC" | "recover_data_size_DESC" | "recover_speed_ASC" | "recover_speed_DESC" | "reserved_cpu_cores_for_system_service_ASC" | "reserved_cpu_cores_for_system_service_DESC" | "running_vm_num_ASC" | "running_vm_num_DESC" | "software_edition_ASC" | "software_edition_DESC" | "stopped_vm_num_ASC" | "stopped_vm_num_DESC" | "stretch_ASC" | "stretch_DESC" | "suspended_vm_num_ASC" | "suspended_vm_num_DESC" | "total_cache_capacity_ASC" | "total_cache_capacity_DESC" | "total_cpu_cores_ASC" | "total_cpu_cores_DESC" | "total_cpu_hz_ASC" | "total_cpu_hz_DESC" | "total_data_capacity_ASC" | "total_data_capacity_DESC" | "total_memory_bytes_ASC" | "total_memory_bytes_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "used_cpu_hz_ASC" | "used_cpu_hz_DESC" | "used_data_space_ASC" | "used_data_space_DESC" | "used_memory_bytes_ASC" | "used_memory_bytes_DESC" | "username_ASC" | "username_DESC" | "valid_data_space_ASC" | "valid_data_space_DESC" | "version_ASC" | "version_DESC" | "vhost_enabled_ASC" | "vhost_enabled_DESC" | "vm_num_ASC" | "vm_num_DESC";
+export declare type ClusterOrderByInput = "architecture_ASC" | "architecture_DESC" | "auto_converge_ASC" | "auto_converge_DESC" | "connect_state_ASC" | "connect_state_DESC" | "createdAt_ASC" | "createdAt_DESC" | "current_cpu_model_ASC" | "current_cpu_model_DESC" | "disconnected_date_ASC" | "disconnected_date_DESC" | "disconnected_reason_ASC" | "disconnected_reason_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "failure_data_space_ASC" | "failure_data_space_DESC" | "has_metrox_ASC" | "has_metrox_DESC" | "has_remote_backup_ASC" | "has_remote_backup_DESC" | "host_num_ASC" | "host_num_DESC" | "hypervisor_ASC" | "hypervisor_DESC" | "id_ASC" | "id_DESC" | "ip_ASC" | "ip_DESC" | "is_all_flash_ASC" | "is_all_flash_DESC" | "iscsi_vip_ASC" | "iscsi_vip_DESC" | "license_expire_date_ASC" | "license_expire_date_DESC" | "license_serial_ASC" | "license_serial_DESC" | "license_sign_date_ASC" | "license_sign_date_DESC" | "license_type_ASC" | "license_type_DESC" | "local_id_ASC" | "local_id_DESC" | "maintenance_end_date_ASC" | "maintenance_end_date_DESC" | "maintenance_start_date_ASC" | "maintenance_start_date_DESC" | "management_vip_ASC" | "management_vip_DESC" | "max_chunk_num_ASC" | "max_chunk_num_DESC" | "max_physical_data_capacity_ASC" | "max_physical_data_capacity_DESC" | "max_physical_data_capacity_per_node_ASC" | "max_physical_data_capacity_per_node_DESC" | "metro_availability_checklist_ASC" | "metro_availability_checklist_DESC" | "mgt_gateway_ASC" | "mgt_gateway_DESC" | "mgt_netmask_ASC" | "mgt_netmask_DESC" | "migration_data_size_ASC" | "migration_data_size_DESC" | "migration_speed_ASC" | "migration_speed_DESC" | "name_ASC" | "name_DESC" | "ntp_mode_ASC" | "ntp_mode_DESC" | "nvmf_enabled_ASC" | "nvmf_enabled_DESC" | "password_ASC" | "password_DESC" | "pmem_enabled_ASC" | "pmem_enabled_DESC" | "provisioned_cpu_cores_ASC" | "provisioned_cpu_cores_DESC" | "provisioned_cpu_cores_for_active_vm_ASC" | "provisioned_cpu_cores_for_active_vm_DESC" | "provisioned_for_active_vm_ratio_ASC" | "provisioned_for_active_vm_ratio_DESC" | "provisioned_memory_bytes_ASC" | "provisioned_memory_bytes_DESC" | "provisioned_ratio_ASC" | "provisioned_ratio_DESC" | "rdma_enabled_ASC" | "rdma_enabled_DESC" | "recover_data_size_ASC" | "recover_data_size_DESC" | "recover_speed_ASC" | "recover_speed_DESC" | "reserved_cpu_cores_for_system_service_ASC" | "reserved_cpu_cores_for_system_service_DESC" | "running_vm_num_ASC" | "running_vm_num_DESC" | "software_edition_ASC" | "software_edition_DESC" | "stopped_vm_num_ASC" | "stopped_vm_num_DESC" | "stretch_ASC" | "stretch_DESC" | "suspended_vm_num_ASC" | "suspended_vm_num_DESC" | "total_cache_capacity_ASC" | "total_cache_capacity_DESC" | "total_cpu_cores_ASC" | "total_cpu_cores_DESC" | "total_cpu_hz_ASC" | "total_cpu_hz_DESC" | "total_cpu_sockets_ASC" | "total_cpu_sockets_DESC" | "total_data_capacity_ASC" | "total_data_capacity_DESC" | "total_memory_bytes_ASC" | "total_memory_bytes_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "used_cpu_hz_ASC" | "used_cpu_hz_DESC" | "used_data_space_ASC" | "used_data_space_DESC" | "used_memory_bytes_ASC" | "used_memory_bytes_DESC" | "username_ASC" | "username_DESC" | "valid_data_space_ASC" | "valid_data_space_DESC" | "version_ASC" | "version_DESC" | "vhost_enabled_ASC" | "vhost_enabled_DESC" | "vm_num_ASC" | "vm_num_DESC";
 export interface GetClustersRequestBody {
     after?: string | null;
     before?: string | null;
@@ -8547,6 +8844,62 @@ export interface GetConsistencyGroupSnapshotsConnectionRequestBody {
     skip?: number | null;
     where?: ConsistencyGroupSnapshotWhereInput | null;
 }
+export interface ContentLibraryImage {
+    clusters?: {
+        name: string;
+        id: string;
+    }[] | null;
+    createdAt: string;
+    description: string;
+    elf_image_uuids: string[];
+    elf_images?: {
+        name: string;
+        id: string;
+    }[] | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    id: string;
+    labels?: {
+        id: string;
+    }[] | null;
+    name: string;
+    path: string;
+    size: number;
+    vm_disks?: {
+        id: string;
+    }[] | null;
+    vm_snapshots?: {
+        name: string;
+        id: string;
+    }[] | null;
+    vm_templates?: {
+        name: string;
+        id: string;
+    }[] | null;
+}
+export declare type ContentLibraryImageOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "path_ASC" | "path_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
+export interface GetContentLibraryImagesRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: ContentLibraryImageOrderByInput | null;
+    skip?: number | null;
+    where?: ContentLibraryImageWhereInput | null;
+}
+export interface ContentLibraryImageConnection {
+    aggregate: {
+        count: number;
+    };
+}
+export interface GetContentLibraryImagesConnectionRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: ContentLibraryImageOrderByInput | null;
+    skip?: number | null;
+    where?: ContentLibraryImageWhereInput | null;
+}
 export interface Datacenter {
     cluster_num?: number | null;
     clusters?: {
@@ -8801,6 +9154,15 @@ export interface GetDiscoverHostsRequestBody {
 export declare type PartitionUsage = "BOOT" | "CACHE" | "JOURNAL" | "METAD" | "PARTITION" | "SWAP" | "SYSTEM" | "UNMOUNTED" | "UNPARTED" | "ZOOKEEPER";
 export interface Disk {
     entityAsyncStatus?: EntityAsyncStatus | null;
+    failure_information?: {
+        smart_check?: boolean | null;
+        iostat_latency_ms?: number | null;
+        iostat_latency?: boolean | null;
+        chunk_warnflag?: boolean | null;
+        chunk_io_error?: boolean | null;
+        chunk_errflag?: boolean | null;
+        chunk_checksum_error?: boolean | null;
+    };
     firmware: string;
     function?: DiskFunction | null;
     health_status?: DiskHealthStatus | null;
@@ -8841,7 +9203,7 @@ export interface Disk {
     usage: DiskUsage;
     usage_status?: DiskUsageStatus | null;
 }
-export declare type DiskOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "firmware_ASC" | "firmware_DESC" | "function_ASC" | "function_DESC" | "health_status_ASC" | "health_status_DESC" | "healthy_ASC" | "healthy_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "model_ASC" | "model_DESC" | "mounted_ASC" | "mounted_DESC" | "name_ASC" | "name_DESC" | "numa_node_ASC" | "numa_node_DESC" | "offline_ASC" | "offline_DESC" | "partitions_ASC" | "partitions_DESC" | "path_ASC" | "path_DESC" | "persistent_memory_type_ASC" | "persistent_memory_type_DESC" | "physical_slot_on_brick_ASC" | "physical_slot_on_brick_DESC" | "recommended_usage_ASC" | "recommended_usage_DESC" | "remaining_life_percent_ASC" | "remaining_life_percent_DESC" | "serial_ASC" | "serial_DESC" | "size_ASC" | "size_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "usage_ASC" | "usage_DESC" | "usage_status_ASC" | "usage_status_DESC";
+export declare type DiskOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "failure_information_ASC" | "failure_information_DESC" | "firmware_ASC" | "firmware_DESC" | "function_ASC" | "function_DESC" | "health_status_ASC" | "health_status_DESC" | "healthy_ASC" | "healthy_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "model_ASC" | "model_DESC" | "mounted_ASC" | "mounted_DESC" | "name_ASC" | "name_DESC" | "numa_node_ASC" | "numa_node_DESC" | "offline_ASC" | "offline_DESC" | "partitions_ASC" | "partitions_DESC" | "path_ASC" | "path_DESC" | "persistent_memory_type_ASC" | "persistent_memory_type_DESC" | "physical_slot_on_brick_ASC" | "physical_slot_on_brick_DESC" | "recommended_usage_ASC" | "recommended_usage_DESC" | "remaining_life_percent_ASC" | "remaining_life_percent_DESC" | "serial_ASC" | "serial_DESC" | "size_ASC" | "size_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "usage_ASC" | "usage_DESC" | "usage_status_ASC" | "usage_status_DESC";
 export interface GetDisksRequestBody {
     after?: string | null;
     before?: string | null;
@@ -9017,6 +9379,10 @@ export interface GetElfDataStoresConnectionRequestBody {
 }
 export interface ElfImage {
     cluster?: {
+        name: string;
+        id: string;
+    };
+    content_library_image?: {
         name: string;
         id: string;
     };
@@ -9256,6 +9622,346 @@ export interface GetEntityFiltersConnectionRequestBody {
     skip?: number | null;
     where?: EntityFilterWhereInput | null;
 }
+export interface EverouteCluster {
+    agent_elf_clusters?: {
+        name: string;
+        id: string;
+    }[] | null;
+    agent_elf_vdses?: {
+        name: string;
+        id: string;
+    }[] | null;
+    controller_instances: {
+        vlan: string;
+        ipAddr: string;
+    }[];
+    controller_template: {
+        vcpu: number;
+        size: number;
+        netmask: string;
+        memory: number;
+        gateway: string;
+        cluster: string;
+    };
+    global_default_action: GlobalPolicyAction;
+    id: string;
+    name: string;
+    phase?: EverouteClusterPhase | null;
+    status: {
+        version: string;
+        retryCount: number;
+        reason: string;
+        phase?: EverouteClusterPhase | null;
+        message: string;
+        controllers?: {
+            numberHealth: number;
+            manageVDSes?: {
+                vdsID: string;
+                vds: {
+                    name: string;
+                    id: string;
+                };
+                retryCount: number;
+                reason: string;
+                phase?: EverouteClusterPhase | null;
+                message: string;
+            }[];
+            instances?: {
+                vmID: string;
+                vm: {
+                    name: string;
+                    id: string;
+                };
+                reason: string;
+                phase?: EverouteClusterPhase | null;
+                metrics?: {
+                    memoryUsage: number;
+                    lastAcquisitionTime: string;
+                    dataVolumeUsage: number;
+                    cpuUsage: number;
+                };
+                message: string;
+                isHealth: boolean;
+                ipAddr: string;
+            }[];
+            expectNumber: number;
+            elfClusterNumber: number;
+            currentNumber: number;
+        };
+        conditions?: {
+            type: string;
+            lastProbeTime: string;
+        }[] | null;
+        agents?: {
+            numberHealth: number;
+            instances?: {
+                reason: string;
+                phase?: EverouteClusterPhase | null;
+                message: string;
+                isHealth: boolean;
+                ipAddr: string;
+                hostID: string;
+                host: {
+                    name: string;
+                    id: string;
+                };
+            }[];
+            expectNumber: number;
+            elfClusterNumber: number;
+            currentNumber: number;
+        };
+    };
+    version: string;
+}
+export declare type EverouteClusterOrderByInput = "controller_instances_ASC" | "controller_instances_DESC" | "controller_template_ASC" | "controller_template_DESC" | "createdAt_ASC" | "createdAt_DESC" | "global_default_action_ASC" | "global_default_action_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "phase_ASC" | "phase_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_ASC" | "version_DESC";
+export interface GetEverouteClustersRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: EverouteClusterOrderByInput | null;
+    skip?: number | null;
+    where?: EverouteClusterWhereInput | null;
+}
+export interface EverouteClusterConnection {
+    aggregate: {
+        count: number;
+    };
+}
+export interface GetEverouteClustersConnectionRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: EverouteClusterOrderByInput | null;
+    skip?: number | null;
+    where?: EverouteClusterWhereInput | null;
+}
+export interface EverouteLicense {
+    cloud_tower: {
+        id: string;
+    };
+    expire_date: string;
+    id: string;
+    license_serial: string;
+    max_socket_num: number;
+    sign_date: string;
+    software_edition: SoftwareEdition;
+    type: LicenseType;
+}
+export declare type EverouteLicenseOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "expire_date_ASC" | "expire_date_DESC" | "id_ASC" | "id_DESC" | "license_serial_ASC" | "license_serial_DESC" | "max_socket_num_ASC" | "max_socket_num_DESC" | "sign_date_ASC" | "sign_date_DESC" | "software_edition_ASC" | "software_edition_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
+export interface EverouteLicenseWhereInput {
+    AND?: EverouteLicenseWhereInput[] | null;
+    cloud_tower?: DeployWhereInput | null;
+    expire_date?: string | null;
+    expire_date_gt?: string | null;
+    expire_date_gte?: string | null;
+    expire_date_in?: string[] | null;
+    expire_date_lt?: string | null;
+    expire_date_lte?: string | null;
+    expire_date_not?: string | null;
+    expire_date_not_in?: string[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    license_serial?: string | null;
+    license_serial_contains?: string | null;
+    license_serial_ends_with?: string | null;
+    license_serial_gt?: string | null;
+    license_serial_gte?: string | null;
+    license_serial_in?: string[] | null;
+    license_serial_lt?: string | null;
+    license_serial_lte?: string | null;
+    license_serial_not?: string | null;
+    license_serial_not_contains?: string | null;
+    license_serial_not_ends_with?: string | null;
+    license_serial_not_in?: string[] | null;
+    license_serial_not_starts_with?: string | null;
+    license_serial_starts_with?: string | null;
+    max_socket_num?: number | null;
+    max_socket_num_gt?: number | null;
+    max_socket_num_gte?: number | null;
+    max_socket_num_in?: number[] | null;
+    max_socket_num_lt?: number | null;
+    max_socket_num_lte?: number | null;
+    max_socket_num_not?: number | null;
+    max_socket_num_not_in?: number[] | null;
+    NOT?: EverouteLicenseWhereInput[] | null;
+    OR?: EverouteLicenseWhereInput[] | null;
+    sign_date?: string | null;
+    sign_date_gt?: string | null;
+    sign_date_gte?: string | null;
+    sign_date_in?: string[] | null;
+    sign_date_lt?: string | null;
+    sign_date_lte?: string | null;
+    sign_date_not?: string | null;
+    sign_date_not_in?: string[] | null;
+    software_edition?: SoftwareEdition | null;
+    software_edition_in?: SoftwareEdition[] | null;
+    software_edition_not?: SoftwareEdition | null;
+    software_edition_not_in?: SoftwareEdition[] | null;
+    type?: LicenseType | null;
+    type_in?: LicenseType[] | null;
+    type_not?: LicenseType | null;
+    type_not_in?: LicenseType[] | null;
+}
+export interface GetEverouteLicensesRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: EverouteLicenseOrderByInput | null;
+    skip?: number | null;
+    where?: EverouteLicenseWhereInput | null;
+}
+export interface EverouteLicenseConnection {
+    aggregate: {
+        count: number;
+    };
+}
+export interface GetEverouteLicensesConnectionRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: EverouteLicenseOrderByInput | null;
+    skip?: number | null;
+    where?: EverouteLicenseWhereInput | null;
+}
+export interface EveroutePackage {
+    arch: Architecture;
+    description: string;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    id: string;
+    local_created_at: string;
+    name: string;
+    package_info: object;
+    size: number;
+    upload_task?: {
+        id: string;
+    };
+    version: string;
+}
+export declare type EveroutePackageOrderByInput = "arch_ASC" | "arch_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "name_ASC" | "name_DESC" | "package_info_ASC" | "package_info_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_ASC" | "version_DESC";
+export interface EveroutePackageWhereInput {
+    AND?: EveroutePackageWhereInput[] | null;
+    arch?: Architecture | null;
+    arch_in?: Architecture[] | null;
+    arch_not?: Architecture | null;
+    arch_not_in?: Architecture[] | null;
+    description?: string | null;
+    description_contains?: string | null;
+    description_ends_with?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_not?: string | null;
+    description_not_contains?: string | null;
+    description_not_ends_with?: string | null;
+    description_not_in?: string[] | null;
+    description_not_starts_with?: string | null;
+    description_starts_with?: string | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+    entityAsyncStatus_not?: EntityAsyncStatus | null;
+    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    local_created_at?: string | null;
+    local_created_at_gt?: string | null;
+    local_created_at_gte?: string | null;
+    local_created_at_in?: string[] | null;
+    local_created_at_lt?: string | null;
+    local_created_at_lte?: string | null;
+    local_created_at_not?: string | null;
+    local_created_at_not_in?: string[] | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: EveroutePackageWhereInput[] | null;
+    OR?: EveroutePackageWhereInput[] | null;
+    size?: number | null;
+    size_gt?: number | null;
+    size_gte?: number | null;
+    size_in?: number[] | null;
+    size_lt?: number | null;
+    size_lte?: number | null;
+    size_not?: number | null;
+    size_not_in?: number[] | null;
+    version?: string | null;
+    version_contains?: string | null;
+    version_ends_with?: string | null;
+    version_gt?: string | null;
+    version_gte?: string | null;
+    version_in?: string[] | null;
+    version_lt?: string | null;
+    version_lte?: string | null;
+    version_not?: string | null;
+    version_not_contains?: string | null;
+    version_not_ends_with?: string | null;
+    version_not_in?: string[] | null;
+    version_not_starts_with?: string | null;
+    version_starts_with?: string | null;
+}
+export interface GetEveroutePackagesRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: EveroutePackageOrderByInput | null;
+    skip?: number | null;
+    where?: EveroutePackageWhereInput | null;
+}
+export interface EveroutePackageConnection {
+    aggregate: {
+        count: number;
+    };
+}
+export interface GetEveroutePackagesConnectionRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: EveroutePackageOrderByInput | null;
+    skip?: number | null;
+    where?: EveroutePackageWhereInput | null;
+}
 export interface GlobalAlertRule {
     alert_rules?: {
         id: string;
@@ -9373,6 +10079,7 @@ export interface Graph {
         id: string;
     }[] | null;
     id: string;
+    instance_ids: string[];
     local_id: string;
     luns?: {
         name: string;
@@ -10093,6 +10800,71 @@ export interface GetIscsiTargetsConnectionRequestBody {
     skip?: number | null;
     where?: IscsiTargetWhereInput | null;
 }
+export declare type NetworkPolicyRulePortProtocol = "ICMP" | "TCP" | "UDP";
+export declare type NetworkPolicyRuleType = "ALL" | "IP_BLOCK" | "SELECTOR";
+export interface IsolationPolicy {
+    egress?: {
+        type: NetworkPolicyRuleType;
+        selector_ids?: string[] | null;
+        selector?: {
+            id: string;
+        }[] | null;
+        ports?: {
+            protocol: NetworkPolicyRulePortProtocol;
+            port?: string | null;
+        }[];
+        ip_block?: string | null;
+    }[];
+    everoute_cluster: {
+        name: string;
+        id: string;
+    };
+    id: string;
+    ingress?: {
+        type: NetworkPolicyRuleType;
+        selector_ids?: string[] | null;
+        selector?: {
+            id: string;
+        }[] | null;
+        ports?: {
+            protocol: NetworkPolicyRulePortProtocol;
+            port?: string | null;
+        }[];
+        ip_block?: string | null;
+    }[];
+    labels?: {
+        id: string;
+    }[] | null;
+    mode: IsolationMode;
+    vm: {
+        name: string;
+        id: string;
+    };
+}
+export declare type IsolationPolicyOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "egress_ASC" | "egress_DESC" | "id_ASC" | "id_DESC" | "ingress_ASC" | "ingress_DESC" | "mode_ASC" | "mode_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
+export interface GetIsolationPoliciesRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: IsolationPolicyOrderByInput | null;
+    skip?: number | null;
+    where?: IsolationPolicyWhereInput | null;
+}
+export interface IsolationPolicyConnection {
+    aggregate: {
+        count: number;
+    };
+}
+export interface GetIsolationPoliciesConnectionRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: IsolationPolicyOrderByInput | null;
+    skip?: number | null;
+    where?: IsolationPolicyWhereInput | null;
+}
 export interface Label {
     cluster_num?: number | null;
     clusters?: {
@@ -10106,6 +10878,11 @@ export interface Label {
         id: string;
     }[] | null;
     consistency_groups?: {
+        name: string;
+        id: string;
+    }[] | null;
+    content_library_image_num?: number | null;
+    content_library_images?: {
         name: string;
         id: string;
     }[] | null;
@@ -10146,6 +10923,10 @@ export interface Label {
         name: string;
         id: string;
     }[] | null;
+    isolation_policies?: {
+        id: string;
+    }[] | null;
+    isolation_policy_num?: number | null;
     key: string;
     namespace_group_num?: number | null;
     namespace_groups?: {
@@ -10182,6 +10963,11 @@ export interface Label {
         name: string;
         id: string;
     }[] | null;
+    security_policies?: {
+        name: string;
+        id: string;
+    }[] | null;
+    security_policy_num?: number | null;
     system_vlan_num?: number | null;
     total_num?: number | null;
     value?: string | null;
@@ -10216,7 +11002,7 @@ export interface Label {
         id: string;
     }[] | null;
 }
-export declare type LabelOrderByInput = "cluster_num_ASC" | "cluster_num_DESC" | "consistency_group_num_ASC" | "consistency_group_num_DESC" | "consistency_group_snapshot_num_ASC" | "consistency_group_snapshot_num_DESC" | "createdAt_ASC" | "createdAt_DESC" | "datacenter_num_ASC" | "datacenter_num_DESC" | "disk_num_ASC" | "disk_num_DESC" | "elf_image_num_ASC" | "elf_image_num_DESC" | "host_num_ASC" | "host_num_DESC" | "id_ASC" | "id_DESC" | "iscsi_lun_num_ASC" | "iscsi_lun_num_DESC" | "iscsi_lun_snapshot_num_ASC" | "iscsi_lun_snapshot_num_DESC" | "iscsi_target_num_ASC" | "iscsi_target_num_DESC" | "key_ASC" | "key_DESC" | "namespace_group_num_ASC" | "namespace_group_num_DESC" | "nfs_export_num_ASC" | "nfs_export_num_DESC" | "nfs_inode_num_ASC" | "nfs_inode_num_DESC" | "nic_num_ASC" | "nic_num_DESC" | "nvmf_namespace_num_ASC" | "nvmf_namespace_num_DESC" | "nvmf_namespace_snapshot_num_ASC" | "nvmf_namespace_snapshot_num_DESC" | "nvmf_subsystem_num_ASC" | "nvmf_subsystem_num_DESC" | "system_vlan_num_ASC" | "system_vlan_num_DESC" | "total_num_ASC" | "total_num_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC" | "vds_num_ASC" | "vds_num_DESC" | "vm_num_ASC" | "vm_num_DESC" | "vm_snapshot_num_ASC" | "vm_snapshot_num_DESC" | "vm_template_num_ASC" | "vm_template_num_DESC" | "vm_vlan_num_ASC" | "vm_vlan_num_DESC" | "vm_volume_num_ASC" | "vm_volume_num_DESC";
+export declare type LabelOrderByInput = "cluster_num_ASC" | "cluster_num_DESC" | "consistency_group_num_ASC" | "consistency_group_num_DESC" | "consistency_group_snapshot_num_ASC" | "consistency_group_snapshot_num_DESC" | "content_library_image_num_ASC" | "content_library_image_num_DESC" | "createdAt_ASC" | "createdAt_DESC" | "datacenter_num_ASC" | "datacenter_num_DESC" | "disk_num_ASC" | "disk_num_DESC" | "elf_image_num_ASC" | "elf_image_num_DESC" | "host_num_ASC" | "host_num_DESC" | "id_ASC" | "id_DESC" | "iscsi_lun_num_ASC" | "iscsi_lun_num_DESC" | "iscsi_lun_snapshot_num_ASC" | "iscsi_lun_snapshot_num_DESC" | "iscsi_target_num_ASC" | "iscsi_target_num_DESC" | "isolation_policy_num_ASC" | "isolation_policy_num_DESC" | "key_ASC" | "key_DESC" | "namespace_group_num_ASC" | "namespace_group_num_DESC" | "nfs_export_num_ASC" | "nfs_export_num_DESC" | "nfs_inode_num_ASC" | "nfs_inode_num_DESC" | "nic_num_ASC" | "nic_num_DESC" | "nvmf_namespace_num_ASC" | "nvmf_namespace_num_DESC" | "nvmf_namespace_snapshot_num_ASC" | "nvmf_namespace_snapshot_num_DESC" | "nvmf_subsystem_num_ASC" | "nvmf_subsystem_num_DESC" | "security_policy_num_ASC" | "security_policy_num_DESC" | "system_vlan_num_ASC" | "system_vlan_num_DESC" | "total_num_ASC" | "total_num_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC" | "vds_num_ASC" | "vds_num_DESC" | "vm_num_ASC" | "vm_num_DESC" | "vm_snapshot_num_ASC" | "vm_snapshot_num_DESC" | "vm_template_num_ASC" | "vm_template_num_DESC" | "vm_vlan_num_ASC" | "vm_vlan_num_DESC" | "vm_volume_num_ASC" | "vm_volume_num_DESC";
 export interface GetLabelsRequestBody {
     after?: string | null;
     before?: string | null;
@@ -11334,6 +12120,70 @@ export interface GetReportTemplatesConnectionRequestBody {
     skip?: number | null;
     where?: ReportTemplateWhereInput | null;
 }
+export interface SecurityPolicy {
+    apply_to: {
+        selector_ids: string[];
+        selector: {
+            id: string;
+        }[];
+        communicable: boolean;
+    }[];
+    description: string;
+    egress?: {
+        type: NetworkPolicyRuleType;
+        selector_ids?: string[] | null;
+        selector?: {
+            id: string;
+        }[] | null;
+        ports?: {
+            protocol: NetworkPolicyRulePortProtocol;
+            port?: string | null;
+        }[];
+        ip_block?: string | null;
+    }[];
+    everoute_cluster: {
+        name: string;
+        id: string;
+    };
+    id: string;
+    ingress?: {
+        type: NetworkPolicyRuleType;
+        selector_ids?: string[] | null;
+        selector?: {
+            id: string;
+        }[] | null;
+        ports?: {
+            protocol: NetworkPolicyRulePortProtocol;
+            port?: string | null;
+        }[];
+        ip_block?: string | null;
+    }[];
+    name: string;
+}
+export declare type SecurityPolicyOrderByInput = "apply_to_ASC" | "apply_to_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "egress_ASC" | "egress_DESC" | "id_ASC" | "id_DESC" | "ingress_ASC" | "ingress_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
+export interface GetSecurityPoliciesRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: SecurityPolicyOrderByInput | null;
+    skip?: number | null;
+    where?: SecurityPolicyWhereInput | null;
+}
+export interface SecurityPolicyConnection {
+    aggregate: {
+        count: number;
+    };
+}
+export interface GetSecurityPoliciesConnectionRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: SecurityPolicyOrderByInput | null;
+    skip?: number | null;
+    where?: SecurityPolicyWhereInput | null;
+}
 export declare type ProtectSnapshotStatus = "PROTECT_SNAPSHOT_STATUS_CREATED" | "PROTECT_SNAPSHOT_STATUS_CREATING" | "PROTECT_SNAPSHOT_STATUS_DELETED" | "PROTECT_SNAPSHOT_STATUS_FAILED";
 export interface SnapshotGroup {
     cluster: {
@@ -12325,6 +13175,8 @@ export interface UserWhereInput {
     id_not_in?: string[] | null;
     id_not_starts_with?: string | null;
     id_starts_with?: string | null;
+    internal?: boolean | null;
+    internal_not?: boolean | null;
     ldap_dn?: string | null;
     ldap_dn_contains?: string | null;
     ldap_dn_ends_with?: string | null;
@@ -12480,7 +13332,7 @@ export interface GetTasksConnectionRequestBody {
     skip?: number | null;
     where?: TaskWhereInput | null;
 }
-export declare type UploadResourceType = "CLUSTER_IMAGE" | "CLUSTER_IMAGE_META" | "ELF_IMAGE" | "MONITOR_IMAGE" | "SVT_IMAGE";
+export declare type UploadResourceType = "CLUSTER_IMAGE" | "CLUSTER_IMAGE_META" | "CONTENT_LIBRARY_IMAGE" | "ELF_IMAGE" | "EVEROUTE_PACKAGE" | "MONITOR_IMAGE" | "SVT_IMAGE";
 export declare type UploadTaskStatus = "FAILED" | "INITIALIZING" | "PAUSED" | "SUCCESSED" | "UPLOADING";
 export interface UploadTask {
     args: object;
@@ -12829,6 +13681,7 @@ export interface GetUserRoleNextsConnectionRequestBody {
 export interface User {
     email_address?: string | null;
     id: string;
+    internal: boolean;
     ldap_dn?: string | null;
     mobile_phone?: string | null;
     name: string;
@@ -12840,7 +13693,7 @@ export interface User {
     source: UserSource;
     username: string;
 }
-export declare type UserOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "email_address_ASC" | "email_address_DESC" | "id_ASC" | "id_DESC" | "ldap_dn_ASC" | "ldap_dn_DESC" | "mobile_phone_ASC" | "mobile_phone_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "role_ASC" | "role_DESC" | "source_ASC" | "source_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC";
+export declare type UserOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "email_address_ASC" | "email_address_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "ldap_dn_ASC" | "ldap_dn_DESC" | "mobile_phone_ASC" | "mobile_phone_DESC" | "name_ASC" | "name_DESC" | "password_ASC" | "password_DESC" | "role_ASC" | "role_DESC" | "source_ASC" | "source_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC";
 export interface GetUsersRequestBody {
     after?: string | null;
     before?: string | null;
@@ -12908,6 +13761,10 @@ export interface Vds {
         id: string;
     };
     entityAsyncStatus?: EntityAsyncStatus | null;
+    everoute_cluster?: {
+        name: string;
+        id: string;
+    };
     id: string;
     internal: boolean;
     labels?: {
@@ -13312,6 +14169,9 @@ export interface Vm {
     internal: boolean;
     io_policy?: VmDiskIoPolicy | null;
     ips: string;
+    isolation_policy?: {
+        id: string;
+    };
     kernel_info?: string | null;
     labels?: {
         id: string;
@@ -13363,9 +14223,10 @@ export interface Vm {
     }[] | null;
     vm_tools_status: VmToolsStatus;
     vm_tools_version?: string | null;
+    vm_usage?: VmUsage | null;
     win_opt: boolean;
 }
-export declare type VmOrderByInput = "clock_offset_ASC" | "clock_offset_DESC" | "cpu_ASC" | "cpu_DESC" | "cpu_model_ASC" | "cpu_model_DESC" | "cpu_usage_ASC" | "cpu_usage_DESC" | "createdAt_ASC" | "createdAt_DESC" | "deleted_at_ASC" | "deleted_at_DESC" | "description_ASC" | "description_DESC" | "dns_servers_ASC" | "dns_servers_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "firmware_ASC" | "firmware_DESC" | "guest_cpu_model_ASC" | "guest_cpu_model_DESC" | "guest_os_type_ASC" | "guest_os_type_DESC" | "guest_size_usage_ASC" | "guest_size_usage_DESC" | "guest_used_size_ASC" | "guest_used_size_DESC" | "ha_ASC" | "ha_DESC" | "hostname_ASC" | "hostname_DESC" | "id_ASC" | "id_DESC" | "in_recycle_bin_ASC" | "in_recycle_bin_DESC" | "internal_ASC" | "internal_DESC" | "io_policy_ASC" | "io_policy_DESC" | "ips_ASC" | "ips_DESC" | "kernel_info_ASC" | "kernel_info_DESC" | "last_shutdown_time_ASC" | "last_shutdown_time_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "logical_size_bytes_ASC" | "logical_size_bytes_DESC" | "max_bandwidth_ASC" | "max_bandwidth_DESC" | "max_bandwidth_policy_ASC" | "max_bandwidth_policy_DESC" | "max_iops_ASC" | "max_iops_DESC" | "max_iops_policy_ASC" | "max_iops_policy_DESC" | "memory_ASC" | "memory_DESC" | "memory_usage_ASC" | "memory_usage_DESC" | "name_ASC" | "name_DESC" | "nested_virtualization_ASC" | "nested_virtualization_DESC" | "node_ip_ASC" | "node_ip_DESC" | "original_name_ASC" | "original_name_DESC" | "os_ASC" | "os_DESC" | "protected_ASC" | "protected_DESC" | "provisioned_size_ASC" | "provisioned_size_DESC" | "size_ASC" | "size_DESC" | "status_ASC" | "status_DESC" | "unique_size_ASC" | "unique_size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vcpu_ASC" | "vcpu_DESC" | "video_type_ASC" | "video_type_DESC" | "vm_tools_status_ASC" | "vm_tools_status_DESC" | "vm_tools_version_ASC" | "vm_tools_version_DESC" | "win_opt_ASC" | "win_opt_DESC";
+export declare type VmOrderByInput = "clock_offset_ASC" | "clock_offset_DESC" | "cpu_ASC" | "cpu_DESC" | "cpu_model_ASC" | "cpu_model_DESC" | "cpu_usage_ASC" | "cpu_usage_DESC" | "createdAt_ASC" | "createdAt_DESC" | "deleted_at_ASC" | "deleted_at_DESC" | "description_ASC" | "description_DESC" | "dns_servers_ASC" | "dns_servers_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "firmware_ASC" | "firmware_DESC" | "guest_cpu_model_ASC" | "guest_cpu_model_DESC" | "guest_os_type_ASC" | "guest_os_type_DESC" | "guest_size_usage_ASC" | "guest_size_usage_DESC" | "guest_used_size_ASC" | "guest_used_size_DESC" | "ha_ASC" | "ha_DESC" | "hostname_ASC" | "hostname_DESC" | "id_ASC" | "id_DESC" | "in_recycle_bin_ASC" | "in_recycle_bin_DESC" | "internal_ASC" | "internal_DESC" | "io_policy_ASC" | "io_policy_DESC" | "ips_ASC" | "ips_DESC" | "kernel_info_ASC" | "kernel_info_DESC" | "last_shutdown_time_ASC" | "last_shutdown_time_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "logical_size_bytes_ASC" | "logical_size_bytes_DESC" | "max_bandwidth_ASC" | "max_bandwidth_DESC" | "max_bandwidth_policy_ASC" | "max_bandwidth_policy_DESC" | "max_iops_ASC" | "max_iops_DESC" | "max_iops_policy_ASC" | "max_iops_policy_DESC" | "memory_ASC" | "memory_DESC" | "memory_usage_ASC" | "memory_usage_DESC" | "name_ASC" | "name_DESC" | "nested_virtualization_ASC" | "nested_virtualization_DESC" | "node_ip_ASC" | "node_ip_DESC" | "original_name_ASC" | "original_name_DESC" | "os_ASC" | "os_DESC" | "protected_ASC" | "protected_DESC" | "provisioned_size_ASC" | "provisioned_size_DESC" | "size_ASC" | "size_DESC" | "status_ASC" | "status_DESC" | "unique_size_ASC" | "unique_size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vcpu_ASC" | "vcpu_DESC" | "video_type_ASC" | "video_type_DESC" | "vm_tools_status_ASC" | "vm_tools_status_DESC" | "vm_tools_version_ASC" | "vm_tools_version_DESC" | "vm_usage_ASC" | "vm_usage_DESC" | "win_opt_ASC" | "win_opt_DESC";
 export interface GetVmsRequestBody {
     after?: string | null;
     before?: string | null;
@@ -13713,6 +14574,20 @@ export interface GetWitnessesConnectionRequestBody {
     orderBy?: WitnessOrderByInput | null;
     skip?: number | null;
     where?: WitnessWhereInput | null;
+}
+export interface WitnessService {
+    id: string;
+    name: string;
+    role: string;
+    state: string;
+    state_duration: number;
+}
+export interface WitnessWhereUniqueInput {
+    id?: string | null;
+    local_id?: string | null;
+}
+export interface GetWitnessServicesRequestBody {
+    where: WitnessWhereUniqueInput;
 }
 export interface Zone {
     cluster: {
@@ -14080,6 +14955,7 @@ export interface WithTaskGraph {
     data: Graph;
 }
 export interface GraphCreationParams {
+    instance_ids?: string[];
     network?: NetworkType;
     service?: string;
     metric_type?: MetricType;
@@ -14094,6 +14970,7 @@ export interface GraphCreationParams {
 }
 export interface GraphUpdationParams {
     data?: {
+        instance_ids?: string[];
         luns?: IscsiLunWhereInput;
         vmNics?: VmNicWhereInput;
         nics?: NicWhereInput;
@@ -14541,7 +15418,7 @@ export interface NvmfNamespaceCommonParams {
 export declare type NvmfNamespaceCreationParams = {
     namespace_id?: number;
     group_id?: string;
-    is_shared: boolean;
+    is_shared?: boolean;
     assigned_size: number;
     replica_num: number;
     nvmf_subsystem_id: string;
@@ -15001,6 +15878,7 @@ export interface WithTaskUser {
 export interface UserCreationParams {
     mobile_phone?: string;
     email_address?: string;
+    internal?: boolean;
     role_id: string;
     name: string;
     password: string;
@@ -15008,6 +15886,7 @@ export interface UserCreationParams {
 }
 export interface UserUpdationParams {
     data: {
+        internal?: boolean;
         mobile_phone?: string;
         email_address?: string;
         role_id?: string;
@@ -15253,7 +16132,7 @@ export interface WithTaskVmTemplate {
     data: VmTemplate;
 }
 export interface VmTemplateCreationParams {
-    cluster_id: string;
+    cluster_id?: string;
     cloud_init_supported: boolean;
     vm_id: string;
     description?: string;
@@ -15425,7 +16304,7 @@ export interface VmCreateVmFromTemplateParams {
     description?: string;
     name: string;
     host_id?: string;
-    cluster_id: string;
+    cluster_id?: string;
 }
 export interface ConvertVmTemplateToVmParams {
     name: string;
@@ -15452,7 +16331,7 @@ export interface VmCloneParams {
     description?: string;
     name: string;
     host_id?: string;
-    cluster_id: string;
+    cluster_id?: string;
 }
 export interface VmRebuildParams {
     rebuild_from_snapshot_id: string;
@@ -15475,7 +16354,7 @@ export interface VmRebuildParams {
     description?: string;
     name: string;
     host_id?: string;
-    cluster_id: string;
+    cluster_id?: string;
 }
 export interface VmRollbackParams {
     data: {
@@ -15599,7 +16478,9 @@ export declare namespace GetAlertNotifiers {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetAlertNotifiersRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = AlertNotifier[];
     }
 }
@@ -15608,7 +16489,9 @@ export declare namespace GetAlertNotifiersConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetAlertNotifiersConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = AlertNotifierConnection;
     }
 }
@@ -15617,7 +16500,9 @@ export declare namespace GetAlertRules {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetAlertRulesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = AlertRule[];
     }
 }
@@ -15626,7 +16511,9 @@ export declare namespace GetAlertRulesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetAlertRulesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = AlertRuleConnection;
     }
 }
@@ -15635,7 +16522,9 @@ export declare namespace GetAlerts {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetAlertsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Alert[];
     }
 }
@@ -15644,7 +16533,9 @@ export declare namespace GetAlertsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetAlertsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = AlertConnection;
     }
 }
@@ -15653,7 +16544,9 @@ export declare namespace GetApplications {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetApplicationsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Application[];
     }
 }
@@ -15662,7 +16555,9 @@ export declare namespace GetApplicationsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetApplicationsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ApplicationConnection;
     }
 }
@@ -15671,7 +16566,9 @@ export declare namespace GetBrickTopoes {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetBrickTopoesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = BrickTopo[];
     }
 }
@@ -15680,7 +16577,9 @@ export declare namespace GetBrickTopoesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetBrickTopoesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = BrickTopoConnection;
     }
 }
@@ -15689,7 +16588,9 @@ export declare namespace GetClusterImages {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterImagesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterImage[];
     }
 }
@@ -15698,7 +16599,9 @@ export declare namespace GetClusterImagesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterImagesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterImageConnection;
     }
 }
@@ -15707,7 +16610,9 @@ export declare namespace GetClusters {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClustersRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Cluster[];
     }
 }
@@ -15716,7 +16621,9 @@ export declare namespace GetClustersConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClustersConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterConnection;
     }
 }
@@ -15725,7 +16632,9 @@ export declare namespace GetClusterSettingses {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterSettingsesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterSettings[];
     }
 }
@@ -15734,7 +16643,9 @@ export declare namespace GetClusterSettingsesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterSettingsesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterSettingsConnection;
     }
 }
@@ -15743,7 +16654,9 @@ export declare namespace GetClusterTopoes {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterTopoesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterTopo[];
     }
 }
@@ -15752,7 +16665,9 @@ export declare namespace GetClusterTopoesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterTopoesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterTopoConnection;
     }
 }
@@ -15761,7 +16676,9 @@ export declare namespace GetClusterUpgradeHistories {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterUpgradeHistoriesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterUpgradeHistory[];
     }
 }
@@ -15770,7 +16687,9 @@ export declare namespace GetClusterUpgradeHistoriesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetClusterUpgradeHistoriesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ClusterUpgradeHistoryConnection;
     }
 }
@@ -15779,7 +16698,9 @@ export declare namespace GetConsistencyGroups {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetConsistencyGroupsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ConsistencyGroup[];
     }
 }
@@ -15788,7 +16709,9 @@ export declare namespace GetConsistencyGroupsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetConsistencyGroupsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ConsistencyGroupConnection;
     }
 }
@@ -15797,7 +16720,9 @@ export declare namespace GetConsistencyGroupSnapshots {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetConsistencyGroupSnapshotsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ConsistencyGroupSnapshot[];
     }
 }
@@ -15806,8 +16731,32 @@ export declare namespace GetConsistencyGroupSnapshotsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetConsistencyGroupSnapshotsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ConsistencyGroupSnapshotConnection;
+    }
+}
+export declare namespace GetContentLibraryImages {
+    namespace GetContentLibraryImages {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetContentLibraryImagesRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = ContentLibraryImage[];
+    }
+}
+export declare namespace GetContentLibraryImagesConnection {
+    namespace GetContentLibraryImagesConnection {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetContentLibraryImagesConnectionRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = ContentLibraryImageConnection;
     }
 }
 export declare namespace GetDatacenters {
@@ -15815,7 +16764,9 @@ export declare namespace GetDatacenters {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetDatacentersRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Datacenter[];
     }
 }
@@ -15824,7 +16775,9 @@ export declare namespace GetDatacentersConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetDatacentersConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = DatacenterConnection;
     }
 }
@@ -15833,7 +16786,9 @@ export declare namespace GetDeploys {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetDeploysRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Deploy[];
     }
 }
@@ -15842,7 +16797,9 @@ export declare namespace GetDeploysConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetDeploysConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = DeployConnection;
     }
 }
@@ -15851,7 +16808,9 @@ export declare namespace GetDiscoverHosts {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetDiscoverHostsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = DiscoveredHost[];
     }
 }
@@ -15860,7 +16819,9 @@ export declare namespace GetDisks {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetDisksRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Disk[];
     }
 }
@@ -15869,7 +16830,9 @@ export declare namespace GetDisksConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetDisksConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = DiskConnection;
     }
 }
@@ -15878,7 +16841,9 @@ export declare namespace GetElfDataStores {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetElfDataStoresRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ElfDataStore[];
     }
 }
@@ -15887,7 +16852,9 @@ export declare namespace GetElfDataStoresConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetElfDataStoresConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ElfDataStoreConnection;
     }
 }
@@ -15896,7 +16863,9 @@ export declare namespace GetElfImages {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetElfImagesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ElfImage[];
     }
 }
@@ -15905,7 +16874,9 @@ export declare namespace GetElfImagesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetElfImagesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ElfImageConnection;
     }
 }
@@ -15914,7 +16885,9 @@ export declare namespace GetElfStoragePolicies {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetElfStoragePoliciesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ElfStoragePolicy[];
     }
 }
@@ -15923,7 +16896,9 @@ export declare namespace GetElfStoragePoliciesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetElfStoragePoliciesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ElfStoragePolicyConnection;
     }
 }
@@ -15932,7 +16907,9 @@ export declare namespace GetEntityFilters {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetEntityFiltersRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = EntityFilter[];
     }
 }
@@ -15941,8 +16918,76 @@ export declare namespace GetEntityFiltersConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetEntityFiltersConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = EntityFilterConnection;
+    }
+}
+export declare namespace GetEverouteClusters {
+    namespace GetEverouteClusters {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetEverouteClustersRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = EverouteCluster[];
+    }
+}
+export declare namespace GetEverouteClustersConnection {
+    namespace GetEverouteClustersConnection {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetEverouteClustersConnectionRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = EverouteClusterConnection;
+    }
+}
+export declare namespace GetEverouteLicenses {
+    namespace GetEverouteLicenses {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetEverouteLicensesRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = EverouteLicense[];
+    }
+}
+export declare namespace GetEverouteLicensesConnection {
+    namespace GetEverouteLicensesConnection {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetEverouteLicensesConnectionRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = EverouteLicenseConnection;
+    }
+}
+export declare namespace GetEveroutePackages {
+    namespace GetEveroutePackages {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetEveroutePackagesRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = EveroutePackage[];
+    }
+}
+export declare namespace GetEveroutePackagesConnection {
+    namespace GetEveroutePackagesConnection {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetEveroutePackagesConnectionRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = EveroutePackageConnection;
     }
 }
 export declare namespace GetGlobalAlertRules {
@@ -15950,7 +16995,9 @@ export declare namespace GetGlobalAlertRules {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetGlobalAlertRulesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = GlobalAlertRule[];
     }
 }
@@ -15959,7 +17006,9 @@ export declare namespace GetGlobalAlertRulesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetGlobalAlertRulesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = GlobalAlertRuleConnection;
     }
 }
@@ -15968,7 +17017,9 @@ export declare namespace GetGlobalSettingses {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetGlobalSettingsesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = GlobalSettings[];
     }
 }
@@ -15977,7 +17028,9 @@ export declare namespace GetGlobalSettingsesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetGlobalSettingsesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = GlobalSettingsConnection;
     }
 }
@@ -15986,7 +17039,9 @@ export declare namespace GetGraphs {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetGraphsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Graph[];
     }
 }
@@ -15995,7 +17050,9 @@ export declare namespace GetGraphsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetGraphsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = GraphConnection;
     }
 }
@@ -16004,7 +17061,9 @@ export declare namespace GetHosts {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetHostsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Host[];
     }
 }
@@ -16013,7 +17072,9 @@ export declare namespace GetHostsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetHostsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = HostConnection;
     }
 }
@@ -16022,7 +17083,9 @@ export declare namespace GetImagesConnector {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetImagesConnectorRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ImageConnector[];
     }
 }
@@ -16031,7 +17094,9 @@ export declare namespace GetIpmis {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIpmisRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Ipmi[];
     }
 }
@@ -16040,7 +17105,9 @@ export declare namespace GetIscsiConnections {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiConnectionsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiConnection[];
     }
 }
@@ -16049,7 +17116,9 @@ export declare namespace GetIscsiConnectionsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiConnectionsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiConnectionConnection;
     }
 }
@@ -16058,7 +17127,9 @@ export declare namespace GetIscsiLuns {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiLunsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiLun[];
     }
 }
@@ -16067,7 +17138,9 @@ export declare namespace GetIscsiLunsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiLunsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiLunConnection;
     }
 }
@@ -16076,7 +17149,9 @@ export declare namespace GetIscsiLunSnapshots {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiLunSnapshotsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiLunSnapshot[];
     }
 }
@@ -16085,7 +17160,9 @@ export declare namespace GetIscsiLunSnapshotsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiLunSnapshotsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiLunSnapshotConnection;
     }
 }
@@ -16094,7 +17171,9 @@ export declare namespace GetIscsiTargets {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiTargetsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiTarget[];
     }
 }
@@ -16103,8 +17182,32 @@ export declare namespace GetIscsiTargetsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetIscsiTargetsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = IscsiTargetConnection;
+    }
+}
+export declare namespace GetIsolationPolicies {
+    namespace GetIsolationPolicies {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetIsolationPoliciesRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = IsolationPolicy[];
+    }
+}
+export declare namespace GetIsolationPoliciesConnection {
+    namespace GetIsolationPoliciesConnection {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetIsolationPoliciesConnectionRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = IsolationPolicyConnection;
     }
 }
 export declare namespace GetLabels {
@@ -16112,7 +17215,9 @@ export declare namespace GetLabels {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetLabelsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Label[];
     }
 }
@@ -16121,7 +17226,9 @@ export declare namespace GetLabelsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetLabelsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = LabelConnection;
     }
 }
@@ -16130,7 +17237,9 @@ export declare namespace GetLicenses {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetLicensesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = License[];
     }
 }
@@ -16139,7 +17248,9 @@ export declare namespace GetLicensesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetLicensesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = LicenseConnection;
     }
 }
@@ -16148,7 +17259,9 @@ export declare namespace GetLogCollections {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetLogCollectionsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = LogCollection[];
     }
 }
@@ -16157,7 +17270,9 @@ export declare namespace GetLogCollectionsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetLogCollectionsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = LogCollectionConnection;
     }
 }
@@ -16166,7 +17281,9 @@ export declare namespace GetMigrateTransmitters {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetMigrateTransmittersRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = MigrateTransmitter[];
     }
 }
@@ -16175,7 +17292,9 @@ export declare namespace GetMigrateTransmittersConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetMigrateTransmittersConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = MigrateTransmitterConnection;
     }
 }
@@ -16184,7 +17303,9 @@ export declare namespace GetNamespaceGroups {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNamespaceGroupsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NamespaceGroup[];
     }
 }
@@ -16193,7 +17314,9 @@ export declare namespace GetNamespaceGroupsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNamespaceGroupsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NamespaceGroupConnection;
     }
 }
@@ -16202,7 +17325,9 @@ export declare namespace GetNfsExports {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNfsExportsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NfsExport[];
     }
 }
@@ -16211,7 +17336,9 @@ export declare namespace GetNfsExportsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNfsExportsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NfsExportConnection;
     }
 }
@@ -16220,7 +17347,9 @@ export declare namespace GetNfsInodes {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNfsInodesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NfsInode[];
     }
 }
@@ -16229,7 +17358,9 @@ export declare namespace GetNfsInodesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNfsInodesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NfsInodeConnection;
     }
 }
@@ -16238,7 +17369,9 @@ export declare namespace GetNics {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNicsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Nic[];
     }
 }
@@ -16247,7 +17380,9 @@ export declare namespace GetNicsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNicsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NicConnection;
     }
 }
@@ -16256,7 +17391,9 @@ export declare namespace GetNodeTopoes {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNodeTopoesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NodeTopo[];
     }
 }
@@ -16265,7 +17402,9 @@ export declare namespace GetNodeTopoesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNodeTopoesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NodeTopoConnection;
     }
 }
@@ -16274,7 +17413,9 @@ export declare namespace GetNvmfNamespaces {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNvmfNamespacesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NvmfNamespace[];
     }
 }
@@ -16283,7 +17424,9 @@ export declare namespace GetNvmfNamespacesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNvmfNamespacesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NvmfNamespaceConnection;
     }
 }
@@ -16292,7 +17435,9 @@ export declare namespace GetNvmfNamespaceSnapshots {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNvmfNamespaceSnapshotsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NvmfNamespaceSnapshot[];
     }
 }
@@ -16301,7 +17446,9 @@ export declare namespace GetNvmfNamespaceSnapshotsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNvmfNamespaceSnapshotsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NvmfNamespaceSnapshotConnection;
     }
 }
@@ -16310,7 +17457,9 @@ export declare namespace GetNvmfSubsystems {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNvmfSubsystemsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NvmfSubsystem[];
     }
 }
@@ -16319,7 +17468,9 @@ export declare namespace GetNvmfSubsystemsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetNvmfSubsystemsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = NvmfSubsystemConnection;
     }
 }
@@ -16328,7 +17479,9 @@ export declare namespace GetOrganizations {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetOrganizationsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Organization[];
     }
 }
@@ -16337,7 +17490,9 @@ export declare namespace GetOrganizationsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetOrganizationsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = OrganizationConnection;
     }
 }
@@ -16346,7 +17501,9 @@ export declare namespace GetPmemDimms {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetPmemDimmsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = PmemDimm[];
     }
 }
@@ -16355,7 +17512,9 @@ export declare namespace GetPmemDimmsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetPmemDimmsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = PmemDimmConnection;
     }
 }
@@ -16364,7 +17523,9 @@ export declare namespace GetRackTopoes {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetRackTopoesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = RackTopo[];
     }
 }
@@ -16373,7 +17534,9 @@ export declare namespace GetRackTopoesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetRackTopoesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = RackTopoConnection;
     }
 }
@@ -16382,7 +17545,9 @@ export declare namespace GetReportTasks {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetReportTasksRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ReportTask[];
     }
 }
@@ -16391,7 +17556,9 @@ export declare namespace GetReportTasksConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetReportTasksConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ReportTaskConnection;
     }
 }
@@ -16400,7 +17567,9 @@ export declare namespace GetReportTemplates {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetReportTemplatesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ReportTemplate[];
     }
 }
@@ -16409,8 +17578,32 @@ export declare namespace GetReportTemplatesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetReportTemplatesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ReportTemplateConnection;
+    }
+}
+export declare namespace GetSecurityPolicies {
+    namespace GetSecurityPolicies {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetSecurityPoliciesRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = SecurityPolicy[];
+    }
+}
+export declare namespace GetSecurityPoliciesConnection {
+    namespace GetSecurityPoliciesConnection {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetSecurityPoliciesConnectionRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = SecurityPolicyConnection;
     }
 }
 export declare namespace GetSnapshotGroups {
@@ -16418,7 +17611,9 @@ export declare namespace GetSnapshotGroups {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnapshotGroupsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnapshotGroup[];
     }
 }
@@ -16427,7 +17622,9 @@ export declare namespace GetSnapshotGroupsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnapshotGroupsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnapshotGroupConnection;
     }
 }
@@ -16436,7 +17633,9 @@ export declare namespace GetSnapshotPlans {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnapshotPlansRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnapshotPlan[];
     }
 }
@@ -16445,7 +17644,9 @@ export declare namespace GetSnapshotPlansConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnapshotPlansConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnapshotPlanConnection;
     }
 }
@@ -16454,7 +17655,9 @@ export declare namespace GetSnapshotPlanTasks {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnapshotPlanTasksRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnapshotPlanTask[];
     }
 }
@@ -16463,7 +17666,9 @@ export declare namespace GetSnapshotPlanTasksConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnapshotPlanTasksConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnapshotPlanTaskConnection;
     }
 }
@@ -16472,7 +17677,9 @@ export declare namespace GetSnmpTransports {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnmpTransportsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnmpTransport[];
     }
 }
@@ -16481,7 +17688,9 @@ export declare namespace GetSnmpTransportsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnmpTransportsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnmpTransportConnection;
     }
 }
@@ -16490,7 +17699,9 @@ export declare namespace GetSnmpTrapReceivers {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnmpTrapReceiversRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnmpTrapReceiver[];
     }
 }
@@ -16499,7 +17710,9 @@ export declare namespace GetSnmpTrapReceiversConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSnmpTrapReceiversConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SnmpTrapReceiverConnection;
     }
 }
@@ -16508,7 +17721,9 @@ export declare namespace GetStoragePoliciesConnector {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetStoragePoliciesConnectorRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = StoragePolicyConector[];
     }
 }
@@ -16517,7 +17732,9 @@ export declare namespace GetSvtImages {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSvtImagesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SvtImage[];
     }
 }
@@ -16526,7 +17743,9 @@ export declare namespace GetSvtImagesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSvtImagesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SvtImageConnection;
     }
 }
@@ -16535,7 +17754,9 @@ export declare namespace GetSystemAuditLogs {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSystemAuditLogsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SystemAuditLog[];
     }
 }
@@ -16544,7 +17765,9 @@ export declare namespace GetSystemAuditLogsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetSystemAuditLogsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = SystemAuditLogConnection;
     }
 }
@@ -16553,7 +17776,9 @@ export declare namespace GetTasks {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetTasksRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Task[];
     }
 }
@@ -16562,7 +17787,9 @@ export declare namespace GetTasksConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetTasksConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = TaskConnection;
     }
 }
@@ -16571,7 +17798,9 @@ export declare namespace GetUploadTasks {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUploadTasksRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UploadTask[];
     }
 }
@@ -16580,7 +17809,9 @@ export declare namespace GetUploadTasksConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUploadTasksConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UploadTaskConnection;
     }
 }
@@ -16589,7 +17820,9 @@ export declare namespace GetUsbDevices {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUsbDevicesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UsbDevice[];
     }
 }
@@ -16598,7 +17831,9 @@ export declare namespace GetUsbDevicesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUsbDevicesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UsbDeviceConnection;
     }
 }
@@ -16607,7 +17842,9 @@ export declare namespace GetUserAuditLogs {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUserAuditLogsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UserAuditLog[];
     }
 }
@@ -16616,7 +17853,9 @@ export declare namespace GetUserAuditLogsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUserAuditLogsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UserAuditLogConnection;
     }
 }
@@ -16625,7 +17864,9 @@ export declare namespace GetUserRoleNexts {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUserRoleNextsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UserRoleNext[];
     }
 }
@@ -16634,7 +17875,9 @@ export declare namespace GetUserRoleNextsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUserRoleNextsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UserRoleNextConnection;
     }
 }
@@ -16643,7 +17886,9 @@ export declare namespace GetUsers {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUsersRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = User[];
     }
 }
@@ -16652,7 +17897,9 @@ export declare namespace GetUsersConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetUsersConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UserConnection;
     }
 }
@@ -16661,7 +17908,9 @@ export declare namespace GetVcenterAccounts {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVcenterAccountsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VcenterAccount[];
     }
 }
@@ -16670,7 +17919,9 @@ export declare namespace GetVcenterAccountsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVcenterAccountsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VcenterAccountConnection;
     }
 }
@@ -16679,7 +17930,9 @@ export declare namespace GetVdses {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVdsesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Vds[];
     }
 }
@@ -16688,7 +17941,9 @@ export declare namespace GetVdsesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVdsesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VdsConnection;
     }
 }
@@ -16697,7 +17952,9 @@ export declare namespace GetViews {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetViewsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = View[];
     }
 }
@@ -16706,7 +17963,9 @@ export declare namespace GetViewsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetViewsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ViewConnection;
     }
 }
@@ -16715,7 +17974,9 @@ export declare namespace GetVlans {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVlansRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Vlan[];
     }
 }
@@ -16724,7 +17985,9 @@ export declare namespace GetVlansConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVlansConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VlanConnection;
     }
 }
@@ -16733,7 +17996,9 @@ export declare namespace GetVmDisks {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmDisksRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmDisk[];
     }
 }
@@ -16742,7 +18007,9 @@ export declare namespace GetVmDisksConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmDisksConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmDiskConnection;
     }
 }
@@ -16751,7 +18018,9 @@ export declare namespace GetVmEntityFilterResults {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmEntityFilterResultsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmEntityFilterResult[];
     }
 }
@@ -16760,7 +18029,9 @@ export declare namespace GetVmEntityFilterResultsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmEntityFilterResultsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmEntityFilterResultConnection;
     }
 }
@@ -16769,7 +18040,9 @@ export declare namespace GetVmFolders {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmFoldersRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmFolder[];
     }
 }
@@ -16778,7 +18051,9 @@ export declare namespace GetVmFoldersConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmFoldersConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmFolderConnection;
     }
 }
@@ -16787,7 +18062,9 @@ export declare namespace GetVmNics {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmNicsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmNic[];
     }
 }
@@ -16796,7 +18073,9 @@ export declare namespace GetVmNicsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmNicsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmNicConnection;
     }
 }
@@ -16805,7 +18084,9 @@ export declare namespace GetVmPlacementGroups {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmPlacementGroupsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmPlacementGroup[];
     }
 }
@@ -16814,7 +18095,9 @@ export declare namespace GetVmPlacementGroupsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmPlacementGroupsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmPlacementGroupConnection;
     }
 }
@@ -16823,7 +18106,9 @@ export declare namespace GetVms {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Vm[];
     }
 }
@@ -16832,7 +18117,9 @@ export declare namespace GetVmsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmConnection;
     }
 }
@@ -16841,7 +18128,9 @@ export declare namespace GetVmSnapshots {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmSnapshotsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmSnapshot[];
     }
 }
@@ -16850,7 +18139,9 @@ export declare namespace GetVmSnapshotsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmSnapshotsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmSnapshotConnection;
     }
 }
@@ -16859,7 +18150,9 @@ export declare namespace GetVmTemplates {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmTemplatesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmTemplate[];
     }
 }
@@ -16868,7 +18161,9 @@ export declare namespace GetVmTemplatesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmTemplatesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmTemplateConnection;
     }
 }
@@ -16877,7 +18172,9 @@ export declare namespace GetVmVolumes {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmVolumesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmVolume[];
     }
 }
@@ -16886,7 +18183,9 @@ export declare namespace GetVmVolumesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVmVolumesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VmVolumeConnection;
     }
 }
@@ -16895,7 +18194,9 @@ export declare namespace GetVsphereEsxiAccounts {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVsphereEsxiAccountsRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VsphereEsxiAccount[];
     }
 }
@@ -16904,7 +18205,9 @@ export declare namespace GetVsphereEsxiAccountsConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetVsphereEsxiAccountsConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = VsphereEsxiAccountConnection;
     }
 }
@@ -16913,7 +18216,9 @@ export declare namespace GetWitnesses {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetWitnessesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Witness[];
     }
 }
@@ -16922,8 +18227,21 @@ export declare namespace GetWitnessesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetWitnessesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WitnessConnection;
+    }
+}
+export declare namespace GetWitnessServices {
+    namespace GetWitnessServices {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetWitnessServicesRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = WitnessService[];
     }
 }
 export declare namespace GetZones {
@@ -16931,7 +18249,9 @@ export declare namespace GetZones {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetZonesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = Zone[];
     }
 }
@@ -16940,7 +18260,9 @@ export declare namespace GetZonesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetZonesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ZoneConnection;
     }
 }
@@ -16949,7 +18271,9 @@ export declare namespace GetZoneTopoes {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetZoneTopoesRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ZoneTopo[];
     }
 }
@@ -16958,7 +18282,9 @@ export declare namespace GetZoneTopoesConnection {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GetZoneTopoesConnectionRequestBody;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = ZoneTopoConnection;
     }
 }
@@ -16967,7 +18293,9 @@ export declare namespace UpdateGlobalAlertRule {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GlobalAlertRuleUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskGlobalAlertRule[];
     }
 }
@@ -16976,7 +18304,9 @@ export declare namespace UpdateCustomizeAlertRule {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = CustomizeAlertRuleUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskGlobalAlertRule[];
     }
 }
@@ -16985,7 +18315,9 @@ export declare namespace ResolveAlert {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ResolveAlertParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskAlert[];
     }
 }
@@ -16994,7 +18326,9 @@ export declare namespace CreateBrickTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = BrickTopoCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskBrickTopo[];
     }
 }
@@ -17003,7 +18337,9 @@ export declare namespace UpdateBrickTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = BrickTopoUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskBrickTopo[];
     }
 }
@@ -17012,7 +18348,9 @@ export declare namespace MoveBrickTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = BrickTopoMoveParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskBrickTopo[];
     }
 }
@@ -17021,7 +18359,9 @@ export declare namespace DeleteBrickTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = BrickTopoDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteBrickTopo[];
     }
 }
@@ -17030,7 +18370,9 @@ export declare namespace ConnectCluster {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ClusterCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskCluster[];
     }
 }
@@ -17039,7 +18381,9 @@ export declare namespace UpdateCluster {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ClusterUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskCluster[];
     }
 }
@@ -17048,7 +18392,9 @@ export declare namespace UpdateClusterLicense {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ClusterLicenseUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskCluster[];
     }
 }
@@ -17057,7 +18403,9 @@ export declare namespace DeleteCluster {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ClusterDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteCluster[];
     }
 }
@@ -17066,7 +18414,9 @@ export declare namespace CreateConsistencySnapshotGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ConsistencyGroupSnapshotCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskConsistencyGroupSnapshot[];
     }
 }
@@ -17075,7 +18425,9 @@ export declare namespace RollbackConsistencySnapshotGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ConsistencyGroupSnapshotUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskConsistencyGroupSnapshot[];
     }
 }
@@ -17084,7 +18436,9 @@ export declare namespace DeleteConsistencySnapshotGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ConsistencyGroupSnapshotDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteConsistencyGroupSnapshot[];
     }
 }
@@ -17093,7 +18447,9 @@ export declare namespace CreateConsistencyGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ConsistencyGroupCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskConsistencyGroup[];
     }
 }
@@ -17102,7 +18458,9 @@ export declare namespace UpdateConsistencyGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ConsistencyGroupUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskConsistencyGroup[];
     }
 }
@@ -17111,7 +18469,9 @@ export declare namespace DeleteConsistencyGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ConsistencyGroupDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteConsistencyGroup[];
     }
 }
@@ -17120,7 +18480,9 @@ export declare namespace CreateDatacenter {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = DatacenterCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDatacenter[];
     }
 }
@@ -17129,7 +18491,9 @@ export declare namespace UpdateDatacenter {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = DatacenterUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDatacenter[];
     }
 }
@@ -17138,7 +18502,9 @@ export declare namespace DeleteDatacenter {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = DatacenterDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteDatacenter[];
     }
 }
@@ -17147,7 +18513,9 @@ export declare namespace MountDisk {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = DiskMountParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDisk[];
     }
 }
@@ -17156,7 +18524,9 @@ export declare namespace UnmountDisk {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = DiskUnmountParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDisk[];
     }
 }
@@ -17165,7 +18535,9 @@ export declare namespace CreateEntityFilter {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = EntityFilterCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskEntityFilter[];
     }
 }
@@ -17174,7 +18546,9 @@ export declare namespace UpdateEntityFilter {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = EntityFilterUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskEntityFilter[];
     }
 }
@@ -17183,7 +18557,9 @@ export declare namespace DeleteEntityFilter {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = EntityFilterDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteEntityFilter[];
     }
 }
@@ -17192,7 +18568,9 @@ export declare namespace CreateGraph {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GraphCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskGraph[];
     }
 }
@@ -17201,7 +18579,9 @@ export declare namespace UpdateGraph {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GraphUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskGraph[];
     }
 }
@@ -17210,7 +18590,9 @@ export declare namespace DeleteGraph {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GraphDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteGraph[];
     }
 }
@@ -17219,7 +18601,9 @@ export declare namespace CreateHost {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = HostCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskBatchHosts[];
     }
 }
@@ -17228,7 +18612,9 @@ export declare namespace TriggerDiskBlink {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = TriggerDiskBlinkParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskHost[];
     }
 }
@@ -17237,7 +18623,9 @@ export declare namespace UpdateHost {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = HostUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskHost[];
     }
 }
@@ -17246,7 +18634,9 @@ export declare namespace CreateIscsiLunSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiLunSnapshotCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskIscsiLunSnapshot[];
     }
 }
@@ -17255,7 +18645,9 @@ export declare namespace DeleteIscsiLunSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiLunSnapshotDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteIscsiLunSnapshot[];
     }
 }
@@ -17264,7 +18656,9 @@ export declare namespace CreateIscsiLun {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiLunCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskIscsiLun[];
     }
 }
@@ -17273,7 +18667,9 @@ export declare namespace UpdateIscsiLun {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiLunUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskIscsiLun[];
     }
 }
@@ -17282,7 +18678,9 @@ export declare namespace DeleteIscsiLun {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiLunDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteIscsiLun[];
     }
 }
@@ -17291,7 +18689,9 @@ export declare namespace CloneIscsiLunFromSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiLunCloneParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskIscsiLun[];
     }
 }
@@ -17300,7 +18700,9 @@ export declare namespace RollbackIscsiLunFromSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiLunRollbackParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskIscsiLun[];
     }
 }
@@ -17309,7 +18711,9 @@ export declare namespace CreateIscsiTarget {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiTargetCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskIscsiTarget[];
     }
 }
@@ -17318,7 +18722,9 @@ export declare namespace UpdateIscsiTarget {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiTargetUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskIscsiTarget[];
     }
 }
@@ -17327,7 +18733,9 @@ export declare namespace DeleteIscsiTarget {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = IscsiTargetDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteIscsiTarget[];
     }
 }
@@ -17343,7 +18751,9 @@ export declare namespace UploadElfImage {
             description: string;
             upload_task_id: string;
         };
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = UploadTask[];
     }
 }
@@ -17352,7 +18762,9 @@ export declare namespace UpdateElfImage {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ElfImageUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskElfImage[];
     }
 }
@@ -17361,7 +18773,9 @@ export declare namespace DeleteElfImage {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ElfImageDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteElfImage[];
     }
 }
@@ -17370,7 +18784,9 @@ export declare namespace CreateLabel {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = LabelCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskLabel[];
     }
 }
@@ -17379,7 +18795,9 @@ export declare namespace UpdateLabel {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = LabelUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskLabel[];
     }
 }
@@ -17388,7 +18806,9 @@ export declare namespace AddLabelsToResources {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = AddLabelsToResourcesParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskLabel[];
     }
 }
@@ -17397,7 +18817,9 @@ export declare namespace RemoveLabelsFromResources {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = RemoveLabelsFromResourcesParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskLabel[];
     }
 }
@@ -17406,7 +18828,9 @@ export declare namespace DeleteLabel {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = LabelDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteLabel[];
     }
 }
@@ -17415,7 +18839,9 @@ export declare namespace UpdateLicense {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = LicenseUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskLicense;
     }
 }
@@ -17424,7 +18850,9 @@ export declare namespace CreateNamespaceGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NamespaceGroupCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNamespaceGroup[];
     }
 }
@@ -17433,7 +18861,9 @@ export declare namespace UpdateNamespaceGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NamespaceGroupUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNamespaceGroup[];
     }
 }
@@ -17442,7 +18872,9 @@ export declare namespace DeleteNamespaceGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NamespaceGroupDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteNamespaceGroup[];
     }
 }
@@ -17451,7 +18883,9 @@ export declare namespace CreateNfsExport {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NfsExportCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNfsExport[];
     }
 }
@@ -17460,7 +18894,9 @@ export declare namespace UpdateNfsExport {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NfsExportUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNfsExport[];
     }
 }
@@ -17469,7 +18905,9 @@ export declare namespace DeleteNfsExport {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NfsExportDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteNfsExport[];
     }
 }
@@ -17478,7 +18916,9 @@ export declare namespace UpdateNic {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NicUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNic[];
     }
 }
@@ -17487,7 +18927,9 @@ export declare namespace MoveNodeTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NodeTopoUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNodeTopo[];
     }
 }
@@ -17496,7 +18938,9 @@ export declare namespace CreateNvmfNamespaceSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfNamespaceSnapshotCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNvmfNamespaceSnapshot[];
     }
 }
@@ -17505,7 +18949,9 @@ export declare namespace DeleteNvmfNamespaceSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfNamespaceSnapshotDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteNvmfNamespaceSnapshot[];
     }
 }
@@ -17514,7 +18960,9 @@ export declare namespace CreateNvmfNamespace {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfNamespaceCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNvmfNamespace[];
     }
 }
@@ -17523,7 +18971,9 @@ export declare namespace UpdateNvmfNamespace {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfNamespaceUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNvmfNamespace[];
     }
 }
@@ -17532,7 +18982,9 @@ export declare namespace DeleteNvmfNamespace {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfNamespaceDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteNvmfNamespace[];
     }
 }
@@ -17541,7 +18993,9 @@ export declare namespace CloneNvmfNamespaceFromSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfNamespaceCloneParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNvmfNamespace[];
     }
 }
@@ -17550,7 +19004,9 @@ export declare namespace RollbackNvmfNamespaceFromSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfNamespaceRollbackParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNvmfNamespace[];
     }
 }
@@ -17559,7 +19015,9 @@ export declare namespace CreateNvmfSubsystem {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfSubsystemCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNvmfSubsystem[];
     }
 }
@@ -17568,7 +19026,9 @@ export declare namespace UpdateNvmfSubsystem {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfSubsystemUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskNvmfSubsystem[];
     }
 }
@@ -17577,7 +19037,9 @@ export declare namespace DeleteNvmfSubsystem {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = NvmfSubsystemDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteNvmfSubsystem[];
     }
 }
@@ -17586,7 +19048,9 @@ export declare namespace CreateOrganization {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = OrganizationCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskOrganization[];
     }
 }
@@ -17595,7 +19059,9 @@ export declare namespace UpdateOrganization {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = OrganizationUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskOrganization[];
     }
 }
@@ -17604,7 +19070,9 @@ export declare namespace DeleteOrganization {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = OrganizationDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteOrganization[];
     }
 }
@@ -17613,7 +19081,9 @@ export declare namespace CreateRackTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = RackTopoCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskRackTopo[];
     }
 }
@@ -17622,7 +19092,9 @@ export declare namespace UpdateRackTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = RackTopoUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskRackTopo[];
     }
 }
@@ -17631,7 +19103,9 @@ export declare namespace DeleteRackTopo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = RackTopoDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteRackTopo[];
     }
 }
@@ -17640,7 +19114,9 @@ export declare namespace UpdateGlobalRecycleBinSetting {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = GlobalRecycleBinUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskGlobalSettings;
     }
 }
@@ -17649,7 +19125,9 @@ export declare namespace CreateClusterRecycleBinSetting {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ClusterRecycleBinCreationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskClusterSettings[];
     }
 }
@@ -17658,7 +19136,9 @@ export declare namespace UpdateClusterRecycleBinSetting {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ClusterRecycleBinUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskClusterSettings[];
     }
 }
@@ -17667,7 +19147,9 @@ export declare namespace DeleteClusterRecycleBinSetting {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ClusterRecycleBinDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteClusterRecycleBin[];
     }
 }
@@ -17676,7 +19158,9 @@ export declare namespace CreateReportTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ReportTemplateCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskReportTemplate[];
     }
 }
@@ -17685,7 +19169,9 @@ export declare namespace UpdateReportTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ReportTemplateUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskReportTemplate[];
     }
 }
@@ -17694,7 +19180,9 @@ export declare namespace GenerateFromReportTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ReporteTemplateGenerationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskReportTask[];
     }
 }
@@ -17703,7 +19191,9 @@ export declare namespace DeleteReportTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ReportTemplateDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteReportTemplate[];
     }
 }
@@ -17712,7 +19202,9 @@ export declare namespace CreateRole {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = RoleCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskUserRoleNext[];
     }
 }
@@ -17721,7 +19213,9 @@ export declare namespace UpdateRole {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = RoleUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskUserRoleNext[];
     }
 }
@@ -17730,7 +19224,9 @@ export declare namespace DeleteRole {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = RoleDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteRole[];
     }
 }
@@ -17739,7 +19235,9 @@ export declare namespace RollbackSnapshotGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotGroupRollbackParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotGroup[];
     }
 }
@@ -17748,7 +19246,9 @@ export declare namespace CloneSnapshotGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotGroupCloneParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotGroup[];
     }
 }
@@ -17757,7 +19257,9 @@ export declare namespace KeepSnapshotGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotGroupKeepParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotGroup[];
     }
 }
@@ -17766,7 +19268,9 @@ export declare namespace DeleteSnapshotGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotGroupDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteSnapshotGroup[];
     }
 }
@@ -17775,7 +19279,9 @@ export declare namespace CreateSnapshotPlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotPlanCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotPlan[];
     }
 }
@@ -17784,7 +19290,9 @@ export declare namespace UpdateSnapshotPlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotPlanUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotPlan[];
     }
 }
@@ -17793,7 +19301,9 @@ export declare namespace DeleteSnapshotPlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotPlanDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteSnapshotPlan[];
     }
 }
@@ -17802,7 +19312,9 @@ export declare namespace ExecuteSnapshotPlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotPlanExecutionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotPlan[];
     }
 }
@@ -17811,7 +19323,9 @@ export declare namespace SuspendSnapshotPlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotPlanSuspendedParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotPlan[];
     }
 }
@@ -17820,7 +19334,9 @@ export declare namespace ResumeSnapshotPlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnapshotPlanResumeParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnapshotPlan[];
     }
 }
@@ -17829,7 +19345,9 @@ export declare namespace CreateSnmpTransport {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnmpTransportCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnmpTransport[];
     }
 }
@@ -17838,7 +19356,9 @@ export declare namespace UpdateSnmpTransport {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnmpTransportUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnmpTransport[];
     }
 }
@@ -17847,7 +19367,9 @@ export declare namespace DeleteSnmpTransport {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnmpTransportDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteSnmpTransport[];
     }
 }
@@ -17856,7 +19378,9 @@ export declare namespace CreateSnmpTrapReceiver {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnmpTrapReceiverCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnmpTrapReceiver[];
     }
 }
@@ -17865,7 +19389,9 @@ export declare namespace UpdateSnmpTrapReceiver {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnmpTrapReceiverUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskSnmpTrapReceiver[];
     }
 }
@@ -17874,7 +19400,9 @@ export declare namespace DeleteSnmpTrapReceiver {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = SnmpTrapReceiverDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteSnmpTrapReceiver[];
     }
 }
@@ -17883,7 +19411,9 @@ export declare namespace MountUsbDevice {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = UsbDeviceMountParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskUsbDevice[];
     }
 }
@@ -17892,7 +19422,9 @@ export declare namespace UnmountUsbDevice {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = UsbDeviceUnmountParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskUsbDevice[];
     }
 }
@@ -17901,7 +19433,9 @@ export declare namespace Login {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = LoginInput;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskTokenString;
     }
 }
@@ -17910,7 +19444,9 @@ export declare namespace CreateUser {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = UserCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskUser[];
     }
 }
@@ -17919,7 +19455,9 @@ export declare namespace UpdateUser {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = UserUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskUser[];
     }
 }
@@ -17928,7 +19466,9 @@ export declare namespace DeleteUser {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = UserDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteUser[];
     }
 }
@@ -17937,7 +19477,9 @@ export declare namespace CreateVdsWithMigrateVlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VdsCreationWithMigrateVlanParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVds[];
     }
 }
@@ -17946,7 +19488,9 @@ export declare namespace CreateVdsWithAccessVlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VdsCreationWithMAccessVlanParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVds[];
     }
 }
@@ -17955,7 +19499,9 @@ export declare namespace CreateVds {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VdsCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVds[];
     }
 }
@@ -17964,7 +19510,9 @@ export declare namespace UpdateVds {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VdsUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVds[];
     }
 }
@@ -17973,7 +19521,9 @@ export declare namespace DeleteVds {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VdsDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteVds[];
     }
 }
@@ -17982,7 +19532,9 @@ export declare namespace CreateView {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ViewCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskView[];
     }
 }
@@ -17991,7 +19543,9 @@ export declare namespace UpdateView {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ViewUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskView[];
     }
 }
@@ -18000,7 +19554,9 @@ export declare namespace DeleteView {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ViewDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteView[];
     }
 }
@@ -18009,7 +19565,9 @@ export declare namespace CreateVmVlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmVlanCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVlan[];
     }
 }
@@ -18018,7 +19576,9 @@ export declare namespace UpdateVmVlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmVlanUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVlan[];
     }
 }
@@ -18027,7 +19587,9 @@ export declare namespace UpdateManagementVlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ManagementVlanUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVlan[];
     }
 }
@@ -18036,7 +19598,9 @@ export declare namespace UpdateMigrationVlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = MigrationVlanUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVlan[];
     }
 }
@@ -18045,7 +19609,9 @@ export declare namespace DeleteVmVlan {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VlanDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteVlan[];
     }
 }
@@ -18054,7 +19620,9 @@ export declare namespace CreateVmFolder {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmFolderCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmFolder[];
     }
 }
@@ -18063,7 +19631,9 @@ export declare namespace UpdateVmFolder {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmFolderUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmFolder[];
     }
 }
@@ -18072,7 +19642,9 @@ export declare namespace DeleteVmFolder {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmFolderDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteVmFolder[];
     }
 }
@@ -18081,7 +19653,9 @@ export declare namespace CreateVmPlacementGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmPlacementGroupCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmPlacementGroup[];
     }
 }
@@ -18090,7 +19664,9 @@ export declare namespace UpdateVmPlacementGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmPlacementGroupUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmPlacementGroup[];
     }
 }
@@ -18099,7 +19675,9 @@ export declare namespace DeleteVmPlacementGroup {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmPlacementGroupDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteVmPlacementGroup[];
     }
 }
@@ -18108,7 +19686,9 @@ export declare namespace CreateVmSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmSnapshotCreationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmSnapshot[];
     }
 }
@@ -18117,7 +19697,9 @@ export declare namespace DeleteVmSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmSnapshotDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteVmSnapshot[];
     }
 }
@@ -18126,7 +19708,9 @@ export declare namespace CloneVmTemplateFromVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmTemplateCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmTemplate[];
     }
 }
@@ -18135,7 +19719,9 @@ export declare namespace ConvertVmTemplateFromVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmTemplateCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmTemplate[];
     }
 }
@@ -18144,7 +19730,9 @@ export declare namespace UpdateVmTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmTemplateUpdationParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmTemplate[];
     }
 }
@@ -18153,7 +19741,9 @@ export declare namespace DeleteVmTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmTemplateDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteVmTemplate[];
     }
 }
@@ -18162,7 +19752,9 @@ export declare namespace CreateVmVolume {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmVolumeCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVmVolume[];
     }
 }
@@ -18171,7 +19763,9 @@ export declare namespace DeleteVmVolume {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmVolumeDeletionParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskDeleteVmVolume[];
     }
 }
@@ -18180,7 +19774,9 @@ export declare namespace CreateVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmCreationParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18189,7 +19785,9 @@ export declare namespace CreateVmFromTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmCreateVmFromTemplateParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18198,7 +19796,9 @@ export declare namespace ConvertVmTemplateToVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = ConvertVmTemplateToVmParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18207,7 +19807,9 @@ export declare namespace CloneVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmCloneParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18216,7 +19818,9 @@ export declare namespace RebuildVmFromSnapshot {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmRebuildParams[];
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18225,7 +19829,9 @@ export declare namespace RollbackVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmRollbackParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18234,7 +19840,9 @@ export declare namespace UpdateVmBasicInfo {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmUpdateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18243,7 +19851,9 @@ export declare namespace MoveVmToRecycle {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = {
             task_id: string | null;
             data: DeleteVm | null;
@@ -18255,7 +19865,9 @@ export declare namespace RecoverVmFromRecycle {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = {
             task_id: string | null;
             data: DeleteVm | null;
@@ -18267,7 +19879,9 @@ export declare namespace DeleteVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = {
             task_id: string | null;
             data: DeleteVm | null;
@@ -18279,7 +19893,9 @@ export declare namespace StartVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmStartParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18288,7 +19904,9 @@ export declare namespace RestartVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18297,7 +19915,9 @@ export declare namespace ForceRestartVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18306,7 +19926,9 @@ export declare namespace ShutdownVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18315,7 +19937,9 @@ export declare namespace PoweroffVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18324,7 +19948,9 @@ export declare namespace SuspendVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18333,7 +19959,9 @@ export declare namespace ResumeVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18342,7 +19970,9 @@ export declare namespace AddVmDisk {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmAddDiskParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18351,7 +19981,9 @@ export declare namespace UpdateVmDisk {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmUpdateDiskParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18360,7 +19992,9 @@ export declare namespace RemoveVmDisk {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmRemoveDiskParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18369,7 +20003,9 @@ export declare namespace AddVmCdRom {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmAddCdRomParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18378,7 +20014,9 @@ export declare namespace RemoveVmCdRom {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmRemoveCdRomParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18387,7 +20025,9 @@ export declare namespace AddVmNic {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmAddNicParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18396,7 +20036,9 @@ export declare namespace UpdateVmNic {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmUpdateNicParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18405,7 +20047,9 @@ export declare namespace RemoveVmNic {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmRemoveNicParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18414,7 +20058,9 @@ export declare namespace InstallVmtools {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = InstallVmtoolsParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18423,7 +20069,9 @@ export declare namespace MigrateVm {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmMigrateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18432,7 +20080,9 @@ export declare namespace AddVmToFolder {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmAddFolderParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18441,7 +20091,9 @@ export declare namespace RemoveVmFromFolder {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmOperateParams;
-        type RequestHeaders = {};
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
         type ResponseBody = WithTaskVm[];
     }
 }
@@ -18551,6 +20203,12 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     getConsistencyGroupSnapshotsConnection: {
         getConsistencyGroupSnapshotsConnection: (data: GetConsistencyGroupSnapshotsConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<ConsistencyGroupSnapshotConnection>>;
     };
+    getContentLibraryImages: {
+        getContentLibraryImages: (data: GetContentLibraryImagesRequestBody, params?: RequestParams) => Promise<AxiosResponse<ContentLibraryImage[]>>;
+    };
+    getContentLibraryImagesConnection: {
+        getContentLibraryImagesConnection: (data: GetContentLibraryImagesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<ContentLibraryImageConnection>>;
+    };
     getDatacenters: {
         getDatacenters: (data: GetDatacentersRequestBody, params?: RequestParams) => Promise<AxiosResponse<Datacenter[]>>;
     };
@@ -18595,6 +20253,24 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     };
     getEntityFiltersConnection: {
         getEntityFiltersConnection: (data: GetEntityFiltersConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<EntityFilterConnection>>;
+    };
+    getEverouteClusters: {
+        getEverouteClusters: (data: GetEverouteClustersRequestBody, params?: RequestParams) => Promise<AxiosResponse<EverouteCluster[]>>;
+    };
+    getEverouteClustersConnection: {
+        getEverouteClustersConnection: (data: GetEverouteClustersConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<EverouteClusterConnection>>;
+    };
+    getEverouteLicenses: {
+        getEverouteLicenses: (data: GetEverouteLicensesRequestBody, params?: RequestParams) => Promise<AxiosResponse<EverouteLicense[]>>;
+    };
+    getEverouteLicensesConnection: {
+        getEverouteLicensesConnection: (data: GetEverouteLicensesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<EverouteLicenseConnection>>;
+    };
+    getEveroutePackages: {
+        getEveroutePackages: (data: GetEveroutePackagesRequestBody, params?: RequestParams) => Promise<AxiosResponse<EveroutePackage[]>>;
+    };
+    getEveroutePackagesConnection: {
+        getEveroutePackagesConnection: (data: GetEveroutePackagesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<EveroutePackageConnection>>;
     };
     getGlobalAlertRules: {
         getGlobalAlertRules: (data: GetGlobalAlertRulesRequestBody, params?: RequestParams) => Promise<AxiosResponse<GlobalAlertRule[]>>;
@@ -18649,6 +20325,12 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     };
     getIscsiTargetsConnection: {
         getIscsiTargetsConnection: (data: GetIscsiTargetsConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<IscsiTargetConnection>>;
+    };
+    getIsolationPolicies: {
+        getIsolationPolicies: (data: GetIsolationPoliciesRequestBody, params?: RequestParams) => Promise<AxiosResponse<IsolationPolicy[]>>;
+    };
+    getIsolationPoliciesConnection: {
+        getIsolationPoliciesConnection: (data: GetIsolationPoliciesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<IsolationPolicyConnection>>;
     };
     getLabels: {
         getLabels: (data: GetLabelsRequestBody, params?: RequestParams) => Promise<AxiosResponse<Label[]>>;
@@ -18751,6 +20433,12 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     };
     getReportTemplatesConnection: {
         getReportTemplatesConnection: (data: GetReportTemplatesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<ReportTemplateConnection>>;
+    };
+    getSecurityPolicies: {
+        getSecurityPolicies: (data: GetSecurityPoliciesRequestBody, params?: RequestParams) => Promise<AxiosResponse<SecurityPolicy[]>>;
+    };
+    getSecurityPoliciesConnection: {
+        getSecurityPoliciesConnection: (data: GetSecurityPoliciesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<SecurityPolicyConnection>>;
     };
     getSnapshotGroups: {
         getSnapshotGroups: (data: GetSnapshotGroupsRequestBody, params?: RequestParams) => Promise<AxiosResponse<SnapshotGroup[]>>;
@@ -18922,6 +20610,9 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     };
     getWitnessesConnection: {
         getWitnessesConnection: (data: GetWitnessesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<WitnessConnection>>;
+    };
+    getWitnessServices: {
+        getWitnessServices: (data: GetWitnessServicesRequestBody, params?: RequestParams) => Promise<AxiosResponse<WitnessService[]>>;
     };
     getZones: {
         getZones: (data: GetZonesRequestBody, params?: RequestParams) => Promise<AxiosResponse<Zone[]>>;

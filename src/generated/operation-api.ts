@@ -313,6 +313,7 @@ export interface ClusterWhereInput {
   entityAsyncStatus_in?: EntityAsyncStatus[] | null;
   entityAsyncStatus_not?: EntityAsyncStatus | null;
   entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  everoute_cluster?: EverouteClusterWhereInput | null;
 
   /** @format double */
   failure_data_space?: number | null;
@@ -944,6 +945,26 @@ export interface ClusterWhereInput {
   /** @format double */
   total_cpu_hz_not?: number | null;
   total_cpu_hz_not_in?: number[] | null;
+
+  /** @format double */
+  total_cpu_sockets?: number | null;
+
+  /** @format double */
+  total_cpu_sockets_gt?: number | null;
+
+  /** @format double */
+  total_cpu_sockets_gte?: number | null;
+  total_cpu_sockets_in?: number[] | null;
+
+  /** @format double */
+  total_cpu_sockets_lt?: number | null;
+
+  /** @format double */
+  total_cpu_sockets_lte?: number | null;
+
+  /** @format double */
+  total_cpu_sockets_not?: number | null;
+  total_cpu_sockets_not_in?: number[] | null;
 
   /** @format double */
   total_data_capacity?: number | null;
@@ -2907,6 +2928,29 @@ export interface LabelWhereInput {
   consistency_groups_every?: ConsistencyGroupWhereInput | null;
   consistency_groups_none?: ConsistencyGroupWhereInput | null;
   consistency_groups_some?: ConsistencyGroupWhereInput | null;
+
+  /** @format double */
+  content_library_image_num?: number | null;
+
+  /** @format double */
+  content_library_image_num_gt?: number | null;
+
+  /** @format double */
+  content_library_image_num_gte?: number | null;
+  content_library_image_num_in?: number[] | null;
+
+  /** @format double */
+  content_library_image_num_lt?: number | null;
+
+  /** @format double */
+  content_library_image_num_lte?: number | null;
+
+  /** @format double */
+  content_library_image_num_not?: number | null;
+  content_library_image_num_not_in?: number[] | null;
+  content_library_images_every?: ContentLibraryImageWhereInput | null;
+  content_library_images_none?: ContentLibraryImageWhereInput | null;
+  content_library_images_some?: ContentLibraryImageWhereInput | null;
   createdAt?: string | null;
   createdAt_gt?: string | null;
   createdAt_gte?: string | null;
@@ -3090,6 +3134,29 @@ export interface LabelWhereInput {
   iscsi_targets_every?: IscsiTargetWhereInput | null;
   iscsi_targets_none?: IscsiTargetWhereInput | null;
   iscsi_targets_some?: IscsiTargetWhereInput | null;
+  isolation_policies_every?: IsolationPolicyWhereInput | null;
+  isolation_policies_none?: IsolationPolicyWhereInput | null;
+  isolation_policies_some?: IsolationPolicyWhereInput | null;
+
+  /** @format double */
+  isolation_policy_num?: number | null;
+
+  /** @format double */
+  isolation_policy_num_gt?: number | null;
+
+  /** @format double */
+  isolation_policy_num_gte?: number | null;
+  isolation_policy_num_in?: number[] | null;
+
+  /** @format double */
+  isolation_policy_num_lt?: number | null;
+
+  /** @format double */
+  isolation_policy_num_lte?: number | null;
+
+  /** @format double */
+  isolation_policy_num_not?: number | null;
+  isolation_policy_num_not_in?: number[] | null;
   key?: string | null;
   key_contains?: string | null;
   key_ends_with?: string | null;
@@ -3267,6 +3334,29 @@ export interface LabelWhereInput {
   nvmf_subsystems_none?: NvmfSubsystemWhereInput | null;
   nvmf_subsystems_some?: NvmfSubsystemWhereInput | null;
   OR?: LabelWhereInput[] | null;
+  security_policies_every?: SecurityPolicyWhereInput | null;
+  security_policies_none?: SecurityPolicyWhereInput | null;
+  security_policies_some?: SecurityPolicyWhereInput | null;
+
+  /** @format double */
+  security_policy_num?: number | null;
+
+  /** @format double */
+  security_policy_num_gt?: number | null;
+
+  /** @format double */
+  security_policy_num_gte?: number | null;
+  security_policy_num_in?: number[] | null;
+
+  /** @format double */
+  security_policy_num_lt?: number | null;
+
+  /** @format double */
+  security_policy_num_lte?: number | null;
+
+  /** @format double */
+  security_policy_num_not?: number | null;
+  security_policy_num_not_in?: number[] | null;
 
   /** @format double */
   system_vlan_num?: number | null;
@@ -3461,315 +3551,40 @@ export interface LabelWhereInput {
   vms_some?: VmWhereInput | null;
 }
 
-export interface DatacenterWhereInput {
-  AND?: DatacenterWhereInput[] | null;
-
-  /** @format double */
-  cluster_num?: number | null;
-
-  /** @format double */
-  cluster_num_gt?: number | null;
-
-  /** @format double */
-  cluster_num_gte?: number | null;
-  cluster_num_in?: number[] | null;
-
-  /** @format double */
-  cluster_num_lt?: number | null;
-
-  /** @format double */
-  cluster_num_lte?: number | null;
-
-  /** @format double */
-  cluster_num_not?: number | null;
-  cluster_num_not_in?: number[] | null;
+export interface ContentLibraryImageWhereInput {
+  AND?: ContentLibraryImageWhereInput[] | null;
   clusters_every?: ClusterWhereInput | null;
   clusters_none?: ClusterWhereInput | null;
   clusters_some?: ClusterWhereInput | null;
-
-  /** @format double */
-  failure_data_space?: number | null;
-
-  /** @format double */
-  failure_data_space_gt?: number | null;
-
-  /** @format double */
-  failure_data_space_gte?: number | null;
-  failure_data_space_in?: number[] | null;
-
-  /** @format double */
-  failure_data_space_lt?: number | null;
-
-  /** @format double */
-  failure_data_space_lte?: number | null;
-
-  /** @format double */
-  failure_data_space_not?: number | null;
-  failure_data_space_not_in?: number[] | null;
-
-  /** @format double */
-  host_num?: number | null;
-
-  /** @format double */
-  host_num_gt?: number | null;
-
-  /** @format double */
-  host_num_gte?: number | null;
-  host_num_in?: number[] | null;
-
-  /** @format double */
-  host_num_lt?: number | null;
-
-  /** @format double */
-  host_num_lte?: number | null;
-
-  /** @format double */
-  host_num_not?: number | null;
-  host_num_not_in?: number[] | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  labels_every?: LabelWhereInput | null;
-  labels_none?: LabelWhereInput | null;
-  labels_some?: LabelWhereInput | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: DatacenterWhereInput[] | null;
-  OR?: DatacenterWhereInput[] | null;
-  organization?: OrganizationWhereInput | null;
-
-  /** @format double */
-  total_cpu_hz?: number | null;
-
-  /** @format double */
-  total_cpu_hz_gt?: number | null;
-
-  /** @format double */
-  total_cpu_hz_gte?: number | null;
-  total_cpu_hz_in?: number[] | null;
-
-  /** @format double */
-  total_cpu_hz_lt?: number | null;
-
-  /** @format double */
-  total_cpu_hz_lte?: number | null;
-
-  /** @format double */
-  total_cpu_hz_not?: number | null;
-  total_cpu_hz_not_in?: number[] | null;
-
-  /** @format double */
-  total_data_capacity?: number | null;
-
-  /** @format double */
-  total_data_capacity_gt?: number | null;
-
-  /** @format double */
-  total_data_capacity_gte?: number | null;
-  total_data_capacity_in?: number[] | null;
-
-  /** @format double */
-  total_data_capacity_lt?: number | null;
-
-  /** @format double */
-  total_data_capacity_lte?: number | null;
-
-  /** @format double */
-  total_data_capacity_not?: number | null;
-  total_data_capacity_not_in?: number[] | null;
-
-  /** @format double */
-  total_memory_bytes?: number | null;
-
-  /** @format double */
-  total_memory_bytes_gt?: number | null;
-
-  /** @format double */
-  total_memory_bytes_gte?: number | null;
-  total_memory_bytes_in?: number[] | null;
-
-  /** @format double */
-  total_memory_bytes_lt?: number | null;
-
-  /** @format double */
-  total_memory_bytes_lte?: number | null;
-
-  /** @format double */
-  total_memory_bytes_not?: number | null;
-  total_memory_bytes_not_in?: number[] | null;
-
-  /** @format double */
-  used_cpu_hz?: number | null;
-
-  /** @format double */
-  used_cpu_hz_gt?: number | null;
-
-  /** @format double */
-  used_cpu_hz_gte?: number | null;
-  used_cpu_hz_in?: number[] | null;
-
-  /** @format double */
-  used_cpu_hz_lt?: number | null;
-
-  /** @format double */
-  used_cpu_hz_lte?: number | null;
-
-  /** @format double */
-  used_cpu_hz_not?: number | null;
-  used_cpu_hz_not_in?: number[] | null;
-
-  /** @format double */
-  used_data_space?: number | null;
-
-  /** @format double */
-  used_data_space_gt?: number | null;
-
-  /** @format double */
-  used_data_space_gte?: number | null;
-  used_data_space_in?: number[] | null;
-
-  /** @format double */
-  used_data_space_lt?: number | null;
-
-  /** @format double */
-  used_data_space_lte?: number | null;
-
-  /** @format double */
-  used_data_space_not?: number | null;
-  used_data_space_not_in?: number[] | null;
-
-  /** @format double */
-  used_memory_bytes?: number | null;
-
-  /** @format double */
-  used_memory_bytes_gt?: number | null;
-
-  /** @format double */
-  used_memory_bytes_gte?: number | null;
-  used_memory_bytes_in?: number[] | null;
-
-  /** @format double */
-  used_memory_bytes_lt?: number | null;
-
-  /** @format double */
-  used_memory_bytes_lte?: number | null;
-
-  /** @format double */
-  used_memory_bytes_not?: number | null;
-  used_memory_bytes_not_in?: number[] | null;
-
-  /** @format double */
-  vm_num?: number | null;
-
-  /** @format double */
-  vm_num_gt?: number | null;
-
-  /** @format double */
-  vm_num_gte?: number | null;
-  vm_num_in?: number[] | null;
-
-  /** @format double */
-  vm_num_lt?: number | null;
-
-  /** @format double */
-  vm_num_lte?: number | null;
-
-  /** @format double */
-  vm_num_not?: number | null;
-  vm_num_not_in?: number[] | null;
-}
-
-export interface OrganizationWhereInput {
-  AND?: OrganizationWhereInput[] | null;
-  datacenters_every?: DatacenterWhereInput | null;
-  datacenters_none?: DatacenterWhereInput | null;
-  datacenters_some?: DatacenterWhereInput | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: OrganizationWhereInput[] | null;
-  OR?: OrganizationWhereInput[] | null;
-}
-
-export interface DiskWhereInput {
-  AND?: DiskWhereInput[] | null;
+  createdAt?: string | null;
+  createdAt_gt?: string | null;
+  createdAt_gte?: string | null;
+  createdAt_in?: string[] | null;
+  createdAt_lt?: string | null;
+  createdAt_lte?: string | null;
+  createdAt_not?: string | null;
+  createdAt_not_in?: string[] | null;
+  description?: string | null;
+  description_contains?: string | null;
+  description_ends_with?: string | null;
+  description_gt?: string | null;
+  description_gte?: string | null;
+  description_in?: string[] | null;
+  description_lt?: string | null;
+  description_lte?: string | null;
+  description_not?: string | null;
+  description_not_contains?: string | null;
+  description_not_ends_with?: string | null;
+  description_not_in?: string[] | null;
+  description_not_starts_with?: string | null;
+  description_starts_with?: string | null;
+  elf_images_every?: ElfImageWhereInput | null;
+  elf_images_none?: ElfImageWhereInput | null;
+  elf_images_some?: ElfImageWhereInput | null;
   entityAsyncStatus?: EntityAsyncStatus | null;
   entityAsyncStatus_in?: EntityAsyncStatus[] | null;
   entityAsyncStatus_not?: EntityAsyncStatus | null;
   entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-  firmware?: string | null;
-  firmware_contains?: string | null;
-  firmware_ends_with?: string | null;
-  firmware_gt?: string | null;
-  firmware_gte?: string | null;
-  firmware_in?: string[] | null;
-  firmware_lt?: string | null;
-  firmware_lte?: string | null;
-  firmware_not?: string | null;
-  firmware_not_contains?: string | null;
-  firmware_not_ends_with?: string | null;
-  firmware_not_in?: string[] | null;
-  firmware_not_starts_with?: string | null;
-  firmware_starts_with?: string | null;
-  function?: DiskFunction | null;
-  function_in?: DiskFunction[] | null;
-  function_not?: DiskFunction | null;
-  function_not_in?: DiskFunction[] | null;
-  health_status?: DiskHealthStatus | null;
-  health_status_in?: DiskHealthStatus[] | null;
-  health_status_not?: DiskHealthStatus | null;
-  health_status_not_in?: DiskHealthStatus[] | null;
-  healthy?: boolean | null;
-  healthy_not?: boolean | null;
-  host?: HostWhereInput | null;
   id?: string | null;
   id_contains?: string | null;
   id_ends_with?: string | null;
@@ -3787,36 +3602,6 @@ export interface DiskWhereInput {
   labels_every?: LabelWhereInput | null;
   labels_none?: LabelWhereInput | null;
   labels_some?: LabelWhereInput | null;
-  local_id?: string | null;
-  local_id_contains?: string | null;
-  local_id_ends_with?: string | null;
-  local_id_gt?: string | null;
-  local_id_gte?: string | null;
-  local_id_in?: string[] | null;
-  local_id_lt?: string | null;
-  local_id_lte?: string | null;
-  local_id_not?: string | null;
-  local_id_not_contains?: string | null;
-  local_id_not_ends_with?: string | null;
-  local_id_not_in?: string[] | null;
-  local_id_not_starts_with?: string | null;
-  local_id_starts_with?: string | null;
-  model?: string | null;
-  model_contains?: string | null;
-  model_ends_with?: string | null;
-  model_gt?: string | null;
-  model_gte?: string | null;
-  model_in?: string[] | null;
-  model_lt?: string | null;
-  model_lte?: string | null;
-  model_not?: string | null;
-  model_not_contains?: string | null;
-  model_not_ends_with?: string | null;
-  model_not_in?: string[] | null;
-  model_not_starts_with?: string | null;
-  model_starts_with?: string | null;
-  mounted?: boolean | null;
-  mounted_not?: boolean | null;
   name?: string | null;
   name_contains?: string | null;
   name_ends_with?: string | null;
@@ -3831,30 +3616,8 @@ export interface DiskWhereInput {
   name_not_in?: string[] | null;
   name_not_starts_with?: string | null;
   name_starts_with?: string | null;
-  NOT?: DiskWhereInput[] | null;
-
-  /** @format double */
-  numa_node?: number | null;
-
-  /** @format double */
-  numa_node_gt?: number | null;
-
-  /** @format double */
-  numa_node_gte?: number | null;
-  numa_node_in?: number[] | null;
-
-  /** @format double */
-  numa_node_lt?: number | null;
-
-  /** @format double */
-  numa_node_lte?: number | null;
-
-  /** @format double */
-  numa_node_not?: number | null;
-  numa_node_not_in?: number[] | null;
-  offline?: boolean | null;
-  offline_not?: boolean | null;
-  OR?: DiskWhereInput[] | null;
+  NOT?: ContentLibraryImageWhereInput[] | null;
+  OR?: ContentLibraryImageWhereInput[] | null;
   path?: string | null;
   path_contains?: string | null;
   path_ends_with?: string | null;
@@ -3869,81 +3632,6 @@ export interface DiskWhereInput {
   path_not_in?: string[] | null;
   path_not_starts_with?: string | null;
   path_starts_with?: string | null;
-  persistent_memory_type?: string | null;
-  persistent_memory_type_contains?: string | null;
-  persistent_memory_type_ends_with?: string | null;
-  persistent_memory_type_gt?: string | null;
-  persistent_memory_type_gte?: string | null;
-  persistent_memory_type_in?: string[] | null;
-  persistent_memory_type_lt?: string | null;
-  persistent_memory_type_lte?: string | null;
-  persistent_memory_type_not?: string | null;
-  persistent_memory_type_not_contains?: string | null;
-  persistent_memory_type_not_ends_with?: string | null;
-  persistent_memory_type_not_in?: string[] | null;
-  persistent_memory_type_not_starts_with?: string | null;
-  persistent_memory_type_starts_with?: string | null;
-
-  /** @format double */
-  physical_slot_on_brick?: number | null;
-
-  /** @format double */
-  physical_slot_on_brick_gt?: number | null;
-
-  /** @format double */
-  physical_slot_on_brick_gte?: number | null;
-  physical_slot_on_brick_in?: number[] | null;
-
-  /** @format double */
-  physical_slot_on_brick_lt?: number | null;
-
-  /** @format double */
-  physical_slot_on_brick_lte?: number | null;
-
-  /** @format double */
-  physical_slot_on_brick_not?: number | null;
-  physical_slot_on_brick_not_in?: number[] | null;
-  pmem_dimms_every?: PmemDimmWhereInput | null;
-  pmem_dimms_none?: PmemDimmWhereInput | null;
-  pmem_dimms_some?: PmemDimmWhereInput | null;
-  recommended_usage?: DiskUsage | null;
-  recommended_usage_in?: DiskUsage[] | null;
-  recommended_usage_not?: DiskUsage | null;
-  recommended_usage_not_in?: DiskUsage[] | null;
-
-  /** @format double */
-  remaining_life_percent?: number | null;
-
-  /** @format double */
-  remaining_life_percent_gt?: number | null;
-
-  /** @format double */
-  remaining_life_percent_gte?: number | null;
-  remaining_life_percent_in?: number[] | null;
-
-  /** @format double */
-  remaining_life_percent_lt?: number | null;
-
-  /** @format double */
-  remaining_life_percent_lte?: number | null;
-
-  /** @format double */
-  remaining_life_percent_not?: number | null;
-  remaining_life_percent_not_in?: number[] | null;
-  serial?: string | null;
-  serial_contains?: string | null;
-  serial_ends_with?: string | null;
-  serial_gt?: string | null;
-  serial_gte?: string | null;
-  serial_in?: string[] | null;
-  serial_lt?: string | null;
-  serial_lte?: string | null;
-  serial_not?: string | null;
-  serial_not_contains?: string | null;
-  serial_not_ends_with?: string | null;
-  serial_not_in?: string[] | null;
-  serial_not_starts_with?: string | null;
-  serial_starts_with?: string | null;
 
   /** @format double */
   size?: number | null;
@@ -3964,23 +3652,1206 @@ export interface DiskWhereInput {
   /** @format double */
   size_not?: number | null;
   size_not_in?: number[] | null;
-  type?: DiskType | null;
-  type_in?: DiskType[] | null;
-  type_not?: DiskType | null;
-  type_not_in?: DiskType[] | null;
-  usage?: DiskUsage | null;
-  usage_in?: DiskUsage[] | null;
-  usage_not?: DiskUsage | null;
-  usage_not_in?: DiskUsage[] | null;
-  usage_status?: DiskUsageStatus | null;
-  usage_status_in?: DiskUsageStatus[] | null;
-  usage_status_not?: DiskUsageStatus | null;
-  usage_status_not_in?: DiskUsageStatus[] | null;
+  vm_disks_every?: VmDiskWhereInput | null;
+  vm_disks_none?: VmDiskWhereInput | null;
+  vm_disks_some?: VmDiskWhereInput | null;
+  vm_snapshots_every?: VmSnapshotWhereInput | null;
+  vm_snapshots_none?: VmSnapshotWhereInput | null;
+  vm_snapshots_some?: VmSnapshotWhereInput | null;
+  vm_templates_every?: VmTemplateWhereInput | null;
+  vm_templates_none?: VmTemplateWhereInput | null;
+  vm_templates_some?: VmTemplateWhereInput | null;
 }
 
-export type DiskFunction = "CACHE" | "DATA" | "SMTX_SYSTEM";
+export interface ElfImageWhereInput {
+  AND?: ElfImageWhereInput[] | null;
+  cluster?: ClusterWhereInput | null;
+  content_library_image?: ContentLibraryImageWhereInput | null;
+  description?: string | null;
+  description_contains?: string | null;
+  description_ends_with?: string | null;
+  description_gt?: string | null;
+  description_gte?: string | null;
+  description_in?: string[] | null;
+  description_lt?: string | null;
+  description_lte?: string | null;
+  description_not?: string | null;
+  description_not_contains?: string | null;
+  description_not_ends_with?: string | null;
+  description_not_in?: string[] | null;
+  description_not_starts_with?: string | null;
+  description_starts_with?: string | null;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+  entityAsyncStatus_not?: EntityAsyncStatus | null;
+  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  labels_every?: LabelWhereInput | null;
+  labels_none?: LabelWhereInput | null;
+  labels_some?: LabelWhereInput | null;
+  local_created_at?: string | null;
+  local_created_at_gt?: string | null;
+  local_created_at_gte?: string | null;
+  local_created_at_in?: string[] | null;
+  local_created_at_lt?: string | null;
+  local_created_at_lte?: string | null;
+  local_created_at_not?: string | null;
+  local_created_at_not_in?: string[] | null;
+  local_id?: string | null;
+  local_id_contains?: string | null;
+  local_id_ends_with?: string | null;
+  local_id_gt?: string | null;
+  local_id_gte?: string | null;
+  local_id_in?: string[] | null;
+  local_id_lt?: string | null;
+  local_id_lte?: string | null;
+  local_id_not?: string | null;
+  local_id_not_contains?: string | null;
+  local_id_not_ends_with?: string | null;
+  local_id_not_in?: string[] | null;
+  local_id_not_starts_with?: string | null;
+  local_id_starts_with?: string | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: ElfImageWhereInput[] | null;
+  OR?: ElfImageWhereInput[] | null;
+  path?: string | null;
+  path_contains?: string | null;
+  path_ends_with?: string | null;
+  path_gt?: string | null;
+  path_gte?: string | null;
+  path_in?: string[] | null;
+  path_lt?: string | null;
+  path_lte?: string | null;
+  path_not?: string | null;
+  path_not_contains?: string | null;
+  path_not_ends_with?: string | null;
+  path_not_in?: string[] | null;
+  path_not_starts_with?: string | null;
+  path_starts_with?: string | null;
 
-export type DiskHealthStatus = "HEALTHY" | "SMART_FAILED" | "SUBHEALTHY" | "UNHEALTHY";
+  /** @format double */
+  size?: number | null;
+
+  /** @format double */
+  size_gt?: number | null;
+
+  /** @format double */
+  size_gte?: number | null;
+  size_in?: number[] | null;
+
+  /** @format double */
+  size_lt?: number | null;
+
+  /** @format double */
+  size_lte?: number | null;
+
+  /** @format double */
+  size_not?: number | null;
+  size_not_in?: number[] | null;
+  vm_disks_every?: VmDiskWhereInput | null;
+  vm_disks_none?: VmDiskWhereInput | null;
+  vm_disks_some?: VmDiskWhereInput | null;
+  vm_snapshots_every?: VmSnapshotWhereInput | null;
+  vm_snapshots_none?: VmSnapshotWhereInput | null;
+  vm_snapshots_some?: VmSnapshotWhereInput | null;
+  vm_templates_every?: VmTemplateWhereInput | null;
+  vm_templates_none?: VmTemplateWhereInput | null;
+  vm_templates_some?: VmTemplateWhereInput | null;
+}
+
+export interface VmDiskWhereInput {
+  AND?: VmDiskWhereInput[] | null;
+
+  /** @format double */
+  boot?: number | null;
+
+  /** @format double */
+  boot_gt?: number | null;
+
+  /** @format double */
+  boot_gte?: number | null;
+  boot_in?: number[] | null;
+
+  /** @format double */
+  boot_lt?: number | null;
+
+  /** @format double */
+  boot_lte?: number | null;
+
+  /** @format double */
+  boot_not?: number | null;
+  boot_not_in?: number[] | null;
+  bus?: Bus | null;
+  bus_in?: Bus[] | null;
+  bus_not?: Bus | null;
+  bus_not_in?: Bus[] | null;
+  cloud_init_image_name?: string | null;
+  cloud_init_image_name_contains?: string | null;
+  cloud_init_image_name_ends_with?: string | null;
+  cloud_init_image_name_gt?: string | null;
+  cloud_init_image_name_gte?: string | null;
+  cloud_init_image_name_in?: string[] | null;
+  cloud_init_image_name_lt?: string | null;
+  cloud_init_image_name_lte?: string | null;
+  cloud_init_image_name_not?: string | null;
+  cloud_init_image_name_not_contains?: string | null;
+  cloud_init_image_name_not_ends_with?: string | null;
+  cloud_init_image_name_not_in?: string[] | null;
+  cloud_init_image_name_not_starts_with?: string | null;
+  cloud_init_image_name_starts_with?: string | null;
+  cloud_init_image_path?: string | null;
+  cloud_init_image_path_contains?: string | null;
+  cloud_init_image_path_ends_with?: string | null;
+  cloud_init_image_path_gt?: string | null;
+  cloud_init_image_path_gte?: string | null;
+  cloud_init_image_path_in?: string[] | null;
+  cloud_init_image_path_lt?: string | null;
+  cloud_init_image_path_lte?: string | null;
+  cloud_init_image_path_not?: string | null;
+  cloud_init_image_path_not_contains?: string | null;
+  cloud_init_image_path_not_ends_with?: string | null;
+  cloud_init_image_path_not_in?: string[] | null;
+  cloud_init_image_path_not_starts_with?: string | null;
+  cloud_init_image_path_starts_with?: string | null;
+  device?: string | null;
+  device_contains?: string | null;
+  device_ends_with?: string | null;
+  device_gt?: string | null;
+  device_gte?: string | null;
+  device_in?: string[] | null;
+  device_lt?: string | null;
+  device_lte?: string | null;
+  device_not?: string | null;
+  device_not_contains?: string | null;
+  device_not_ends_with?: string | null;
+  device_not_in?: string[] | null;
+  device_not_starts_with?: string | null;
+  device_starts_with?: string | null;
+  disabled?: boolean | null;
+  disabled_not?: boolean | null;
+  elf_image?: ElfImageWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+
+  /** @format double */
+  key?: number | null;
+
+  /** @format double */
+  key_gt?: number | null;
+
+  /** @format double */
+  key_gte?: number | null;
+  key_in?: number[] | null;
+
+  /** @format double */
+  key_lt?: number | null;
+
+  /** @format double */
+  key_lte?: number | null;
+
+  /** @format double */
+  key_not?: number | null;
+  key_not_in?: number[] | null;
+
+  /** @format double */
+  max_bandwidth?: number | null;
+
+  /** @format double */
+  max_bandwidth_gt?: number | null;
+
+  /** @format double */
+  max_bandwidth_gte?: number | null;
+  max_bandwidth_in?: number[] | null;
+
+  /** @format double */
+  max_bandwidth_lt?: number | null;
+
+  /** @format double */
+  max_bandwidth_lte?: number | null;
+
+  /** @format double */
+  max_bandwidth_not?: number | null;
+  max_bandwidth_not_in?: number[] | null;
+  max_bandwidth_policy?: VmDiskIoRestrictType | null;
+  max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
+  max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
+  max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
+
+  /** @format double */
+  max_iops?: number | null;
+
+  /** @format double */
+  max_iops_gt?: number | null;
+
+  /** @format double */
+  max_iops_gte?: number | null;
+  max_iops_in?: number[] | null;
+
+  /** @format double */
+  max_iops_lt?: number | null;
+
+  /** @format double */
+  max_iops_lte?: number | null;
+
+  /** @format double */
+  max_iops_not?: number | null;
+  max_iops_not_in?: number[] | null;
+  max_iops_policy?: VmDiskIoRestrictType | null;
+  max_iops_policy_in?: VmDiskIoRestrictType[] | null;
+  max_iops_policy_not?: VmDiskIoRestrictType | null;
+  max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
+  NOT?: VmDiskWhereInput[] | null;
+  OR?: VmDiskWhereInput[] | null;
+  serial?: string | null;
+  serial_contains?: string | null;
+  serial_ends_with?: string | null;
+  serial_gt?: string | null;
+  serial_gte?: string | null;
+  serial_in?: string[] | null;
+  serial_lt?: string | null;
+  serial_lte?: string | null;
+  serial_not?: string | null;
+  serial_not_contains?: string | null;
+  serial_not_ends_with?: string | null;
+  serial_not_in?: string[] | null;
+  serial_not_starts_with?: string | null;
+  serial_starts_with?: string | null;
+  svt_image?: SvtImageWhereInput | null;
+  type?: VmDiskType | null;
+  type_in?: VmDiskType[] | null;
+  type_not?: VmDiskType | null;
+  type_not_in?: VmDiskType[] | null;
+  unsafe_image_path?: string | null;
+  unsafe_image_path_contains?: string | null;
+  unsafe_image_path_ends_with?: string | null;
+  unsafe_image_path_gt?: string | null;
+  unsafe_image_path_gte?: string | null;
+  unsafe_image_path_in?: string[] | null;
+  unsafe_image_path_lt?: string | null;
+  unsafe_image_path_lte?: string | null;
+  unsafe_image_path_not?: string | null;
+  unsafe_image_path_not_contains?: string | null;
+  unsafe_image_path_not_ends_with?: string | null;
+  unsafe_image_path_not_in?: string[] | null;
+  unsafe_image_path_not_starts_with?: string | null;
+  unsafe_image_path_starts_with?: string | null;
+  unsafe_image_uuid?: string | null;
+  unsafe_image_uuid_contains?: string | null;
+  unsafe_image_uuid_ends_with?: string | null;
+  unsafe_image_uuid_gt?: string | null;
+  unsafe_image_uuid_gte?: string | null;
+  unsafe_image_uuid_in?: string[] | null;
+  unsafe_image_uuid_lt?: string | null;
+  unsafe_image_uuid_lte?: string | null;
+  unsafe_image_uuid_not?: string | null;
+  unsafe_image_uuid_not_contains?: string | null;
+  unsafe_image_uuid_not_ends_with?: string | null;
+  unsafe_image_uuid_not_in?: string[] | null;
+  unsafe_image_uuid_not_starts_with?: string | null;
+  unsafe_image_uuid_starts_with?: string | null;
+  unsafe_provision?: string | null;
+  unsafe_provision_contains?: string | null;
+  unsafe_provision_ends_with?: string | null;
+  unsafe_provision_gt?: string | null;
+  unsafe_provision_gte?: string | null;
+  unsafe_provision_in?: string[] | null;
+  unsafe_provision_lt?: string | null;
+  unsafe_provision_lte?: string | null;
+  unsafe_provision_not?: string | null;
+  unsafe_provision_not_contains?: string | null;
+  unsafe_provision_not_ends_with?: string | null;
+  unsafe_provision_not_in?: string[] | null;
+  unsafe_provision_not_starts_with?: string | null;
+  unsafe_provision_starts_with?: string | null;
+  vm?: VmWhereInput | null;
+  vm_volume?: VmVolumeWhereInput | null;
+}
+
+export type Bus = "IDE" | "SCSI" | "VIRTIO";
+
+export type VmDiskIoRestrictType = "DYNAMIC" | "FORCED";
+
+export interface SvtImageWhereInput {
+  AND?: SvtImageWhereInput[] | null;
+  cluster?: ClusterWhereInput | null;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+  entityAsyncStatus_not?: EntityAsyncStatus | null;
+  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  local_created_at?: string | null;
+  local_created_at_gt?: string | null;
+  local_created_at_gte?: string | null;
+  local_created_at_in?: string[] | null;
+  local_created_at_lt?: string | null;
+  local_created_at_lte?: string | null;
+  local_created_at_not?: string | null;
+  local_created_at_not_in?: string[] | null;
+  local_id?: string | null;
+  local_id_contains?: string | null;
+  local_id_ends_with?: string | null;
+  local_id_gt?: string | null;
+  local_id_gte?: string | null;
+  local_id_in?: string[] | null;
+  local_id_lt?: string | null;
+  local_id_lte?: string | null;
+  local_id_not?: string | null;
+  local_id_not_contains?: string | null;
+  local_id_not_ends_with?: string | null;
+  local_id_not_in?: string[] | null;
+  local_id_not_starts_with?: string | null;
+  local_id_starts_with?: string | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: SvtImageWhereInput[] | null;
+  OR?: SvtImageWhereInput[] | null;
+  path?: string | null;
+  path_contains?: string | null;
+  path_ends_with?: string | null;
+  path_gt?: string | null;
+  path_gte?: string | null;
+  path_in?: string[] | null;
+  path_lt?: string | null;
+  path_lte?: string | null;
+  path_not?: string | null;
+  path_not_contains?: string | null;
+  path_not_ends_with?: string | null;
+  path_not_in?: string[] | null;
+  path_not_starts_with?: string | null;
+  path_starts_with?: string | null;
+
+  /** @format double */
+  size?: number | null;
+
+  /** @format double */
+  size_gt?: number | null;
+
+  /** @format double */
+  size_gte?: number | null;
+  size_in?: number[] | null;
+
+  /** @format double */
+  size_lt?: number | null;
+
+  /** @format double */
+  size_lte?: number | null;
+
+  /** @format double */
+  size_not?: number | null;
+  size_not_in?: number[] | null;
+
+  /** @format double */
+  version?: number | null;
+
+  /** @format double */
+  version_gt?: number | null;
+
+  /** @format double */
+  version_gte?: number | null;
+  version_in?: number[] | null;
+
+  /** @format double */
+  version_lt?: number | null;
+
+  /** @format double */
+  version_lte?: number | null;
+
+  /** @format double */
+  version_not?: number | null;
+  version_not_in?: number[] | null;
+  vm_disks_every?: VmDiskWhereInput | null;
+  vm_disks_none?: VmDiskWhereInput | null;
+  vm_disks_some?: VmDiskWhereInput | null;
+}
+
+export type VmDiskType = "CD_ROM" | "DISK";
+
+export interface VmWhereInput {
+  AND?: VmWhereInput[] | null;
+  clock_offset?: VmClockOffset | null;
+  clock_offset_in?: VmClockOffset[] | null;
+  clock_offset_not?: VmClockOffset | null;
+  clock_offset_not_in?: VmClockOffset[] | null;
+  cluster?: ClusterWhereInput | null;
+  cpu_model?: string | null;
+  cpu_model_contains?: string | null;
+  cpu_model_ends_with?: string | null;
+  cpu_model_gt?: string | null;
+  cpu_model_gte?: string | null;
+  cpu_model_in?: string[] | null;
+  cpu_model_lt?: string | null;
+  cpu_model_lte?: string | null;
+  cpu_model_not?: string | null;
+  cpu_model_not_contains?: string | null;
+  cpu_model_not_ends_with?: string | null;
+  cpu_model_not_in?: string[] | null;
+  cpu_model_not_starts_with?: string | null;
+  cpu_model_starts_with?: string | null;
+
+  /** @format double */
+  cpu_usage?: number | null;
+
+  /** @format double */
+  cpu_usage_gt?: number | null;
+
+  /** @format double */
+  cpu_usage_gte?: number | null;
+  cpu_usage_in?: number[] | null;
+
+  /** @format double */
+  cpu_usage_lt?: number | null;
+
+  /** @format double */
+  cpu_usage_lte?: number | null;
+
+  /** @format double */
+  cpu_usage_not?: number | null;
+  cpu_usage_not_in?: number[] | null;
+  deleted_at?: string | null;
+  deleted_at_gt?: string | null;
+  deleted_at_gte?: string | null;
+  deleted_at_in?: string[] | null;
+  deleted_at_lt?: string | null;
+  deleted_at_lte?: string | null;
+  deleted_at_not?: string | null;
+  deleted_at_not_in?: string[] | null;
+  description?: string | null;
+  description_contains?: string | null;
+  description_ends_with?: string | null;
+  description_gt?: string | null;
+  description_gte?: string | null;
+  description_in?: string[] | null;
+  description_lt?: string | null;
+  description_lte?: string | null;
+  description_not?: string | null;
+  description_not_contains?: string | null;
+  description_not_ends_with?: string | null;
+  description_not_in?: string[] | null;
+  description_not_starts_with?: string | null;
+  description_starts_with?: string | null;
+  dns_servers?: string | null;
+  dns_servers_contains?: string | null;
+  dns_servers_ends_with?: string | null;
+  dns_servers_gt?: string | null;
+  dns_servers_gte?: string | null;
+  dns_servers_in?: string[] | null;
+  dns_servers_lt?: string | null;
+  dns_servers_lte?: string | null;
+  dns_servers_not?: string | null;
+  dns_servers_not_contains?: string | null;
+  dns_servers_not_ends_with?: string | null;
+  dns_servers_not_in?: string[] | null;
+  dns_servers_not_starts_with?: string | null;
+  dns_servers_starts_with?: string | null;
+  entity_filter_results_every?: VmEntityFilterResultWhereInput | null;
+  entity_filter_results_none?: VmEntityFilterResultWhereInput | null;
+  entity_filter_results_some?: VmEntityFilterResultWhereInput | null;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+  entityAsyncStatus_not?: EntityAsyncStatus | null;
+  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  firmware?: VmFirmware | null;
+  firmware_in?: VmFirmware[] | null;
+  firmware_not?: VmFirmware | null;
+  firmware_not_in?: VmFirmware[] | null;
+  folder?: VmFolderWhereInput | null;
+  guest_cpu_model?: string | null;
+  guest_cpu_model_contains?: string | null;
+  guest_cpu_model_ends_with?: string | null;
+  guest_cpu_model_gt?: string | null;
+  guest_cpu_model_gte?: string | null;
+  guest_cpu_model_in?: string[] | null;
+  guest_cpu_model_lt?: string | null;
+  guest_cpu_model_lte?: string | null;
+  guest_cpu_model_not?: string | null;
+  guest_cpu_model_not_contains?: string | null;
+  guest_cpu_model_not_ends_with?: string | null;
+  guest_cpu_model_not_in?: string[] | null;
+  guest_cpu_model_not_starts_with?: string | null;
+  guest_cpu_model_starts_with?: string | null;
+  guest_os_type?: VmGuestsOperationSystem | null;
+  guest_os_type_in?: VmGuestsOperationSystem[] | null;
+  guest_os_type_not?: VmGuestsOperationSystem | null;
+  guest_os_type_not_in?: VmGuestsOperationSystem[] | null;
+
+  /** @format double */
+  guest_size_usage?: number | null;
+
+  /** @format double */
+  guest_size_usage_gt?: number | null;
+
+  /** @format double */
+  guest_size_usage_gte?: number | null;
+  guest_size_usage_in?: number[] | null;
+
+  /** @format double */
+  guest_size_usage_lt?: number | null;
+
+  /** @format double */
+  guest_size_usage_lte?: number | null;
+
+  /** @format double */
+  guest_size_usage_not?: number | null;
+  guest_size_usage_not_in?: number[] | null;
+
+  /** @format double */
+  guest_used_size?: number | null;
+
+  /** @format double */
+  guest_used_size_gt?: number | null;
+
+  /** @format double */
+  guest_used_size_gte?: number | null;
+  guest_used_size_in?: number[] | null;
+
+  /** @format double */
+  guest_used_size_lt?: number | null;
+
+  /** @format double */
+  guest_used_size_lte?: number | null;
+
+  /** @format double */
+  guest_used_size_not?: number | null;
+  guest_used_size_not_in?: number[] | null;
+  ha?: boolean | null;
+  ha_not?: boolean | null;
+  host?: HostWhereInput | null;
+  hostname?: string | null;
+  hostname_contains?: string | null;
+  hostname_ends_with?: string | null;
+  hostname_gt?: string | null;
+  hostname_gte?: string | null;
+  hostname_in?: string[] | null;
+  hostname_lt?: string | null;
+  hostname_lte?: string | null;
+  hostname_not?: string | null;
+  hostname_not_contains?: string | null;
+  hostname_not_ends_with?: string | null;
+  hostname_not_in?: string[] | null;
+  hostname_not_starts_with?: string | null;
+  hostname_starts_with?: string | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  in_recycle_bin?: boolean | null;
+  in_recycle_bin_not?: boolean | null;
+  internal?: boolean | null;
+  internal_not?: boolean | null;
+  io_policy?: VmDiskIoPolicy | null;
+  io_policy_in?: VmDiskIoPolicy[] | null;
+  io_policy_not?: VmDiskIoPolicy | null;
+  io_policy_not_in?: VmDiskIoPolicy[] | null;
+  ips?: string | null;
+  ips_contains?: string | null;
+  ips_ends_with?: string | null;
+  ips_gt?: string | null;
+  ips_gte?: string | null;
+  ips_in?: string[] | null;
+  ips_lt?: string | null;
+  ips_lte?: string | null;
+  ips_not?: string | null;
+  ips_not_contains?: string | null;
+  ips_not_ends_with?: string | null;
+  ips_not_in?: string[] | null;
+  ips_not_starts_with?: string | null;
+  ips_starts_with?: string | null;
+  isolation_policy?: IsolationPolicyWhereInput | null;
+  kernel_info?: string | null;
+  kernel_info_contains?: string | null;
+  kernel_info_ends_with?: string | null;
+  kernel_info_gt?: string | null;
+  kernel_info_gte?: string | null;
+  kernel_info_in?: string[] | null;
+  kernel_info_lt?: string | null;
+  kernel_info_lte?: string | null;
+  kernel_info_not?: string | null;
+  kernel_info_not_contains?: string | null;
+  kernel_info_not_ends_with?: string | null;
+  kernel_info_not_in?: string[] | null;
+  kernel_info_not_starts_with?: string | null;
+  kernel_info_starts_with?: string | null;
+  labels_every?: LabelWhereInput | null;
+  labels_none?: LabelWhereInput | null;
+  labels_some?: LabelWhereInput | null;
+  last_shutdown_time?: string | null;
+  last_shutdown_time_gt?: string | null;
+  last_shutdown_time_gte?: string | null;
+  last_shutdown_time_in?: string[] | null;
+  last_shutdown_time_lt?: string | null;
+  last_shutdown_time_lte?: string | null;
+  last_shutdown_time_not?: string | null;
+  last_shutdown_time_not_in?: string[] | null;
+  local_created_at?: string | null;
+  local_created_at_gt?: string | null;
+  local_created_at_gte?: string | null;
+  local_created_at_in?: string[] | null;
+  local_created_at_lt?: string | null;
+  local_created_at_lte?: string | null;
+  local_created_at_not?: string | null;
+  local_created_at_not_in?: string[] | null;
+  local_id?: string | null;
+  local_id_contains?: string | null;
+  local_id_ends_with?: string | null;
+  local_id_gt?: string | null;
+  local_id_gte?: string | null;
+  local_id_in?: string[] | null;
+  local_id_lt?: string | null;
+  local_id_lte?: string | null;
+  local_id_not?: string | null;
+  local_id_not_contains?: string | null;
+  local_id_not_ends_with?: string | null;
+  local_id_not_in?: string[] | null;
+  local_id_not_starts_with?: string | null;
+  local_id_starts_with?: string | null;
+
+  /** @format double */
+  logical_size_bytes?: number | null;
+
+  /** @format double */
+  logical_size_bytes_gt?: number | null;
+
+  /** @format double */
+  logical_size_bytes_gte?: number | null;
+  logical_size_bytes_in?: number[] | null;
+
+  /** @format double */
+  logical_size_bytes_lt?: number | null;
+
+  /** @format double */
+  logical_size_bytes_lte?: number | null;
+
+  /** @format double */
+  logical_size_bytes_not?: number | null;
+  logical_size_bytes_not_in?: number[] | null;
+
+  /** @format double */
+  max_bandwidth?: number | null;
+
+  /** @format double */
+  max_bandwidth_gt?: number | null;
+
+  /** @format double */
+  max_bandwidth_gte?: number | null;
+  max_bandwidth_in?: number[] | null;
+
+  /** @format double */
+  max_bandwidth_lt?: number | null;
+
+  /** @format double */
+  max_bandwidth_lte?: number | null;
+
+  /** @format double */
+  max_bandwidth_not?: number | null;
+  max_bandwidth_not_in?: number[] | null;
+  max_bandwidth_policy?: VmDiskIoRestrictType | null;
+  max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
+  max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
+  max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
+
+  /** @format double */
+  max_iops?: number | null;
+
+  /** @format double */
+  max_iops_gt?: number | null;
+
+  /** @format double */
+  max_iops_gte?: number | null;
+  max_iops_in?: number[] | null;
+
+  /** @format double */
+  max_iops_lt?: number | null;
+
+  /** @format double */
+  max_iops_lte?: number | null;
+
+  /** @format double */
+  max_iops_not?: number | null;
+  max_iops_not_in?: number[] | null;
+  max_iops_policy?: VmDiskIoRestrictType | null;
+  max_iops_policy_in?: VmDiskIoRestrictType[] | null;
+  max_iops_policy_not?: VmDiskIoRestrictType | null;
+  max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
+
+  /** @format double */
+  memory?: number | null;
+
+  /** @format double */
+  memory_gt?: number | null;
+
+  /** @format double */
+  memory_gte?: number | null;
+  memory_in?: number[] | null;
+
+  /** @format double */
+  memory_lt?: number | null;
+
+  /** @format double */
+  memory_lte?: number | null;
+
+  /** @format double */
+  memory_not?: number | null;
+  memory_not_in?: number[] | null;
+
+  /** @format double */
+  memory_usage?: number | null;
+
+  /** @format double */
+  memory_usage_gt?: number | null;
+
+  /** @format double */
+  memory_usage_gte?: number | null;
+  memory_usage_in?: number[] | null;
+
+  /** @format double */
+  memory_usage_lt?: number | null;
+
+  /** @format double */
+  memory_usage_lte?: number | null;
+
+  /** @format double */
+  memory_usage_not?: number | null;
+  memory_usage_not_in?: number[] | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  nested_virtualization?: boolean | null;
+  nested_virtualization_not?: boolean | null;
+  node_ip?: string | null;
+  node_ip_contains?: string | null;
+  node_ip_ends_with?: string | null;
+  node_ip_gt?: string | null;
+  node_ip_gte?: string | null;
+  node_ip_in?: string[] | null;
+  node_ip_lt?: string | null;
+  node_ip_lte?: string | null;
+  node_ip_not?: string | null;
+  node_ip_not_contains?: string | null;
+  node_ip_not_ends_with?: string | null;
+  node_ip_not_in?: string[] | null;
+  node_ip_not_starts_with?: string | null;
+  node_ip_starts_with?: string | null;
+  NOT?: VmWhereInput[] | null;
+  OR?: VmWhereInput[] | null;
+  original_name?: string | null;
+  original_name_contains?: string | null;
+  original_name_ends_with?: string | null;
+  original_name_gt?: string | null;
+  original_name_gte?: string | null;
+  original_name_in?: string[] | null;
+  original_name_lt?: string | null;
+  original_name_lte?: string | null;
+  original_name_not?: string | null;
+  original_name_not_contains?: string | null;
+  original_name_not_ends_with?: string | null;
+  original_name_not_in?: string[] | null;
+  original_name_not_starts_with?: string | null;
+  original_name_starts_with?: string | null;
+  os?: string | null;
+  os_contains?: string | null;
+  os_ends_with?: string | null;
+  os_gt?: string | null;
+  os_gte?: string | null;
+  os_in?: string[] | null;
+  os_lt?: string | null;
+  os_lte?: string | null;
+  os_not?: string | null;
+  os_not_contains?: string | null;
+  os_not_ends_with?: string | null;
+  os_not_in?: string[] | null;
+  os_not_starts_with?: string | null;
+  os_starts_with?: string | null;
+  protected?: boolean | null;
+  protected_not?: boolean | null;
+
+  /** @format double */
+  provisioned_size?: number | null;
+
+  /** @format double */
+  provisioned_size_gt?: number | null;
+
+  /** @format double */
+  provisioned_size_gte?: number | null;
+  provisioned_size_in?: number[] | null;
+
+  /** @format double */
+  provisioned_size_lt?: number | null;
+
+  /** @format double */
+  provisioned_size_lte?: number | null;
+
+  /** @format double */
+  provisioned_size_not?: number | null;
+  provisioned_size_not_in?: number[] | null;
+
+  /** @format double */
+  size?: number | null;
+
+  /** @format double */
+  size_gt?: number | null;
+
+  /** @format double */
+  size_gte?: number | null;
+  size_in?: number[] | null;
+
+  /** @format double */
+  size_lt?: number | null;
+
+  /** @format double */
+  size_lte?: number | null;
+
+  /** @format double */
+  size_not?: number | null;
+  size_not_in?: number[] | null;
+  snapshot_plan?: SnapshotPlanWhereInput | null;
+  snapshots_every?: VmSnapshotWhereInput | null;
+  snapshots_none?: VmSnapshotWhereInput | null;
+  snapshots_some?: VmSnapshotWhereInput | null;
+  status?: VmStatus | null;
+  status_in?: VmStatus[] | null;
+  status_not?: VmStatus | null;
+  status_not_in?: VmStatus[] | null;
+
+  /** @format double */
+  unique_size?: number | null;
+
+  /** @format double */
+  unique_size_gt?: number | null;
+
+  /** @format double */
+  unique_size_gte?: number | null;
+  unique_size_in?: number[] | null;
+
+  /** @format double */
+  unique_size_lt?: number | null;
+
+  /** @format double */
+  unique_size_lte?: number | null;
+
+  /** @format double */
+  unique_size_not?: number | null;
+  unique_size_not_in?: number[] | null;
+  usb_devices_every?: UsbDeviceWhereInput | null;
+  usb_devices_none?: UsbDeviceWhereInput | null;
+  usb_devices_some?: UsbDeviceWhereInput | null;
+
+  /** @format double */
+  vcpu?: number | null;
+
+  /** @format double */
+  vcpu_gt?: number | null;
+
+  /** @format double */
+  vcpu_gte?: number | null;
+  vcpu_in?: number[] | null;
+
+  /** @format double */
+  vcpu_lt?: number | null;
+
+  /** @format double */
+  vcpu_lte?: number | null;
+
+  /** @format double */
+  vcpu_not?: number | null;
+  vcpu_not_in?: number[] | null;
+  video_type?: VmVideoType | null;
+  video_type_in?: VmVideoType[] | null;
+  video_type_not?: VmVideoType | null;
+  video_type_not_in?: VmVideoType[] | null;
+  vm_disks_every?: VmDiskWhereInput | null;
+  vm_disks_none?: VmDiskWhereInput | null;
+  vm_disks_some?: VmDiskWhereInput | null;
+  vm_nics_every?: VmNicWhereInput | null;
+  vm_nics_none?: VmNicWhereInput | null;
+  vm_nics_some?: VmNicWhereInput | null;
+  vm_placement_group_every?: VmPlacementGroupWhereInput | null;
+  vm_placement_group_none?: VmPlacementGroupWhereInput | null;
+  vm_placement_group_some?: VmPlacementGroupWhereInput | null;
+  vm_tools_status?: VmToolsStatus | null;
+  vm_tools_status_in?: VmToolsStatus[] | null;
+  vm_tools_status_not?: VmToolsStatus | null;
+  vm_tools_status_not_in?: VmToolsStatus[] | null;
+  vm_tools_version?: string | null;
+  vm_tools_version_contains?: string | null;
+  vm_tools_version_ends_with?: string | null;
+  vm_tools_version_gt?: string | null;
+  vm_tools_version_gte?: string | null;
+  vm_tools_version_in?: string[] | null;
+  vm_tools_version_lt?: string | null;
+  vm_tools_version_lte?: string | null;
+  vm_tools_version_not?: string | null;
+  vm_tools_version_not_contains?: string | null;
+  vm_tools_version_not_ends_with?: string | null;
+  vm_tools_version_not_in?: string[] | null;
+  vm_tools_version_not_starts_with?: string | null;
+  vm_tools_version_starts_with?: string | null;
+  vm_usage?: VmUsage | null;
+  vm_usage_in?: VmUsage[] | null;
+  vm_usage_not?: VmUsage | null;
+  vm_usage_not_in?: VmUsage[] | null;
+  win_opt?: boolean | null;
+  win_opt_not?: boolean | null;
+}
+
+export type VmClockOffset = "LOCALTIME" | "UTC";
+
+export interface VmEntityFilterResultWhereInput {
+  AND?: VmEntityFilterResultWhereInput[] | null;
+  entityFilter?: EntityFilterWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  NOT?: VmEntityFilterResultWhereInput[] | null;
+  OR?: VmEntityFilterResultWhereInput[] | null;
+  vm?: VmWhereInput | null;
+}
+
+export interface EntityFilterWhereInput {
+  AND?: EntityFilterWhereInput[] | null;
+  apply_to_all_clusters?: boolean | null;
+  apply_to_all_clusters_not?: boolean | null;
+  clusters_every?: ClusterWhereInput | null;
+  clusters_none?: ClusterWhereInput | null;
+  clusters_some?: ClusterWhereInput | null;
+  entity_type?: EntityType | null;
+  entity_type_in?: EntityType[] | null;
+  entity_type_not?: EntityType | null;
+  entity_type_not_in?: EntityType[] | null;
+  exec_failed_cluster_every?: ClusterWhereInput | null;
+  exec_failed_cluster_none?: ClusterWhereInput | null;
+  exec_failed_cluster_some?: ClusterWhereInput | null;
+  filter_status?: FilterStatus | null;
+  filter_status_in?: FilterStatus[] | null;
+  filter_status_not?: FilterStatus | null;
+  filter_status_not_in?: FilterStatus[] | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  last_executed_at?: string | null;
+  last_executed_at_gt?: string | null;
+  last_executed_at_gte?: string | null;
+  last_executed_at_in?: string[] | null;
+  last_executed_at_lt?: string | null;
+  last_executed_at_lte?: string | null;
+  last_executed_at_not?: string | null;
+  last_executed_at_not_in?: string[] | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: EntityFilterWhereInput[] | null;
+  OR?: EntityFilterWhereInput[] | null;
+  preset?: string | null;
+  preset_contains?: string | null;
+  preset_ends_with?: string | null;
+  preset_gt?: string | null;
+  preset_gte?: string | null;
+  preset_in?: string[] | null;
+  preset_lt?: string | null;
+  preset_lte?: string | null;
+  preset_not?: string | null;
+  preset_not_contains?: string | null;
+  preset_not_ends_with?: string | null;
+  preset_not_in?: string[] | null;
+  preset_not_starts_with?: string | null;
+  preset_starts_with?: string | null;
+}
+
+export type EntityType = "VM";
+
+export type FilterStatus = "EXECUTING" | "FAILED" | "INITIALIZING" | "PARTIAL_SUCCESSED" | "SUCCESSED";
+
+export type VmFirmware = "BIOS" | "UEFI";
+
+export interface VmFolderWhereInput {
+  AND?: VmFolderWhereInput[] | null;
+  cluster?: ClusterWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  local_id?: string | null;
+  local_id_contains?: string | null;
+  local_id_ends_with?: string | null;
+  local_id_gt?: string | null;
+  local_id_gte?: string | null;
+  local_id_in?: string[] | null;
+  local_id_lt?: string | null;
+  local_id_lte?: string | null;
+  local_id_not?: string | null;
+  local_id_not_contains?: string | null;
+  local_id_not_ends_with?: string | null;
+  local_id_not_in?: string[] | null;
+  local_id_not_starts_with?: string | null;
+  local_id_starts_with?: string | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: VmFolderWhereInput[] | null;
+  OR?: VmFolderWhereInput[] | null;
+
+  /** @format double */
+  vm_num?: number | null;
+
+  /** @format double */
+  vm_num_gt?: number | null;
+
+  /** @format double */
+  vm_num_gte?: number | null;
+  vm_num_in?: number[] | null;
+
+  /** @format double */
+  vm_num_lt?: number | null;
+
+  /** @format double */
+  vm_num_lte?: number | null;
+
+  /** @format double */
+  vm_num_not?: number | null;
+  vm_num_not_in?: number[] | null;
+  vms_every?: VmWhereInput | null;
+  vms_none?: VmWhereInput | null;
+  vms_some?: VmWhereInput | null;
+}
+
+export type VmGuestsOperationSystem = "LINUX" | "UNKNOWN" | "WINDOWS";
 
 export interface HostWhereInput {
   access_ip?: string | null;
@@ -4822,6 +5693,411 @@ export interface HostWhereInput {
 
 export type CpuFanSpeedUnit = "PERCENT" | "RPM";
 
+export interface DiskWhereInput {
+  AND?: DiskWhereInput[] | null;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+  entityAsyncStatus_not?: EntityAsyncStatus | null;
+  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  firmware?: string | null;
+  firmware_contains?: string | null;
+  firmware_ends_with?: string | null;
+  firmware_gt?: string | null;
+  firmware_gte?: string | null;
+  firmware_in?: string[] | null;
+  firmware_lt?: string | null;
+  firmware_lte?: string | null;
+  firmware_not?: string | null;
+  firmware_not_contains?: string | null;
+  firmware_not_ends_with?: string | null;
+  firmware_not_in?: string[] | null;
+  firmware_not_starts_with?: string | null;
+  firmware_starts_with?: string | null;
+  function?: DiskFunction | null;
+  function_in?: DiskFunction[] | null;
+  function_not?: DiskFunction | null;
+  function_not_in?: DiskFunction[] | null;
+  health_status?: DiskHealthStatus | null;
+  health_status_in?: DiskHealthStatus[] | null;
+  health_status_not?: DiskHealthStatus | null;
+  health_status_not_in?: DiskHealthStatus[] | null;
+  healthy?: boolean | null;
+  healthy_not?: boolean | null;
+  host?: HostWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  labels_every?: LabelWhereInput | null;
+  labels_none?: LabelWhereInput | null;
+  labels_some?: LabelWhereInput | null;
+  local_id?: string | null;
+  local_id_contains?: string | null;
+  local_id_ends_with?: string | null;
+  local_id_gt?: string | null;
+  local_id_gte?: string | null;
+  local_id_in?: string[] | null;
+  local_id_lt?: string | null;
+  local_id_lte?: string | null;
+  local_id_not?: string | null;
+  local_id_not_contains?: string | null;
+  local_id_not_ends_with?: string | null;
+  local_id_not_in?: string[] | null;
+  local_id_not_starts_with?: string | null;
+  local_id_starts_with?: string | null;
+  model?: string | null;
+  model_contains?: string | null;
+  model_ends_with?: string | null;
+  model_gt?: string | null;
+  model_gte?: string | null;
+  model_in?: string[] | null;
+  model_lt?: string | null;
+  model_lte?: string | null;
+  model_not?: string | null;
+  model_not_contains?: string | null;
+  model_not_ends_with?: string | null;
+  model_not_in?: string[] | null;
+  model_not_starts_with?: string | null;
+  model_starts_with?: string | null;
+  mounted?: boolean | null;
+  mounted_not?: boolean | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: DiskWhereInput[] | null;
+
+  /** @format double */
+  numa_node?: number | null;
+
+  /** @format double */
+  numa_node_gt?: number | null;
+
+  /** @format double */
+  numa_node_gte?: number | null;
+  numa_node_in?: number[] | null;
+
+  /** @format double */
+  numa_node_lt?: number | null;
+
+  /** @format double */
+  numa_node_lte?: number | null;
+
+  /** @format double */
+  numa_node_not?: number | null;
+  numa_node_not_in?: number[] | null;
+  offline?: boolean | null;
+  offline_not?: boolean | null;
+  OR?: DiskWhereInput[] | null;
+  path?: string | null;
+  path_contains?: string | null;
+  path_ends_with?: string | null;
+  path_gt?: string | null;
+  path_gte?: string | null;
+  path_in?: string[] | null;
+  path_lt?: string | null;
+  path_lte?: string | null;
+  path_not?: string | null;
+  path_not_contains?: string | null;
+  path_not_ends_with?: string | null;
+  path_not_in?: string[] | null;
+  path_not_starts_with?: string | null;
+  path_starts_with?: string | null;
+  persistent_memory_type?: string | null;
+  persistent_memory_type_contains?: string | null;
+  persistent_memory_type_ends_with?: string | null;
+  persistent_memory_type_gt?: string | null;
+  persistent_memory_type_gte?: string | null;
+  persistent_memory_type_in?: string[] | null;
+  persistent_memory_type_lt?: string | null;
+  persistent_memory_type_lte?: string | null;
+  persistent_memory_type_not?: string | null;
+  persistent_memory_type_not_contains?: string | null;
+  persistent_memory_type_not_ends_with?: string | null;
+  persistent_memory_type_not_in?: string[] | null;
+  persistent_memory_type_not_starts_with?: string | null;
+  persistent_memory_type_starts_with?: string | null;
+
+  /** @format double */
+  physical_slot_on_brick?: number | null;
+
+  /** @format double */
+  physical_slot_on_brick_gt?: number | null;
+
+  /** @format double */
+  physical_slot_on_brick_gte?: number | null;
+  physical_slot_on_brick_in?: number[] | null;
+
+  /** @format double */
+  physical_slot_on_brick_lt?: number | null;
+
+  /** @format double */
+  physical_slot_on_brick_lte?: number | null;
+
+  /** @format double */
+  physical_slot_on_brick_not?: number | null;
+  physical_slot_on_brick_not_in?: number[] | null;
+  pmem_dimms_every?: PmemDimmWhereInput | null;
+  pmem_dimms_none?: PmemDimmWhereInput | null;
+  pmem_dimms_some?: PmemDimmWhereInput | null;
+  recommended_usage?: DiskUsage | null;
+  recommended_usage_in?: DiskUsage[] | null;
+  recommended_usage_not?: DiskUsage | null;
+  recommended_usage_not_in?: DiskUsage[] | null;
+
+  /** @format double */
+  remaining_life_percent?: number | null;
+
+  /** @format double */
+  remaining_life_percent_gt?: number | null;
+
+  /** @format double */
+  remaining_life_percent_gte?: number | null;
+  remaining_life_percent_in?: number[] | null;
+
+  /** @format double */
+  remaining_life_percent_lt?: number | null;
+
+  /** @format double */
+  remaining_life_percent_lte?: number | null;
+
+  /** @format double */
+  remaining_life_percent_not?: number | null;
+  remaining_life_percent_not_in?: number[] | null;
+  serial?: string | null;
+  serial_contains?: string | null;
+  serial_ends_with?: string | null;
+  serial_gt?: string | null;
+  serial_gte?: string | null;
+  serial_in?: string[] | null;
+  serial_lt?: string | null;
+  serial_lte?: string | null;
+  serial_not?: string | null;
+  serial_not_contains?: string | null;
+  serial_not_ends_with?: string | null;
+  serial_not_in?: string[] | null;
+  serial_not_starts_with?: string | null;
+  serial_starts_with?: string | null;
+
+  /** @format double */
+  size?: number | null;
+
+  /** @format double */
+  size_gt?: number | null;
+
+  /** @format double */
+  size_gte?: number | null;
+  size_in?: number[] | null;
+
+  /** @format double */
+  size_lt?: number | null;
+
+  /** @format double */
+  size_lte?: number | null;
+
+  /** @format double */
+  size_not?: number | null;
+  size_not_in?: number[] | null;
+  type?: DiskType | null;
+  type_in?: DiskType[] | null;
+  type_not?: DiskType | null;
+  type_not_in?: DiskType[] | null;
+  usage?: DiskUsage | null;
+  usage_in?: DiskUsage[] | null;
+  usage_not?: DiskUsage | null;
+  usage_not_in?: DiskUsage[] | null;
+  usage_status?: DiskUsageStatus | null;
+  usage_status_in?: DiskUsageStatus[] | null;
+  usage_status_not?: DiskUsageStatus | null;
+  usage_status_not_in?: DiskUsageStatus[] | null;
+}
+
+export type DiskFunction = "CACHE" | "DATA" | "SMTX_SYSTEM";
+
+export type DiskHealthStatus = "HEALTHY" | "SMART_FAILED" | "SUBHEALTHY" | "UNHEALTHY";
+
+export interface PmemDimmWhereInput {
+  AND?: PmemDimmWhereInput[] | null;
+
+  /** @format double */
+  capacity?: number | null;
+
+  /** @format double */
+  capacity_gt?: number | null;
+
+  /** @format double */
+  capacity_gte?: number | null;
+  capacity_in?: number[] | null;
+
+  /** @format double */
+  capacity_lt?: number | null;
+
+  /** @format double */
+  capacity_lte?: number | null;
+
+  /** @format double */
+  capacity_not?: number | null;
+  capacity_not_in?: number[] | null;
+  device_locator?: string | null;
+  device_locator_contains?: string | null;
+  device_locator_ends_with?: string | null;
+  device_locator_gt?: string | null;
+  device_locator_gte?: string | null;
+  device_locator_in?: string[] | null;
+  device_locator_lt?: string | null;
+  device_locator_lte?: string | null;
+  device_locator_not?: string | null;
+  device_locator_not_contains?: string | null;
+  device_locator_not_ends_with?: string | null;
+  device_locator_not_in?: string[] | null;
+  device_locator_not_starts_with?: string | null;
+  device_locator_starts_with?: string | null;
+  disk?: DiskWhereInput | null;
+  health_status?: DiskHealthStatus | null;
+  health_status_in?: DiskHealthStatus[] | null;
+  health_status_not?: DiskHealthStatus | null;
+  health_status_not_in?: DiskHealthStatus[] | null;
+  host?: HostWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  local_id?: string | null;
+  local_id_contains?: string | null;
+  local_id_ends_with?: string | null;
+  local_id_gt?: string | null;
+  local_id_gte?: string | null;
+  local_id_in?: string[] | null;
+  local_id_lt?: string | null;
+  local_id_lte?: string | null;
+  local_id_not?: string | null;
+  local_id_not_contains?: string | null;
+  local_id_not_ends_with?: string | null;
+  local_id_not_in?: string[] | null;
+  local_id_not_starts_with?: string | null;
+  local_id_starts_with?: string | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: PmemDimmWhereInput[] | null;
+
+  /** @format double */
+  numa_node?: number | null;
+
+  /** @format double */
+  numa_node_gt?: number | null;
+
+  /** @format double */
+  numa_node_gte?: number | null;
+  numa_node_in?: number[] | null;
+
+  /** @format double */
+  numa_node_lt?: number | null;
+
+  /** @format double */
+  numa_node_lte?: number | null;
+
+  /** @format double */
+  numa_node_not?: number | null;
+  numa_node_not_in?: number[] | null;
+  OR?: PmemDimmWhereInput[] | null;
+  part_number?: string | null;
+  part_number_contains?: string | null;
+  part_number_ends_with?: string | null;
+  part_number_gt?: string | null;
+  part_number_gte?: string | null;
+  part_number_in?: string[] | null;
+  part_number_lt?: string | null;
+  part_number_lte?: string | null;
+  part_number_not?: string | null;
+  part_number_not_contains?: string | null;
+  part_number_not_ends_with?: string | null;
+  part_number_not_in?: string[] | null;
+  part_number_not_starts_with?: string | null;
+  part_number_starts_with?: string | null;
+
+  /** @format double */
+  remaining_life_percent?: number | null;
+
+  /** @format double */
+  remaining_life_percent_gt?: number | null;
+
+  /** @format double */
+  remaining_life_percent_gte?: number | null;
+  remaining_life_percent_in?: number[] | null;
+
+  /** @format double */
+  remaining_life_percent_lt?: number | null;
+
+  /** @format double */
+  remaining_life_percent_lte?: number | null;
+
+  /** @format double */
+  remaining_life_percent_not?: number | null;
+  remaining_life_percent_not_in?: number[] | null;
+  version?: string | null;
+  version_contains?: string | null;
+  version_ends_with?: string | null;
+  version_gt?: string | null;
+  version_gte?: string | null;
+  version_in?: string[] | null;
+  version_lt?: string | null;
+  version_lte?: string | null;
+  version_not?: string | null;
+  version_not_contains?: string | null;
+  version_not_ends_with?: string | null;
+  version_not_in?: string[] | null;
+  version_not_starts_with?: string | null;
+  version_starts_with?: string | null;
+}
+
+export type DiskUsage = "BOOT" | "CACHE" | "CACHE_AND_META" | "DATA" | "DATA_AND_META";
+
+export type DiskType = "HDD" | "PMem" | "SSD";
+
+export type DiskUsageStatus = "ISOLATED" | "MOUNTED" | "MOUNTING" | "PARTIAL_MOUNTED" | "UNMOUNTED" | "UNMOUNTING";
+
 export interface IpmiWhereInput {
   AND?: IpmiWhereInput[] | null;
   host?: HostWhereInput | null;
@@ -5195,6 +6471,7 @@ export interface VdsWhereInput {
   entityAsyncStatus_in?: EntityAsyncStatus[] | null;
   entityAsyncStatus_not?: EntityAsyncStatus | null;
   entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  everoute_cluster?: EverouteClusterWhereInput | null;
   id?: string | null;
   id_contains?: string | null;
   id_ends_with?: string | null;
@@ -5289,6 +6566,72 @@ export interface VdsWhereInput {
   vlans_num_not_in?: number[] | null;
   vlans_some?: VlanWhereInput | null;
 }
+
+export interface EverouteClusterWhereInput {
+  agent_elf_clusters_every?: ClusterWhereInput | null;
+  agent_elf_clusters_none?: ClusterWhereInput | null;
+  agent_elf_clusters_some?: ClusterWhereInput | null;
+  agent_elf_vdses_every?: VdsWhereInput | null;
+  agent_elf_vdses_none?: VdsWhereInput | null;
+  agent_elf_vdses_some?: VdsWhereInput | null;
+  AND?: EverouteClusterWhereInput[] | null;
+  global_default_action?: GlobalPolicyAction | null;
+  global_default_action_in?: GlobalPolicyAction[] | null;
+  global_default_action_not?: GlobalPolicyAction | null;
+  global_default_action_not_in?: GlobalPolicyAction[] | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: EverouteClusterWhereInput[] | null;
+  OR?: EverouteClusterWhereInput[] | null;
+  phase?: EverouteClusterPhase | null;
+  phase_in?: EverouteClusterPhase[] | null;
+  phase_not?: EverouteClusterPhase | null;
+  phase_not_in?: EverouteClusterPhase[] | null;
+  version?: string | null;
+  version_contains?: string | null;
+  version_ends_with?: string | null;
+  version_gt?: string | null;
+  version_gte?: string | null;
+  version_in?: string[] | null;
+  version_lt?: string | null;
+  version_lte?: string | null;
+  version_not?: string | null;
+  version_not_contains?: string | null;
+  version_not_ends_with?: string | null;
+  version_not_in?: string[] | null;
+  version_not_starts_with?: string | null;
+  version_starts_with?: string | null;
+}
+
+export type GlobalPolicyAction = "ALLOW" | "DROP";
+
+export type EverouteClusterPhase = "Failed" | "Pending" | "Running" | "Terminating" | "Updating" | "Upgrading";
 
 export interface VlanWhereInput {
   AND?: VlanWhereInput[] | null;
@@ -5552,55 +6895,20 @@ export interface VmNicWhereInput {
 
 export type VmNicModel = "E1000" | "SRIOV" | "VIRTIO";
 
-export interface VmWhereInput {
-  AND?: VmWhereInput[] | null;
-  clock_offset?: VmClockOffset | null;
-  clock_offset_in?: VmClockOffset[] | null;
-  clock_offset_not?: VmClockOffset | null;
-  clock_offset_not_in?: VmClockOffset[] | null;
-  cluster?: ClusterWhereInput | null;
-  cpu_model?: string | null;
-  cpu_model_contains?: string | null;
-  cpu_model_ends_with?: string | null;
-  cpu_model_gt?: string | null;
-  cpu_model_gte?: string | null;
-  cpu_model_in?: string[] | null;
-  cpu_model_lt?: string | null;
-  cpu_model_lte?: string | null;
-  cpu_model_not?: string | null;
-  cpu_model_not_contains?: string | null;
-  cpu_model_not_ends_with?: string | null;
-  cpu_model_not_in?: string[] | null;
-  cpu_model_not_starts_with?: string | null;
-  cpu_model_starts_with?: string | null;
+export type HostState = "IDLE" | "IN_USE" | "REMOVING";
 
-  /** @format double */
-  cpu_usage?: number | null;
+export type HostStatus =
+  | "CONNECTED_ERROR"
+  | "CONNECTED_HEALTHY"
+  | "CONNECTED_WARNING"
+  | "CONNECTING"
+  | "INITIALIZING"
+  | "SESSION_EXPIRED";
 
-  /** @format double */
-  cpu_usage_gt?: number | null;
-
-  /** @format double */
-  cpu_usage_gte?: number | null;
-  cpu_usage_in?: number[] | null;
-
-  /** @format double */
-  cpu_usage_lt?: number | null;
-
-  /** @format double */
-  cpu_usage_lte?: number | null;
-
-  /** @format double */
-  cpu_usage_not?: number | null;
-  cpu_usage_not_in?: number[] | null;
-  deleted_at?: string | null;
-  deleted_at_gt?: string | null;
-  deleted_at_gte?: string | null;
-  deleted_at_in?: string[] | null;
-  deleted_at_lt?: string | null;
-  deleted_at_lte?: string | null;
-  deleted_at_not?: string | null;
-  deleted_at_not_in?: string[] | null;
+export interface UsbDeviceWhereInput {
+  AND?: UsbDeviceWhereInput[] | null;
+  binded?: boolean | null;
+  binded_not?: boolean | null;
   description?: string | null;
   description_contains?: string | null;
   description_ends_with?: string | null;
@@ -5615,107 +6923,7 @@ export interface VmWhereInput {
   description_not_in?: string[] | null;
   description_not_starts_with?: string | null;
   description_starts_with?: string | null;
-  dns_servers?: string | null;
-  dns_servers_contains?: string | null;
-  dns_servers_ends_with?: string | null;
-  dns_servers_gt?: string | null;
-  dns_servers_gte?: string | null;
-  dns_servers_in?: string[] | null;
-  dns_servers_lt?: string | null;
-  dns_servers_lte?: string | null;
-  dns_servers_not?: string | null;
-  dns_servers_not_contains?: string | null;
-  dns_servers_not_ends_with?: string | null;
-  dns_servers_not_in?: string[] | null;
-  dns_servers_not_starts_with?: string | null;
-  dns_servers_starts_with?: string | null;
-  entity_filter_results_every?: VmEntityFilterResultWhereInput | null;
-  entity_filter_results_none?: VmEntityFilterResultWhereInput | null;
-  entity_filter_results_some?: VmEntityFilterResultWhereInput | null;
-  entityAsyncStatus?: EntityAsyncStatus | null;
-  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-  entityAsyncStatus_not?: EntityAsyncStatus | null;
-  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-  firmware?: VmFirmware | null;
-  firmware_in?: VmFirmware[] | null;
-  firmware_not?: VmFirmware | null;
-  firmware_not_in?: VmFirmware[] | null;
-  folder?: VmFolderWhereInput | null;
-  guest_cpu_model?: string | null;
-  guest_cpu_model_contains?: string | null;
-  guest_cpu_model_ends_with?: string | null;
-  guest_cpu_model_gt?: string | null;
-  guest_cpu_model_gte?: string | null;
-  guest_cpu_model_in?: string[] | null;
-  guest_cpu_model_lt?: string | null;
-  guest_cpu_model_lte?: string | null;
-  guest_cpu_model_not?: string | null;
-  guest_cpu_model_not_contains?: string | null;
-  guest_cpu_model_not_ends_with?: string | null;
-  guest_cpu_model_not_in?: string[] | null;
-  guest_cpu_model_not_starts_with?: string | null;
-  guest_cpu_model_starts_with?: string | null;
-  guest_os_type?: VmGuestsOperationSystem | null;
-  guest_os_type_in?: VmGuestsOperationSystem[] | null;
-  guest_os_type_not?: VmGuestsOperationSystem | null;
-  guest_os_type_not_in?: VmGuestsOperationSystem[] | null;
-
-  /** @format double */
-  guest_size_usage?: number | null;
-
-  /** @format double */
-  guest_size_usage_gt?: number | null;
-
-  /** @format double */
-  guest_size_usage_gte?: number | null;
-  guest_size_usage_in?: number[] | null;
-
-  /** @format double */
-  guest_size_usage_lt?: number | null;
-
-  /** @format double */
-  guest_size_usage_lte?: number | null;
-
-  /** @format double */
-  guest_size_usage_not?: number | null;
-  guest_size_usage_not_in?: number[] | null;
-
-  /** @format double */
-  guest_used_size?: number | null;
-
-  /** @format double */
-  guest_used_size_gt?: number | null;
-
-  /** @format double */
-  guest_used_size_gte?: number | null;
-  guest_used_size_in?: number[] | null;
-
-  /** @format double */
-  guest_used_size_lt?: number | null;
-
-  /** @format double */
-  guest_used_size_lte?: number | null;
-
-  /** @format double */
-  guest_used_size_not?: number | null;
-  guest_used_size_not_in?: number[] | null;
-  ha?: boolean | null;
-  ha_not?: boolean | null;
   host?: HostWhereInput | null;
-  hostname?: string | null;
-  hostname_contains?: string | null;
-  hostname_ends_with?: string | null;
-  hostname_gt?: string | null;
-  hostname_gte?: string | null;
-  hostname_in?: string[] | null;
-  hostname_lt?: string | null;
-  hostname_lte?: string | null;
-  hostname_not?: string | null;
-  hostname_not_contains?: string | null;
-  hostname_not_ends_with?: string | null;
-  hostname_not_in?: string[] | null;
-  hostname_not_starts_with?: string | null;
-  hostname_starts_with?: string | null;
   id?: string | null;
   id_contains?: string | null;
   id_ends_with?: string | null;
@@ -5730,53 +6938,6 @@ export interface VmWhereInput {
   id_not_in?: string[] | null;
   id_not_starts_with?: string | null;
   id_starts_with?: string | null;
-  in_recycle_bin?: boolean | null;
-  in_recycle_bin_not?: boolean | null;
-  internal?: boolean | null;
-  internal_not?: boolean | null;
-  io_policy?: VmDiskIoPolicy | null;
-  io_policy_in?: VmDiskIoPolicy[] | null;
-  io_policy_not?: VmDiskIoPolicy | null;
-  io_policy_not_in?: VmDiskIoPolicy[] | null;
-  ips?: string | null;
-  ips_contains?: string | null;
-  ips_ends_with?: string | null;
-  ips_gt?: string | null;
-  ips_gte?: string | null;
-  ips_in?: string[] | null;
-  ips_lt?: string | null;
-  ips_lte?: string | null;
-  ips_not?: string | null;
-  ips_not_contains?: string | null;
-  ips_not_ends_with?: string | null;
-  ips_not_in?: string[] | null;
-  ips_not_starts_with?: string | null;
-  ips_starts_with?: string | null;
-  kernel_info?: string | null;
-  kernel_info_contains?: string | null;
-  kernel_info_ends_with?: string | null;
-  kernel_info_gt?: string | null;
-  kernel_info_gte?: string | null;
-  kernel_info_in?: string[] | null;
-  kernel_info_lt?: string | null;
-  kernel_info_lte?: string | null;
-  kernel_info_not?: string | null;
-  kernel_info_not_contains?: string | null;
-  kernel_info_not_ends_with?: string | null;
-  kernel_info_not_in?: string[] | null;
-  kernel_info_not_starts_with?: string | null;
-  kernel_info_starts_with?: string | null;
-  labels_every?: LabelWhereInput | null;
-  labels_none?: LabelWhereInput | null;
-  labels_some?: LabelWhereInput | null;
-  last_shutdown_time?: string | null;
-  last_shutdown_time_gt?: string | null;
-  last_shutdown_time_gte?: string | null;
-  last_shutdown_time_in?: string[] | null;
-  last_shutdown_time_lt?: string | null;
-  last_shutdown_time_lte?: string | null;
-  last_shutdown_time_not?: string | null;
-  last_shutdown_time_not_in?: string[] | null;
   local_created_at?: string | null;
   local_created_at_gt?: string | null;
   local_created_at_gte?: string | null;
@@ -5799,114 +6960,20 @@ export interface VmWhereInput {
   local_id_not_in?: string[] | null;
   local_id_not_starts_with?: string | null;
   local_id_starts_with?: string | null;
-
-  /** @format double */
-  logical_size_bytes?: number | null;
-
-  /** @format double */
-  logical_size_bytes_gt?: number | null;
-
-  /** @format double */
-  logical_size_bytes_gte?: number | null;
-  logical_size_bytes_in?: number[] | null;
-
-  /** @format double */
-  logical_size_bytes_lt?: number | null;
-
-  /** @format double */
-  logical_size_bytes_lte?: number | null;
-
-  /** @format double */
-  logical_size_bytes_not?: number | null;
-  logical_size_bytes_not_in?: number[] | null;
-
-  /** @format double */
-  max_bandwidth?: number | null;
-
-  /** @format double */
-  max_bandwidth_gt?: number | null;
-
-  /** @format double */
-  max_bandwidth_gte?: number | null;
-  max_bandwidth_in?: number[] | null;
-
-  /** @format double */
-  max_bandwidth_lt?: number | null;
-
-  /** @format double */
-  max_bandwidth_lte?: number | null;
-
-  /** @format double */
-  max_bandwidth_not?: number | null;
-  max_bandwidth_not_in?: number[] | null;
-  max_bandwidth_policy?: VmDiskIoRestrictType | null;
-  max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
-  max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
-  max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
-
-  /** @format double */
-  max_iops?: number | null;
-
-  /** @format double */
-  max_iops_gt?: number | null;
-
-  /** @format double */
-  max_iops_gte?: number | null;
-  max_iops_in?: number[] | null;
-
-  /** @format double */
-  max_iops_lt?: number | null;
-
-  /** @format double */
-  max_iops_lte?: number | null;
-
-  /** @format double */
-  max_iops_not?: number | null;
-  max_iops_not_in?: number[] | null;
-  max_iops_policy?: VmDiskIoRestrictType | null;
-  max_iops_policy_in?: VmDiskIoRestrictType[] | null;
-  max_iops_policy_not?: VmDiskIoRestrictType | null;
-  max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
-
-  /** @format double */
-  memory?: number | null;
-
-  /** @format double */
-  memory_gt?: number | null;
-
-  /** @format double */
-  memory_gte?: number | null;
-  memory_in?: number[] | null;
-
-  /** @format double */
-  memory_lt?: number | null;
-
-  /** @format double */
-  memory_lte?: number | null;
-
-  /** @format double */
-  memory_not?: number | null;
-  memory_not_in?: number[] | null;
-
-  /** @format double */
-  memory_usage?: number | null;
-
-  /** @format double */
-  memory_usage_gt?: number | null;
-
-  /** @format double */
-  memory_usage_gte?: number | null;
-  memory_usage_in?: number[] | null;
-
-  /** @format double */
-  memory_usage_lt?: number | null;
-
-  /** @format double */
-  memory_usage_lte?: number | null;
-
-  /** @format double */
-  memory_usage_not?: number | null;
-  memory_usage_not_in?: number[] | null;
+  manufacturer?: string | null;
+  manufacturer_contains?: string | null;
+  manufacturer_ends_with?: string | null;
+  manufacturer_gt?: string | null;
+  manufacturer_gte?: string | null;
+  manufacturer_in?: string[] | null;
+  manufacturer_lt?: string | null;
+  manufacturer_lte?: string | null;
+  manufacturer_not?: string | null;
+  manufacturer_not_contains?: string | null;
+  manufacturer_not_ends_with?: string | null;
+  manufacturer_not_in?: string[] | null;
+  manufacturer_not_starts_with?: string | null;
+  manufacturer_starts_with?: string | null;
   name?: string | null;
   name_contains?: string | null;
   name_ends_with?: string | null;
@@ -5921,74 +6988,8 @@ export interface VmWhereInput {
   name_not_in?: string[] | null;
   name_not_starts_with?: string | null;
   name_starts_with?: string | null;
-  nested_virtualization?: boolean | null;
-  nested_virtualization_not?: boolean | null;
-  node_ip?: string | null;
-  node_ip_contains?: string | null;
-  node_ip_ends_with?: string | null;
-  node_ip_gt?: string | null;
-  node_ip_gte?: string | null;
-  node_ip_in?: string[] | null;
-  node_ip_lt?: string | null;
-  node_ip_lte?: string | null;
-  node_ip_not?: string | null;
-  node_ip_not_contains?: string | null;
-  node_ip_not_ends_with?: string | null;
-  node_ip_not_in?: string[] | null;
-  node_ip_not_starts_with?: string | null;
-  node_ip_starts_with?: string | null;
-  NOT?: VmWhereInput[] | null;
-  OR?: VmWhereInput[] | null;
-  original_name?: string | null;
-  original_name_contains?: string | null;
-  original_name_ends_with?: string | null;
-  original_name_gt?: string | null;
-  original_name_gte?: string | null;
-  original_name_in?: string[] | null;
-  original_name_lt?: string | null;
-  original_name_lte?: string | null;
-  original_name_not?: string | null;
-  original_name_not_contains?: string | null;
-  original_name_not_ends_with?: string | null;
-  original_name_not_in?: string[] | null;
-  original_name_not_starts_with?: string | null;
-  original_name_starts_with?: string | null;
-  os?: string | null;
-  os_contains?: string | null;
-  os_ends_with?: string | null;
-  os_gt?: string | null;
-  os_gte?: string | null;
-  os_in?: string[] | null;
-  os_lt?: string | null;
-  os_lte?: string | null;
-  os_not?: string | null;
-  os_not_contains?: string | null;
-  os_not_ends_with?: string | null;
-  os_not_in?: string[] | null;
-  os_not_starts_with?: string | null;
-  os_starts_with?: string | null;
-  protected?: boolean | null;
-  protected_not?: boolean | null;
-
-  /** @format double */
-  provisioned_size?: number | null;
-
-  /** @format double */
-  provisioned_size_gt?: number | null;
-
-  /** @format double */
-  provisioned_size_gte?: number | null;
-  provisioned_size_in?: number[] | null;
-
-  /** @format double */
-  provisioned_size_lt?: number | null;
-
-  /** @format double */
-  provisioned_size_lte?: number | null;
-
-  /** @format double */
-  provisioned_size_not?: number | null;
-  provisioned_size_not_in?: number[] | null;
+  NOT?: UsbDeviceWhereInput[] | null;
+  OR?: UsbDeviceWhereInput[] | null;
 
   /** @format double */
   size?: number | null;
@@ -6009,134 +7010,32 @@ export interface VmWhereInput {
   /** @format double */
   size_not?: number | null;
   size_not_in?: number[] | null;
-  snapshot_plan?: SnapshotPlanWhereInput | null;
-  snapshots_every?: VmSnapshotWhereInput | null;
-  snapshots_none?: VmSnapshotWhereInput | null;
-  snapshots_some?: VmSnapshotWhereInput | null;
-  status?: VmStatus | null;
-  status_in?: VmStatus[] | null;
-  status_not?: VmStatus | null;
-  status_not_in?: VmStatus[] | null;
-
-  /** @format double */
-  unique_size?: number | null;
-
-  /** @format double */
-  unique_size_gt?: number | null;
-
-  /** @format double */
-  unique_size_gte?: number | null;
-  unique_size_in?: number[] | null;
-
-  /** @format double */
-  unique_size_lt?: number | null;
-
-  /** @format double */
-  unique_size_lte?: number | null;
-
-  /** @format double */
-  unique_size_not?: number | null;
-  unique_size_not_in?: number[] | null;
-  usb_devices_every?: UsbDeviceWhereInput | null;
-  usb_devices_none?: UsbDeviceWhereInput | null;
-  usb_devices_some?: UsbDeviceWhereInput | null;
-
-  /** @format double */
-  vcpu?: number | null;
-
-  /** @format double */
-  vcpu_gt?: number | null;
-
-  /** @format double */
-  vcpu_gte?: number | null;
-  vcpu_in?: number[] | null;
-
-  /** @format double */
-  vcpu_lt?: number | null;
-
-  /** @format double */
-  vcpu_lte?: number | null;
-
-  /** @format double */
-  vcpu_not?: number | null;
-  vcpu_not_in?: number[] | null;
-  video_type?: VmVideoType | null;
-  video_type_in?: VmVideoType[] | null;
-  video_type_not?: VmVideoType | null;
-  video_type_not_in?: VmVideoType[] | null;
-  vm_disks_every?: VmDiskWhereInput | null;
-  vm_disks_none?: VmDiskWhereInput | null;
-  vm_disks_some?: VmDiskWhereInput | null;
-  vm_nics_every?: VmNicWhereInput | null;
-  vm_nics_none?: VmNicWhereInput | null;
-  vm_nics_some?: VmNicWhereInput | null;
-  vm_placement_group_every?: VmPlacementGroupWhereInput | null;
-  vm_placement_group_none?: VmPlacementGroupWhereInput | null;
-  vm_placement_group_some?: VmPlacementGroupWhereInput | null;
-  vm_tools_status?: VmToolsStatus | null;
-  vm_tools_status_in?: VmToolsStatus[] | null;
-  vm_tools_status_not?: VmToolsStatus | null;
-  vm_tools_status_not_in?: VmToolsStatus[] | null;
-  vm_tools_version?: string | null;
-  vm_tools_version_contains?: string | null;
-  vm_tools_version_ends_with?: string | null;
-  vm_tools_version_gt?: string | null;
-  vm_tools_version_gte?: string | null;
-  vm_tools_version_in?: string[] | null;
-  vm_tools_version_lt?: string | null;
-  vm_tools_version_lte?: string | null;
-  vm_tools_version_not?: string | null;
-  vm_tools_version_not_contains?: string | null;
-  vm_tools_version_not_ends_with?: string | null;
-  vm_tools_version_not_in?: string[] | null;
-  vm_tools_version_not_starts_with?: string | null;
-  vm_tools_version_starts_with?: string | null;
-  win_opt?: boolean | null;
-  win_opt_not?: boolean | null;
-}
-
-export type VmClockOffset = "LOCALTIME" | "UTC";
-
-export interface VmEntityFilterResultWhereInput {
-  AND?: VmEntityFilterResultWhereInput[] | null;
-  entityFilter?: EntityFilterWhereInput | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  NOT?: VmEntityFilterResultWhereInput[] | null;
-  OR?: VmEntityFilterResultWhereInput[] | null;
+  status?: UsbDeviceStatus | null;
+  status_in?: UsbDeviceStatus[] | null;
+  status_not?: UsbDeviceStatus | null;
+  status_not_in?: UsbDeviceStatus[] | null;
+  usb_type?: string | null;
+  usb_type_contains?: string | null;
+  usb_type_ends_with?: string | null;
+  usb_type_gt?: string | null;
+  usb_type_gte?: string | null;
+  usb_type_in?: string[] | null;
+  usb_type_lt?: string | null;
+  usb_type_lte?: string | null;
+  usb_type_not?: string | null;
+  usb_type_not_contains?: string | null;
+  usb_type_not_ends_with?: string | null;
+  usb_type_not_in?: string[] | null;
+  usb_type_not_starts_with?: string | null;
+  usb_type_starts_with?: string | null;
   vm?: VmWhereInput | null;
 }
 
-export interface EntityFilterWhereInput {
-  AND?: EntityFilterWhereInput[] | null;
-  apply_to_all_clusters?: boolean | null;
-  apply_to_all_clusters_not?: boolean | null;
-  clusters_every?: ClusterWhereInput | null;
-  clusters_none?: ClusterWhereInput | null;
-  clusters_some?: ClusterWhereInput | null;
-  entity_type?: EntityType | null;
-  entity_type_in?: EntityType[] | null;
-  entity_type_not?: EntityType | null;
-  entity_type_not_in?: EntityType[] | null;
-  exec_failed_cluster_every?: ClusterWhereInput | null;
-  exec_failed_cluster_none?: ClusterWhereInput | null;
-  exec_failed_cluster_some?: ClusterWhereInput | null;
-  filter_status?: FilterStatus | null;
-  filter_status_in?: FilterStatus[] | null;
-  filter_status_not?: FilterStatus | null;
-  filter_status_not_in?: FilterStatus[] | null;
+export type UsbDeviceStatus = "EJECTED" | "NORMAL";
+
+export interface VsphereEsxiAccountWhereInput {
+  AND?: VsphereEsxiAccountWhereInput[] | null;
+  host?: HostWhereInput | null;
   id?: string | null;
   id_contains?: string | null;
   id_ends_with?: string | null;
@@ -6151,69 +7050,22 @@ export interface EntityFilterWhereInput {
   id_not_in?: string[] | null;
   id_not_starts_with?: string | null;
   id_starts_with?: string | null;
-  last_executed_at?: string | null;
-  last_executed_at_gt?: string | null;
-  last_executed_at_gte?: string | null;
-  last_executed_at_in?: string[] | null;
-  last_executed_at_lt?: string | null;
-  last_executed_at_lte?: string | null;
-  last_executed_at_not?: string | null;
-  last_executed_at_not_in?: string[] | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: EntityFilterWhereInput[] | null;
-  OR?: EntityFilterWhereInput[] | null;
-  preset?: string | null;
-  preset_contains?: string | null;
-  preset_ends_with?: string | null;
-  preset_gt?: string | null;
-  preset_gte?: string | null;
-  preset_in?: string[] | null;
-  preset_lt?: string | null;
-  preset_lte?: string | null;
-  preset_not?: string | null;
-  preset_not_contains?: string | null;
-  preset_not_ends_with?: string | null;
-  preset_not_in?: string[] | null;
-  preset_not_starts_with?: string | null;
-  preset_starts_with?: string | null;
-}
-
-export type EntityType = "VM";
-
-export type FilterStatus = "EXECUTING" | "FAILED" | "INITIALIZING" | "PARTIAL_SUCCESSED" | "SUCCESSED";
-
-export type VmFirmware = "BIOS" | "UEFI";
-
-export interface VmFolderWhereInput {
-  AND?: VmFolderWhereInput[] | null;
-  cluster?: ClusterWhereInput | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
+  ip?: string | null;
+  ip_contains?: string | null;
+  ip_ends_with?: string | null;
+  ip_gt?: string | null;
+  ip_gte?: string | null;
+  ip_in?: string[] | null;
+  ip_lt?: string | null;
+  ip_lte?: string | null;
+  ip_not?: string | null;
+  ip_not_contains?: string | null;
+  ip_not_ends_with?: string | null;
+  ip_not_in?: string[] | null;
+  ip_not_starts_with?: string | null;
+  ip_starts_with?: string | null;
+  is_valid?: boolean | null;
+  is_valid_not?: boolean | null;
   local_id?: string | null;
   local_id_contains?: string | null;
   local_id_ends_with?: string | null;
@@ -6228,22 +7080,417 @@ export interface VmFolderWhereInput {
   local_id_not_in?: string[] | null;
   local_id_not_starts_with?: string | null;
   local_id_starts_with?: string | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: VmFolderWhereInput[] | null;
-  OR?: VmFolderWhereInput[] | null;
+  NOT?: VsphereEsxiAccountWhereInput[] | null;
+  OR?: VsphereEsxiAccountWhereInput[] | null;
+  password?: string | null;
+  password_contains?: string | null;
+  password_ends_with?: string | null;
+  password_gt?: string | null;
+  password_gte?: string | null;
+  password_in?: string[] | null;
+  password_lt?: string | null;
+  password_lte?: string | null;
+  password_not?: string | null;
+  password_not_contains?: string | null;
+  password_not_ends_with?: string | null;
+  password_not_in?: string[] | null;
+  password_not_starts_with?: string | null;
+  password_starts_with?: string | null;
+
+  /** @format double */
+  port?: number | null;
+
+  /** @format double */
+  port_gt?: number | null;
+
+  /** @format double */
+  port_gte?: number | null;
+  port_in?: number[] | null;
+
+  /** @format double */
+  port_lt?: number | null;
+
+  /** @format double */
+  port_lte?: number | null;
+
+  /** @format double */
+  port_not?: number | null;
+  port_not_in?: number[] | null;
+  username?: string | null;
+  username_contains?: string | null;
+  username_ends_with?: string | null;
+  username_gt?: string | null;
+  username_gte?: string | null;
+  username_in?: string[] | null;
+  username_lt?: string | null;
+  username_lte?: string | null;
+  username_not?: string | null;
+  username_not_contains?: string | null;
+  username_not_ends_with?: string | null;
+  username_not_in?: string[] | null;
+  username_not_starts_with?: string | null;
+  username_starts_with?: string | null;
+}
+
+export interface ZoneWhereInput {
+  AND?: ZoneWhereInput[] | null;
+  cluster?: ClusterWhereInput | null;
+  datacenter?: DatacenterWhereInput | null;
+
+  /** @format double */
+  failure_data_space?: number | null;
+
+  /** @format double */
+  failure_data_space_gt?: number | null;
+
+  /** @format double */
+  failure_data_space_gte?: number | null;
+  failure_data_space_in?: number[] | null;
+
+  /** @format double */
+  failure_data_space_lt?: number | null;
+
+  /** @format double */
+  failure_data_space_lte?: number | null;
+
+  /** @format double */
+  failure_data_space_not?: number | null;
+  failure_data_space_not_in?: number[] | null;
+
+  /** @format double */
+  host_num?: number | null;
+
+  /** @format double */
+  host_num_gt?: number | null;
+
+  /** @format double */
+  host_num_gte?: number | null;
+  host_num_in?: number[] | null;
+
+  /** @format double */
+  host_num_lt?: number | null;
+
+  /** @format double */
+  host_num_lte?: number | null;
+
+  /** @format double */
+  host_num_not?: number | null;
+  host_num_not_in?: number[] | null;
+  hosts_every?: HostWhereInput | null;
+  hosts_none?: HostWhereInput | null;
+  hosts_some?: HostWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  is_preferred?: boolean | null;
+  is_preferred_not?: boolean | null;
+  local_id?: string | null;
+  local_id_contains?: string | null;
+  local_id_ends_with?: string | null;
+  local_id_gt?: string | null;
+  local_id_gte?: string | null;
+  local_id_in?: string[] | null;
+  local_id_lt?: string | null;
+  local_id_lte?: string | null;
+  local_id_not?: string | null;
+  local_id_not_contains?: string | null;
+  local_id_not_ends_with?: string | null;
+  local_id_not_in?: string[] | null;
+  local_id_not_starts_with?: string | null;
+  local_id_starts_with?: string | null;
+  NOT?: ZoneWhereInput[] | null;
+  OR?: ZoneWhereInput[] | null;
+
+  /** @format double */
+  provisioned_cpu_cores?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_for_active_vm?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_for_active_vm_gt?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_for_active_vm_gte?: number | null;
+  provisioned_cpu_cores_for_active_vm_in?: number[] | null;
+
+  /** @format double */
+  provisioned_cpu_cores_for_active_vm_lt?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_for_active_vm_lte?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_for_active_vm_not?: number | null;
+  provisioned_cpu_cores_for_active_vm_not_in?: number[] | null;
+
+  /** @format double */
+  provisioned_cpu_cores_gt?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_gte?: number | null;
+  provisioned_cpu_cores_in?: number[] | null;
+
+  /** @format double */
+  provisioned_cpu_cores_lt?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_lte?: number | null;
+
+  /** @format double */
+  provisioned_cpu_cores_not?: number | null;
+  provisioned_cpu_cores_not_in?: number[] | null;
+
+  /** @format double */
+  provisioned_data_space?: number | null;
+
+  /** @format double */
+  provisioned_data_space_gt?: number | null;
+
+  /** @format double */
+  provisioned_data_space_gte?: number | null;
+  provisioned_data_space_in?: number[] | null;
+
+  /** @format double */
+  provisioned_data_space_lt?: number | null;
+
+  /** @format double */
+  provisioned_data_space_lte?: number | null;
+
+  /** @format double */
+  provisioned_data_space_not?: number | null;
+  provisioned_data_space_not_in?: number[] | null;
+
+  /** @format double */
+  provisioned_memory_bytes?: number | null;
+
+  /** @format double */
+  provisioned_memory_bytes_gt?: number | null;
+
+  /** @format double */
+  provisioned_memory_bytes_gte?: number | null;
+  provisioned_memory_bytes_in?: number[] | null;
+
+  /** @format double */
+  provisioned_memory_bytes_lt?: number | null;
+
+  /** @format double */
+  provisioned_memory_bytes_lte?: number | null;
+
+  /** @format double */
+  provisioned_memory_bytes_not?: number | null;
+  provisioned_memory_bytes_not_in?: number[] | null;
+
+  /** @format double */
+  running_vm_num?: number | null;
+
+  /** @format double */
+  running_vm_num_gt?: number | null;
+
+  /** @format double */
+  running_vm_num_gte?: number | null;
+  running_vm_num_in?: number[] | null;
+
+  /** @format double */
+  running_vm_num_lt?: number | null;
+
+  /** @format double */
+  running_vm_num_lte?: number | null;
+
+  /** @format double */
+  running_vm_num_not?: number | null;
+  running_vm_num_not_in?: number[] | null;
+
+  /** @format double */
+  stopped_vm_num?: number | null;
+
+  /** @format double */
+  stopped_vm_num_gt?: number | null;
+
+  /** @format double */
+  stopped_vm_num_gte?: number | null;
+  stopped_vm_num_in?: number[] | null;
+
+  /** @format double */
+  stopped_vm_num_lt?: number | null;
+
+  /** @format double */
+  stopped_vm_num_lte?: number | null;
+
+  /** @format double */
+  stopped_vm_num_not?: number | null;
+  stopped_vm_num_not_in?: number[] | null;
+
+  /** @format double */
+  suspended_vm_num?: number | null;
+
+  /** @format double */
+  suspended_vm_num_gt?: number | null;
+
+  /** @format double */
+  suspended_vm_num_gte?: number | null;
+  suspended_vm_num_in?: number[] | null;
+
+  /** @format double */
+  suspended_vm_num_lt?: number | null;
+
+  /** @format double */
+  suspended_vm_num_lte?: number | null;
+
+  /** @format double */
+  suspended_vm_num_not?: number | null;
+  suspended_vm_num_not_in?: number[] | null;
+
+  /** @format double */
+  total_cache_capacity?: number | null;
+
+  /** @format double */
+  total_cache_capacity_gt?: number | null;
+
+  /** @format double */
+  total_cache_capacity_gte?: number | null;
+  total_cache_capacity_in?: number[] | null;
+
+  /** @format double */
+  total_cache_capacity_lt?: number | null;
+
+  /** @format double */
+  total_cache_capacity_lte?: number | null;
+
+  /** @format double */
+  total_cache_capacity_not?: number | null;
+  total_cache_capacity_not_in?: number[] | null;
+
+  /** @format double */
+  total_cpu_cores?: number | null;
+
+  /** @format double */
+  total_cpu_cores_gt?: number | null;
+
+  /** @format double */
+  total_cpu_cores_gte?: number | null;
+  total_cpu_cores_in?: number[] | null;
+
+  /** @format double */
+  total_cpu_cores_lt?: number | null;
+
+  /** @format double */
+  total_cpu_cores_lte?: number | null;
+
+  /** @format double */
+  total_cpu_cores_not?: number | null;
+  total_cpu_cores_not_in?: number[] | null;
+
+  /** @format double */
+  total_cpu_hz?: number | null;
+
+  /** @format double */
+  total_cpu_hz_gt?: number | null;
+
+  /** @format double */
+  total_cpu_hz_gte?: number | null;
+  total_cpu_hz_in?: number[] | null;
+
+  /** @format double */
+  total_cpu_hz_lt?: number | null;
+
+  /** @format double */
+  total_cpu_hz_lte?: number | null;
+
+  /** @format double */
+  total_cpu_hz_not?: number | null;
+  total_cpu_hz_not_in?: number[] | null;
+
+  /** @format double */
+  total_data_capacity?: number | null;
+
+  /** @format double */
+  total_data_capacity_gt?: number | null;
+
+  /** @format double */
+  total_data_capacity_gte?: number | null;
+  total_data_capacity_in?: number[] | null;
+
+  /** @format double */
+  total_data_capacity_lt?: number | null;
+
+  /** @format double */
+  total_data_capacity_lte?: number | null;
+
+  /** @format double */
+  total_data_capacity_not?: number | null;
+  total_data_capacity_not_in?: number[] | null;
+
+  /** @format double */
+  total_memory_bytes?: number | null;
+
+  /** @format double */
+  total_memory_bytes_gt?: number | null;
+
+  /** @format double */
+  total_memory_bytes_gte?: number | null;
+  total_memory_bytes_in?: number[] | null;
+
+  /** @format double */
+  total_memory_bytes_lt?: number | null;
+
+  /** @format double */
+  total_memory_bytes_lte?: number | null;
+
+  /** @format double */
+  total_memory_bytes_not?: number | null;
+  total_memory_bytes_not_in?: number[] | null;
+
+  /** @format double */
+  used_data_space?: number | null;
+
+  /** @format double */
+  used_data_space_gt?: number | null;
+
+  /** @format double */
+  used_data_space_gte?: number | null;
+  used_data_space_in?: number[] | null;
+
+  /** @format double */
+  used_data_space_lt?: number | null;
+
+  /** @format double */
+  used_data_space_lte?: number | null;
+
+  /** @format double */
+  used_data_space_not?: number | null;
+  used_data_space_not_in?: number[] | null;
+
+  /** @format double */
+  valid_data_space?: number | null;
+
+  /** @format double */
+  valid_data_space_gt?: number | null;
+
+  /** @format double */
+  valid_data_space_gte?: number | null;
+  valid_data_space_in?: number[] | null;
+
+  /** @format double */
+  valid_data_space_lt?: number | null;
+
+  /** @format double */
+  valid_data_space_lte?: number | null;
+
+  /** @format double */
+  valid_data_space_not?: number | null;
+  valid_data_space_not_in?: number[] | null;
 
   /** @format double */
   vm_num?: number | null;
@@ -6264,16 +7511,318 @@ export interface VmFolderWhereInput {
   /** @format double */
   vm_num_not?: number | null;
   vm_num_not_in?: number[] | null;
-  vms_every?: VmWhereInput | null;
-  vms_none?: VmWhereInput | null;
-  vms_some?: VmWhereInput | null;
 }
 
-export type VmGuestsOperationSystem = "LINUX" | "UNKNOWN" | "WINDOWS";
+export interface DatacenterWhereInput {
+  AND?: DatacenterWhereInput[] | null;
+
+  /** @format double */
+  cluster_num?: number | null;
+
+  /** @format double */
+  cluster_num_gt?: number | null;
+
+  /** @format double */
+  cluster_num_gte?: number | null;
+  cluster_num_in?: number[] | null;
+
+  /** @format double */
+  cluster_num_lt?: number | null;
+
+  /** @format double */
+  cluster_num_lte?: number | null;
+
+  /** @format double */
+  cluster_num_not?: number | null;
+  cluster_num_not_in?: number[] | null;
+  clusters_every?: ClusterWhereInput | null;
+  clusters_none?: ClusterWhereInput | null;
+  clusters_some?: ClusterWhereInput | null;
+
+  /** @format double */
+  failure_data_space?: number | null;
+
+  /** @format double */
+  failure_data_space_gt?: number | null;
+
+  /** @format double */
+  failure_data_space_gte?: number | null;
+  failure_data_space_in?: number[] | null;
+
+  /** @format double */
+  failure_data_space_lt?: number | null;
+
+  /** @format double */
+  failure_data_space_lte?: number | null;
+
+  /** @format double */
+  failure_data_space_not?: number | null;
+  failure_data_space_not_in?: number[] | null;
+
+  /** @format double */
+  host_num?: number | null;
+
+  /** @format double */
+  host_num_gt?: number | null;
+
+  /** @format double */
+  host_num_gte?: number | null;
+  host_num_in?: number[] | null;
+
+  /** @format double */
+  host_num_lt?: number | null;
+
+  /** @format double */
+  host_num_lte?: number | null;
+
+  /** @format double */
+  host_num_not?: number | null;
+  host_num_not_in?: number[] | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  labels_every?: LabelWhereInput | null;
+  labels_none?: LabelWhereInput | null;
+  labels_some?: LabelWhereInput | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: DatacenterWhereInput[] | null;
+  OR?: DatacenterWhereInput[] | null;
+  organization?: OrganizationWhereInput | null;
+
+  /** @format double */
+  total_cpu_hz?: number | null;
+
+  /** @format double */
+  total_cpu_hz_gt?: number | null;
+
+  /** @format double */
+  total_cpu_hz_gte?: number | null;
+  total_cpu_hz_in?: number[] | null;
+
+  /** @format double */
+  total_cpu_hz_lt?: number | null;
+
+  /** @format double */
+  total_cpu_hz_lte?: number | null;
+
+  /** @format double */
+  total_cpu_hz_not?: number | null;
+  total_cpu_hz_not_in?: number[] | null;
+
+  /** @format double */
+  total_data_capacity?: number | null;
+
+  /** @format double */
+  total_data_capacity_gt?: number | null;
+
+  /** @format double */
+  total_data_capacity_gte?: number | null;
+  total_data_capacity_in?: number[] | null;
+
+  /** @format double */
+  total_data_capacity_lt?: number | null;
+
+  /** @format double */
+  total_data_capacity_lte?: number | null;
+
+  /** @format double */
+  total_data_capacity_not?: number | null;
+  total_data_capacity_not_in?: number[] | null;
+
+  /** @format double */
+  total_memory_bytes?: number | null;
+
+  /** @format double */
+  total_memory_bytes_gt?: number | null;
+
+  /** @format double */
+  total_memory_bytes_gte?: number | null;
+  total_memory_bytes_in?: number[] | null;
+
+  /** @format double */
+  total_memory_bytes_lt?: number | null;
+
+  /** @format double */
+  total_memory_bytes_lte?: number | null;
+
+  /** @format double */
+  total_memory_bytes_not?: number | null;
+  total_memory_bytes_not_in?: number[] | null;
+
+  /** @format double */
+  used_cpu_hz?: number | null;
+
+  /** @format double */
+  used_cpu_hz_gt?: number | null;
+
+  /** @format double */
+  used_cpu_hz_gte?: number | null;
+  used_cpu_hz_in?: number[] | null;
+
+  /** @format double */
+  used_cpu_hz_lt?: number | null;
+
+  /** @format double */
+  used_cpu_hz_lte?: number | null;
+
+  /** @format double */
+  used_cpu_hz_not?: number | null;
+  used_cpu_hz_not_in?: number[] | null;
+
+  /** @format double */
+  used_data_space?: number | null;
+
+  /** @format double */
+  used_data_space_gt?: number | null;
+
+  /** @format double */
+  used_data_space_gte?: number | null;
+  used_data_space_in?: number[] | null;
+
+  /** @format double */
+  used_data_space_lt?: number | null;
+
+  /** @format double */
+  used_data_space_lte?: number | null;
+
+  /** @format double */
+  used_data_space_not?: number | null;
+  used_data_space_not_in?: number[] | null;
+
+  /** @format double */
+  used_memory_bytes?: number | null;
+
+  /** @format double */
+  used_memory_bytes_gt?: number | null;
+
+  /** @format double */
+  used_memory_bytes_gte?: number | null;
+  used_memory_bytes_in?: number[] | null;
+
+  /** @format double */
+  used_memory_bytes_lt?: number | null;
+
+  /** @format double */
+  used_memory_bytes_lte?: number | null;
+
+  /** @format double */
+  used_memory_bytes_not?: number | null;
+  used_memory_bytes_not_in?: number[] | null;
+
+  /** @format double */
+  vm_num?: number | null;
+
+  /** @format double */
+  vm_num_gt?: number | null;
+
+  /** @format double */
+  vm_num_gte?: number | null;
+  vm_num_in?: number[] | null;
+
+  /** @format double */
+  vm_num_lt?: number | null;
+
+  /** @format double */
+  vm_num_lte?: number | null;
+
+  /** @format double */
+  vm_num_not?: number | null;
+  vm_num_not_in?: number[] | null;
+}
+
+export interface OrganizationWhereInput {
+  AND?: OrganizationWhereInput[] | null;
+  datacenters_every?: DatacenterWhereInput | null;
+  datacenters_none?: DatacenterWhereInput | null;
+  datacenters_some?: DatacenterWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: OrganizationWhereInput[] | null;
+  OR?: OrganizationWhereInput[] | null;
+}
 
 export type VmDiskIoPolicy = "RESTRICT_EACH_DISK" | "RESTRICT_WHOLE_VM";
 
-export type VmDiskIoRestrictType = "DYNAMIC" | "FORCED";
+export interface IsolationPolicyWhereInput {
+  AND?: IsolationPolicyWhereInput[] | null;
+  everoute_cluster?: EverouteClusterWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  labels_every?: LabelWhereInput | null;
+  labels_none?: LabelWhereInput | null;
+  labels_some?: LabelWhereInput | null;
+  mode?: IsolationMode | null;
+  mode_in?: IsolationMode[] | null;
+  mode_not?: IsolationMode | null;
+  mode_not_in?: IsolationMode[] | null;
+  NOT?: IsolationPolicyWhereInput[] | null;
+  OR?: IsolationPolicyWhereInput[] | null;
+  vm?: VmWhereInput | null;
+}
+
+export type IsolationMode = "ALL" | "PARTIAL";
 
 export interface SnapshotPlanWhereInput {
   AND?: SnapshotPlanWhereInput[] | null;
@@ -7004,10 +8553,11 @@ export type SnapshotPlanStatus = "NORMAL" | "STOPPED" | "SUSPENDED";
 
 export type VmStatus = "DELETED" | "RUNNING" | "STOPPED" | "SUSPENDED" | "UNKNOWN";
 
-export interface UsbDeviceWhereInput {
-  AND?: UsbDeviceWhereInput[] | null;
-  binded?: boolean | null;
-  binded_not?: boolean | null;
+export type VmVideoType = "CIRRUS" | "QXL" | "VGA" | "VIRTIO";
+
+export interface VmPlacementGroupWhereInput {
+  AND?: VmPlacementGroupWhereInput[] | null;
+  cluster?: ClusterWhereInput | null;
   description?: string | null;
   description_contains?: string | null;
   description_ends_with?: string | null;
@@ -7022,7 +8572,12 @@ export interface UsbDeviceWhereInput {
   description_not_in?: string[] | null;
   description_not_starts_with?: string | null;
   description_starts_with?: string | null;
-  host?: HostWhereInput | null;
+  enabled?: boolean | null;
+  enabled_not?: boolean | null;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+  entityAsyncStatus_not?: EntityAsyncStatus | null;
+  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
   id?: string | null;
   id_contains?: string | null;
   id_ends_with?: string | null;
@@ -7059,20 +8614,14 @@ export interface UsbDeviceWhereInput {
   local_id_not_in?: string[] | null;
   local_id_not_starts_with?: string | null;
   local_id_starts_with?: string | null;
-  manufacturer?: string | null;
-  manufacturer_contains?: string | null;
-  manufacturer_ends_with?: string | null;
-  manufacturer_gt?: string | null;
-  manufacturer_gte?: string | null;
-  manufacturer_in?: string[] | null;
-  manufacturer_lt?: string | null;
-  manufacturer_lte?: string | null;
-  manufacturer_not?: string | null;
-  manufacturer_not_contains?: string | null;
-  manufacturer_not_ends_with?: string | null;
-  manufacturer_not_in?: string[] | null;
-  manufacturer_not_starts_with?: string | null;
-  manufacturer_starts_with?: string | null;
+  local_updated_at?: string | null;
+  local_updated_at_gt?: string | null;
+  local_updated_at_gte?: string | null;
+  local_updated_at_in?: string[] | null;
+  local_updated_at_lt?: string | null;
+  local_updated_at_lte?: string | null;
+  local_updated_at_not?: string | null;
+  local_updated_at_not_in?: string[] | null;
   name?: string | null;
   name_contains?: string | null;
   name_ends_with?: string | null;
@@ -7087,277 +8636,41 @@ export interface UsbDeviceWhereInput {
   name_not_in?: string[] | null;
   name_not_starts_with?: string | null;
   name_starts_with?: string | null;
-  NOT?: UsbDeviceWhereInput[] | null;
-  OR?: UsbDeviceWhereInput[] | null;
-
-  /** @format double */
-  size?: number | null;
-
-  /** @format double */
-  size_gt?: number | null;
-
-  /** @format double */
-  size_gte?: number | null;
-  size_in?: number[] | null;
-
-  /** @format double */
-  size_lt?: number | null;
-
-  /** @format double */
-  size_lte?: number | null;
-
-  /** @format double */
-  size_not?: number | null;
-  size_not_in?: number[] | null;
-  status?: UsbDeviceStatus | null;
-  status_in?: UsbDeviceStatus[] | null;
-  status_not?: UsbDeviceStatus | null;
-  status_not_in?: UsbDeviceStatus[] | null;
-  usb_type?: string | null;
-  usb_type_contains?: string | null;
-  usb_type_ends_with?: string | null;
-  usb_type_gt?: string | null;
-  usb_type_gte?: string | null;
-  usb_type_in?: string[] | null;
-  usb_type_lt?: string | null;
-  usb_type_lte?: string | null;
-  usb_type_not?: string | null;
-  usb_type_not_contains?: string | null;
-  usb_type_not_ends_with?: string | null;
-  usb_type_not_in?: string[] | null;
-  usb_type_not_starts_with?: string | null;
-  usb_type_starts_with?: string | null;
-  vm?: VmWhereInput | null;
+  NOT?: VmPlacementGroupWhereInput[] | null;
+  OR?: VmPlacementGroupWhereInput[] | null;
+  vm_host_must_enabled?: boolean | null;
+  vm_host_must_enabled_not?: boolean | null;
+  vm_host_must_host_uuids_every?: HostWhereInput | null;
+  vm_host_must_host_uuids_none?: HostWhereInput | null;
+  vm_host_must_host_uuids_some?: HostWhereInput | null;
+  vm_host_must_policy?: boolean | null;
+  vm_host_must_policy_not?: boolean | null;
+  vm_host_prefer_enabled?: boolean | null;
+  vm_host_prefer_enabled_not?: boolean | null;
+  vm_host_prefer_host_uuids_every?: HostWhereInput | null;
+  vm_host_prefer_host_uuids_none?: HostWhereInput | null;
+  vm_host_prefer_host_uuids_some?: HostWhereInput | null;
+  vm_host_prefer_policy?: boolean | null;
+  vm_host_prefer_policy_not?: boolean | null;
+  vm_vm_policy?: VmVmPolicy | null;
+  vm_vm_policy_enabled?: boolean | null;
+  vm_vm_policy_enabled_not?: boolean | null;
+  vm_vm_policy_in?: VmVmPolicy[] | null;
+  vm_vm_policy_not?: VmVmPolicy | null;
+  vm_vm_policy_not_in?: VmVmPolicy[] | null;
+  vms_every?: VmWhereInput | null;
+  vms_none?: VmWhereInput | null;
+  vms_some?: VmWhereInput | null;
 }
 
-export type UsbDeviceStatus = "EJECTED" | "NORMAL";
+export type VmVmPolicy = "MUST_DIFFERENT" | "MUST_SAME" | "PREFER_DIFFERENT" | "PREFER_SAME";
 
-export type VmVideoType = "CIRRUS" | "QXL" | "VGA" | "VIRTIO";
+export type VmToolsStatus = "NOT_INSTALLED" | "NOT_RUNNING" | "RESTRICTION" | "RUNNING";
 
-export interface VmDiskWhereInput {
-  AND?: VmDiskWhereInput[] | null;
+export type VmUsage = "EVEROUTE_CONTROLLER";
 
-  /** @format double */
-  boot?: number | null;
-
-  /** @format double */
-  boot_gt?: number | null;
-
-  /** @format double */
-  boot_gte?: number | null;
-  boot_in?: number[] | null;
-
-  /** @format double */
-  boot_lt?: number | null;
-
-  /** @format double */
-  boot_lte?: number | null;
-
-  /** @format double */
-  boot_not?: number | null;
-  boot_not_in?: number[] | null;
-  bus?: Bus | null;
-  bus_in?: Bus[] | null;
-  bus_not?: Bus | null;
-  bus_not_in?: Bus[] | null;
-  cloud_init_image_name?: string | null;
-  cloud_init_image_name_contains?: string | null;
-  cloud_init_image_name_ends_with?: string | null;
-  cloud_init_image_name_gt?: string | null;
-  cloud_init_image_name_gte?: string | null;
-  cloud_init_image_name_in?: string[] | null;
-  cloud_init_image_name_lt?: string | null;
-  cloud_init_image_name_lte?: string | null;
-  cloud_init_image_name_not?: string | null;
-  cloud_init_image_name_not_contains?: string | null;
-  cloud_init_image_name_not_ends_with?: string | null;
-  cloud_init_image_name_not_in?: string[] | null;
-  cloud_init_image_name_not_starts_with?: string | null;
-  cloud_init_image_name_starts_with?: string | null;
-  cloud_init_image_path?: string | null;
-  cloud_init_image_path_contains?: string | null;
-  cloud_init_image_path_ends_with?: string | null;
-  cloud_init_image_path_gt?: string | null;
-  cloud_init_image_path_gte?: string | null;
-  cloud_init_image_path_in?: string[] | null;
-  cloud_init_image_path_lt?: string | null;
-  cloud_init_image_path_lte?: string | null;
-  cloud_init_image_path_not?: string | null;
-  cloud_init_image_path_not_contains?: string | null;
-  cloud_init_image_path_not_ends_with?: string | null;
-  cloud_init_image_path_not_in?: string[] | null;
-  cloud_init_image_path_not_starts_with?: string | null;
-  cloud_init_image_path_starts_with?: string | null;
-  device?: string | null;
-  device_contains?: string | null;
-  device_ends_with?: string | null;
-  device_gt?: string | null;
-  device_gte?: string | null;
-  device_in?: string[] | null;
-  device_lt?: string | null;
-  device_lte?: string | null;
-  device_not?: string | null;
-  device_not_contains?: string | null;
-  device_not_ends_with?: string | null;
-  device_not_in?: string[] | null;
-  device_not_starts_with?: string | null;
-  device_starts_with?: string | null;
-  disabled?: boolean | null;
-  disabled_not?: boolean | null;
-  elf_image?: ElfImageWhereInput | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-
-  /** @format double */
-  key?: number | null;
-
-  /** @format double */
-  key_gt?: number | null;
-
-  /** @format double */
-  key_gte?: number | null;
-  key_in?: number[] | null;
-
-  /** @format double */
-  key_lt?: number | null;
-
-  /** @format double */
-  key_lte?: number | null;
-
-  /** @format double */
-  key_not?: number | null;
-  key_not_in?: number[] | null;
-
-  /** @format double */
-  max_bandwidth?: number | null;
-
-  /** @format double */
-  max_bandwidth_gt?: number | null;
-
-  /** @format double */
-  max_bandwidth_gte?: number | null;
-  max_bandwidth_in?: number[] | null;
-
-  /** @format double */
-  max_bandwidth_lt?: number | null;
-
-  /** @format double */
-  max_bandwidth_lte?: number | null;
-
-  /** @format double */
-  max_bandwidth_not?: number | null;
-  max_bandwidth_not_in?: number[] | null;
-  max_bandwidth_policy?: VmDiskIoRestrictType | null;
-  max_bandwidth_policy_in?: VmDiskIoRestrictType[] | null;
-  max_bandwidth_policy_not?: VmDiskIoRestrictType | null;
-  max_bandwidth_policy_not_in?: VmDiskIoRestrictType[] | null;
-
-  /** @format double */
-  max_iops?: number | null;
-
-  /** @format double */
-  max_iops_gt?: number | null;
-
-  /** @format double */
-  max_iops_gte?: number | null;
-  max_iops_in?: number[] | null;
-
-  /** @format double */
-  max_iops_lt?: number | null;
-
-  /** @format double */
-  max_iops_lte?: number | null;
-
-  /** @format double */
-  max_iops_not?: number | null;
-  max_iops_not_in?: number[] | null;
-  max_iops_policy?: VmDiskIoRestrictType | null;
-  max_iops_policy_in?: VmDiskIoRestrictType[] | null;
-  max_iops_policy_not?: VmDiskIoRestrictType | null;
-  max_iops_policy_not_in?: VmDiskIoRestrictType[] | null;
-  NOT?: VmDiskWhereInput[] | null;
-  OR?: VmDiskWhereInput[] | null;
-  serial?: string | null;
-  serial_contains?: string | null;
-  serial_ends_with?: string | null;
-  serial_gt?: string | null;
-  serial_gte?: string | null;
-  serial_in?: string[] | null;
-  serial_lt?: string | null;
-  serial_lte?: string | null;
-  serial_not?: string | null;
-  serial_not_contains?: string | null;
-  serial_not_ends_with?: string | null;
-  serial_not_in?: string[] | null;
-  serial_not_starts_with?: string | null;
-  serial_starts_with?: string | null;
-  svt_image?: SvtImageWhereInput | null;
-  type?: VmDiskType | null;
-  type_in?: VmDiskType[] | null;
-  type_not?: VmDiskType | null;
-  type_not_in?: VmDiskType[] | null;
-  unsafe_image_path?: string | null;
-  unsafe_image_path_contains?: string | null;
-  unsafe_image_path_ends_with?: string | null;
-  unsafe_image_path_gt?: string | null;
-  unsafe_image_path_gte?: string | null;
-  unsafe_image_path_in?: string[] | null;
-  unsafe_image_path_lt?: string | null;
-  unsafe_image_path_lte?: string | null;
-  unsafe_image_path_not?: string | null;
-  unsafe_image_path_not_contains?: string | null;
-  unsafe_image_path_not_ends_with?: string | null;
-  unsafe_image_path_not_in?: string[] | null;
-  unsafe_image_path_not_starts_with?: string | null;
-  unsafe_image_path_starts_with?: string | null;
-  unsafe_image_uuid?: string | null;
-  unsafe_image_uuid_contains?: string | null;
-  unsafe_image_uuid_ends_with?: string | null;
-  unsafe_image_uuid_gt?: string | null;
-  unsafe_image_uuid_gte?: string | null;
-  unsafe_image_uuid_in?: string[] | null;
-  unsafe_image_uuid_lt?: string | null;
-  unsafe_image_uuid_lte?: string | null;
-  unsafe_image_uuid_not?: string | null;
-  unsafe_image_uuid_not_contains?: string | null;
-  unsafe_image_uuid_not_ends_with?: string | null;
-  unsafe_image_uuid_not_in?: string[] | null;
-  unsafe_image_uuid_not_starts_with?: string | null;
-  unsafe_image_uuid_starts_with?: string | null;
-  unsafe_provision?: string | null;
-  unsafe_provision_contains?: string | null;
-  unsafe_provision_ends_with?: string | null;
-  unsafe_provision_gt?: string | null;
-  unsafe_provision_gte?: string | null;
-  unsafe_provision_in?: string[] | null;
-  unsafe_provision_lt?: string | null;
-  unsafe_provision_lte?: string | null;
-  unsafe_provision_not?: string | null;
-  unsafe_provision_not_contains?: string | null;
-  unsafe_provision_not_ends_with?: string | null;
-  unsafe_provision_not_in?: string[] | null;
-  unsafe_provision_not_starts_with?: string | null;
-  unsafe_provision_starts_with?: string | null;
-  vm?: VmWhereInput | null;
-  vm_volume?: VmVolumeWhereInput | null;
-}
-
-export type Bus = "IDE" | "SCSI" | "VIRTIO";
-
-export interface ElfImageWhereInput {
-  AND?: ElfImageWhereInput[] | null;
+export interface VmVolumeWhereInput {
+  AND?: VmVolumeWhereInput[] | null;
   cluster?: ClusterWhereInput | null;
   description?: string | null;
   description_contains?: string | null;
@@ -7373,10 +8686,50 @@ export interface ElfImageWhereInput {
   description_not_in?: string[] | null;
   description_not_starts_with?: string | null;
   description_starts_with?: string | null;
-  entityAsyncStatus?: EntityAsyncStatus | null;
-  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-  entityAsyncStatus_not?: EntityAsyncStatus | null;
-  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  elf_storage_policy?: VmVolumeElfStoragePolicyType | null;
+  elf_storage_policy_in?: VmVolumeElfStoragePolicyType[] | null;
+  elf_storage_policy_not?: VmVolumeElfStoragePolicyType | null;
+  elf_storage_policy_not_in?: VmVolumeElfStoragePolicyType[] | null;
+
+  /** @format double */
+  guest_size_usage?: number | null;
+
+  /** @format double */
+  guest_size_usage_gt?: number | null;
+
+  /** @format double */
+  guest_size_usage_gte?: number | null;
+  guest_size_usage_in?: number[] | null;
+
+  /** @format double */
+  guest_size_usage_lt?: number | null;
+
+  /** @format double */
+  guest_size_usage_lte?: number | null;
+
+  /** @format double */
+  guest_size_usage_not?: number | null;
+  guest_size_usage_not_in?: number[] | null;
+
+  /** @format double */
+  guest_used_size?: number | null;
+
+  /** @format double */
+  guest_used_size_gt?: number | null;
+
+  /** @format double */
+  guest_used_size_gte?: number | null;
+  guest_used_size_in?: number[] | null;
+
+  /** @format double */
+  guest_used_size_lt?: number | null;
+
+  /** @format double */
+  guest_used_size_lte?: number | null;
+
+  /** @format double */
+  guest_used_size_not?: number | null;
+  guest_used_size_not_in?: number[] | null;
   id?: string | null;
   id_contains?: string | null;
   id_ends_with?: string | null;
@@ -7416,6 +8769,9 @@ export interface ElfImageWhereInput {
   local_id_not_in?: string[] | null;
   local_id_not_starts_with?: string | null;
   local_id_starts_with?: string | null;
+  lun?: IscsiLunWhereInput | null;
+  mounting?: boolean | null;
+  mounting_not?: boolean | null;
   name?: string | null;
   name_contains?: string | null;
   name_ends_with?: string | null;
@@ -7430,8 +8786,8 @@ export interface ElfImageWhereInput {
   name_not_in?: string[] | null;
   name_not_starts_with?: string | null;
   name_starts_with?: string | null;
-  NOT?: ElfImageWhereInput[] | null;
-  OR?: ElfImageWhereInput[] | null;
+  NOT?: VmVolumeWhereInput[] | null;
+  OR?: VmVolumeWhereInput[] | null;
   path?: string | null;
   path_contains?: string | null;
   path_ends_with?: string | null;
@@ -7446,6 +8802,8 @@ export interface ElfImageWhereInput {
   path_not_in?: string[] | null;
   path_not_starts_with?: string | null;
   path_starts_with?: string | null;
+  sharing?: boolean | null;
+  sharing_not?: boolean | null;
 
   /** @format double */
   size?: number | null;
@@ -7466,16 +8824,38 @@ export interface ElfImageWhereInput {
   /** @format double */
   size_not?: number | null;
   size_not_in?: number[] | null;
+
+  /** @format double */
+  unique_size?: number | null;
+
+  /** @format double */
+  unique_size_gt?: number | null;
+
+  /** @format double */
+  unique_size_gte?: number | null;
+  unique_size_in?: number[] | null;
+
+  /** @format double */
+  unique_size_lt?: number | null;
+
+  /** @format double */
+  unique_size_lte?: number | null;
+
+  /** @format double */
+  unique_size_not?: number | null;
+  unique_size_not_in?: number[] | null;
   vm_disks_every?: VmDiskWhereInput | null;
   vm_disks_none?: VmDiskWhereInput | null;
   vm_disks_some?: VmDiskWhereInput | null;
-  vm_snapshots_every?: VmSnapshotWhereInput | null;
-  vm_snapshots_none?: VmSnapshotWhereInput | null;
-  vm_snapshots_some?: VmSnapshotWhereInput | null;
-  vm_templates_every?: VmTemplateWhereInput | null;
-  vm_templates_none?: VmTemplateWhereInput | null;
-  vm_templates_some?: VmTemplateWhereInput | null;
 }
+
+export type VmVolumeElfStoragePolicyType =
+  | "REPLICA_1_THICK_PROVISION"
+  | "REPLICA_1_THIN_PROVISION"
+  | "REPLICA_2_THICK_PROVISION"
+  | "REPLICA_2_THIN_PROVISION"
+  | "REPLICA_3_THICK_PROVISION"
+  | "REPLICA_3_THIN_PROVISION";
 
 export interface VmTemplateWhereInput {
   AND?: VmTemplateWhereInput[] | null;
@@ -7708,1078 +9088,6 @@ export interface VmTemplateWhereInput {
   win_opt?: boolean | null;
   win_opt_not?: boolean | null;
 }
-
-export interface SvtImageWhereInput {
-  AND?: SvtImageWhereInput[] | null;
-  cluster?: ClusterWhereInput | null;
-  entityAsyncStatus?: EntityAsyncStatus | null;
-  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-  entityAsyncStatus_not?: EntityAsyncStatus | null;
-  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  local_created_at?: string | null;
-  local_created_at_gt?: string | null;
-  local_created_at_gte?: string | null;
-  local_created_at_in?: string[] | null;
-  local_created_at_lt?: string | null;
-  local_created_at_lte?: string | null;
-  local_created_at_not?: string | null;
-  local_created_at_not_in?: string[] | null;
-  local_id?: string | null;
-  local_id_contains?: string | null;
-  local_id_ends_with?: string | null;
-  local_id_gt?: string | null;
-  local_id_gte?: string | null;
-  local_id_in?: string[] | null;
-  local_id_lt?: string | null;
-  local_id_lte?: string | null;
-  local_id_not?: string | null;
-  local_id_not_contains?: string | null;
-  local_id_not_ends_with?: string | null;
-  local_id_not_in?: string[] | null;
-  local_id_not_starts_with?: string | null;
-  local_id_starts_with?: string | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: SvtImageWhereInput[] | null;
-  OR?: SvtImageWhereInput[] | null;
-  path?: string | null;
-  path_contains?: string | null;
-  path_ends_with?: string | null;
-  path_gt?: string | null;
-  path_gte?: string | null;
-  path_in?: string[] | null;
-  path_lt?: string | null;
-  path_lte?: string | null;
-  path_not?: string | null;
-  path_not_contains?: string | null;
-  path_not_ends_with?: string | null;
-  path_not_in?: string[] | null;
-  path_not_starts_with?: string | null;
-  path_starts_with?: string | null;
-
-  /** @format double */
-  size?: number | null;
-
-  /** @format double */
-  size_gt?: number | null;
-
-  /** @format double */
-  size_gte?: number | null;
-  size_in?: number[] | null;
-
-  /** @format double */
-  size_lt?: number | null;
-
-  /** @format double */
-  size_lte?: number | null;
-
-  /** @format double */
-  size_not?: number | null;
-  size_not_in?: number[] | null;
-
-  /** @format double */
-  version?: number | null;
-
-  /** @format double */
-  version_gt?: number | null;
-
-  /** @format double */
-  version_gte?: number | null;
-  version_in?: number[] | null;
-
-  /** @format double */
-  version_lt?: number | null;
-
-  /** @format double */
-  version_lte?: number | null;
-
-  /** @format double */
-  version_not?: number | null;
-  version_not_in?: number[] | null;
-  vm_disks_every?: VmDiskWhereInput | null;
-  vm_disks_none?: VmDiskWhereInput | null;
-  vm_disks_some?: VmDiskWhereInput | null;
-}
-
-export type VmDiskType = "CD_ROM" | "DISK";
-
-export interface VmVolumeWhereInput {
-  AND?: VmVolumeWhereInput[] | null;
-  cluster?: ClusterWhereInput | null;
-  description?: string | null;
-  description_contains?: string | null;
-  description_ends_with?: string | null;
-  description_gt?: string | null;
-  description_gte?: string | null;
-  description_in?: string[] | null;
-  description_lt?: string | null;
-  description_lte?: string | null;
-  description_not?: string | null;
-  description_not_contains?: string | null;
-  description_not_ends_with?: string | null;
-  description_not_in?: string[] | null;
-  description_not_starts_with?: string | null;
-  description_starts_with?: string | null;
-  elf_storage_policy?: VmVolumeElfStoragePolicyType | null;
-  elf_storage_policy_in?: VmVolumeElfStoragePolicyType[] | null;
-  elf_storage_policy_not?: VmVolumeElfStoragePolicyType | null;
-  elf_storage_policy_not_in?: VmVolumeElfStoragePolicyType[] | null;
-
-  /** @format double */
-  guest_size_usage?: number | null;
-
-  /** @format double */
-  guest_size_usage_gt?: number | null;
-
-  /** @format double */
-  guest_size_usage_gte?: number | null;
-  guest_size_usage_in?: number[] | null;
-
-  /** @format double */
-  guest_size_usage_lt?: number | null;
-
-  /** @format double */
-  guest_size_usage_lte?: number | null;
-
-  /** @format double */
-  guest_size_usage_not?: number | null;
-  guest_size_usage_not_in?: number[] | null;
-
-  /** @format double */
-  guest_used_size?: number | null;
-
-  /** @format double */
-  guest_used_size_gt?: number | null;
-
-  /** @format double */
-  guest_used_size_gte?: number | null;
-  guest_used_size_in?: number[] | null;
-
-  /** @format double */
-  guest_used_size_lt?: number | null;
-
-  /** @format double */
-  guest_used_size_lte?: number | null;
-
-  /** @format double */
-  guest_used_size_not?: number | null;
-  guest_used_size_not_in?: number[] | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  labels_every?: LabelWhereInput | null;
-  labels_none?: LabelWhereInput | null;
-  labels_some?: LabelWhereInput | null;
-  local_created_at?: string | null;
-  local_created_at_gt?: string | null;
-  local_created_at_gte?: string | null;
-  local_created_at_in?: string[] | null;
-  local_created_at_lt?: string | null;
-  local_created_at_lte?: string | null;
-  local_created_at_not?: string | null;
-  local_created_at_not_in?: string[] | null;
-  local_id?: string | null;
-  local_id_contains?: string | null;
-  local_id_ends_with?: string | null;
-  local_id_gt?: string | null;
-  local_id_gte?: string | null;
-  local_id_in?: string[] | null;
-  local_id_lt?: string | null;
-  local_id_lte?: string | null;
-  local_id_not?: string | null;
-  local_id_not_contains?: string | null;
-  local_id_not_ends_with?: string | null;
-  local_id_not_in?: string[] | null;
-  local_id_not_starts_with?: string | null;
-  local_id_starts_with?: string | null;
-  lun?: IscsiLunWhereInput | null;
-  mounting?: boolean | null;
-  mounting_not?: boolean | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: VmVolumeWhereInput[] | null;
-  OR?: VmVolumeWhereInput[] | null;
-  path?: string | null;
-  path_contains?: string | null;
-  path_ends_with?: string | null;
-  path_gt?: string | null;
-  path_gte?: string | null;
-  path_in?: string[] | null;
-  path_lt?: string | null;
-  path_lte?: string | null;
-  path_not?: string | null;
-  path_not_contains?: string | null;
-  path_not_ends_with?: string | null;
-  path_not_in?: string[] | null;
-  path_not_starts_with?: string | null;
-  path_starts_with?: string | null;
-  sharing?: boolean | null;
-  sharing_not?: boolean | null;
-
-  /** @format double */
-  size?: number | null;
-
-  /** @format double */
-  size_gt?: number | null;
-
-  /** @format double */
-  size_gte?: number | null;
-  size_in?: number[] | null;
-
-  /** @format double */
-  size_lt?: number | null;
-
-  /** @format double */
-  size_lte?: number | null;
-
-  /** @format double */
-  size_not?: number | null;
-  size_not_in?: number[] | null;
-
-  /** @format double */
-  unique_size?: number | null;
-
-  /** @format double */
-  unique_size_gt?: number | null;
-
-  /** @format double */
-  unique_size_gte?: number | null;
-  unique_size_in?: number[] | null;
-
-  /** @format double */
-  unique_size_lt?: number | null;
-
-  /** @format double */
-  unique_size_lte?: number | null;
-
-  /** @format double */
-  unique_size_not?: number | null;
-  unique_size_not_in?: number[] | null;
-  vm_disks_every?: VmDiskWhereInput | null;
-  vm_disks_none?: VmDiskWhereInput | null;
-  vm_disks_some?: VmDiskWhereInput | null;
-}
-
-export type VmVolumeElfStoragePolicyType =
-  | "REPLICA_1_THICK_PROVISION"
-  | "REPLICA_1_THIN_PROVISION"
-  | "REPLICA_2_THICK_PROVISION"
-  | "REPLICA_2_THIN_PROVISION"
-  | "REPLICA_3_THICK_PROVISION"
-  | "REPLICA_3_THIN_PROVISION";
-
-export interface VmPlacementGroupWhereInput {
-  AND?: VmPlacementGroupWhereInput[] | null;
-  cluster?: ClusterWhereInput | null;
-  description?: string | null;
-  description_contains?: string | null;
-  description_ends_with?: string | null;
-  description_gt?: string | null;
-  description_gte?: string | null;
-  description_in?: string[] | null;
-  description_lt?: string | null;
-  description_lte?: string | null;
-  description_not?: string | null;
-  description_not_contains?: string | null;
-  description_not_ends_with?: string | null;
-  description_not_in?: string[] | null;
-  description_not_starts_with?: string | null;
-  description_starts_with?: string | null;
-  enabled?: boolean | null;
-  enabled_not?: boolean | null;
-  entityAsyncStatus?: EntityAsyncStatus | null;
-  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
-  entityAsyncStatus_not?: EntityAsyncStatus | null;
-  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  local_created_at?: string | null;
-  local_created_at_gt?: string | null;
-  local_created_at_gte?: string | null;
-  local_created_at_in?: string[] | null;
-  local_created_at_lt?: string | null;
-  local_created_at_lte?: string | null;
-  local_created_at_not?: string | null;
-  local_created_at_not_in?: string[] | null;
-  local_id?: string | null;
-  local_id_contains?: string | null;
-  local_id_ends_with?: string | null;
-  local_id_gt?: string | null;
-  local_id_gte?: string | null;
-  local_id_in?: string[] | null;
-  local_id_lt?: string | null;
-  local_id_lte?: string | null;
-  local_id_not?: string | null;
-  local_id_not_contains?: string | null;
-  local_id_not_ends_with?: string | null;
-  local_id_not_in?: string[] | null;
-  local_id_not_starts_with?: string | null;
-  local_id_starts_with?: string | null;
-  local_updated_at?: string | null;
-  local_updated_at_gt?: string | null;
-  local_updated_at_gte?: string | null;
-  local_updated_at_in?: string[] | null;
-  local_updated_at_lt?: string | null;
-  local_updated_at_lte?: string | null;
-  local_updated_at_not?: string | null;
-  local_updated_at_not_in?: string[] | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: VmPlacementGroupWhereInput[] | null;
-  OR?: VmPlacementGroupWhereInput[] | null;
-  vm_host_must_enabled?: boolean | null;
-  vm_host_must_enabled_not?: boolean | null;
-  vm_host_must_host_uuids_every?: HostWhereInput | null;
-  vm_host_must_host_uuids_none?: HostWhereInput | null;
-  vm_host_must_host_uuids_some?: HostWhereInput | null;
-  vm_host_must_policy?: boolean | null;
-  vm_host_must_policy_not?: boolean | null;
-  vm_host_prefer_enabled?: boolean | null;
-  vm_host_prefer_enabled_not?: boolean | null;
-  vm_host_prefer_host_uuids_every?: HostWhereInput | null;
-  vm_host_prefer_host_uuids_none?: HostWhereInput | null;
-  vm_host_prefer_host_uuids_some?: HostWhereInput | null;
-  vm_host_prefer_policy?: boolean | null;
-  vm_host_prefer_policy_not?: boolean | null;
-  vm_vm_policy?: VmVmPolicy | null;
-  vm_vm_policy_enabled?: boolean | null;
-  vm_vm_policy_enabled_not?: boolean | null;
-  vm_vm_policy_in?: VmVmPolicy[] | null;
-  vm_vm_policy_not?: VmVmPolicy | null;
-  vm_vm_policy_not_in?: VmVmPolicy[] | null;
-  vms_every?: VmWhereInput | null;
-  vms_none?: VmWhereInput | null;
-  vms_some?: VmWhereInput | null;
-}
-
-export type VmVmPolicy = "MUST_DIFFERENT" | "MUST_SAME" | "PREFER_DIFFERENT" | "PREFER_SAME";
-
-export type VmToolsStatus = "NOT_INSTALLED" | "NOT_RUNNING" | "RESTRICTION" | "RUNNING";
-
-export interface PmemDimmWhereInput {
-  AND?: PmemDimmWhereInput[] | null;
-
-  /** @format double */
-  capacity?: number | null;
-
-  /** @format double */
-  capacity_gt?: number | null;
-
-  /** @format double */
-  capacity_gte?: number | null;
-  capacity_in?: number[] | null;
-
-  /** @format double */
-  capacity_lt?: number | null;
-
-  /** @format double */
-  capacity_lte?: number | null;
-
-  /** @format double */
-  capacity_not?: number | null;
-  capacity_not_in?: number[] | null;
-  device_locator?: string | null;
-  device_locator_contains?: string | null;
-  device_locator_ends_with?: string | null;
-  device_locator_gt?: string | null;
-  device_locator_gte?: string | null;
-  device_locator_in?: string[] | null;
-  device_locator_lt?: string | null;
-  device_locator_lte?: string | null;
-  device_locator_not?: string | null;
-  device_locator_not_contains?: string | null;
-  device_locator_not_ends_with?: string | null;
-  device_locator_not_in?: string[] | null;
-  device_locator_not_starts_with?: string | null;
-  device_locator_starts_with?: string | null;
-  disk?: DiskWhereInput | null;
-  health_status?: DiskHealthStatus | null;
-  health_status_in?: DiskHealthStatus[] | null;
-  health_status_not?: DiskHealthStatus | null;
-  health_status_not_in?: DiskHealthStatus[] | null;
-  host?: HostWhereInput | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  local_id?: string | null;
-  local_id_contains?: string | null;
-  local_id_ends_with?: string | null;
-  local_id_gt?: string | null;
-  local_id_gte?: string | null;
-  local_id_in?: string[] | null;
-  local_id_lt?: string | null;
-  local_id_lte?: string | null;
-  local_id_not?: string | null;
-  local_id_not_contains?: string | null;
-  local_id_not_ends_with?: string | null;
-  local_id_not_in?: string[] | null;
-  local_id_not_starts_with?: string | null;
-  local_id_starts_with?: string | null;
-  name?: string | null;
-  name_contains?: string | null;
-  name_ends_with?: string | null;
-  name_gt?: string | null;
-  name_gte?: string | null;
-  name_in?: string[] | null;
-  name_lt?: string | null;
-  name_lte?: string | null;
-  name_not?: string | null;
-  name_not_contains?: string | null;
-  name_not_ends_with?: string | null;
-  name_not_in?: string[] | null;
-  name_not_starts_with?: string | null;
-  name_starts_with?: string | null;
-  NOT?: PmemDimmWhereInput[] | null;
-
-  /** @format double */
-  numa_node?: number | null;
-
-  /** @format double */
-  numa_node_gt?: number | null;
-
-  /** @format double */
-  numa_node_gte?: number | null;
-  numa_node_in?: number[] | null;
-
-  /** @format double */
-  numa_node_lt?: number | null;
-
-  /** @format double */
-  numa_node_lte?: number | null;
-
-  /** @format double */
-  numa_node_not?: number | null;
-  numa_node_not_in?: number[] | null;
-  OR?: PmemDimmWhereInput[] | null;
-  part_number?: string | null;
-  part_number_contains?: string | null;
-  part_number_ends_with?: string | null;
-  part_number_gt?: string | null;
-  part_number_gte?: string | null;
-  part_number_in?: string[] | null;
-  part_number_lt?: string | null;
-  part_number_lte?: string | null;
-  part_number_not?: string | null;
-  part_number_not_contains?: string | null;
-  part_number_not_ends_with?: string | null;
-  part_number_not_in?: string[] | null;
-  part_number_not_starts_with?: string | null;
-  part_number_starts_with?: string | null;
-
-  /** @format double */
-  remaining_life_percent?: number | null;
-
-  /** @format double */
-  remaining_life_percent_gt?: number | null;
-
-  /** @format double */
-  remaining_life_percent_gte?: number | null;
-  remaining_life_percent_in?: number[] | null;
-
-  /** @format double */
-  remaining_life_percent_lt?: number | null;
-
-  /** @format double */
-  remaining_life_percent_lte?: number | null;
-
-  /** @format double */
-  remaining_life_percent_not?: number | null;
-  remaining_life_percent_not_in?: number[] | null;
-  version?: string | null;
-  version_contains?: string | null;
-  version_ends_with?: string | null;
-  version_gt?: string | null;
-  version_gte?: string | null;
-  version_in?: string[] | null;
-  version_lt?: string | null;
-  version_lte?: string | null;
-  version_not?: string | null;
-  version_not_contains?: string | null;
-  version_not_ends_with?: string | null;
-  version_not_in?: string[] | null;
-  version_not_starts_with?: string | null;
-  version_starts_with?: string | null;
-}
-
-export type HostState = "IDLE" | "IN_USE" | "REMOVING";
-
-export type HostStatus =
-  | "CONNECTED_ERROR"
-  | "CONNECTED_HEALTHY"
-  | "CONNECTED_WARNING"
-  | "CONNECTING"
-  | "INITIALIZING"
-  | "SESSION_EXPIRED";
-
-export interface VsphereEsxiAccountWhereInput {
-  AND?: VsphereEsxiAccountWhereInput[] | null;
-  host?: HostWhereInput | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  ip?: string | null;
-  ip_contains?: string | null;
-  ip_ends_with?: string | null;
-  ip_gt?: string | null;
-  ip_gte?: string | null;
-  ip_in?: string[] | null;
-  ip_lt?: string | null;
-  ip_lte?: string | null;
-  ip_not?: string | null;
-  ip_not_contains?: string | null;
-  ip_not_ends_with?: string | null;
-  ip_not_in?: string[] | null;
-  ip_not_starts_with?: string | null;
-  ip_starts_with?: string | null;
-  is_valid?: boolean | null;
-  is_valid_not?: boolean | null;
-  local_id?: string | null;
-  local_id_contains?: string | null;
-  local_id_ends_with?: string | null;
-  local_id_gt?: string | null;
-  local_id_gte?: string | null;
-  local_id_in?: string[] | null;
-  local_id_lt?: string | null;
-  local_id_lte?: string | null;
-  local_id_not?: string | null;
-  local_id_not_contains?: string | null;
-  local_id_not_ends_with?: string | null;
-  local_id_not_in?: string[] | null;
-  local_id_not_starts_with?: string | null;
-  local_id_starts_with?: string | null;
-  NOT?: VsphereEsxiAccountWhereInput[] | null;
-  OR?: VsphereEsxiAccountWhereInput[] | null;
-  password?: string | null;
-  password_contains?: string | null;
-  password_ends_with?: string | null;
-  password_gt?: string | null;
-  password_gte?: string | null;
-  password_in?: string[] | null;
-  password_lt?: string | null;
-  password_lte?: string | null;
-  password_not?: string | null;
-  password_not_contains?: string | null;
-  password_not_ends_with?: string | null;
-  password_not_in?: string[] | null;
-  password_not_starts_with?: string | null;
-  password_starts_with?: string | null;
-
-  /** @format double */
-  port?: number | null;
-
-  /** @format double */
-  port_gt?: number | null;
-
-  /** @format double */
-  port_gte?: number | null;
-  port_in?: number[] | null;
-
-  /** @format double */
-  port_lt?: number | null;
-
-  /** @format double */
-  port_lte?: number | null;
-
-  /** @format double */
-  port_not?: number | null;
-  port_not_in?: number[] | null;
-  username?: string | null;
-  username_contains?: string | null;
-  username_ends_with?: string | null;
-  username_gt?: string | null;
-  username_gte?: string | null;
-  username_in?: string[] | null;
-  username_lt?: string | null;
-  username_lte?: string | null;
-  username_not?: string | null;
-  username_not_contains?: string | null;
-  username_not_ends_with?: string | null;
-  username_not_in?: string[] | null;
-  username_not_starts_with?: string | null;
-  username_starts_with?: string | null;
-}
-
-export interface ZoneWhereInput {
-  AND?: ZoneWhereInput[] | null;
-  cluster?: ClusterWhereInput | null;
-  datacenter?: DatacenterWhereInput | null;
-
-  /** @format double */
-  failure_data_space?: number | null;
-
-  /** @format double */
-  failure_data_space_gt?: number | null;
-
-  /** @format double */
-  failure_data_space_gte?: number | null;
-  failure_data_space_in?: number[] | null;
-
-  /** @format double */
-  failure_data_space_lt?: number | null;
-
-  /** @format double */
-  failure_data_space_lte?: number | null;
-
-  /** @format double */
-  failure_data_space_not?: number | null;
-  failure_data_space_not_in?: number[] | null;
-
-  /** @format double */
-  host_num?: number | null;
-
-  /** @format double */
-  host_num_gt?: number | null;
-
-  /** @format double */
-  host_num_gte?: number | null;
-  host_num_in?: number[] | null;
-
-  /** @format double */
-  host_num_lt?: number | null;
-
-  /** @format double */
-  host_num_lte?: number | null;
-
-  /** @format double */
-  host_num_not?: number | null;
-  host_num_not_in?: number[] | null;
-  hosts_every?: HostWhereInput | null;
-  hosts_none?: HostWhereInput | null;
-  hosts_some?: HostWhereInput | null;
-  id?: string | null;
-  id_contains?: string | null;
-  id_ends_with?: string | null;
-  id_gt?: string | null;
-  id_gte?: string | null;
-  id_in?: string[] | null;
-  id_lt?: string | null;
-  id_lte?: string | null;
-  id_not?: string | null;
-  id_not_contains?: string | null;
-  id_not_ends_with?: string | null;
-  id_not_in?: string[] | null;
-  id_not_starts_with?: string | null;
-  id_starts_with?: string | null;
-  is_preferred?: boolean | null;
-  is_preferred_not?: boolean | null;
-  local_id?: string | null;
-  local_id_contains?: string | null;
-  local_id_ends_with?: string | null;
-  local_id_gt?: string | null;
-  local_id_gte?: string | null;
-  local_id_in?: string[] | null;
-  local_id_lt?: string | null;
-  local_id_lte?: string | null;
-  local_id_not?: string | null;
-  local_id_not_contains?: string | null;
-  local_id_not_ends_with?: string | null;
-  local_id_not_in?: string[] | null;
-  local_id_not_starts_with?: string | null;
-  local_id_starts_with?: string | null;
-  NOT?: ZoneWhereInput[] | null;
-  OR?: ZoneWhereInput[] | null;
-
-  /** @format double */
-  provisioned_cpu_cores?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_for_active_vm?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_for_active_vm_gt?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_for_active_vm_gte?: number | null;
-  provisioned_cpu_cores_for_active_vm_in?: number[] | null;
-
-  /** @format double */
-  provisioned_cpu_cores_for_active_vm_lt?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_for_active_vm_lte?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_for_active_vm_not?: number | null;
-  provisioned_cpu_cores_for_active_vm_not_in?: number[] | null;
-
-  /** @format double */
-  provisioned_cpu_cores_gt?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_gte?: number | null;
-  provisioned_cpu_cores_in?: number[] | null;
-
-  /** @format double */
-  provisioned_cpu_cores_lt?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_lte?: number | null;
-
-  /** @format double */
-  provisioned_cpu_cores_not?: number | null;
-  provisioned_cpu_cores_not_in?: number[] | null;
-
-  /** @format double */
-  provisioned_data_space?: number | null;
-
-  /** @format double */
-  provisioned_data_space_gt?: number | null;
-
-  /** @format double */
-  provisioned_data_space_gte?: number | null;
-  provisioned_data_space_in?: number[] | null;
-
-  /** @format double */
-  provisioned_data_space_lt?: number | null;
-
-  /** @format double */
-  provisioned_data_space_lte?: number | null;
-
-  /** @format double */
-  provisioned_data_space_not?: number | null;
-  provisioned_data_space_not_in?: number[] | null;
-
-  /** @format double */
-  provisioned_memory_bytes?: number | null;
-
-  /** @format double */
-  provisioned_memory_bytes_gt?: number | null;
-
-  /** @format double */
-  provisioned_memory_bytes_gte?: number | null;
-  provisioned_memory_bytes_in?: number[] | null;
-
-  /** @format double */
-  provisioned_memory_bytes_lt?: number | null;
-
-  /** @format double */
-  provisioned_memory_bytes_lte?: number | null;
-
-  /** @format double */
-  provisioned_memory_bytes_not?: number | null;
-  provisioned_memory_bytes_not_in?: number[] | null;
-
-  /** @format double */
-  running_vm_num?: number | null;
-
-  /** @format double */
-  running_vm_num_gt?: number | null;
-
-  /** @format double */
-  running_vm_num_gte?: number | null;
-  running_vm_num_in?: number[] | null;
-
-  /** @format double */
-  running_vm_num_lt?: number | null;
-
-  /** @format double */
-  running_vm_num_lte?: number | null;
-
-  /** @format double */
-  running_vm_num_not?: number | null;
-  running_vm_num_not_in?: number[] | null;
-
-  /** @format double */
-  stopped_vm_num?: number | null;
-
-  /** @format double */
-  stopped_vm_num_gt?: number | null;
-
-  /** @format double */
-  stopped_vm_num_gte?: number | null;
-  stopped_vm_num_in?: number[] | null;
-
-  /** @format double */
-  stopped_vm_num_lt?: number | null;
-
-  /** @format double */
-  stopped_vm_num_lte?: number | null;
-
-  /** @format double */
-  stopped_vm_num_not?: number | null;
-  stopped_vm_num_not_in?: number[] | null;
-
-  /** @format double */
-  suspended_vm_num?: number | null;
-
-  /** @format double */
-  suspended_vm_num_gt?: number | null;
-
-  /** @format double */
-  suspended_vm_num_gte?: number | null;
-  suspended_vm_num_in?: number[] | null;
-
-  /** @format double */
-  suspended_vm_num_lt?: number | null;
-
-  /** @format double */
-  suspended_vm_num_lte?: number | null;
-
-  /** @format double */
-  suspended_vm_num_not?: number | null;
-  suspended_vm_num_not_in?: number[] | null;
-
-  /** @format double */
-  total_cache_capacity?: number | null;
-
-  /** @format double */
-  total_cache_capacity_gt?: number | null;
-
-  /** @format double */
-  total_cache_capacity_gte?: number | null;
-  total_cache_capacity_in?: number[] | null;
-
-  /** @format double */
-  total_cache_capacity_lt?: number | null;
-
-  /** @format double */
-  total_cache_capacity_lte?: number | null;
-
-  /** @format double */
-  total_cache_capacity_not?: number | null;
-  total_cache_capacity_not_in?: number[] | null;
-
-  /** @format double */
-  total_cpu_cores?: number | null;
-
-  /** @format double */
-  total_cpu_cores_gt?: number | null;
-
-  /** @format double */
-  total_cpu_cores_gte?: number | null;
-  total_cpu_cores_in?: number[] | null;
-
-  /** @format double */
-  total_cpu_cores_lt?: number | null;
-
-  /** @format double */
-  total_cpu_cores_lte?: number | null;
-
-  /** @format double */
-  total_cpu_cores_not?: number | null;
-  total_cpu_cores_not_in?: number[] | null;
-
-  /** @format double */
-  total_cpu_hz?: number | null;
-
-  /** @format double */
-  total_cpu_hz_gt?: number | null;
-
-  /** @format double */
-  total_cpu_hz_gte?: number | null;
-  total_cpu_hz_in?: number[] | null;
-
-  /** @format double */
-  total_cpu_hz_lt?: number | null;
-
-  /** @format double */
-  total_cpu_hz_lte?: number | null;
-
-  /** @format double */
-  total_cpu_hz_not?: number | null;
-  total_cpu_hz_not_in?: number[] | null;
-
-  /** @format double */
-  total_data_capacity?: number | null;
-
-  /** @format double */
-  total_data_capacity_gt?: number | null;
-
-  /** @format double */
-  total_data_capacity_gte?: number | null;
-  total_data_capacity_in?: number[] | null;
-
-  /** @format double */
-  total_data_capacity_lt?: number | null;
-
-  /** @format double */
-  total_data_capacity_lte?: number | null;
-
-  /** @format double */
-  total_data_capacity_not?: number | null;
-  total_data_capacity_not_in?: number[] | null;
-
-  /** @format double */
-  total_memory_bytes?: number | null;
-
-  /** @format double */
-  total_memory_bytes_gt?: number | null;
-
-  /** @format double */
-  total_memory_bytes_gte?: number | null;
-  total_memory_bytes_in?: number[] | null;
-
-  /** @format double */
-  total_memory_bytes_lt?: number | null;
-
-  /** @format double */
-  total_memory_bytes_lte?: number | null;
-
-  /** @format double */
-  total_memory_bytes_not?: number | null;
-  total_memory_bytes_not_in?: number[] | null;
-
-  /** @format double */
-  used_data_space?: number | null;
-
-  /** @format double */
-  used_data_space_gt?: number | null;
-
-  /** @format double */
-  used_data_space_gte?: number | null;
-  used_data_space_in?: number[] | null;
-
-  /** @format double */
-  used_data_space_lt?: number | null;
-
-  /** @format double */
-  used_data_space_lte?: number | null;
-
-  /** @format double */
-  used_data_space_not?: number | null;
-  used_data_space_not_in?: number[] | null;
-
-  /** @format double */
-  valid_data_space?: number | null;
-
-  /** @format double */
-  valid_data_space_gt?: number | null;
-
-  /** @format double */
-  valid_data_space_gte?: number | null;
-  valid_data_space_in?: number[] | null;
-
-  /** @format double */
-  valid_data_space_lt?: number | null;
-
-  /** @format double */
-  valid_data_space_lte?: number | null;
-
-  /** @format double */
-  valid_data_space_not?: number | null;
-  valid_data_space_not_in?: number[] | null;
-
-  /** @format double */
-  vm_num?: number | null;
-
-  /** @format double */
-  vm_num_gt?: number | null;
-
-  /** @format double */
-  vm_num_gte?: number | null;
-  vm_num_in?: number[] | null;
-
-  /** @format double */
-  vm_num_lt?: number | null;
-
-  /** @format double */
-  vm_num_lte?: number | null;
-
-  /** @format double */
-  vm_num_not?: number | null;
-  vm_num_not_in?: number[] | null;
-}
-
-export type DiskUsage = "BOOT" | "CACHE" | "CACHE_AND_META" | "DATA" | "DATA_AND_META";
-
-export type DiskType = "HDD" | "PMem" | "SSD";
-
-export type DiskUsageStatus = "ISOLATED" | "MOUNTED" | "MOUNTING" | "PARTIAL_MOUNTED" | "UNMOUNTED" | "UNMOUNTING";
 
 export interface NamespaceGroupWhereInput {
   AND?: NamespaceGroupWhereInput[] | null;
@@ -10427,6 +10735,58 @@ export interface NvmfNamespaceSnapshotWhereInput {
   unique_size_not_in?: number[] | null;
 }
 
+export interface SecurityPolicyWhereInput {
+  AND?: SecurityPolicyWhereInput[] | null;
+  description?: string | null;
+  description_contains?: string | null;
+  description_ends_with?: string | null;
+  description_gt?: string | null;
+  description_gte?: string | null;
+  description_in?: string[] | null;
+  description_lt?: string | null;
+  description_lte?: string | null;
+  description_not?: string | null;
+  description_not_contains?: string | null;
+  description_not_ends_with?: string | null;
+  description_not_in?: string[] | null;
+  description_not_starts_with?: string | null;
+  description_starts_with?: string | null;
+  everoute_cluster?: EverouteClusterWhereInput | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  labels_every?: LabelWhereInput | null;
+  labels_none?: LabelWhereInput | null;
+  labels_some?: LabelWhereInput | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: SecurityPolicyWhereInput[] | null;
+  OR?: SecurityPolicyWhereInput[] | null;
+}
+
 export type ClusterConnectorErrorCode =
   | "LOAD_CLUSTER_FAILED"
   | "LOAD_CLUSTER_NETWORK_ERROR"
@@ -10884,6 +11244,7 @@ export type AlertRuleObject =
   | "TIME_MACHINE_PLAN"
   | "VM"
   | "WITNESS"
+  | "WITNESS_NETWORK"
   | "ZBS_ZONE";
 
 export type AlertRuleUnit =
@@ -11952,6 +12313,7 @@ export interface Cluster {
   disconnected_reason?: ClusterConnectorErrorCode | null;
   dns: string[];
   entityAsyncStatus?: EntityAsyncStatus | null;
+  everoute_cluster?: { name: string; id: string };
 
   /** @format double */
   failure_data_space?: number | null;
@@ -12133,6 +12495,9 @@ export interface Cluster {
   total_cpu_models: string[];
 
   /** @format double */
+  total_cpu_sockets?: number | null;
+
+  /** @format double */
   total_data_capacity?: number | null;
 
   /** @format double */
@@ -12275,6 +12640,8 @@ export type ClusterOrderByInput =
   | "total_cpu_cores_DESC"
   | "total_cpu_hz_ASC"
   | "total_cpu_hz_DESC"
+  | "total_cpu_sockets_ASC"
+  | "total_cpu_sockets_DESC"
   | "total_data_capacity_ASC"
   | "total_data_capacity_DESC"
   | "total_memory_bytes_ASC"
@@ -12743,6 +13110,79 @@ export interface GetConsistencyGroupSnapshotsConnectionRequestBody {
   where?: ConsistencyGroupSnapshotWhereInput | null;
 }
 
+export interface ContentLibraryImage {
+  clusters?: { name: string; id: string }[] | null;
+  createdAt: string;
+  description: string;
+  elf_image_uuids: string[];
+  elf_images?: { name: string; id: string }[] | null;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  id: string;
+  labels?: { id: string }[] | null;
+  name: string;
+  path: string;
+
+  /** @format double */
+  size: number;
+  vm_disks?: { id: string }[] | null;
+  vm_snapshots?: { name: string; id: string }[] | null;
+  vm_templates?: { name: string; id: string }[] | null;
+}
+
+export type ContentLibraryImageOrderByInput =
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "entityAsyncStatus_ASC"
+  | "entityAsyncStatus_DESC"
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "path_ASC"
+  | "path_DESC"
+  | "size_ASC"
+  | "size_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export interface GetContentLibraryImagesRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: ContentLibraryImageOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: ContentLibraryImageWhereInput | null;
+}
+
+export interface ContentLibraryImageConnection {
+  aggregate: { count: number };
+}
+
+export interface GetContentLibraryImagesConnectionRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: ContentLibraryImageOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: ContentLibraryImageWhereInput | null;
+}
+
 export interface Datacenter {
   /** @format double */
   cluster_num?: number | null;
@@ -13107,6 +13547,15 @@ export type PartitionUsage =
 
 export interface Disk {
   entityAsyncStatus?: EntityAsyncStatus | null;
+  failure_information?: {
+    smart_check?: boolean | null;
+    iostat_latency_ms?: number | null;
+    iostat_latency?: boolean | null;
+    chunk_warnflag?: boolean | null;
+    chunk_io_error?: boolean | null;
+    chunk_errflag?: boolean | null;
+    chunk_checksum_error?: boolean | null;
+  };
   firmware: string;
   function?: DiskFunction | null;
   health_status?: DiskHealthStatus | null;
@@ -13147,6 +13596,8 @@ export type DiskOrderByInput =
   | "createdAt_DESC"
   | "entityAsyncStatus_ASC"
   | "entityAsyncStatus_DESC"
+  | "failure_information_ASC"
+  | "failure_information_DESC"
   | "firmware_ASC"
   | "firmware_DESC"
   | "function_ASC"
@@ -13425,6 +13876,7 @@ export interface GetElfDataStoresConnectionRequestBody {
 
 export interface ElfImage {
   cluster?: { name: string; id: string };
+  content_library_image?: { name: string; id: string };
   description: string;
   entityAsyncStatus?: EntityAsyncStatus | null;
   id: string;
@@ -13800,6 +14252,451 @@ export interface GetEntityFiltersConnectionRequestBody {
   where?: EntityFilterWhereInput | null;
 }
 
+export interface EverouteCluster {
+  agent_elf_clusters?: { name: string; id: string }[] | null;
+  agent_elf_vdses?: { name: string; id: string }[] | null;
+  controller_instances: { vlan: string; ipAddr: string }[];
+  controller_template: {
+    vcpu: number;
+    size: number;
+    netmask: string;
+    memory: number;
+    gateway: string;
+    cluster: string;
+  };
+  global_default_action: GlobalPolicyAction;
+  id: string;
+  name: string;
+  phase?: EverouteClusterPhase | null;
+  status: {
+    version: string;
+    retryCount: number;
+    reason: string;
+    phase?: EverouteClusterPhase | null;
+    message: string;
+    controllers?: {
+      numberHealth: number;
+      manageVDSes?: {
+        vdsID: string;
+        vds: { name: string; id: string };
+        retryCount: number;
+        reason: string;
+        phase?: EverouteClusterPhase | null;
+        message: string;
+      }[];
+      instances?: {
+        vmID: string;
+        vm: { name: string; id: string };
+        reason: string;
+        phase?: EverouteClusterPhase | null;
+        metrics?: { memoryUsage: number; lastAcquisitionTime: string; dataVolumeUsage: number; cpuUsage: number };
+        message: string;
+        isHealth: boolean;
+        ipAddr: string;
+      }[];
+      expectNumber: number;
+      elfClusterNumber: number;
+      currentNumber: number;
+    };
+    conditions?: { type: string; lastProbeTime: string }[] | null;
+    agents?: {
+      numberHealth: number;
+      instances?: {
+        reason: string;
+        phase?: EverouteClusterPhase | null;
+        message: string;
+        isHealth: boolean;
+        ipAddr: string;
+        hostID: string;
+        host: { name: string; id: string };
+      }[];
+      expectNumber: number;
+      elfClusterNumber: number;
+      currentNumber: number;
+    };
+  };
+  version: string;
+}
+
+export type EverouteClusterOrderByInput =
+  | "controller_instances_ASC"
+  | "controller_instances_DESC"
+  | "controller_template_ASC"
+  | "controller_template_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "global_default_action_ASC"
+  | "global_default_action_DESC"
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "phase_ASC"
+  | "phase_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "version_ASC"
+  | "version_DESC";
+
+export interface GetEverouteClustersRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: EverouteClusterOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: EverouteClusterWhereInput | null;
+}
+
+export interface EverouteClusterConnection {
+  aggregate: { count: number };
+}
+
+export interface GetEverouteClustersConnectionRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: EverouteClusterOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: EverouteClusterWhereInput | null;
+}
+
+export interface EverouteLicense {
+  cloud_tower: { id: string };
+  expire_date: string;
+  id: string;
+  license_serial: string;
+
+  /** @format double */
+  max_socket_num: number;
+  sign_date: string;
+  software_edition: SoftwareEdition;
+  type: LicenseType;
+}
+
+export type EverouteLicenseOrderByInput =
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "expire_date_ASC"
+  | "expire_date_DESC"
+  | "id_ASC"
+  | "id_DESC"
+  | "license_serial_ASC"
+  | "license_serial_DESC"
+  | "max_socket_num_ASC"
+  | "max_socket_num_DESC"
+  | "sign_date_ASC"
+  | "sign_date_DESC"
+  | "software_edition_ASC"
+  | "software_edition_DESC"
+  | "type_ASC"
+  | "type_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export interface EverouteLicenseWhereInput {
+  AND?: EverouteLicenseWhereInput[] | null;
+  cloud_tower?: DeployWhereInput | null;
+  expire_date?: string | null;
+  expire_date_gt?: string | null;
+  expire_date_gte?: string | null;
+  expire_date_in?: string[] | null;
+  expire_date_lt?: string | null;
+  expire_date_lte?: string | null;
+  expire_date_not?: string | null;
+  expire_date_not_in?: string[] | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  license_serial?: string | null;
+  license_serial_contains?: string | null;
+  license_serial_ends_with?: string | null;
+  license_serial_gt?: string | null;
+  license_serial_gte?: string | null;
+  license_serial_in?: string[] | null;
+  license_serial_lt?: string | null;
+  license_serial_lte?: string | null;
+  license_serial_not?: string | null;
+  license_serial_not_contains?: string | null;
+  license_serial_not_ends_with?: string | null;
+  license_serial_not_in?: string[] | null;
+  license_serial_not_starts_with?: string | null;
+  license_serial_starts_with?: string | null;
+
+  /** @format double */
+  max_socket_num?: number | null;
+
+  /** @format double */
+  max_socket_num_gt?: number | null;
+
+  /** @format double */
+  max_socket_num_gte?: number | null;
+  max_socket_num_in?: number[] | null;
+
+  /** @format double */
+  max_socket_num_lt?: number | null;
+
+  /** @format double */
+  max_socket_num_lte?: number | null;
+
+  /** @format double */
+  max_socket_num_not?: number | null;
+  max_socket_num_not_in?: number[] | null;
+  NOT?: EverouteLicenseWhereInput[] | null;
+  OR?: EverouteLicenseWhereInput[] | null;
+  sign_date?: string | null;
+  sign_date_gt?: string | null;
+  sign_date_gte?: string | null;
+  sign_date_in?: string[] | null;
+  sign_date_lt?: string | null;
+  sign_date_lte?: string | null;
+  sign_date_not?: string | null;
+  sign_date_not_in?: string[] | null;
+  software_edition?: SoftwareEdition | null;
+  software_edition_in?: SoftwareEdition[] | null;
+  software_edition_not?: SoftwareEdition | null;
+  software_edition_not_in?: SoftwareEdition[] | null;
+  type?: LicenseType | null;
+  type_in?: LicenseType[] | null;
+  type_not?: LicenseType | null;
+  type_not_in?: LicenseType[] | null;
+}
+
+export interface GetEverouteLicensesRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: EverouteLicenseOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: EverouteLicenseWhereInput | null;
+}
+
+export interface EverouteLicenseConnection {
+  aggregate: { count: number };
+}
+
+export interface GetEverouteLicensesConnectionRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: EverouteLicenseOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: EverouteLicenseWhereInput | null;
+}
+
+export interface EveroutePackage {
+  arch: Architecture;
+  description: string;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  id: string;
+  local_created_at: string;
+  name: string;
+  package_info: object;
+
+  /** @format double */
+  size: number;
+  upload_task?: { id: string };
+  version: string;
+}
+
+export type EveroutePackageOrderByInput =
+  | "arch_ASC"
+  | "arch_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "entityAsyncStatus_ASC"
+  | "entityAsyncStatus_DESC"
+  | "id_ASC"
+  | "id_DESC"
+  | "local_created_at_ASC"
+  | "local_created_at_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "package_info_ASC"
+  | "package_info_DESC"
+  | "size_ASC"
+  | "size_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "version_ASC"
+  | "version_DESC";
+
+export interface EveroutePackageWhereInput {
+  AND?: EveroutePackageWhereInput[] | null;
+  arch?: Architecture | null;
+  arch_in?: Architecture[] | null;
+  arch_not?: Architecture | null;
+  arch_not_in?: Architecture[] | null;
+  description?: string | null;
+  description_contains?: string | null;
+  description_ends_with?: string | null;
+  description_gt?: string | null;
+  description_gte?: string | null;
+  description_in?: string[] | null;
+  description_lt?: string | null;
+  description_lte?: string | null;
+  description_not?: string | null;
+  description_not_contains?: string | null;
+  description_not_ends_with?: string | null;
+  description_not_in?: string[] | null;
+  description_not_starts_with?: string | null;
+  description_starts_with?: string | null;
+  entityAsyncStatus?: EntityAsyncStatus | null;
+  entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+  entityAsyncStatus_not?: EntityAsyncStatus | null;
+  entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+  id?: string | null;
+  id_contains?: string | null;
+  id_ends_with?: string | null;
+  id_gt?: string | null;
+  id_gte?: string | null;
+  id_in?: string[] | null;
+  id_lt?: string | null;
+  id_lte?: string | null;
+  id_not?: string | null;
+  id_not_contains?: string | null;
+  id_not_ends_with?: string | null;
+  id_not_in?: string[] | null;
+  id_not_starts_with?: string | null;
+  id_starts_with?: string | null;
+  local_created_at?: string | null;
+  local_created_at_gt?: string | null;
+  local_created_at_gte?: string | null;
+  local_created_at_in?: string[] | null;
+  local_created_at_lt?: string | null;
+  local_created_at_lte?: string | null;
+  local_created_at_not?: string | null;
+  local_created_at_not_in?: string[] | null;
+  name?: string | null;
+  name_contains?: string | null;
+  name_ends_with?: string | null;
+  name_gt?: string | null;
+  name_gte?: string | null;
+  name_in?: string[] | null;
+  name_lt?: string | null;
+  name_lte?: string | null;
+  name_not?: string | null;
+  name_not_contains?: string | null;
+  name_not_ends_with?: string | null;
+  name_not_in?: string[] | null;
+  name_not_starts_with?: string | null;
+  name_starts_with?: string | null;
+  NOT?: EveroutePackageWhereInput[] | null;
+  OR?: EveroutePackageWhereInput[] | null;
+
+  /** @format double */
+  size?: number | null;
+
+  /** @format double */
+  size_gt?: number | null;
+
+  /** @format double */
+  size_gte?: number | null;
+  size_in?: number[] | null;
+
+  /** @format double */
+  size_lt?: number | null;
+
+  /** @format double */
+  size_lte?: number | null;
+
+  /** @format double */
+  size_not?: number | null;
+  size_not_in?: number[] | null;
+  version?: string | null;
+  version_contains?: string | null;
+  version_ends_with?: string | null;
+  version_gt?: string | null;
+  version_gte?: string | null;
+  version_in?: string[] | null;
+  version_lt?: string | null;
+  version_lte?: string | null;
+  version_not?: string | null;
+  version_not_contains?: string | null;
+  version_not_ends_with?: string | null;
+  version_not_in?: string[] | null;
+  version_not_starts_with?: string | null;
+  version_starts_with?: string | null;
+}
+
+export interface GetEveroutePackagesRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: EveroutePackageOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: EveroutePackageWhereInput | null;
+}
+
+export interface EveroutePackageConnection {
+  aggregate: { count: number };
+}
+
+export interface GetEveroutePackagesConnectionRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: EveroutePackageOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: EveroutePackageWhereInput | null;
+}
+
 export interface GlobalAlertRule {
   alert_rules?: { id: string }[] | null;
   boolean: boolean;
@@ -13966,6 +14863,7 @@ export interface Graph {
   entityAsyncStatus?: EntityAsyncStatus | null;
   hosts?: { name: string; id: string }[] | null;
   id: string;
+  instance_ids: string[];
   local_id: string;
   luns?: { name: string; id: string }[] | null;
 
@@ -15221,6 +16119,82 @@ export interface GetIscsiTargetsConnectionRequestBody {
   where?: IscsiTargetWhereInput | null;
 }
 
+export type NetworkPolicyRulePortProtocol = "ICMP" | "TCP" | "UDP";
+
+export type NetworkPolicyRuleType = "ALL" | "IP_BLOCK" | "SELECTOR";
+
+export interface IsolationPolicy {
+  egress?: {
+    type: NetworkPolicyRuleType;
+    selector_ids?: string[] | null;
+    selector?: { id: string }[] | null;
+    ports?: { protocol: NetworkPolicyRulePortProtocol; port?: string | null }[];
+    ip_block?: string | null;
+  }[];
+  everoute_cluster: { name: string; id: string };
+  id: string;
+  ingress?: {
+    type: NetworkPolicyRuleType;
+    selector_ids?: string[] | null;
+    selector?: { id: string }[] | null;
+    ports?: { protocol: NetworkPolicyRulePortProtocol; port?: string | null }[];
+    ip_block?: string | null;
+  }[];
+  labels?: { id: string }[] | null;
+  mode: IsolationMode;
+  vm: { name: string; id: string };
+}
+
+export type IsolationPolicyOrderByInput =
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "egress_ASC"
+  | "egress_DESC"
+  | "id_ASC"
+  | "id_DESC"
+  | "ingress_ASC"
+  | "ingress_DESC"
+  | "mode_ASC"
+  | "mode_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export interface GetIsolationPoliciesRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: IsolationPolicyOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: IsolationPolicyWhereInput | null;
+}
+
+export interface IsolationPolicyConnection {
+  aggregate: { count: number };
+}
+
+export interface GetIsolationPoliciesConnectionRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: IsolationPolicyOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: IsolationPolicyWhereInput | null;
+}
+
 export interface Label {
   /** @format double */
   cluster_num?: number | null;
@@ -15233,6 +16207,10 @@ export interface Label {
   consistency_group_snapshot_num?: number | null;
   consistency_group_snapshots?: { name: string; id: string }[] | null;
   consistency_groups?: { name: string; id: string }[] | null;
+
+  /** @format double */
+  content_library_image_num?: number | null;
+  content_library_images?: { name: string; id: string }[] | null;
   createdAt: string;
 
   /** @format double */
@@ -15263,6 +16241,10 @@ export interface Label {
   /** @format double */
   iscsi_target_num?: number | null;
   iscsi_targets?: { name: string; id: string }[] | null;
+  isolation_policies?: { id: string }[] | null;
+
+  /** @format double */
+  isolation_policy_num?: number | null;
   key: string;
 
   /** @format double */
@@ -15292,6 +16274,10 @@ export interface Label {
   /** @format double */
   nvmf_subsystem_num?: number | null;
   nvmf_subsystems?: { name: string; id: string }[] | null;
+  security_policies?: { name: string; id: string }[] | null;
+
+  /** @format double */
+  security_policy_num?: number | null;
 
   /** @format double */
   system_vlan_num?: number | null;
@@ -15332,6 +16318,8 @@ export type LabelOrderByInput =
   | "consistency_group_num_DESC"
   | "consistency_group_snapshot_num_ASC"
   | "consistency_group_snapshot_num_DESC"
+  | "content_library_image_num_ASC"
+  | "content_library_image_num_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "datacenter_num_ASC"
@@ -15350,6 +16338,8 @@ export type LabelOrderByInput =
   | "iscsi_lun_snapshot_num_DESC"
   | "iscsi_target_num_ASC"
   | "iscsi_target_num_DESC"
+  | "isolation_policy_num_ASC"
+  | "isolation_policy_num_DESC"
   | "key_ASC"
   | "key_DESC"
   | "namespace_group_num_ASC"
@@ -15366,6 +16356,8 @@ export type LabelOrderByInput =
   | "nvmf_namespace_snapshot_num_DESC"
   | "nvmf_subsystem_num_ASC"
   | "nvmf_subsystem_num_DESC"
+  | "security_policy_num_ASC"
+  | "security_policy_num_DESC"
   | "system_vlan_num_ASC"
   | "system_vlan_num_DESC"
   | "total_num_ASC"
@@ -17265,6 +18257,82 @@ export interface GetReportTemplatesConnectionRequestBody {
   where?: ReportTemplateWhereInput | null;
 }
 
+export interface SecurityPolicy {
+  apply_to: { selector_ids: string[]; selector: { id: string }[]; communicable: boolean }[];
+  description: string;
+  egress?: {
+    type: NetworkPolicyRuleType;
+    selector_ids?: string[] | null;
+    selector?: { id: string }[] | null;
+    ports?: { protocol: NetworkPolicyRulePortProtocol; port?: string | null }[];
+    ip_block?: string | null;
+  }[];
+  everoute_cluster: { name: string; id: string };
+  id: string;
+  ingress?: {
+    type: NetworkPolicyRuleType;
+    selector_ids?: string[] | null;
+    selector?: { id: string }[] | null;
+    ports?: { protocol: NetworkPolicyRulePortProtocol; port?: string | null }[];
+    ip_block?: string | null;
+  }[];
+  name: string;
+}
+
+export type SecurityPolicyOrderByInput =
+  | "apply_to_ASC"
+  | "apply_to_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "egress_ASC"
+  | "egress_DESC"
+  | "id_ASC"
+  | "id_DESC"
+  | "ingress_ASC"
+  | "ingress_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export interface GetSecurityPoliciesRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: SecurityPolicyOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: SecurityPolicyWhereInput | null;
+}
+
+export interface SecurityPolicyConnection {
+  aggregate: { count: number };
+}
+
+export interface GetSecurityPoliciesConnectionRequestBody {
+  after?: string | null;
+  before?: string | null;
+
+  /** @format double */
+  first?: number | null;
+
+  /** @format double */
+  last?: number | null;
+  orderBy?: SecurityPolicyOrderByInput | null;
+
+  /** @format double */
+  skip?: number | null;
+  where?: SecurityPolicyWhereInput | null;
+}
+
 export type ProtectSnapshotStatus =
   | "PROTECT_SNAPSHOT_STATUS_CREATED"
   | "PROTECT_SNAPSHOT_STATUS_CREATING"
@@ -18656,6 +19724,8 @@ export interface UserWhereInput {
   id_not_in?: string[] | null;
   id_not_starts_with?: string | null;
   id_starts_with?: string | null;
+  internal?: boolean | null;
+  internal_not?: boolean | null;
   ldap_dn?: string | null;
   ldap_dn_contains?: string | null;
   ldap_dn_ends_with?: string | null;
@@ -18830,7 +19900,14 @@ export interface GetTasksConnectionRequestBody {
   where?: TaskWhereInput | null;
 }
 
-export type UploadResourceType = "CLUSTER_IMAGE" | "CLUSTER_IMAGE_META" | "ELF_IMAGE" | "MONITOR_IMAGE" | "SVT_IMAGE";
+export type UploadResourceType =
+  | "CLUSTER_IMAGE"
+  | "CLUSTER_IMAGE_META"
+  | "CONTENT_LIBRARY_IMAGE"
+  | "ELF_IMAGE"
+  | "EVEROUTE_PACKAGE"
+  | "MONITOR_IMAGE"
+  | "SVT_IMAGE";
 
 export type UploadTaskStatus = "FAILED" | "INITIALIZING" | "PAUSED" | "SUCCESSED" | "UPLOADING";
 
@@ -19350,6 +20427,7 @@ export interface GetUserRoleNextsConnectionRequestBody {
 export interface User {
   email_address?: string | null;
   id: string;
+  internal: boolean;
   ldap_dn?: string | null;
   mobile_phone?: string | null;
   name: string;
@@ -19366,6 +20444,8 @@ export type UserOrderByInput =
   | "email_address_DESC"
   | "id_ASC"
   | "id_DESC"
+  | "internal_ASC"
+  | "internal_DESC"
   | "ldap_dn_ASC"
   | "ldap_dn_DESC"
   | "mobile_phone_ASC"
@@ -19492,6 +20572,7 @@ export interface Vds {
   bond_mode: string;
   cluster: { name: string; id: string };
   entityAsyncStatus?: EntityAsyncStatus | null;
+  everoute_cluster?: { name: string; id: string };
   id: string;
   internal: boolean;
   labels?: { id: string }[] | null;
@@ -20134,6 +21215,7 @@ export interface Vm {
   internal: boolean;
   io_policy?: VmDiskIoPolicy | null;
   ips: string;
+  isolation_policy?: { id: string };
   kernel_info?: string | null;
   labels?: { id: string }[] | null;
   last_shutdown_time?: string | null;
@@ -20185,6 +21267,7 @@ export interface Vm {
   vm_placement_group?: { name: string; id: string }[] | null;
   vm_tools_status: VmToolsStatus;
   vm_tools_version?: string | null;
+  vm_usage?: VmUsage | null;
   win_opt: boolean;
 }
 
@@ -20283,6 +21366,8 @@ export type VmOrderByInput =
   | "vm_tools_status_DESC"
   | "vm_tools_version_ASC"
   | "vm_tools_version_DESC"
+  | "vm_usage_ASC"
+  | "vm_usage_DESC"
   | "win_opt_ASC"
   | "win_opt_DESC";
 
@@ -20890,6 +21975,25 @@ export interface GetWitnessesConnectionRequestBody {
   where?: WitnessWhereInput | null;
 }
 
+export interface WitnessService {
+  id: string;
+  name: string;
+  role: string;
+  state: string;
+
+  /** @format double */
+  state_duration: number;
+}
+
+export interface WitnessWhereUniqueInput {
+  id?: string | null;
+  local_id?: string | null;
+}
+
+export interface GetWitnessServicesRequestBody {
+  where: WitnessWhereUniqueInput;
+}
+
 export interface Zone {
   cluster: { name: string; id: string };
   datacenter: { name: string; id: string };
@@ -21378,6 +22482,7 @@ export interface WithTaskGraph {
 }
 
 export interface GraphCreationParams {
+  instance_ids?: string[];
   network?: NetworkType;
   service?: string;
   metric_type?: MetricType;
@@ -21395,6 +22500,7 @@ export interface GraphCreationParams {
 
 export interface GraphUpdationParams {
   data?: {
+    instance_ids?: string[];
     luns?: IscsiLunWhereInput;
     vmNics?: VmNicWhereInput;
     nics?: NicWhereInput;
@@ -21994,7 +23100,7 @@ export interface NvmfNamespaceCommonParams {
 export type NvmfNamespaceCreationParams = {
   namespace_id?: number;
   group_id?: string;
-  is_shared: boolean;
+  is_shared?: boolean;
   assigned_size: number;
   replica_num: number;
   nvmf_subsystem_id: string;
@@ -22535,6 +23641,7 @@ export interface WithTaskUser {
 export interface UserCreationParams {
   mobile_phone?: string;
   email_address?: string;
+  internal?: boolean;
   role_id: string;
   name: string;
   password: string;
@@ -22543,6 +23650,7 @@ export interface UserCreationParams {
 
 export interface UserUpdationParams {
   data: {
+    internal?: boolean;
     mobile_phone?: string;
     email_address?: string;
     role_id?: string;
@@ -22807,7 +23915,7 @@ export interface WithTaskVmTemplate {
 }
 
 export interface VmTemplateCreationParams {
-  cluster_id: string;
+  cluster_id?: string;
   cloud_init_supported: boolean;
   vm_id: string;
   description?: string;
@@ -22999,7 +24107,7 @@ export interface VmCreateVmFromTemplateParams {
   description?: string;
   name: string;
   host_id?: string;
-  cluster_id: string;
+  cluster_id?: string;
 }
 
 export interface ConvertVmTemplateToVmParams {
@@ -23040,7 +24148,7 @@ export interface VmCloneParams {
   description?: string;
   name: string;
   host_id?: string;
-  cluster_id: string;
+  cluster_id?: string;
 }
 
 export interface VmRebuildParams {
@@ -23076,7 +24184,7 @@ export interface VmRebuildParams {
   description?: string;
   name: string;
   host_id?: string;
-  cluster_id: string;
+  cluster_id?: string;
 }
 
 export interface VmRollbackParams {
@@ -23186,8 +24294,10 @@ export interface VmAddFolderParams {
 export namespace GetAlertNotifiers {
   /**
    * No description
+   * @tags AlertNotifier
    * @name GetAlertNotifiers
    * @request POST:/get-alert-notifiers
+   * @secure
    * @response `200` `(AlertNotifier)[]` Ok
    * @response `400` `string`
    */
@@ -23195,7 +24305,7 @@ export namespace GetAlertNotifiers {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetAlertNotifiersRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = AlertNotifier[];
   }
 }
@@ -23203,8 +24313,10 @@ export namespace GetAlertNotifiers {
 export namespace GetAlertNotifiersConnection {
   /**
    * No description
+   * @tags AlertNotifier
    * @name GetAlertNotifiersConnection
    * @request POST:/get-alert-notifiers-connection
+   * @secure
    * @response `200` `AlertNotifierConnection` Ok
    * @response `400` `string`
    */
@@ -23212,7 +24324,7 @@ export namespace GetAlertNotifiersConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetAlertNotifiersConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = AlertNotifierConnection;
   }
 }
@@ -23220,8 +24332,10 @@ export namespace GetAlertNotifiersConnection {
 export namespace GetAlertRules {
   /**
    * No description
+   * @tags AlertRule
    * @name GetAlertRules
    * @request POST:/get-alert-rules
+   * @secure
    * @response `200` `(AlertRule)[]` Ok
    * @response `400` `string`
    */
@@ -23229,7 +24343,7 @@ export namespace GetAlertRules {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetAlertRulesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = AlertRule[];
   }
 }
@@ -23237,8 +24351,10 @@ export namespace GetAlertRules {
 export namespace GetAlertRulesConnection {
   /**
    * No description
+   * @tags AlertRule
    * @name GetAlertRulesConnection
    * @request POST:/get-alert-rules-connection
+   * @secure
    * @response `200` `AlertRuleConnection` Ok
    * @response `400` `string`
    */
@@ -23246,7 +24362,7 @@ export namespace GetAlertRulesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetAlertRulesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = AlertRuleConnection;
   }
 }
@@ -23254,8 +24370,10 @@ export namespace GetAlertRulesConnection {
 export namespace GetAlerts {
   /**
    * No description
+   * @tags Alert
    * @name GetAlerts
    * @request POST:/get-alerts
+   * @secure
    * @response `200` `(Alert)[]` Ok
    * @response `400` `string`
    */
@@ -23263,7 +24381,7 @@ export namespace GetAlerts {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetAlertsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Alert[];
   }
 }
@@ -23271,8 +24389,10 @@ export namespace GetAlerts {
 export namespace GetAlertsConnection {
   /**
    * No description
+   * @tags Alert
    * @name GetAlertsConnection
    * @request POST:/get-alerts-connection
+   * @secure
    * @response `200` `AlertConnection` Ok
    * @response `400` `string`
    */
@@ -23280,7 +24400,7 @@ export namespace GetAlertsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetAlertsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = AlertConnection;
   }
 }
@@ -23288,8 +24408,10 @@ export namespace GetAlertsConnection {
 export namespace GetApplications {
   /**
    * No description
+   * @tags Application
    * @name GetApplications
    * @request POST:/get-applications
+   * @secure
    * @response `200` `(Application)[]` Ok
    * @response `400` `string`
    */
@@ -23297,7 +24419,7 @@ export namespace GetApplications {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetApplicationsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Application[];
   }
 }
@@ -23305,8 +24427,10 @@ export namespace GetApplications {
 export namespace GetApplicationsConnection {
   /**
    * No description
+   * @tags Application
    * @name GetApplicationsConnection
    * @request POST:/get-applications-connection
+   * @secure
    * @response `200` `ApplicationConnection` Ok
    * @response `400` `string`
    */
@@ -23314,7 +24438,7 @@ export namespace GetApplicationsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetApplicationsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ApplicationConnection;
   }
 }
@@ -23322,8 +24446,10 @@ export namespace GetApplicationsConnection {
 export namespace GetBrickTopoes {
   /**
    * No description
+   * @tags BrickTopo
    * @name GetBrickTopoes
    * @request POST:/get-brick-topoes
+   * @secure
    * @response `200` `(BrickTopo)[]` Ok
    * @response `400` `string`
    */
@@ -23331,7 +24457,7 @@ export namespace GetBrickTopoes {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetBrickTopoesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = BrickTopo[];
   }
 }
@@ -23339,8 +24465,10 @@ export namespace GetBrickTopoes {
 export namespace GetBrickTopoesConnection {
   /**
    * No description
+   * @tags BrickTopo
    * @name GetBrickTopoesConnection
    * @request POST:/get-brick-topoes-connection
+   * @secure
    * @response `200` `BrickTopoConnection` Ok
    * @response `400` `string`
    */
@@ -23348,7 +24476,7 @@ export namespace GetBrickTopoesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetBrickTopoesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = BrickTopoConnection;
   }
 }
@@ -23356,8 +24484,10 @@ export namespace GetBrickTopoesConnection {
 export namespace GetClusterImages {
   /**
    * No description
+   * @tags ClusterImage
    * @name GetClusterImages
    * @request POST:/get-cluster-images
+   * @secure
    * @response `200` `(ClusterImage)[]` Ok
    * @response `400` `string`
    */
@@ -23365,7 +24495,7 @@ export namespace GetClusterImages {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterImagesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterImage[];
   }
 }
@@ -23373,8 +24503,10 @@ export namespace GetClusterImages {
 export namespace GetClusterImagesConnection {
   /**
    * No description
+   * @tags ClusterImage
    * @name GetClusterImagesConnection
    * @request POST:/get-cluster-images-connection
+   * @secure
    * @response `200` `ClusterImageConnection` Ok
    * @response `400` `string`
    */
@@ -23382,7 +24514,7 @@ export namespace GetClusterImagesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterImagesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterImageConnection;
   }
 }
@@ -23390,8 +24522,10 @@ export namespace GetClusterImagesConnection {
 export namespace GetClusters {
   /**
    * No description
+   * @tags Cluster
    * @name GetClusters
    * @request POST:/get-clusters
+   * @secure
    * @response `200` `(Cluster)[]` Ok
    * @response `400` `string`
    */
@@ -23399,7 +24533,7 @@ export namespace GetClusters {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClustersRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Cluster[];
   }
 }
@@ -23407,8 +24541,10 @@ export namespace GetClusters {
 export namespace GetClustersConnection {
   /**
    * No description
+   * @tags Cluster
    * @name GetClustersConnection
    * @request POST:/get-clusters-connection
+   * @secure
    * @response `200` `ClusterConnection` Ok
    * @response `400` `string`
    */
@@ -23416,7 +24552,7 @@ export namespace GetClustersConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClustersConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterConnection;
   }
 }
@@ -23424,8 +24560,10 @@ export namespace GetClustersConnection {
 export namespace GetClusterSettingses {
   /**
    * No description
+   * @tags ClusterSettings
    * @name GetClusterSettingses
    * @request POST:/get-cluster-settingses
+   * @secure
    * @response `200` `(ClusterSettings)[]` Ok
    * @response `400` `string`
    */
@@ -23433,7 +24571,7 @@ export namespace GetClusterSettingses {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterSettingsesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterSettings[];
   }
 }
@@ -23441,8 +24579,10 @@ export namespace GetClusterSettingses {
 export namespace GetClusterSettingsesConnection {
   /**
    * No description
+   * @tags ClusterSettings
    * @name GetClusterSettingsesConnection
    * @request POST:/get-cluster-settingses-connection
+   * @secure
    * @response `200` `ClusterSettingsConnection` Ok
    * @response `400` `string`
    */
@@ -23450,7 +24590,7 @@ export namespace GetClusterSettingsesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterSettingsesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterSettingsConnection;
   }
 }
@@ -23458,8 +24598,10 @@ export namespace GetClusterSettingsesConnection {
 export namespace GetClusterTopoes {
   /**
    * No description
+   * @tags ClusterTopo
    * @name GetClusterTopoes
    * @request POST:/get-cluster-topoes
+   * @secure
    * @response `200` `(ClusterTopo)[]` Ok
    * @response `400` `string`
    */
@@ -23467,7 +24609,7 @@ export namespace GetClusterTopoes {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterTopoesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterTopo[];
   }
 }
@@ -23475,8 +24617,10 @@ export namespace GetClusterTopoes {
 export namespace GetClusterTopoesConnection {
   /**
    * No description
+   * @tags ClusterTopo
    * @name GetClusterTopoesConnection
    * @request POST:/get-cluster-topoes-connection
+   * @secure
    * @response `200` `ClusterTopoConnection` Ok
    * @response `400` `string`
    */
@@ -23484,7 +24628,7 @@ export namespace GetClusterTopoesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterTopoesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterTopoConnection;
   }
 }
@@ -23492,8 +24636,10 @@ export namespace GetClusterTopoesConnection {
 export namespace GetClusterUpgradeHistories {
   /**
    * No description
+   * @tags ClusterUpgradeHistory
    * @name GetClusterUpgradeHistories
    * @request POST:/get-cluster-upgrade-histories
+   * @secure
    * @response `200` `(ClusterUpgradeHistory)[]` Ok
    * @response `400` `string`
    */
@@ -23501,7 +24647,7 @@ export namespace GetClusterUpgradeHistories {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterUpgradeHistoriesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterUpgradeHistory[];
   }
 }
@@ -23509,8 +24655,10 @@ export namespace GetClusterUpgradeHistories {
 export namespace GetClusterUpgradeHistoriesConnection {
   /**
    * No description
+   * @tags ClusterUpgradeHistory
    * @name GetClusterUpgradeHistoriesConnection
    * @request POST:/get-cluster-upgrade-histories-connection
+   * @secure
    * @response `200` `ClusterUpgradeHistoryConnection` Ok
    * @response `400` `string`
    */
@@ -23518,7 +24666,7 @@ export namespace GetClusterUpgradeHistoriesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetClusterUpgradeHistoriesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ClusterUpgradeHistoryConnection;
   }
 }
@@ -23526,8 +24674,10 @@ export namespace GetClusterUpgradeHistoriesConnection {
 export namespace GetConsistencyGroups {
   /**
    * No description
+   * @tags ConsistencyGroup
    * @name GetConsistencyGroups
    * @request POST:/get-consistency-groups
+   * @secure
    * @response `200` `(ConsistencyGroup)[]` Ok
    * @response `400` `string`
    */
@@ -23535,7 +24685,7 @@ export namespace GetConsistencyGroups {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetConsistencyGroupsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ConsistencyGroup[];
   }
 }
@@ -23543,8 +24693,10 @@ export namespace GetConsistencyGroups {
 export namespace GetConsistencyGroupsConnection {
   /**
    * No description
+   * @tags ConsistencyGroup
    * @name GetConsistencyGroupsConnection
    * @request POST:/get-consistency-groups-connection
+   * @secure
    * @response `200` `ConsistencyGroupConnection` Ok
    * @response `400` `string`
    */
@@ -23552,7 +24704,7 @@ export namespace GetConsistencyGroupsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetConsistencyGroupsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ConsistencyGroupConnection;
   }
 }
@@ -23560,8 +24712,10 @@ export namespace GetConsistencyGroupsConnection {
 export namespace GetConsistencyGroupSnapshots {
   /**
    * No description
+   * @tags ConsistencyGroupSnapshot
    * @name GetConsistencyGroupSnapshots
    * @request POST:/get-consistency-group-snapshots
+   * @secure
    * @response `200` `(ConsistencyGroupSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -23569,7 +24723,7 @@ export namespace GetConsistencyGroupSnapshots {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetConsistencyGroupSnapshotsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ConsistencyGroupSnapshot[];
   }
 }
@@ -23577,8 +24731,10 @@ export namespace GetConsistencyGroupSnapshots {
 export namespace GetConsistencyGroupSnapshotsConnection {
   /**
    * No description
+   * @tags ConsistencyGroupSnapshot
    * @name GetConsistencyGroupSnapshotsConnection
    * @request POST:/get-consistency-group-snapshots-connection
+   * @secure
    * @response `200` `ConsistencyGroupSnapshotConnection` Ok
    * @response `400` `string`
    */
@@ -23586,16 +24742,56 @@ export namespace GetConsistencyGroupSnapshotsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetConsistencyGroupSnapshotsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ConsistencyGroupSnapshotConnection;
+  }
+}
+
+export namespace GetContentLibraryImages {
+  /**
+   * No description
+   * @tags ContentLibraryImage
+   * @name GetContentLibraryImages
+   * @request POST:/get-content-library-images
+   * @secure
+   * @response `200` `(ContentLibraryImage)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace GetContentLibraryImages {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetContentLibraryImagesRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = ContentLibraryImage[];
+  }
+}
+
+export namespace GetContentLibraryImagesConnection {
+  /**
+   * No description
+   * @tags ContentLibraryImage
+   * @name GetContentLibraryImagesConnection
+   * @request POST:/get-content-library-images-connection
+   * @secure
+   * @response `200` `ContentLibraryImageConnection` Ok
+   * @response `400` `string`
+   */
+  export namespace GetContentLibraryImagesConnection {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetContentLibraryImagesConnectionRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = ContentLibraryImageConnection;
   }
 }
 
 export namespace GetDatacenters {
   /**
    * No description
+   * @tags Datacenter
    * @name GetDatacenters
    * @request POST:/get-datacenters
+   * @secure
    * @response `200` `(Datacenter)[]` Ok
    * @response `400` `string`
    */
@@ -23603,7 +24799,7 @@ export namespace GetDatacenters {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetDatacentersRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Datacenter[];
   }
 }
@@ -23611,8 +24807,10 @@ export namespace GetDatacenters {
 export namespace GetDatacentersConnection {
   /**
    * No description
+   * @tags Datacenter
    * @name GetDatacentersConnection
    * @request POST:/get-datacenters-connection
+   * @secure
    * @response `200` `DatacenterConnection` Ok
    * @response `400` `string`
    */
@@ -23620,7 +24818,7 @@ export namespace GetDatacentersConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetDatacentersConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = DatacenterConnection;
   }
 }
@@ -23628,8 +24826,10 @@ export namespace GetDatacentersConnection {
 export namespace GetDeploys {
   /**
    * No description
+   * @tags Deploy
    * @name GetDeploys
    * @request POST:/get-deploys
+   * @secure
    * @response `200` `(Deploy)[]` Ok
    * @response `400` `string`
    */
@@ -23637,7 +24837,7 @@ export namespace GetDeploys {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetDeploysRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Deploy[];
   }
 }
@@ -23645,8 +24845,10 @@ export namespace GetDeploys {
 export namespace GetDeploysConnection {
   /**
    * No description
+   * @tags Deploy
    * @name GetDeploysConnection
    * @request POST:/get-deploys-connection
+   * @secure
    * @response `200` `DeployConnection` Ok
    * @response `400` `string`
    */
@@ -23654,7 +24856,7 @@ export namespace GetDeploysConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetDeploysConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = DeployConnection;
   }
 }
@@ -23662,8 +24864,10 @@ export namespace GetDeploysConnection {
 export namespace GetDiscoverHosts {
   /**
    * No description
+   * @tags DiscoveredHost
    * @name GetDiscoverHosts
    * @request POST:/get-discover-hosts
+   * @secure
    * @response `200` `(DiscoveredHost)[]` Ok
    * @response `400` `string`
    */
@@ -23671,7 +24875,7 @@ export namespace GetDiscoverHosts {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetDiscoverHostsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = DiscoveredHost[];
   }
 }
@@ -23679,8 +24883,10 @@ export namespace GetDiscoverHosts {
 export namespace GetDisks {
   /**
    * No description
+   * @tags Disk
    * @name GetDisks
    * @request POST:/get-disks
+   * @secure
    * @response `200` `(Disk)[]` Ok
    * @response `400` `string`
    */
@@ -23688,7 +24894,7 @@ export namespace GetDisks {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetDisksRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Disk[];
   }
 }
@@ -23696,8 +24902,10 @@ export namespace GetDisks {
 export namespace GetDisksConnection {
   /**
    * No description
+   * @tags Disk
    * @name GetDisksConnection
    * @request POST:/get-disks-connection
+   * @secure
    * @response `200` `DiskConnection` Ok
    * @response `400` `string`
    */
@@ -23705,7 +24913,7 @@ export namespace GetDisksConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetDisksConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = DiskConnection;
   }
 }
@@ -23713,8 +24921,10 @@ export namespace GetDisksConnection {
 export namespace GetElfDataStores {
   /**
    * No description
+   * @tags ElfDataStore
    * @name GetElfDataStores
    * @request POST:/get-elf-data-stores
+   * @secure
    * @response `200` `(ElfDataStore)[]` Ok
    * @response `400` `string`
    */
@@ -23722,7 +24932,7 @@ export namespace GetElfDataStores {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetElfDataStoresRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ElfDataStore[];
   }
 }
@@ -23730,8 +24940,10 @@ export namespace GetElfDataStores {
 export namespace GetElfDataStoresConnection {
   /**
    * No description
+   * @tags ElfDataStore
    * @name GetElfDataStoresConnection
    * @request POST:/get-elf-data-stores-connection
+   * @secure
    * @response `200` `ElfDataStoreConnection` Ok
    * @response `400` `string`
    */
@@ -23739,7 +24951,7 @@ export namespace GetElfDataStoresConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetElfDataStoresConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ElfDataStoreConnection;
   }
 }
@@ -23747,8 +24959,10 @@ export namespace GetElfDataStoresConnection {
 export namespace GetElfImages {
   /**
    * No description
+   * @tags ElfImage
    * @name GetElfImages
    * @request POST:/get-elf-images
+   * @secure
    * @response `200` `(ElfImage)[]` Ok
    * @response `400` `string`
    */
@@ -23756,7 +24970,7 @@ export namespace GetElfImages {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetElfImagesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ElfImage[];
   }
 }
@@ -23764,8 +24978,10 @@ export namespace GetElfImages {
 export namespace GetElfImagesConnection {
   /**
    * No description
+   * @tags ElfImage
    * @name GetElfImagesConnection
    * @request POST:/get-elf-images-connection
+   * @secure
    * @response `200` `ElfImageConnection` Ok
    * @response `400` `string`
    */
@@ -23773,7 +24989,7 @@ export namespace GetElfImagesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetElfImagesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ElfImageConnection;
   }
 }
@@ -23781,8 +24997,10 @@ export namespace GetElfImagesConnection {
 export namespace GetElfStoragePolicies {
   /**
    * No description
+   * @tags ElfStoragePolicy
    * @name GetElfStoragePolicies
    * @request POST:/get-elf-storage-policies
+   * @secure
    * @response `200` `(ElfStoragePolicy)[]` Ok
    * @response `400` `string`
    */
@@ -23790,7 +25008,7 @@ export namespace GetElfStoragePolicies {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetElfStoragePoliciesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ElfStoragePolicy[];
   }
 }
@@ -23798,8 +25016,10 @@ export namespace GetElfStoragePolicies {
 export namespace GetElfStoragePoliciesConnection {
   /**
    * No description
+   * @tags ElfStoragePolicy
    * @name GetElfStoragePoliciesConnection
    * @request POST:/get-elf-storage-policies-connection
+   * @secure
    * @response `200` `ElfStoragePolicyConnection` Ok
    * @response `400` `string`
    */
@@ -23807,7 +25027,7 @@ export namespace GetElfStoragePoliciesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetElfStoragePoliciesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ElfStoragePolicyConnection;
   }
 }
@@ -23815,8 +25035,10 @@ export namespace GetElfStoragePoliciesConnection {
 export namespace GetEntityFilters {
   /**
    * No description
+   * @tags EntityFilter
    * @name GetEntityFilters
    * @request POST:/get-entity-filters
+   * @secure
    * @response `200` `(EntityFilter)[]` Ok
    * @response `400` `string`
    */
@@ -23824,7 +25046,7 @@ export namespace GetEntityFilters {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetEntityFiltersRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = EntityFilter[];
   }
 }
@@ -23832,8 +25054,10 @@ export namespace GetEntityFilters {
 export namespace GetEntityFiltersConnection {
   /**
    * No description
+   * @tags EntityFilter
    * @name GetEntityFiltersConnection
    * @request POST:/get-entity-filters-connection
+   * @secure
    * @response `200` `EntityFilterConnection` Ok
    * @response `400` `string`
    */
@@ -23841,16 +25065,132 @@ export namespace GetEntityFiltersConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetEntityFiltersConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = EntityFilterConnection;
+  }
+}
+
+export namespace GetEverouteClusters {
+  /**
+   * No description
+   * @tags EverouteCluster
+   * @name GetEverouteClusters
+   * @request POST:/get-everoute-clusters
+   * @secure
+   * @response `200` `(EverouteCluster)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace GetEverouteClusters {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetEverouteClustersRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = EverouteCluster[];
+  }
+}
+
+export namespace GetEverouteClustersConnection {
+  /**
+   * No description
+   * @tags EverouteCluster
+   * @name GetEverouteClustersConnection
+   * @request POST:/get-everoute-clusters-connection
+   * @secure
+   * @response `200` `EverouteClusterConnection` Ok
+   * @response `400` `string`
+   */
+  export namespace GetEverouteClustersConnection {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetEverouteClustersConnectionRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = EverouteClusterConnection;
+  }
+}
+
+export namespace GetEverouteLicenses {
+  /**
+   * No description
+   * @tags EverouteLicense
+   * @name GetEverouteLicenses
+   * @request POST:/get-everoute-licenses
+   * @secure
+   * @response `200` `(EverouteLicense)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace GetEverouteLicenses {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetEverouteLicensesRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = EverouteLicense[];
+  }
+}
+
+export namespace GetEverouteLicensesConnection {
+  /**
+   * No description
+   * @tags EverouteLicense
+   * @name GetEverouteLicensesConnection
+   * @request POST:/get-everoute-licenses-connection
+   * @secure
+   * @response `200` `EverouteLicenseConnection` Ok
+   * @response `400` `string`
+   */
+  export namespace GetEverouteLicensesConnection {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetEverouteLicensesConnectionRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = EverouteLicenseConnection;
+  }
+}
+
+export namespace GetEveroutePackages {
+  /**
+   * No description
+   * @tags EveroutePackage
+   * @name GetEveroutePackages
+   * @request POST:/get-everoute-packages
+   * @secure
+   * @response `200` `(EveroutePackage)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace GetEveroutePackages {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetEveroutePackagesRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = EveroutePackage[];
+  }
+}
+
+export namespace GetEveroutePackagesConnection {
+  /**
+   * No description
+   * @tags EveroutePackage
+   * @name GetEveroutePackagesConnection
+   * @request POST:/get-everoute-packages-connection
+   * @secure
+   * @response `200` `EveroutePackageConnection` Ok
+   * @response `400` `string`
+   */
+  export namespace GetEveroutePackagesConnection {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetEveroutePackagesConnectionRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = EveroutePackageConnection;
   }
 }
 
 export namespace GetGlobalAlertRules {
   /**
    * No description
+   * @tags GlobalAlertRule
    * @name GetGlobalAlertRules
    * @request POST:/get-global-alert-rules
+   * @secure
    * @response `200` `(GlobalAlertRule)[]` Ok
    * @response `400` `string`
    */
@@ -23858,7 +25198,7 @@ export namespace GetGlobalAlertRules {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetGlobalAlertRulesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = GlobalAlertRule[];
   }
 }
@@ -23866,8 +25206,10 @@ export namespace GetGlobalAlertRules {
 export namespace GetGlobalAlertRulesConnection {
   /**
    * No description
+   * @tags GlobalAlertRule
    * @name GetGlobalAlertRulesConnection
    * @request POST:/get-global-alert-rules-connection
+   * @secure
    * @response `200` `GlobalAlertRuleConnection` Ok
    * @response `400` `string`
    */
@@ -23875,7 +25217,7 @@ export namespace GetGlobalAlertRulesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetGlobalAlertRulesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = GlobalAlertRuleConnection;
   }
 }
@@ -23883,8 +25225,10 @@ export namespace GetGlobalAlertRulesConnection {
 export namespace GetGlobalSettingses {
   /**
    * No description
+   * @tags GlobalSettings
    * @name GetGlobalSettingses
    * @request POST:/get-global-settingses
+   * @secure
    * @response `200` `(GlobalSettings)[]` Ok
    * @response `400` `string`
    */
@@ -23892,7 +25236,7 @@ export namespace GetGlobalSettingses {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetGlobalSettingsesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = GlobalSettings[];
   }
 }
@@ -23900,8 +25244,10 @@ export namespace GetGlobalSettingses {
 export namespace GetGlobalSettingsesConnection {
   /**
    * No description
+   * @tags GlobalSettings
    * @name GetGlobalSettingsesConnection
    * @request POST:/get-global-settingses-connection
+   * @secure
    * @response `200` `GlobalSettingsConnection` Ok
    * @response `400` `string`
    */
@@ -23909,7 +25255,7 @@ export namespace GetGlobalSettingsesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetGlobalSettingsesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = GlobalSettingsConnection;
   }
 }
@@ -23917,8 +25263,10 @@ export namespace GetGlobalSettingsesConnection {
 export namespace GetGraphs {
   /**
    * No description
+   * @tags Graph
    * @name GetGraphs
    * @request POST:/get-graphs
+   * @secure
    * @response `200` `(Graph)[]` Ok
    * @response `400` `string`
    */
@@ -23926,7 +25274,7 @@ export namespace GetGraphs {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetGraphsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Graph[];
   }
 }
@@ -23934,8 +25282,10 @@ export namespace GetGraphs {
 export namespace GetGraphsConnection {
   /**
    * No description
+   * @tags Graph
    * @name GetGraphsConnection
    * @request POST:/get-graphs-connection
+   * @secure
    * @response `200` `GraphConnection` Ok
    * @response `400` `string`
    */
@@ -23943,7 +25293,7 @@ export namespace GetGraphsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetGraphsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = GraphConnection;
   }
 }
@@ -23951,8 +25301,10 @@ export namespace GetGraphsConnection {
 export namespace GetHosts {
   /**
    * No description
+   * @tags Host
    * @name GetHosts
    * @request POST:/get-hosts
+   * @secure
    * @response `200` `(Host)[]` Ok
    * @response `400` `string`
    */
@@ -23960,7 +25312,7 @@ export namespace GetHosts {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetHostsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Host[];
   }
 }
@@ -23968,8 +25320,10 @@ export namespace GetHosts {
 export namespace GetHostsConnection {
   /**
    * No description
+   * @tags Host
    * @name GetHostsConnection
    * @request POST:/get-hosts-connection
+   * @secure
    * @response `200` `HostConnection` Ok
    * @response `400` `string`
    */
@@ -23977,7 +25331,7 @@ export namespace GetHostsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetHostsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = HostConnection;
   }
 }
@@ -23985,8 +25339,10 @@ export namespace GetHostsConnection {
 export namespace GetImagesConnector {
   /**
    * No description
+   * @tags ImageConnector
    * @name GetImagesConnector
    * @request POST:/get-images-connector
+   * @secure
    * @response `200` `(ImageConnector)[]` Ok
    * @response `400` `string`
    */
@@ -23994,7 +25350,7 @@ export namespace GetImagesConnector {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetImagesConnectorRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ImageConnector[];
   }
 }
@@ -24002,8 +25358,10 @@ export namespace GetImagesConnector {
 export namespace GetIpmis {
   /**
    * No description
+   * @tags Ipmi
    * @name GetIpmis
    * @request POST:/get-ipmis
+   * @secure
    * @response `200` `(Ipmi)[]` Ok
    * @response `400` `string`
    */
@@ -24011,7 +25369,7 @@ export namespace GetIpmis {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIpmisRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Ipmi[];
   }
 }
@@ -24019,8 +25377,10 @@ export namespace GetIpmis {
 export namespace GetIscsiConnections {
   /**
    * No description
+   * @tags IscsiConnection
    * @name GetIscsiConnections
    * @request POST:/get-iscsi-connections
+   * @secure
    * @response `200` `(IscsiConnection)[]` Ok
    * @response `400` `string`
    */
@@ -24028,7 +25388,7 @@ export namespace GetIscsiConnections {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiConnectionsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiConnection[];
   }
 }
@@ -24036,8 +25396,10 @@ export namespace GetIscsiConnections {
 export namespace GetIscsiConnectionsConnection {
   /**
    * No description
+   * @tags Iscsi
    * @name GetIscsiConnectionsConnection
    * @request POST:/get-iscsi-connections-connection
+   * @secure
    * @response `200` `IscsiConnectionConnection` Ok
    * @response `400` `string`
    */
@@ -24045,7 +25407,7 @@ export namespace GetIscsiConnectionsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiConnectionsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiConnectionConnection;
   }
 }
@@ -24053,8 +25415,10 @@ export namespace GetIscsiConnectionsConnection {
 export namespace GetIscsiLuns {
   /**
    * No description
+   * @tags IscsiLun
    * @name GetIscsiLuns
    * @request POST:/get-iscsi-luns
+   * @secure
    * @response `200` `(IscsiLun)[]` Ok
    * @response `400` `string`
    */
@@ -24062,7 +25426,7 @@ export namespace GetIscsiLuns {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiLunsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiLun[];
   }
 }
@@ -24070,8 +25434,10 @@ export namespace GetIscsiLuns {
 export namespace GetIscsiLunsConnection {
   /**
    * No description
+   * @tags IscsiLun
    * @name GetIscsiLunsConnection
    * @request POST:/get-iscsi-luns-connection
+   * @secure
    * @response `200` `IscsiLunConnection` Ok
    * @response `400` `string`
    */
@@ -24079,7 +25445,7 @@ export namespace GetIscsiLunsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiLunsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiLunConnection;
   }
 }
@@ -24087,8 +25453,10 @@ export namespace GetIscsiLunsConnection {
 export namespace GetIscsiLunSnapshots {
   /**
    * No description
+   * @tags IscsiLunSnapshot
    * @name GetIscsiLunSnapshots
    * @request POST:/get-iscsi-lun-snapshots
+   * @secure
    * @response `200` `(IscsiLunSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -24096,7 +25464,7 @@ export namespace GetIscsiLunSnapshots {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiLunSnapshotsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiLunSnapshot[];
   }
 }
@@ -24104,8 +25472,10 @@ export namespace GetIscsiLunSnapshots {
 export namespace GetIscsiLunSnapshotsConnection {
   /**
    * No description
+   * @tags IscsiLunSnapshot
    * @name GetIscsiLunSnapshotsConnection
    * @request POST:/get-iscsi-lun-snapshots-connection
+   * @secure
    * @response `200` `IscsiLunSnapshotConnection` Ok
    * @response `400` `string`
    */
@@ -24113,7 +25483,7 @@ export namespace GetIscsiLunSnapshotsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiLunSnapshotsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiLunSnapshotConnection;
   }
 }
@@ -24121,8 +25491,10 @@ export namespace GetIscsiLunSnapshotsConnection {
 export namespace GetIscsiTargets {
   /**
    * No description
+   * @tags IscsiTarget
    * @name GetIscsiTargets
    * @request POST:/get-iscsi-targets
+   * @secure
    * @response `200` `(IscsiTarget)[]` Ok
    * @response `400` `string`
    */
@@ -24130,7 +25502,7 @@ export namespace GetIscsiTargets {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiTargetsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiTarget[];
   }
 }
@@ -24138,8 +25510,10 @@ export namespace GetIscsiTargets {
 export namespace GetIscsiTargetsConnection {
   /**
    * No description
+   * @tags IscsiTarget
    * @name GetIscsiTargetsConnection
    * @request POST:/get-iscsi-targets-connection
+   * @secure
    * @response `200` `IscsiTargetConnection` Ok
    * @response `400` `string`
    */
@@ -24147,16 +25521,56 @@ export namespace GetIscsiTargetsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetIscsiTargetsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = IscsiTargetConnection;
+  }
+}
+
+export namespace GetIsolationPolicies {
+  /**
+   * No description
+   * @tags IsolationPolicy
+   * @name GetIsolationPolicies
+   * @request POST:/get-isolation-policies
+   * @secure
+   * @response `200` `(IsolationPolicy)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace GetIsolationPolicies {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetIsolationPoliciesRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = IsolationPolicy[];
+  }
+}
+
+export namespace GetIsolationPoliciesConnection {
+  /**
+   * No description
+   * @tags IsolationPolicy
+   * @name GetIsolationPoliciesConnection
+   * @request POST:/get-isolation-policies-connection
+   * @secure
+   * @response `200` `IsolationPolicyConnection` Ok
+   * @response `400` `string`
+   */
+  export namespace GetIsolationPoliciesConnection {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetIsolationPoliciesConnectionRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = IsolationPolicyConnection;
   }
 }
 
 export namespace GetLabels {
   /**
    * No description
+   * @tags Label
    * @name GetLabels
    * @request POST:/get-labels
+   * @secure
    * @response `200` `(Label)[]` Ok
    * @response `400` `string`
    */
@@ -24164,7 +25578,7 @@ export namespace GetLabels {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetLabelsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Label[];
   }
 }
@@ -24172,8 +25586,10 @@ export namespace GetLabels {
 export namespace GetLabelsConnection {
   /**
    * No description
+   * @tags Label
    * @name GetLabelsConnection
    * @request POST:/get-labels-connection
+   * @secure
    * @response `200` `LabelConnection` Ok
    * @response `400` `string`
    */
@@ -24181,7 +25597,7 @@ export namespace GetLabelsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetLabelsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = LabelConnection;
   }
 }
@@ -24189,8 +25605,10 @@ export namespace GetLabelsConnection {
 export namespace GetLicenses {
   /**
    * No description
+   * @tags License
    * @name GetLicenses
    * @request POST:/get-licenses
+   * @secure
    * @response `200` `(License)[]` Ok
    * @response `400` `string`
    */
@@ -24198,7 +25616,7 @@ export namespace GetLicenses {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetLicensesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = License[];
   }
 }
@@ -24206,8 +25624,10 @@ export namespace GetLicenses {
 export namespace GetLicensesConnection {
   /**
    * No description
+   * @tags License
    * @name GetLicensesConnection
    * @request POST:/get-licenses-connection
+   * @secure
    * @response `200` `LicenseConnection` Ok
    * @response `400` `string`
    */
@@ -24215,7 +25635,7 @@ export namespace GetLicensesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetLicensesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = LicenseConnection;
   }
 }
@@ -24223,8 +25643,10 @@ export namespace GetLicensesConnection {
 export namespace GetLogCollections {
   /**
    * No description
+   * @tags LogCollection
    * @name GetLogCollections
    * @request POST:/get-log-collections
+   * @secure
    * @response `200` `(LogCollection)[]` Ok
    * @response `400` `string`
    */
@@ -24232,7 +25654,7 @@ export namespace GetLogCollections {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetLogCollectionsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = LogCollection[];
   }
 }
@@ -24240,8 +25662,10 @@ export namespace GetLogCollections {
 export namespace GetLogCollectionsConnection {
   /**
    * No description
+   * @tags LogCollection
    * @name GetLogCollectionsConnection
    * @request POST:/get-log-collections-connection
+   * @secure
    * @response `200` `LogCollectionConnection` Ok
    * @response `400` `string`
    */
@@ -24249,7 +25673,7 @@ export namespace GetLogCollectionsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetLogCollectionsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = LogCollectionConnection;
   }
 }
@@ -24257,8 +25681,10 @@ export namespace GetLogCollectionsConnection {
 export namespace GetMigrateTransmitters {
   /**
    * No description
+   * @tags MigrateTransmitter
    * @name GetMigrateTransmitters
    * @request POST:/get-migrate-transmitters
+   * @secure
    * @response `200` `(MigrateTransmitter)[]` Ok
    * @response `400` `string`
    */
@@ -24266,7 +25692,7 @@ export namespace GetMigrateTransmitters {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetMigrateTransmittersRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = MigrateTransmitter[];
   }
 }
@@ -24274,8 +25700,10 @@ export namespace GetMigrateTransmitters {
 export namespace GetMigrateTransmittersConnection {
   /**
    * No description
+   * @tags MigrateTransmitter
    * @name GetMigrateTransmittersConnection
    * @request POST:/get-migrate-transmitters-connection
+   * @secure
    * @response `200` `MigrateTransmitterConnection` Ok
    * @response `400` `string`
    */
@@ -24283,7 +25711,7 @@ export namespace GetMigrateTransmittersConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetMigrateTransmittersConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = MigrateTransmitterConnection;
   }
 }
@@ -24291,8 +25719,10 @@ export namespace GetMigrateTransmittersConnection {
 export namespace GetNamespaceGroups {
   /**
    * No description
+   * @tags NamespaceGroup
    * @name GetNamespaceGroups
    * @request POST:/get-namespace-groups
+   * @secure
    * @response `200` `(NamespaceGroup)[]` Ok
    * @response `400` `string`
    */
@@ -24300,7 +25730,7 @@ export namespace GetNamespaceGroups {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNamespaceGroupsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NamespaceGroup[];
   }
 }
@@ -24308,8 +25738,10 @@ export namespace GetNamespaceGroups {
 export namespace GetNamespaceGroupsConnection {
   /**
    * No description
+   * @tags NamespaceGroup
    * @name GetNamespaceGroupsConnection
    * @request POST:/get-namespace-groups-connection
+   * @secure
    * @response `200` `NamespaceGroupConnection` Ok
    * @response `400` `string`
    */
@@ -24317,7 +25749,7 @@ export namespace GetNamespaceGroupsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNamespaceGroupsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NamespaceGroupConnection;
   }
 }
@@ -24325,8 +25757,10 @@ export namespace GetNamespaceGroupsConnection {
 export namespace GetNfsExports {
   /**
    * No description
+   * @tags NfsExport
    * @name GetNfsExports
    * @request POST:/get-nfs-exports
+   * @secure
    * @response `200` `(NfsExport)[]` Ok
    * @response `400` `string`
    */
@@ -24334,7 +25768,7 @@ export namespace GetNfsExports {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNfsExportsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NfsExport[];
   }
 }
@@ -24342,8 +25776,10 @@ export namespace GetNfsExports {
 export namespace GetNfsExportsConnection {
   /**
    * No description
+   * @tags NfsExport
    * @name GetNfsExportsConnection
    * @request POST:/get-nfs-exports-connection
+   * @secure
    * @response `200` `NfsExportConnection` Ok
    * @response `400` `string`
    */
@@ -24351,7 +25787,7 @@ export namespace GetNfsExportsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNfsExportsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NfsExportConnection;
   }
 }
@@ -24359,8 +25795,10 @@ export namespace GetNfsExportsConnection {
 export namespace GetNfsInodes {
   /**
    * No description
+   * @tags NfsInode
    * @name GetNfsInodes
    * @request POST:/get-nfs-inodes
+   * @secure
    * @response `200` `(NfsInode)[]` Ok
    * @response `400` `string`
    */
@@ -24368,7 +25806,7 @@ export namespace GetNfsInodes {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNfsInodesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NfsInode[];
   }
 }
@@ -24376,8 +25814,10 @@ export namespace GetNfsInodes {
 export namespace GetNfsInodesConnection {
   /**
    * No description
+   * @tags NfsInode
    * @name GetNfsInodesConnection
    * @request POST:/get-nfs-inodes-connection
+   * @secure
    * @response `200` `NfsInodeConnection` Ok
    * @response `400` `string`
    */
@@ -24385,7 +25825,7 @@ export namespace GetNfsInodesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNfsInodesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NfsInodeConnection;
   }
 }
@@ -24393,8 +25833,10 @@ export namespace GetNfsInodesConnection {
 export namespace GetNics {
   /**
    * No description
+   * @tags Nic
    * @name GetNics
    * @request POST:/get-nics
+   * @secure
    * @response `200` `(Nic)[]` Ok
    * @response `400` `string`
    */
@@ -24402,7 +25844,7 @@ export namespace GetNics {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNicsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Nic[];
   }
 }
@@ -24410,8 +25852,10 @@ export namespace GetNics {
 export namespace GetNicsConnection {
   /**
    * No description
+   * @tags Nic
    * @name GetNicsConnection
    * @request POST:/get-nics-connection
+   * @secure
    * @response `200` `NicConnection` Ok
    * @response `400` `string`
    */
@@ -24419,7 +25863,7 @@ export namespace GetNicsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNicsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NicConnection;
   }
 }
@@ -24427,8 +25871,10 @@ export namespace GetNicsConnection {
 export namespace GetNodeTopoes {
   /**
    * No description
+   * @tags NodeTopo
    * @name GetNodeTopoes
    * @request POST:/get-node-topoes
+   * @secure
    * @response `200` `(NodeTopo)[]` Ok
    * @response `400` `string`
    */
@@ -24436,7 +25882,7 @@ export namespace GetNodeTopoes {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNodeTopoesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NodeTopo[];
   }
 }
@@ -24444,8 +25890,10 @@ export namespace GetNodeTopoes {
 export namespace GetNodeTopoesConnection {
   /**
    * No description
+   * @tags NodeTopo
    * @name GetNodeTopoesConnection
    * @request POST:/get-node-topoes-connection
+   * @secure
    * @response `200` `NodeTopoConnection` Ok
    * @response `400` `string`
    */
@@ -24453,7 +25901,7 @@ export namespace GetNodeTopoesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNodeTopoesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NodeTopoConnection;
   }
 }
@@ -24461,8 +25909,10 @@ export namespace GetNodeTopoesConnection {
 export namespace GetNvmfNamespaces {
   /**
    * No description
+   * @tags NvmfNamespace
    * @name GetNvmfNamespaces
    * @request POST:/get-nvmf-namespaces
+   * @secure
    * @response `200` `(NvmfNamespace)[]` Ok
    * @response `400` `string`
    */
@@ -24470,7 +25920,7 @@ export namespace GetNvmfNamespaces {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNvmfNamespacesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NvmfNamespace[];
   }
 }
@@ -24478,8 +25928,10 @@ export namespace GetNvmfNamespaces {
 export namespace GetNvmfNamespacesConnection {
   /**
    * No description
+   * @tags NvmfNamespace
    * @name GetNvmfNamespacesConnection
    * @request POST:/get-nvmf-namespaces-connection
+   * @secure
    * @response `200` `NvmfNamespaceConnection` Ok
    * @response `400` `string`
    */
@@ -24487,7 +25939,7 @@ export namespace GetNvmfNamespacesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNvmfNamespacesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NvmfNamespaceConnection;
   }
 }
@@ -24495,8 +25947,10 @@ export namespace GetNvmfNamespacesConnection {
 export namespace GetNvmfNamespaceSnapshots {
   /**
    * No description
+   * @tags NvmfNamespaceSnapshot
    * @name GetNvmfNamespaceSnapshots
    * @request POST:/get-nvmf-namespace-snapshots
+   * @secure
    * @response `200` `(NvmfNamespaceSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -24504,7 +25958,7 @@ export namespace GetNvmfNamespaceSnapshots {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNvmfNamespaceSnapshotsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NvmfNamespaceSnapshot[];
   }
 }
@@ -24512,8 +25966,10 @@ export namespace GetNvmfNamespaceSnapshots {
 export namespace GetNvmfNamespaceSnapshotsConnection {
   /**
    * No description
+   * @tags NvmfNamespaceSnapshot
    * @name GetNvmfNamespaceSnapshotsConnection
    * @request POST:/get-nvmf-namespace-snapshots-connection
+   * @secure
    * @response `200` `NvmfNamespaceSnapshotConnection` Ok
    * @response `400` `string`
    */
@@ -24521,7 +25977,7 @@ export namespace GetNvmfNamespaceSnapshotsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNvmfNamespaceSnapshotsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NvmfNamespaceSnapshotConnection;
   }
 }
@@ -24529,8 +25985,10 @@ export namespace GetNvmfNamespaceSnapshotsConnection {
 export namespace GetNvmfSubsystems {
   /**
    * No description
+   * @tags NvmfSubsystem
    * @name GetNvmfSubsystems
    * @request POST:/get-nvmf-subsystems
+   * @secure
    * @response `200` `(NvmfSubsystem)[]` Ok
    * @response `400` `string`
    */
@@ -24538,7 +25996,7 @@ export namespace GetNvmfSubsystems {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNvmfSubsystemsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NvmfSubsystem[];
   }
 }
@@ -24546,8 +26004,10 @@ export namespace GetNvmfSubsystems {
 export namespace GetNvmfSubsystemsConnection {
   /**
    * No description
+   * @tags NvmfSubsystem
    * @name GetNvmfSubsystemsConnection
    * @request POST:/get-nvmf-subsystems-connection
+   * @secure
    * @response `200` `NvmfSubsystemConnection` Ok
    * @response `400` `string`
    */
@@ -24555,7 +26015,7 @@ export namespace GetNvmfSubsystemsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetNvmfSubsystemsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = NvmfSubsystemConnection;
   }
 }
@@ -24563,8 +26023,10 @@ export namespace GetNvmfSubsystemsConnection {
 export namespace GetOrganizations {
   /**
    * No description
+   * @tags Organization
    * @name GetOrganizations
    * @request POST:/get-organizations
+   * @secure
    * @response `200` `(Organization)[]` Ok
    * @response `400` `string`
    */
@@ -24572,7 +26034,7 @@ export namespace GetOrganizations {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetOrganizationsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Organization[];
   }
 }
@@ -24580,8 +26042,10 @@ export namespace GetOrganizations {
 export namespace GetOrganizationsConnection {
   /**
    * No description
+   * @tags Organization
    * @name GetOrganizationsConnection
    * @request POST:/get-organizations-connection
+   * @secure
    * @response `200` `OrganizationConnection` Ok
    * @response `400` `string`
    */
@@ -24589,7 +26053,7 @@ export namespace GetOrganizationsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetOrganizationsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = OrganizationConnection;
   }
 }
@@ -24597,8 +26061,10 @@ export namespace GetOrganizationsConnection {
 export namespace GetPmemDimms {
   /**
    * No description
+   * @tags PmemDimm
    * @name GetPmemDimms
    * @request POST:/get-pmem-dimms
+   * @secure
    * @response `200` `(PmemDimm)[]` Ok
    * @response `400` `string`
    */
@@ -24606,7 +26072,7 @@ export namespace GetPmemDimms {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetPmemDimmsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = PmemDimm[];
   }
 }
@@ -24614,8 +26080,10 @@ export namespace GetPmemDimms {
 export namespace GetPmemDimmsConnection {
   /**
    * No description
+   * @tags PmemDimm
    * @name GetPmemDimmsConnection
    * @request POST:/get-pmem-dimms-connection
+   * @secure
    * @response `200` `PmemDimmConnection` Ok
    * @response `400` `string`
    */
@@ -24623,7 +26091,7 @@ export namespace GetPmemDimmsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetPmemDimmsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = PmemDimmConnection;
   }
 }
@@ -24631,8 +26099,10 @@ export namespace GetPmemDimmsConnection {
 export namespace GetRackTopoes {
   /**
    * No description
+   * @tags RackTopo
    * @name GetRackTopoes
    * @request POST:/get-rack-topoes
+   * @secure
    * @response `200` `(RackTopo)[]` Ok
    * @response `400` `string`
    */
@@ -24640,7 +26110,7 @@ export namespace GetRackTopoes {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetRackTopoesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = RackTopo[];
   }
 }
@@ -24648,8 +26118,10 @@ export namespace GetRackTopoes {
 export namespace GetRackTopoesConnection {
   /**
    * No description
+   * @tags RackTopo
    * @name GetRackTopoesConnection
    * @request POST:/get-rack-topoes-connection
+   * @secure
    * @response `200` `RackTopoConnection` Ok
    * @response `400` `string`
    */
@@ -24657,7 +26129,7 @@ export namespace GetRackTopoesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetRackTopoesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = RackTopoConnection;
   }
 }
@@ -24665,8 +26137,10 @@ export namespace GetRackTopoesConnection {
 export namespace GetReportTasks {
   /**
    * No description
+   * @tags ReportTask
    * @name GetReportTasks
    * @request POST:/get-report-tasks
+   * @secure
    * @response `200` `(ReportTask)[]` Ok
    * @response `400` `string`
    */
@@ -24674,7 +26148,7 @@ export namespace GetReportTasks {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetReportTasksRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ReportTask[];
   }
 }
@@ -24682,8 +26156,10 @@ export namespace GetReportTasks {
 export namespace GetReportTasksConnection {
   /**
    * No description
+   * @tags ReportTask
    * @name GetReportTasksConnection
    * @request POST:/get-report-tasks-connection
+   * @secure
    * @response `200` `ReportTaskConnection` Ok
    * @response `400` `string`
    */
@@ -24691,7 +26167,7 @@ export namespace GetReportTasksConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetReportTasksConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ReportTaskConnection;
   }
 }
@@ -24699,8 +26175,10 @@ export namespace GetReportTasksConnection {
 export namespace GetReportTemplates {
   /**
    * No description
+   * @tags ReportTemplate
    * @name GetReportTemplates
    * @request POST:/get-report-templates
+   * @secure
    * @response `200` `(ReportTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -24708,7 +26186,7 @@ export namespace GetReportTemplates {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetReportTemplatesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ReportTemplate[];
   }
 }
@@ -24716,8 +26194,10 @@ export namespace GetReportTemplates {
 export namespace GetReportTemplatesConnection {
   /**
    * No description
+   * @tags ReportTemplate
    * @name GetReportTemplatesConnection
    * @request POST:/get-report-templates-connection
+   * @secure
    * @response `200` `ReportTemplateConnection` Ok
    * @response `400` `string`
    */
@@ -24725,16 +26205,56 @@ export namespace GetReportTemplatesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetReportTemplatesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ReportTemplateConnection;
+  }
+}
+
+export namespace GetSecurityPolicies {
+  /**
+   * No description
+   * @tags SecurityPolicy
+   * @name GetSecurityPolicies
+   * @request POST:/get-security-policies
+   * @secure
+   * @response `200` `(SecurityPolicy)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace GetSecurityPolicies {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetSecurityPoliciesRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = SecurityPolicy[];
+  }
+}
+
+export namespace GetSecurityPoliciesConnection {
+  /**
+   * No description
+   * @tags SecurityPolicy
+   * @name GetSecurityPoliciesConnection
+   * @request POST:/get-security-policies-connection
+   * @secure
+   * @response `200` `SecurityPolicyConnection` Ok
+   * @response `400` `string`
+   */
+  export namespace GetSecurityPoliciesConnection {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetSecurityPoliciesConnectionRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = SecurityPolicyConnection;
   }
 }
 
 export namespace GetSnapshotGroups {
   /**
    * No description
+   * @tags SnapshotGroup
    * @name GetSnapshotGroups
    * @request POST:/get-snapshot-groups
+   * @secure
    * @response `200` `(SnapshotGroup)[]` Ok
    * @response `400` `string`
    */
@@ -24742,7 +26262,7 @@ export namespace GetSnapshotGroups {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnapshotGroupsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnapshotGroup[];
   }
 }
@@ -24750,8 +26270,10 @@ export namespace GetSnapshotGroups {
 export namespace GetSnapshotGroupsConnection {
   /**
    * No description
+   * @tags SnapshotGroup
    * @name GetSnapshotGroupsConnection
    * @request POST:/get-snapshot-groups-connection
+   * @secure
    * @response `200` `SnapshotGroupConnection` Ok
    * @response `400` `string`
    */
@@ -24759,7 +26281,7 @@ export namespace GetSnapshotGroupsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnapshotGroupsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnapshotGroupConnection;
   }
 }
@@ -24767,8 +26289,10 @@ export namespace GetSnapshotGroupsConnection {
 export namespace GetSnapshotPlans {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name GetSnapshotPlans
    * @request POST:/get-snapshot-plans
+   * @secure
    * @response `200` `(SnapshotPlan)[]` Ok
    * @response `400` `string`
    */
@@ -24776,7 +26300,7 @@ export namespace GetSnapshotPlans {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnapshotPlansRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnapshotPlan[];
   }
 }
@@ -24784,8 +26308,10 @@ export namespace GetSnapshotPlans {
 export namespace GetSnapshotPlansConnection {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name GetSnapshotPlansConnection
    * @request POST:/get-snapshot-plans-connection
+   * @secure
    * @response `200` `SnapshotPlanConnection` Ok
    * @response `400` `string`
    */
@@ -24793,7 +26319,7 @@ export namespace GetSnapshotPlansConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnapshotPlansConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnapshotPlanConnection;
   }
 }
@@ -24801,8 +26327,10 @@ export namespace GetSnapshotPlansConnection {
 export namespace GetSnapshotPlanTasks {
   /**
    * No description
+   * @tags SnapshotPlanTask
    * @name GetSnapshotPlanTasks
    * @request POST:/get-snapshot-plan-tasks
+   * @secure
    * @response `200` `(SnapshotPlanTask)[]` Ok
    * @response `400` `string`
    */
@@ -24810,7 +26338,7 @@ export namespace GetSnapshotPlanTasks {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnapshotPlanTasksRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnapshotPlanTask[];
   }
 }
@@ -24818,8 +26346,10 @@ export namespace GetSnapshotPlanTasks {
 export namespace GetSnapshotPlanTasksConnection {
   /**
    * No description
+   * @tags SnapshotPlanTask
    * @name GetSnapshotPlanTasksConnection
    * @request POST:/get-snapshot-plan-tasks-connection
+   * @secure
    * @response `200` `SnapshotPlanTaskConnection` Ok
    * @response `400` `string`
    */
@@ -24827,7 +26357,7 @@ export namespace GetSnapshotPlanTasksConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnapshotPlanTasksConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnapshotPlanTaskConnection;
   }
 }
@@ -24835,8 +26365,10 @@ export namespace GetSnapshotPlanTasksConnection {
 export namespace GetSnmpTransports {
   /**
    * No description
+   * @tags SnmpTransport
    * @name GetSnmpTransports
    * @request POST:/get-snmp-transports
+   * @secure
    * @response `200` `(SnmpTransport)[]` Ok
    * @response `400` `string`
    */
@@ -24844,7 +26376,7 @@ export namespace GetSnmpTransports {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnmpTransportsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnmpTransport[];
   }
 }
@@ -24852,8 +26384,10 @@ export namespace GetSnmpTransports {
 export namespace GetSnmpTransportsConnection {
   /**
    * No description
+   * @tags SnmpTransport
    * @name GetSnmpTransportsConnection
    * @request POST:/get-snmp-transports-connection
+   * @secure
    * @response `200` `SnmpTransportConnection` Ok
    * @response `400` `string`
    */
@@ -24861,7 +26395,7 @@ export namespace GetSnmpTransportsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnmpTransportsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnmpTransportConnection;
   }
 }
@@ -24869,8 +26403,10 @@ export namespace GetSnmpTransportsConnection {
 export namespace GetSnmpTrapReceivers {
   /**
    * No description
+   * @tags SnmpTrapReceiver
    * @name GetSnmpTrapReceivers
    * @request POST:/get-snmp-trap-receivers
+   * @secure
    * @response `200` `(SnmpTrapReceiver)[]` Ok
    * @response `400` `string`
    */
@@ -24878,7 +26414,7 @@ export namespace GetSnmpTrapReceivers {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnmpTrapReceiversRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnmpTrapReceiver[];
   }
 }
@@ -24886,8 +26422,10 @@ export namespace GetSnmpTrapReceivers {
 export namespace GetSnmpTrapReceiversConnection {
   /**
    * No description
+   * @tags SnmpTrapReceiver
    * @name GetSnmpTrapReceiversConnection
    * @request POST:/get-snmp-trap-receivers-connection
+   * @secure
    * @response `200` `SnmpTrapReceiverConnection` Ok
    * @response `400` `string`
    */
@@ -24895,7 +26433,7 @@ export namespace GetSnmpTrapReceiversConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSnmpTrapReceiversConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SnmpTrapReceiverConnection;
   }
 }
@@ -24903,8 +26441,10 @@ export namespace GetSnmpTrapReceiversConnection {
 export namespace GetStoragePoliciesConnector {
   /**
    * No description
+   * @tags StoragePolicyConector
    * @name GetStoragePoliciesConnector
    * @request POST:/get-storage-policies-connector
+   * @secure
    * @response `200` `(StoragePolicyConector)[]` Ok
    * @response `400` `string`
    */
@@ -24912,7 +26452,7 @@ export namespace GetStoragePoliciesConnector {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetStoragePoliciesConnectorRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = StoragePolicyConector[];
   }
 }
@@ -24920,8 +26460,10 @@ export namespace GetStoragePoliciesConnector {
 export namespace GetSvtImages {
   /**
    * No description
+   * @tags SvtImage
    * @name GetSvtImages
    * @request POST:/get-svt-images
+   * @secure
    * @response `200` `(SvtImage)[]` Ok
    * @response `400` `string`
    */
@@ -24929,7 +26471,7 @@ export namespace GetSvtImages {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSvtImagesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SvtImage[];
   }
 }
@@ -24937,8 +26479,10 @@ export namespace GetSvtImages {
 export namespace GetSvtImagesConnection {
   /**
    * No description
+   * @tags SvtImage
    * @name GetSvtImagesConnection
    * @request POST:/get-svt-images-connection
+   * @secure
    * @response `200` `SvtImageConnection` Ok
    * @response `400` `string`
    */
@@ -24946,7 +26490,7 @@ export namespace GetSvtImagesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSvtImagesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SvtImageConnection;
   }
 }
@@ -24954,8 +26498,10 @@ export namespace GetSvtImagesConnection {
 export namespace GetSystemAuditLogs {
   /**
    * No description
+   * @tags SystemAuditLog
    * @name GetSystemAuditLogs
    * @request POST:/get-system-audit-logs
+   * @secure
    * @response `200` `(SystemAuditLog)[]` Ok
    * @response `400` `string`
    */
@@ -24963,7 +26509,7 @@ export namespace GetSystemAuditLogs {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSystemAuditLogsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SystemAuditLog[];
   }
 }
@@ -24971,8 +26517,10 @@ export namespace GetSystemAuditLogs {
 export namespace GetSystemAuditLogsConnection {
   /**
    * No description
+   * @tags SystemAuditLog
    * @name GetSystemAuditLogsConnection
    * @request POST:/get-system-audit-logs-connection
+   * @secure
    * @response `200` `SystemAuditLogConnection` Ok
    * @response `400` `string`
    */
@@ -24980,7 +26528,7 @@ export namespace GetSystemAuditLogsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetSystemAuditLogsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = SystemAuditLogConnection;
   }
 }
@@ -24988,8 +26536,10 @@ export namespace GetSystemAuditLogsConnection {
 export namespace GetTasks {
   /**
    * No description
+   * @tags Task
    * @name GetTasks
    * @request POST:/get-tasks
+   * @secure
    * @response `200` `(Task)[]` Ok
    * @response `400` `string`
    */
@@ -24997,7 +26547,7 @@ export namespace GetTasks {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetTasksRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Task[];
   }
 }
@@ -25005,8 +26555,10 @@ export namespace GetTasks {
 export namespace GetTasksConnection {
   /**
    * No description
+   * @tags Task
    * @name GetTasksConnection
    * @request POST:/get-tasks-connection
+   * @secure
    * @response `200` `TaskConnection` Ok
    * @response `400` `string`
    */
@@ -25014,7 +26566,7 @@ export namespace GetTasksConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetTasksConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = TaskConnection;
   }
 }
@@ -25022,8 +26574,10 @@ export namespace GetTasksConnection {
 export namespace GetUploadTasks {
   /**
    * No description
+   * @tags UploadTask
    * @name GetUploadTasks
    * @request POST:/get-upload-tasks
+   * @secure
    * @response `200` `(UploadTask)[]` Ok
    * @response `400` `string`
    */
@@ -25031,7 +26585,7 @@ export namespace GetUploadTasks {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUploadTasksRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UploadTask[];
   }
 }
@@ -25039,8 +26593,10 @@ export namespace GetUploadTasks {
 export namespace GetUploadTasksConnection {
   /**
    * No description
+   * @tags UploadTask
    * @name GetUploadTasksConnection
    * @request POST:/get-upload-tasks-connection
+   * @secure
    * @response `200` `UploadTaskConnection` Ok
    * @response `400` `string`
    */
@@ -25048,7 +26604,7 @@ export namespace GetUploadTasksConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUploadTasksConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UploadTaskConnection;
   }
 }
@@ -25056,8 +26612,10 @@ export namespace GetUploadTasksConnection {
 export namespace GetUsbDevices {
   /**
    * No description
+   * @tags UsbDevice
    * @name GetUsbDevices
    * @request POST:/get-usb-devices
+   * @secure
    * @response `200` `(UsbDevice)[]` Ok
    * @response `400` `string`
    */
@@ -25065,7 +26623,7 @@ export namespace GetUsbDevices {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUsbDevicesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UsbDevice[];
   }
 }
@@ -25073,8 +26631,10 @@ export namespace GetUsbDevices {
 export namespace GetUsbDevicesConnection {
   /**
    * No description
+   * @tags UsbDevice
    * @name GetUsbDevicesConnection
    * @request POST:/get-usb-devices-connection
+   * @secure
    * @response `200` `UsbDeviceConnection` Ok
    * @response `400` `string`
    */
@@ -25082,7 +26642,7 @@ export namespace GetUsbDevicesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUsbDevicesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UsbDeviceConnection;
   }
 }
@@ -25090,8 +26650,10 @@ export namespace GetUsbDevicesConnection {
 export namespace GetUserAuditLogs {
   /**
    * No description
+   * @tags UserAuditLog
    * @name GetUserAuditLogs
    * @request POST:/get-user-audit-logs
+   * @secure
    * @response `200` `(UserAuditLog)[]` Ok
    * @response `400` `string`
    */
@@ -25099,7 +26661,7 @@ export namespace GetUserAuditLogs {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUserAuditLogsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UserAuditLog[];
   }
 }
@@ -25107,8 +26669,10 @@ export namespace GetUserAuditLogs {
 export namespace GetUserAuditLogsConnection {
   /**
    * No description
+   * @tags UserAuditLog
    * @name GetUserAuditLogsConnection
    * @request POST:/get-user-audit-logs-connection
+   * @secure
    * @response `200` `UserAuditLogConnection` Ok
    * @response `400` `string`
    */
@@ -25116,7 +26680,7 @@ export namespace GetUserAuditLogsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUserAuditLogsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UserAuditLogConnection;
   }
 }
@@ -25124,8 +26688,10 @@ export namespace GetUserAuditLogsConnection {
 export namespace GetUserRoleNexts {
   /**
    * No description
+   * @tags UserRoleNext
    * @name GetUserRoleNexts
    * @request POST:/get-user-role-nexts
+   * @secure
    * @response `200` `(UserRoleNext)[]` Ok
    * @response `400` `string`
    */
@@ -25133,7 +26699,7 @@ export namespace GetUserRoleNexts {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUserRoleNextsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UserRoleNext[];
   }
 }
@@ -25141,8 +26707,10 @@ export namespace GetUserRoleNexts {
 export namespace GetUserRoleNextsConnection {
   /**
    * No description
+   * @tags UserRoleNext
    * @name GetUserRoleNextsConnection
    * @request POST:/get-user-role-nexts-connection
+   * @secure
    * @response `200` `UserRoleNextConnection` Ok
    * @response `400` `string`
    */
@@ -25150,7 +26718,7 @@ export namespace GetUserRoleNextsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUserRoleNextsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UserRoleNextConnection;
   }
 }
@@ -25158,8 +26726,10 @@ export namespace GetUserRoleNextsConnection {
 export namespace GetUsers {
   /**
    * No description
+   * @tags User
    * @name GetUsers
    * @request POST:/get-users
+   * @secure
    * @response `200` `(User)[]` Ok
    * @response `400` `string`
    */
@@ -25167,7 +26737,7 @@ export namespace GetUsers {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUsersRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = User[];
   }
 }
@@ -25175,8 +26745,10 @@ export namespace GetUsers {
 export namespace GetUsersConnection {
   /**
    * No description
+   * @tags User
    * @name GetUsersConnection
    * @request POST:/get-users-connection
+   * @secure
    * @response `200` `UserConnection` Ok
    * @response `400` `string`
    */
@@ -25184,7 +26756,7 @@ export namespace GetUsersConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetUsersConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UserConnection;
   }
 }
@@ -25192,8 +26764,10 @@ export namespace GetUsersConnection {
 export namespace GetVcenterAccounts {
   /**
    * No description
+   * @tags VcenterAccount
    * @name GetVcenterAccounts
    * @request POST:/get-vcenter-accounts
+   * @secure
    * @response `200` `(VcenterAccount)[]` Ok
    * @response `400` `string`
    */
@@ -25201,7 +26775,7 @@ export namespace GetVcenterAccounts {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVcenterAccountsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VcenterAccount[];
   }
 }
@@ -25209,8 +26783,10 @@ export namespace GetVcenterAccounts {
 export namespace GetVcenterAccountsConnection {
   /**
    * No description
+   * @tags VcenterAccount
    * @name GetVcenterAccountsConnection
    * @request POST:/get-vcenter-accounts-connection
+   * @secure
    * @response `200` `VcenterAccountConnection` Ok
    * @response `400` `string`
    */
@@ -25218,7 +26794,7 @@ export namespace GetVcenterAccountsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVcenterAccountsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VcenterAccountConnection;
   }
 }
@@ -25226,8 +26802,10 @@ export namespace GetVcenterAccountsConnection {
 export namespace GetVdses {
   /**
    * No description
+   * @tags Vds
    * @name GetVdses
    * @request POST:/get-vdses
+   * @secure
    * @response `200` `(Vds)[]` Ok
    * @response `400` `string`
    */
@@ -25235,7 +26813,7 @@ export namespace GetVdses {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVdsesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Vds[];
   }
 }
@@ -25243,8 +26821,10 @@ export namespace GetVdses {
 export namespace GetVdsesConnection {
   /**
    * No description
+   * @tags Vds
    * @name GetVdsesConnection
    * @request POST:/get-vdses-connection
+   * @secure
    * @response `200` `VdsConnection` Ok
    * @response `400` `string`
    */
@@ -25252,7 +26832,7 @@ export namespace GetVdsesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVdsesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VdsConnection;
   }
 }
@@ -25260,8 +26840,10 @@ export namespace GetVdsesConnection {
 export namespace GetViews {
   /**
    * No description
+   * @tags View
    * @name GetViews
    * @request POST:/get-views
+   * @secure
    * @response `200` `(View)[]` Ok
    * @response `400` `string`
    */
@@ -25269,7 +26851,7 @@ export namespace GetViews {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetViewsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = View[];
   }
 }
@@ -25277,8 +26859,10 @@ export namespace GetViews {
 export namespace GetViewsConnection {
   /**
    * No description
+   * @tags View
    * @name GetViewsConnection
    * @request POST:/get-views-connection
+   * @secure
    * @response `200` `ViewConnection` Ok
    * @response `400` `string`
    */
@@ -25286,7 +26870,7 @@ export namespace GetViewsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetViewsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ViewConnection;
   }
 }
@@ -25294,8 +26878,10 @@ export namespace GetViewsConnection {
 export namespace GetVlans {
   /**
    * No description
+   * @tags Vlan
    * @name GetVlans
    * @request POST:/get-vlans
+   * @secure
    * @response `200` `(Vlan)[]` Ok
    * @response `400` `string`
    */
@@ -25303,7 +26889,7 @@ export namespace GetVlans {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVlansRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Vlan[];
   }
 }
@@ -25311,8 +26897,10 @@ export namespace GetVlans {
 export namespace GetVlansConnection {
   /**
    * No description
+   * @tags Vlan
    * @name GetVlansConnection
    * @request POST:/get-vlans-connection
+   * @secure
    * @response `200` `VlanConnection` Ok
    * @response `400` `string`
    */
@@ -25320,7 +26908,7 @@ export namespace GetVlansConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVlansConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VlanConnection;
   }
 }
@@ -25328,8 +26916,10 @@ export namespace GetVlansConnection {
 export namespace GetVmDisks {
   /**
    * No description
+   * @tags VmDisk
    * @name GetVmDisks
    * @request POST:/get-vm-disks
+   * @secure
    * @response `200` `(VmDisk)[]` Ok
    * @response `400` `string`
    */
@@ -25337,7 +26927,7 @@ export namespace GetVmDisks {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmDisksRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmDisk[];
   }
 }
@@ -25345,8 +26935,10 @@ export namespace GetVmDisks {
 export namespace GetVmDisksConnection {
   /**
    * No description
+   * @tags VmDisk
    * @name GetVmDisksConnection
    * @request POST:/get-vm-disks-connection
+   * @secure
    * @response `200` `VmDiskConnection` Ok
    * @response `400` `string`
    */
@@ -25354,7 +26946,7 @@ export namespace GetVmDisksConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmDisksConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmDiskConnection;
   }
 }
@@ -25362,8 +26954,10 @@ export namespace GetVmDisksConnection {
 export namespace GetVmEntityFilterResults {
   /**
    * No description
+   * @tags VmEntityFilterResult
    * @name GetVmEntityFilterResults
    * @request POST:/get-vm-entity-filter-results
+   * @secure
    * @response `200` `(VmEntityFilterResult)[]` Ok
    * @response `400` `string`
    */
@@ -25371,7 +26965,7 @@ export namespace GetVmEntityFilterResults {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmEntityFilterResultsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmEntityFilterResult[];
   }
 }
@@ -25379,8 +26973,10 @@ export namespace GetVmEntityFilterResults {
 export namespace GetVmEntityFilterResultsConnection {
   /**
    * No description
+   * @tags VmEntityFilterResult
    * @name GetVmEntityFilterResultsConnection
    * @request POST:/get-vm-entity-filter-results-connection
+   * @secure
    * @response `200` `VmEntityFilterResultConnection` Ok
    * @response `400` `string`
    */
@@ -25388,7 +26984,7 @@ export namespace GetVmEntityFilterResultsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmEntityFilterResultsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmEntityFilterResultConnection;
   }
 }
@@ -25396,8 +26992,10 @@ export namespace GetVmEntityFilterResultsConnection {
 export namespace GetVmFolders {
   /**
    * No description
+   * @tags VmFolder
    * @name GetVmFolders
    * @request POST:/get-vm-folders
+   * @secure
    * @response `200` `(VmFolder)[]` Ok
    * @response `400` `string`
    */
@@ -25405,7 +27003,7 @@ export namespace GetVmFolders {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmFoldersRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmFolder[];
   }
 }
@@ -25413,8 +27011,10 @@ export namespace GetVmFolders {
 export namespace GetVmFoldersConnection {
   /**
    * No description
+   * @tags VmFolder
    * @name GetVmFoldersConnection
    * @request POST:/get-vm-folders-connection
+   * @secure
    * @response `200` `VmFolderConnection` Ok
    * @response `400` `string`
    */
@@ -25422,7 +27022,7 @@ export namespace GetVmFoldersConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmFoldersConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmFolderConnection;
   }
 }
@@ -25430,8 +27030,10 @@ export namespace GetVmFoldersConnection {
 export namespace GetVmNics {
   /**
    * No description
+   * @tags VmNic
    * @name GetVmNics
    * @request POST:/get-vm-nics
+   * @secure
    * @response `200` `(VmNic)[]` Ok
    * @response `400` `string`
    */
@@ -25439,7 +27041,7 @@ export namespace GetVmNics {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmNicsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmNic[];
   }
 }
@@ -25447,8 +27049,10 @@ export namespace GetVmNics {
 export namespace GetVmNicsConnection {
   /**
    * No description
+   * @tags VmNic
    * @name GetVmNicsConnection
    * @request POST:/get-vm-nics-connection
+   * @secure
    * @response `200` `VmNicConnection` Ok
    * @response `400` `string`
    */
@@ -25456,7 +27060,7 @@ export namespace GetVmNicsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmNicsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmNicConnection;
   }
 }
@@ -25464,8 +27068,10 @@ export namespace GetVmNicsConnection {
 export namespace GetVmPlacementGroups {
   /**
    * No description
+   * @tags VmPlacementGroup
    * @name GetVmPlacementGroups
    * @request POST:/get-vm-placement-groups
+   * @secure
    * @response `200` `(VmPlacementGroup)[]` Ok
    * @response `400` `string`
    */
@@ -25473,7 +27079,7 @@ export namespace GetVmPlacementGroups {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmPlacementGroupsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmPlacementGroup[];
   }
 }
@@ -25481,8 +27087,10 @@ export namespace GetVmPlacementGroups {
 export namespace GetVmPlacementGroupsConnection {
   /**
    * No description
+   * @tags VmPlacementGroup
    * @name GetVmPlacementGroupsConnection
    * @request POST:/get-vm-placement-groups-connection
+   * @secure
    * @response `200` `VmPlacementGroupConnection` Ok
    * @response `400` `string`
    */
@@ -25490,7 +27098,7 @@ export namespace GetVmPlacementGroupsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmPlacementGroupsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmPlacementGroupConnection;
   }
 }
@@ -25498,8 +27106,10 @@ export namespace GetVmPlacementGroupsConnection {
 export namespace GetVms {
   /**
    * No description
+   * @tags Vm
    * @name GetVms
    * @request POST:/get-vms
+   * @secure
    * @response `200` `(Vm)[]` Ok
    * @response `400` `string`
    */
@@ -25507,7 +27117,7 @@ export namespace GetVms {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Vm[];
   }
 }
@@ -25515,8 +27125,10 @@ export namespace GetVms {
 export namespace GetVmsConnection {
   /**
    * No description
+   * @tags Vm
    * @name GetVmsConnection
    * @request POST:/get-vms-connection
+   * @secure
    * @response `200` `VmConnection` Ok
    * @response `400` `string`
    */
@@ -25524,7 +27136,7 @@ export namespace GetVmsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmConnection;
   }
 }
@@ -25532,8 +27144,10 @@ export namespace GetVmsConnection {
 export namespace GetVmSnapshots {
   /**
    * No description
+   * @tags VmSnapshot
    * @name GetVmSnapshots
    * @request POST:/get-vm-snapshots
+   * @secure
    * @response `200` `(VmSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -25541,7 +27155,7 @@ export namespace GetVmSnapshots {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmSnapshotsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmSnapshot[];
   }
 }
@@ -25549,8 +27163,10 @@ export namespace GetVmSnapshots {
 export namespace GetVmSnapshotsConnection {
   /**
    * No description
+   * @tags VmSnapshot
    * @name GetVmSnapshotsConnection
    * @request POST:/get-vm-snapshots-connection
+   * @secure
    * @response `200` `VmSnapshotConnection` Ok
    * @response `400` `string`
    */
@@ -25558,7 +27174,7 @@ export namespace GetVmSnapshotsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmSnapshotsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmSnapshotConnection;
   }
 }
@@ -25566,8 +27182,10 @@ export namespace GetVmSnapshotsConnection {
 export namespace GetVmTemplates {
   /**
    * No description
+   * @tags VmTemplate
    * @name GetVmTemplates
    * @request POST:/get-vm-templates
+   * @secure
    * @response `200` `(VmTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -25575,7 +27193,7 @@ export namespace GetVmTemplates {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmTemplatesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmTemplate[];
   }
 }
@@ -25583,8 +27201,10 @@ export namespace GetVmTemplates {
 export namespace GetVmTemplatesConnection {
   /**
    * No description
+   * @tags VmTemplate
    * @name GetVmTemplatesConnection
    * @request POST:/get-vm-templates-connection
+   * @secure
    * @response `200` `VmTemplateConnection` Ok
    * @response `400` `string`
    */
@@ -25592,7 +27212,7 @@ export namespace GetVmTemplatesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmTemplatesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmTemplateConnection;
   }
 }
@@ -25600,8 +27220,10 @@ export namespace GetVmTemplatesConnection {
 export namespace GetVmVolumes {
   /**
    * No description
+   * @tags VmVolume
    * @name GetVmVolumes
    * @request POST:/get-vm-volumes
+   * @secure
    * @response `200` `(VmVolume)[]` Ok
    * @response `400` `string`
    */
@@ -25609,7 +27231,7 @@ export namespace GetVmVolumes {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmVolumesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmVolume[];
   }
 }
@@ -25617,8 +27239,10 @@ export namespace GetVmVolumes {
 export namespace GetVmVolumesConnection {
   /**
    * No description
+   * @tags VmVolume
    * @name GetVmVolumesConnection
    * @request POST:/get-vm-volumes-connection
+   * @secure
    * @response `200` `VmVolumeConnection` Ok
    * @response `400` `string`
    */
@@ -25626,7 +27250,7 @@ export namespace GetVmVolumesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVmVolumesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VmVolumeConnection;
   }
 }
@@ -25634,8 +27258,10 @@ export namespace GetVmVolumesConnection {
 export namespace GetVsphereEsxiAccounts {
   /**
    * No description
+   * @tags VsphereEsxiAccount
    * @name GetVsphereEsxiAccounts
    * @request POST:/get-vsphere-esxi-accounts
+   * @secure
    * @response `200` `(VsphereEsxiAccount)[]` Ok
    * @response `400` `string`
    */
@@ -25643,7 +27269,7 @@ export namespace GetVsphereEsxiAccounts {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVsphereEsxiAccountsRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VsphereEsxiAccount[];
   }
 }
@@ -25651,8 +27277,10 @@ export namespace GetVsphereEsxiAccounts {
 export namespace GetVsphereEsxiAccountsConnection {
   /**
    * No description
+   * @tags VsphereEsxiAccount
    * @name GetVsphereEsxiAccountsConnection
    * @request POST:/get-vsphere-esxi-accounts-connection
+   * @secure
    * @response `200` `VsphereEsxiAccountConnection` Ok
    * @response `400` `string`
    */
@@ -25660,7 +27288,7 @@ export namespace GetVsphereEsxiAccountsConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetVsphereEsxiAccountsConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = VsphereEsxiAccountConnection;
   }
 }
@@ -25668,8 +27296,10 @@ export namespace GetVsphereEsxiAccountsConnection {
 export namespace GetWitnesses {
   /**
    * No description
+   * @tags Witness
    * @name GetWitnesses
    * @request POST:/get-witnesses
+   * @secure
    * @response `200` `(Witness)[]` Ok
    * @response `400` `string`
    */
@@ -25677,7 +27307,7 @@ export namespace GetWitnesses {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetWitnessesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Witness[];
   }
 }
@@ -25685,8 +27315,10 @@ export namespace GetWitnesses {
 export namespace GetWitnessesConnection {
   /**
    * No description
+   * @tags Witness
    * @name GetWitnessesConnection
    * @request POST:/get-witnesses-connection
+   * @secure
    * @response `200` `WitnessConnection` Ok
    * @response `400` `string`
    */
@@ -25694,16 +27326,37 @@ export namespace GetWitnessesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetWitnessesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WitnessConnection;
+  }
+}
+
+export namespace GetWitnessServices {
+  /**
+   * No description
+   * @tags WitnessService
+   * @name GetWitnessServices
+   * @request POST:/get-witness-services
+   * @secure
+   * @response `200` `(WitnessService)[]` Ok
+   * @response `400` `string`
+   */
+  export namespace GetWitnessServices {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = GetWitnessServicesRequestBody;
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
+    export type ResponseBody = WitnessService[];
   }
 }
 
 export namespace GetZones {
   /**
    * No description
+   * @tags Zone
    * @name GetZones
    * @request POST:/get-zones
+   * @secure
    * @response `200` `(Zone)[]` Ok
    * @response `400` `string`
    */
@@ -25711,7 +27364,7 @@ export namespace GetZones {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetZonesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = Zone[];
   }
 }
@@ -25719,8 +27372,10 @@ export namespace GetZones {
 export namespace GetZonesConnection {
   /**
    * No description
+   * @tags Zone
    * @name GetZonesConnection
    * @request POST:/get-zones-connection
+   * @secure
    * @response `200` `ZoneConnection` Ok
    * @response `400` `string`
    */
@@ -25728,7 +27383,7 @@ export namespace GetZonesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetZonesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ZoneConnection;
   }
 }
@@ -25736,8 +27391,10 @@ export namespace GetZonesConnection {
 export namespace GetZoneTopoes {
   /**
    * No description
+   * @tags ZoneTopo
    * @name GetZoneTopoes
    * @request POST:/get-zone-topoes
+   * @secure
    * @response `200` `(ZoneTopo)[]` Ok
    * @response `400` `string`
    */
@@ -25745,7 +27402,7 @@ export namespace GetZoneTopoes {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetZoneTopoesRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ZoneTopo[];
   }
 }
@@ -25753,8 +27410,10 @@ export namespace GetZoneTopoes {
 export namespace GetZoneTopoesConnection {
   /**
    * No description
+   * @tags ZoneTopo
    * @name GetZoneTopoesConnection
    * @request POST:/get-zone-topoes-connection
+   * @secure
    * @response `200` `ZoneTopoConnection` Ok
    * @response `400` `string`
    */
@@ -25762,7 +27421,7 @@ export namespace GetZoneTopoesConnection {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GetZoneTopoesConnectionRequestBody;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = ZoneTopoConnection;
   }
 }
@@ -25770,8 +27429,10 @@ export namespace GetZoneTopoesConnection {
 export namespace UpdateGlobalAlertRule {
   /**
    * No description
+   * @tags GlobalAlertRule
    * @name UpdateGlobalAlertRule
    * @request POST:/update-global-alert-rule
+   * @secure
    * @response `200` `(WithTaskGlobalAlertRule)[]` Ok
    * @response `400` `string`
    */
@@ -25779,7 +27440,7 @@ export namespace UpdateGlobalAlertRule {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GlobalAlertRuleUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskGlobalAlertRule[];
   }
 }
@@ -25787,8 +27448,10 @@ export namespace UpdateGlobalAlertRule {
 export namespace UpdateCustomizeAlertRule {
   /**
    * No description
+   * @tags GlobalAlertRule
    * @name UpdateCustomizeAlertRule
    * @request POST:/update-customize-alert-rule
+   * @secure
    * @response `200` `(WithTaskGlobalAlertRule)[]` Ok
    * @response `400` `string`
    */
@@ -25796,7 +27459,7 @@ export namespace UpdateCustomizeAlertRule {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = CustomizeAlertRuleUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskGlobalAlertRule[];
   }
 }
@@ -25804,8 +27467,10 @@ export namespace UpdateCustomizeAlertRule {
 export namespace ResolveAlert {
   /**
    * No description
+   * @tags Alert
    * @name ResolveAlert
    * @request POST:/resolve-alert
+   * @secure
    * @response `200` `(WithTaskAlert)[]` Ok
    * @response `400` `string`
    */
@@ -25813,7 +27478,7 @@ export namespace ResolveAlert {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ResolveAlertParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskAlert[];
   }
 }
@@ -25821,8 +27486,10 @@ export namespace ResolveAlert {
 export namespace CreateBrickTopo {
   /**
    * No description
+   * @tags BrickTopo
    * @name CreateBrickTopo
    * @request POST:/create-brick-topo
+   * @secure
    * @response `200` `(WithTaskBrickTopo)[]` Ok
    * @response `400` `string`
    */
@@ -25830,7 +27497,7 @@ export namespace CreateBrickTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = BrickTopoCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskBrickTopo[];
   }
 }
@@ -25838,8 +27505,10 @@ export namespace CreateBrickTopo {
 export namespace UpdateBrickTopo {
   /**
    * No description
+   * @tags BrickTopo
    * @name UpdateBrickTopo
    * @request POST:/update-brick-topo
+   * @secure
    * @response `200` `(WithTaskBrickTopo)[]` Ok
    * @response `400` `string`
    */
@@ -25847,7 +27516,7 @@ export namespace UpdateBrickTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = BrickTopoUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskBrickTopo[];
   }
 }
@@ -25855,8 +27524,10 @@ export namespace UpdateBrickTopo {
 export namespace MoveBrickTopo {
   /**
    * No description
+   * @tags BrickTopo
    * @name MoveBrickTopo
    * @request POST:/move-brick-topo
+   * @secure
    * @response `200` `(WithTaskBrickTopo)[]` Ok
    * @response `400` `string`
    */
@@ -25864,7 +27535,7 @@ export namespace MoveBrickTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = BrickTopoMoveParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskBrickTopo[];
   }
 }
@@ -25872,8 +27543,10 @@ export namespace MoveBrickTopo {
 export namespace DeleteBrickTopo {
   /**
    * No description
+   * @tags BrickTopo
    * @name DeleteBrickTopo
    * @request POST:/delete-brick-topo
+   * @secure
    * @response `200` `(WithTaskDeleteBrickTopo)[]` Ok
    * @response `400` `string`
    */
@@ -25881,7 +27554,7 @@ export namespace DeleteBrickTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = BrickTopoDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteBrickTopo[];
   }
 }
@@ -25889,8 +27562,10 @@ export namespace DeleteBrickTopo {
 export namespace ConnectCluster {
   /**
    * No description
+   * @tags Cluster
    * @name ConnectCluster
    * @request POST:/connect-cluster
+   * @secure
    * @response `200` `(WithTaskCluster)[]` Ok
    * @response `400` `string`
    */
@@ -25898,7 +27573,7 @@ export namespace ConnectCluster {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ClusterCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskCluster[];
   }
 }
@@ -25906,8 +27581,10 @@ export namespace ConnectCluster {
 export namespace UpdateCluster {
   /**
    * No description
+   * @tags Cluster
    * @name UpdateCluster
    * @request POST:/update-cluster
+   * @secure
    * @response `200` `(WithTaskCluster)[]` Ok
    * @response `400` `string`
    */
@@ -25915,7 +27592,7 @@ export namespace UpdateCluster {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ClusterUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskCluster[];
   }
 }
@@ -25923,8 +27600,10 @@ export namespace UpdateCluster {
 export namespace UpdateClusterLicense {
   /**
    * No description
+   * @tags Cluster
    * @name UpdateClusterLicense
    * @request POST:/update-cluster-license
+   * @secure
    * @response `200` `(WithTaskCluster)[]` Ok
    * @response `400` `string`
    */
@@ -25932,7 +27611,7 @@ export namespace UpdateClusterLicense {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ClusterLicenseUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskCluster[];
   }
 }
@@ -25940,8 +27619,10 @@ export namespace UpdateClusterLicense {
 export namespace DeleteCluster {
   /**
    * No description
+   * @tags Cluster
    * @name DeleteCluster
    * @request POST:/delete-cluster
+   * @secure
    * @response `200` `(WithTaskDeleteCluster)[]` Ok
    * @response `400` `string`
    */
@@ -25949,7 +27630,7 @@ export namespace DeleteCluster {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ClusterDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteCluster[];
   }
 }
@@ -25957,8 +27638,10 @@ export namespace DeleteCluster {
 export namespace CreateConsistencySnapshotGroup {
   /**
    * No description
+   * @tags ConsistencyGroupSnapshot
    * @name CreateConsistencyGroupSnapshot
    * @request POST:/create-consistency-snapshot-group
+   * @secure
    * @response `200` `(WithTaskConsistencyGroupSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -25966,7 +27649,7 @@ export namespace CreateConsistencySnapshotGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ConsistencyGroupSnapshotCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskConsistencyGroupSnapshot[];
   }
 }
@@ -25974,8 +27657,10 @@ export namespace CreateConsistencySnapshotGroup {
 export namespace RollbackConsistencySnapshotGroup {
   /**
    * No description
+   * @tags ConsistencyGroupSnapshot
    * @name UpdateConsistencyGroupSnapshot
    * @request POST:/rollback-consistency-snapshot-group
+   * @secure
    * @response `200` `(WithTaskConsistencyGroupSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -25983,7 +27668,7 @@ export namespace RollbackConsistencySnapshotGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ConsistencyGroupSnapshotUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskConsistencyGroupSnapshot[];
   }
 }
@@ -25991,8 +27676,10 @@ export namespace RollbackConsistencySnapshotGroup {
 export namespace DeleteConsistencySnapshotGroup {
   /**
    * No description
+   * @tags ConsistencyGroupSnapshot
    * @name DeleteConsistencyGroupSnapshot
    * @request POST:/delete-consistency-snapshot-group
+   * @secure
    * @response `200` `(WithTaskDeleteConsistencyGroupSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -26000,7 +27687,7 @@ export namespace DeleteConsistencySnapshotGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ConsistencyGroupSnapshotDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteConsistencyGroupSnapshot[];
   }
 }
@@ -26008,8 +27695,10 @@ export namespace DeleteConsistencySnapshotGroup {
 export namespace CreateConsistencyGroup {
   /**
    * No description
+   * @tags ConsistencyGroup
    * @name CreateConsistencyGroup
    * @request POST:/create-consistency-group
+   * @secure
    * @response `200` `(WithTaskConsistencyGroup)[]` Ok
    * @response `400` `string`
    */
@@ -26017,7 +27706,7 @@ export namespace CreateConsistencyGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ConsistencyGroupCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskConsistencyGroup[];
   }
 }
@@ -26025,8 +27714,10 @@ export namespace CreateConsistencyGroup {
 export namespace UpdateConsistencyGroup {
   /**
    * No description
+   * @tags ConsistencyGroup
    * @name UpdateConsistencyGroup
    * @request POST:/update-consistency-group
+   * @secure
    * @response `200` `(WithTaskConsistencyGroup)[]` Ok
    * @response `400` `string`
    */
@@ -26034,7 +27725,7 @@ export namespace UpdateConsistencyGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ConsistencyGroupUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskConsistencyGroup[];
   }
 }
@@ -26042,8 +27733,10 @@ export namespace UpdateConsistencyGroup {
 export namespace DeleteConsistencyGroup {
   /**
    * No description
+   * @tags ConsistencyGroup
    * @name DeleteConsistencyGroup
    * @request POST:/delete-consistency-group
+   * @secure
    * @response `200` `(WithTaskDeleteConsistencyGroup)[]` Ok
    * @response `400` `string`
    */
@@ -26051,7 +27744,7 @@ export namespace DeleteConsistencyGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ConsistencyGroupDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteConsistencyGroup[];
   }
 }
@@ -26059,8 +27752,10 @@ export namespace DeleteConsistencyGroup {
 export namespace CreateDatacenter {
   /**
    * No description
+   * @tags Datacenter
    * @name CreateDatacenter
    * @request POST:/create-datacenter
+   * @secure
    * @response `200` `(WithTaskDatacenter)[]` Ok
    * @response `400` `string`
    */
@@ -26068,7 +27763,7 @@ export namespace CreateDatacenter {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = DatacenterCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDatacenter[];
   }
 }
@@ -26076,8 +27771,10 @@ export namespace CreateDatacenter {
 export namespace UpdateDatacenter {
   /**
    * No description
+   * @tags Datacenter
    * @name UpdateDatacenter
    * @request POST:/update-datacenter
+   * @secure
    * @response `200` `(WithTaskDatacenter)[]` Ok
    * @response `400` `string`
    */
@@ -26085,7 +27782,7 @@ export namespace UpdateDatacenter {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = DatacenterUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDatacenter[];
   }
 }
@@ -26093,8 +27790,10 @@ export namespace UpdateDatacenter {
 export namespace DeleteDatacenter {
   /**
    * No description
+   * @tags Datacenter
    * @name DeleteDatacenter
    * @request POST:/delete-datacenter
+   * @secure
    * @response `200` `(WithTaskDeleteDatacenter)[]` Ok
    * @response `400` `string`
    */
@@ -26102,7 +27801,7 @@ export namespace DeleteDatacenter {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = DatacenterDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteDatacenter[];
   }
 }
@@ -26110,8 +27809,10 @@ export namespace DeleteDatacenter {
 export namespace MountDisk {
   /**
    * No description
+   * @tags Disk
    * @name MountDisk
    * @request POST:/mount-disk
+   * @secure
    * @response `200` `(WithTaskDisk)[]` Ok
    * @response `400` `string`
    */
@@ -26119,7 +27820,7 @@ export namespace MountDisk {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = DiskMountParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDisk[];
   }
 }
@@ -26127,8 +27828,10 @@ export namespace MountDisk {
 export namespace UnmountDisk {
   /**
    * No description
+   * @tags Disk
    * @name UnmountDisk
    * @request POST:/unmount-disk
+   * @secure
    * @response `200` `(WithTaskDisk)[]` Ok
    * @response `400` `string`
    */
@@ -26136,7 +27839,7 @@ export namespace UnmountDisk {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = DiskUnmountParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDisk[];
   }
 }
@@ -26144,8 +27847,10 @@ export namespace UnmountDisk {
 export namespace CreateEntityFilter {
   /**
    * No description
+   * @tags EntityFilter
    * @name CreateEntityFilter
    * @request POST:/create-entity-filter
+   * @secure
    * @response `200` `(WithTaskEntityFilter)[]` Ok
    * @response `400` `string`
    */
@@ -26153,7 +27858,7 @@ export namespace CreateEntityFilter {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = EntityFilterCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskEntityFilter[];
   }
 }
@@ -26161,8 +27866,10 @@ export namespace CreateEntityFilter {
 export namespace UpdateEntityFilter {
   /**
    * No description
+   * @tags EntityFilter
    * @name UpdateEntityFilter
    * @request POST:/update-entity-filter
+   * @secure
    * @response `200` `(WithTaskEntityFilter)[]` Ok
    * @response `400` `string`
    */
@@ -26170,7 +27877,7 @@ export namespace UpdateEntityFilter {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = EntityFilterUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskEntityFilter[];
   }
 }
@@ -26178,8 +27885,10 @@ export namespace UpdateEntityFilter {
 export namespace DeleteEntityFilter {
   /**
    * No description
+   * @tags EntityFilter
    * @name DeleteEntityFilter
    * @request POST:/delete-entity-filter
+   * @secure
    * @response `200` `(WithTaskDeleteEntityFilter)[]` Ok
    * @response `400` `string`
    */
@@ -26187,7 +27896,7 @@ export namespace DeleteEntityFilter {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = EntityFilterDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteEntityFilter[];
   }
 }
@@ -26195,8 +27904,10 @@ export namespace DeleteEntityFilter {
 export namespace CreateGraph {
   /**
    * No description
+   * @tags Graph
    * @name CreateGraph
    * @request POST:/create-graph
+   * @secure
    * @response `200` `(WithTaskGraph)[]` Ok
    * @response `400` `string`
    */
@@ -26204,7 +27915,7 @@ export namespace CreateGraph {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GraphCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskGraph[];
   }
 }
@@ -26212,8 +27923,10 @@ export namespace CreateGraph {
 export namespace UpdateGraph {
   /**
    * No description
+   * @tags Graph
    * @name UpdateGraph
    * @request POST:/update-graph
+   * @secure
    * @response `200` `(WithTaskGraph)[]` Ok
    * @response `400` `string`
    */
@@ -26221,7 +27934,7 @@ export namespace UpdateGraph {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GraphUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskGraph[];
   }
 }
@@ -26229,8 +27942,10 @@ export namespace UpdateGraph {
 export namespace DeleteGraph {
   /**
    * No description
+   * @tags Graph
    * @name DeleteGraph
    * @request POST:/delete-graph
+   * @secure
    * @response `200` `(WithTaskDeleteGraph)[]` Ok
    * @response `400` `string`
    */
@@ -26238,7 +27953,7 @@ export namespace DeleteGraph {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GraphDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteGraph[];
   }
 }
@@ -26246,8 +27961,10 @@ export namespace DeleteGraph {
 export namespace CreateHost {
   /**
    * No description
+   * @tags Host
    * @name CreateHost
    * @request POST:/create-host
+   * @secure
    * @response `200` `(WithTaskBatchHosts)[]` Ok
    * @response `400` `string`
    */
@@ -26255,7 +27972,7 @@ export namespace CreateHost {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = HostCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskBatchHosts[];
   }
 }
@@ -26263,8 +27980,10 @@ export namespace CreateHost {
 export namespace TriggerDiskBlink {
   /**
    * No description
+   * @tags Host
    * @name TriggerDiskBlink
    * @request POST:/trigger-disk-blink
+   * @secure
    * @response `200` `(WithTaskHost)[]` Ok
    * @response `400` `string`
    */
@@ -26272,7 +27991,7 @@ export namespace TriggerDiskBlink {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = TriggerDiskBlinkParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskHost[];
   }
 }
@@ -26280,8 +27999,10 @@ export namespace TriggerDiskBlink {
 export namespace UpdateHost {
   /**
    * No description
+   * @tags Host
    * @name UpdateHost
    * @request POST:/update-host
+   * @secure
    * @response `200` `(WithTaskHost)[]` Ok
    * @response `400` `string`
    */
@@ -26289,7 +28010,7 @@ export namespace UpdateHost {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = HostUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskHost[];
   }
 }
@@ -26297,8 +28018,10 @@ export namespace UpdateHost {
 export namespace CreateIscsiLunSnapshot {
   /**
    * No description
+   * @tags IscsiLunSnapshot
    * @name CreateIscsiLunSnapshot
    * @request POST:/create-iscsi-lun-snapshot
+   * @secure
    * @response `200` `(WithTaskIscsiLunSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -26306,7 +28029,7 @@ export namespace CreateIscsiLunSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiLunSnapshotCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskIscsiLunSnapshot[];
   }
 }
@@ -26314,8 +28037,10 @@ export namespace CreateIscsiLunSnapshot {
 export namespace DeleteIscsiLunSnapshot {
   /**
    * No description
+   * @tags IscsiLunSnapshot
    * @name DeleteIscsiLunSnapshot
    * @request POST:/delete-iscsi-lun-snapshot
+   * @secure
    * @response `200` `(WithTaskDeleteIscsiLunSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -26323,7 +28048,7 @@ export namespace DeleteIscsiLunSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiLunSnapshotDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteIscsiLunSnapshot[];
   }
 }
@@ -26331,8 +28056,10 @@ export namespace DeleteIscsiLunSnapshot {
 export namespace CreateIscsiLun {
   /**
    * No description
+   * @tags IscsiLun
    * @name CreateIscsiLun
    * @request POST:/create-iscsi-lun
+   * @secure
    * @response `200` `(WithTaskIscsiLun)[]` Ok
    * @response `400` `string`
    */
@@ -26340,7 +28067,7 @@ export namespace CreateIscsiLun {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiLunCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskIscsiLun[];
   }
 }
@@ -26348,8 +28075,10 @@ export namespace CreateIscsiLun {
 export namespace UpdateIscsiLun {
   /**
    * No description
+   * @tags IscsiLun
    * @name UpdateIscsiLun
    * @request POST:/update-iscsi-lun
+   * @secure
    * @response `200` `(WithTaskIscsiLun)[]` Ok
    * @response `400` `string`
    */
@@ -26357,7 +28086,7 @@ export namespace UpdateIscsiLun {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiLunUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskIscsiLun[];
   }
 }
@@ -26365,8 +28094,10 @@ export namespace UpdateIscsiLun {
 export namespace DeleteIscsiLun {
   /**
    * No description
+   * @tags IscsiLun
    * @name DeleteIscsiLun
    * @request POST:/delete-iscsi-lun
+   * @secure
    * @response `200` `(WithTaskDeleteIscsiLun)[]` Ok
    * @response `400` `string`
    */
@@ -26374,7 +28105,7 @@ export namespace DeleteIscsiLun {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiLunDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteIscsiLun[];
   }
 }
@@ -26382,8 +28113,10 @@ export namespace DeleteIscsiLun {
 export namespace CloneIscsiLunFromSnapshot {
   /**
    * No description
+   * @tags IscsiLun
    * @name CloneIscsiLunFromSnapshot
    * @request POST:/clone-iscsi-lun-from-snapshot
+   * @secure
    * @response `200` `(WithTaskIscsiLun)[]` Ok
    * @response `400` `string`
    */
@@ -26391,7 +28124,7 @@ export namespace CloneIscsiLunFromSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiLunCloneParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskIscsiLun[];
   }
 }
@@ -26399,8 +28132,10 @@ export namespace CloneIscsiLunFromSnapshot {
 export namespace RollbackIscsiLunFromSnapshot {
   /**
    * No description
+   * @tags IscsiLun
    * @name RollbackIscsiLunFromSnapshot
    * @request POST:/rollback-iscsi-lun-from-snapshot
+   * @secure
    * @response `200` `(WithTaskIscsiLun)[]` Ok
    * @response `400` `string`
    */
@@ -26408,7 +28143,7 @@ export namespace RollbackIscsiLunFromSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiLunRollbackParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskIscsiLun[];
   }
 }
@@ -26416,8 +28151,10 @@ export namespace RollbackIscsiLunFromSnapshot {
 export namespace CreateIscsiTarget {
   /**
    * No description
+   * @tags IscsiTarget
    * @name CreateIscsiTarget
    * @request POST:/create-iscsi-target
+   * @secure
    * @response `200` `(WithTaskIscsiTarget)[]` Ok
    * @response `400` `string`
    */
@@ -26425,7 +28162,7 @@ export namespace CreateIscsiTarget {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiTargetCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskIscsiTarget[];
   }
 }
@@ -26433,8 +28170,10 @@ export namespace CreateIscsiTarget {
 export namespace UpdateIscsiTarget {
   /**
    * No description
+   * @tags IscsiTarget
    * @name UpdateIscsiTarget
    * @request POST:/update-iscsi-target
+   * @secure
    * @response `200` `(WithTaskIscsiTarget)[]` Ok
    * @response `400` `string`
    */
@@ -26442,7 +28181,7 @@ export namespace UpdateIscsiTarget {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiTargetUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskIscsiTarget[];
   }
 }
@@ -26450,8 +28189,10 @@ export namespace UpdateIscsiTarget {
 export namespace DeleteIscsiTarget {
   /**
    * No description
+   * @tags IscsiTarget
    * @name DeleteIscsiTarget
    * @request POST:/delete-iscsi-target
+   * @secure
    * @response `200` `(WithTaskDeleteIscsiTarget)[]` Ok
    * @response `400` `string`
    */
@@ -26459,7 +28200,7 @@ export namespace DeleteIscsiTarget {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = IscsiTargetDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteIscsiTarget[];
   }
 }
@@ -26467,8 +28208,10 @@ export namespace DeleteIscsiTarget {
 export namespace UploadElfImage {
   /**
    * No description
+   * @tags ElfImage
    * @name CreateElfImage
    * @request POST:/upload-elf-image
+   * @secure
    * @response `200` `(UploadTask)[]` Ok
    * @response `400` `string`
    */
@@ -26483,7 +28226,7 @@ export namespace UploadElfImage {
       description: string;
       upload_task_id: string;
     };
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = UploadTask[];
   }
 }
@@ -26491,8 +28234,10 @@ export namespace UploadElfImage {
 export namespace UpdateElfImage {
   /**
    * No description
+   * @tags ElfImage
    * @name UpdateElfImage
    * @request POST:/update-elf-image
+   * @secure
    * @response `200` `(WithTaskElfImage)[]` Ok
    * @response `400` `string`
    */
@@ -26500,7 +28245,7 @@ export namespace UpdateElfImage {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ElfImageUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskElfImage[];
   }
 }
@@ -26508,8 +28253,10 @@ export namespace UpdateElfImage {
 export namespace DeleteElfImage {
   /**
    * No description
+   * @tags ElfImage
    * @name DeleteElfImage
    * @request POST:/delete-elf-image
+   * @secure
    * @response `200` `(WithTaskDeleteElfImage)[]` Ok
    * @response `400` `string`
    */
@@ -26517,7 +28264,7 @@ export namespace DeleteElfImage {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ElfImageDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteElfImage[];
   }
 }
@@ -26525,8 +28272,10 @@ export namespace DeleteElfImage {
 export namespace CreateLabel {
   /**
    * No description
+   * @tags Label
    * @name CreateLabel
    * @request POST:/create-label
+   * @secure
    * @response `200` `(WithTaskLabel)[]` Ok
    * @response `400` `string`
    */
@@ -26534,7 +28283,7 @@ export namespace CreateLabel {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = LabelCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskLabel[];
   }
 }
@@ -26542,8 +28291,10 @@ export namespace CreateLabel {
 export namespace UpdateLabel {
   /**
    * No description
+   * @tags Label
    * @name UpdateLabel
    * @request POST:/update-label
+   * @secure
    * @response `200` `(WithTaskLabel)[]` Ok
    * @response `400` `string`
    */
@@ -26551,7 +28302,7 @@ export namespace UpdateLabel {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = LabelUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskLabel[];
   }
 }
@@ -26559,8 +28310,10 @@ export namespace UpdateLabel {
 export namespace AddLabelsToResources {
   /**
    * No description
+   * @tags Label
    * @name AddLabelsToResources
    * @request POST:/add-labels-to-resources
+   * @secure
    * @response `200` `(WithTaskLabel)[]` Ok
    * @response `400` `string`
    */
@@ -26568,7 +28321,7 @@ export namespace AddLabelsToResources {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = AddLabelsToResourcesParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskLabel[];
   }
 }
@@ -26576,8 +28329,10 @@ export namespace AddLabelsToResources {
 export namespace RemoveLabelsFromResources {
   /**
    * No description
+   * @tags Label
    * @name RemoveLabelsFromResources
    * @request POST:/remove-labels-from-resources
+   * @secure
    * @response `200` `(WithTaskLabel)[]` Ok
    * @response `400` `string`
    */
@@ -26585,7 +28340,7 @@ export namespace RemoveLabelsFromResources {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = RemoveLabelsFromResourcesParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskLabel[];
   }
 }
@@ -26593,8 +28348,10 @@ export namespace RemoveLabelsFromResources {
 export namespace DeleteLabel {
   /**
    * No description
+   * @tags Label
    * @name DeleteLabel
    * @request POST:/delete-label
+   * @secure
    * @response `200` `(WithTaskDeleteLabel)[]` Ok
    * @response `400` `string`
    */
@@ -26602,7 +28359,7 @@ export namespace DeleteLabel {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = LabelDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteLabel[];
   }
 }
@@ -26610,8 +28367,10 @@ export namespace DeleteLabel {
 export namespace UpdateLicense {
   /**
    * No description
+   * @tags License
    * @name UpdateDeploy
    * @request POST:/update-license
+   * @secure
    * @response `200` `WithTaskLicense` Ok
    * @response `400` `string`
    */
@@ -26619,7 +28378,7 @@ export namespace UpdateLicense {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = LicenseUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskLicense;
   }
 }
@@ -26627,8 +28386,10 @@ export namespace UpdateLicense {
 export namespace CreateNamespaceGroup {
   /**
    * No description
+   * @tags NamespaceGroup
    * @name CreateNamespaceGroup
    * @request POST:/create-namespace-group
+   * @secure
    * @response `200` `(WithTaskNamespaceGroup)[]` Ok
    * @response `400` `string`
    */
@@ -26636,7 +28397,7 @@ export namespace CreateNamespaceGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NamespaceGroupCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNamespaceGroup[];
   }
 }
@@ -26644,8 +28405,10 @@ export namespace CreateNamespaceGroup {
 export namespace UpdateNamespaceGroup {
   /**
    * No description
+   * @tags NamespaceGroup
    * @name UpdateNamespaceGroup
    * @request POST:/update-namespace-group
+   * @secure
    * @response `200` `(WithTaskNamespaceGroup)[]` Ok
    * @response `400` `string`
    */
@@ -26653,7 +28416,7 @@ export namespace UpdateNamespaceGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NamespaceGroupUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNamespaceGroup[];
   }
 }
@@ -26661,8 +28424,10 @@ export namespace UpdateNamespaceGroup {
 export namespace DeleteNamespaceGroup {
   /**
    * No description
+   * @tags NamespaceGroup
    * @name DeleteNamespaceGroup
    * @request POST:/delete-namespace-group
+   * @secure
    * @response `200` `(WithTaskDeleteNamespaceGroup)[]` Ok
    * @response `400` `string`
    */
@@ -26670,7 +28435,7 @@ export namespace DeleteNamespaceGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NamespaceGroupDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteNamespaceGroup[];
   }
 }
@@ -26678,8 +28443,10 @@ export namespace DeleteNamespaceGroup {
 export namespace CreateNfsExport {
   /**
    * No description
+   * @tags NfsExport
    * @name CreateNfsExport
    * @request POST:/create-nfs-export
+   * @secure
    * @response `200` `(WithTaskNfsExport)[]` Ok
    * @response `400` `string`
    */
@@ -26687,7 +28454,7 @@ export namespace CreateNfsExport {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NfsExportCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNfsExport[];
   }
 }
@@ -26695,8 +28462,10 @@ export namespace CreateNfsExport {
 export namespace UpdateNfsExport {
   /**
    * No description
+   * @tags NfsExport
    * @name UpdateNfsExport
    * @request POST:/update-nfs-export
+   * @secure
    * @response `200` `(WithTaskNfsExport)[]` Ok
    * @response `400` `string`
    */
@@ -26704,7 +28473,7 @@ export namespace UpdateNfsExport {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NfsExportUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNfsExport[];
   }
 }
@@ -26712,8 +28481,10 @@ export namespace UpdateNfsExport {
 export namespace DeleteNfsExport {
   /**
    * No description
+   * @tags NfsExport
    * @name DeleteNfsExport
    * @request POST:/delete-nfs-export
+   * @secure
    * @response `200` `(WithTaskDeleteNfsExport)[]` Ok
    * @response `400` `string`
    */
@@ -26721,7 +28492,7 @@ export namespace DeleteNfsExport {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NfsExportDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteNfsExport[];
   }
 }
@@ -26729,8 +28500,10 @@ export namespace DeleteNfsExport {
 export namespace UpdateNic {
   /**
    * No description
+   * @tags Nic
    * @name UpdateNic
    * @request POST:/update-nic
+   * @secure
    * @response `200` `(WithTaskNic)[]` Ok
    * @response `400` `string`
    */
@@ -26738,7 +28511,7 @@ export namespace UpdateNic {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NicUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNic[];
   }
 }
@@ -26746,8 +28519,10 @@ export namespace UpdateNic {
 export namespace MoveNodeTopo {
   /**
    * No description
+   * @tags NodeTopo
    * @name UpdateNodeTopo
    * @request POST:/move-node-topo
+   * @secure
    * @response `200` `(WithTaskNodeTopo)[]` Ok
    * @response `400` `string`
    */
@@ -26755,7 +28530,7 @@ export namespace MoveNodeTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NodeTopoUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNodeTopo[];
   }
 }
@@ -26763,8 +28538,10 @@ export namespace MoveNodeTopo {
 export namespace CreateNvmfNamespaceSnapshot {
   /**
    * No description
+   * @tags NvmfNamespaceSnapshot
    * @name CreateNvmfNamespaceSnapshot
    * @request POST:/create-nvmf-namespace-snapshot
+   * @secure
    * @response `200` `(WithTaskNvmfNamespaceSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -26772,7 +28549,7 @@ export namespace CreateNvmfNamespaceSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfNamespaceSnapshotCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNvmfNamespaceSnapshot[];
   }
 }
@@ -26780,8 +28557,10 @@ export namespace CreateNvmfNamespaceSnapshot {
 export namespace DeleteNvmfNamespaceSnapshot {
   /**
    * No description
+   * @tags NvmfNamespaceSnapshot
    * @name DeleteNvmfNamespaceSnapshot
    * @request POST:/delete-nvmf-namespace-snapshot
+   * @secure
    * @response `200` `(WithTaskDeleteNvmfNamespaceSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -26789,7 +28568,7 @@ export namespace DeleteNvmfNamespaceSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfNamespaceSnapshotDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteNvmfNamespaceSnapshot[];
   }
 }
@@ -26797,8 +28576,10 @@ export namespace DeleteNvmfNamespaceSnapshot {
 export namespace CreateNvmfNamespace {
   /**
    * No description
+   * @tags NvmfNamespace
    * @name CreateNvmfNamespace
    * @request POST:/create-nvmf-namespace
+   * @secure
    * @response `200` `(WithTaskNvmfNamespace)[]` Ok
    * @response `400` `string`
    */
@@ -26806,7 +28587,7 @@ export namespace CreateNvmfNamespace {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfNamespaceCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNvmfNamespace[];
   }
 }
@@ -26814,8 +28595,10 @@ export namespace CreateNvmfNamespace {
 export namespace UpdateNvmfNamespace {
   /**
    * No description
+   * @tags NvmfNamespace
    * @name UpdateNvmfNamespace
    * @request POST:/update-nvmf-namespace
+   * @secure
    * @response `200` `(WithTaskNvmfNamespace)[]` Ok
    * @response `400` `string`
    */
@@ -26823,7 +28606,7 @@ export namespace UpdateNvmfNamespace {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfNamespaceUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNvmfNamespace[];
   }
 }
@@ -26831,8 +28614,10 @@ export namespace UpdateNvmfNamespace {
 export namespace DeleteNvmfNamespace {
   /**
    * No description
+   * @tags NvmfNamespace
    * @name DeleteNvmfNamespace
    * @request POST:/delete-nvmf-namespace
+   * @secure
    * @response `200` `(WithTaskDeleteNvmfNamespace)[]` Ok
    * @response `400` `string`
    */
@@ -26840,7 +28625,7 @@ export namespace DeleteNvmfNamespace {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfNamespaceDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteNvmfNamespace[];
   }
 }
@@ -26848,8 +28633,10 @@ export namespace DeleteNvmfNamespace {
 export namespace CloneNvmfNamespaceFromSnapshot {
   /**
    * No description
+   * @tags NvmfNamespace
    * @name CloneNvmfNamespaceFromSnapshot
    * @request POST:/clone-nvmf-namespace-from-snapshot
+   * @secure
    * @response `200` `(WithTaskNvmfNamespace)[]` Ok
    * @response `400` `string`
    */
@@ -26857,7 +28644,7 @@ export namespace CloneNvmfNamespaceFromSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfNamespaceCloneParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNvmfNamespace[];
   }
 }
@@ -26865,8 +28652,10 @@ export namespace CloneNvmfNamespaceFromSnapshot {
 export namespace RollbackNvmfNamespaceFromSnapshot {
   /**
    * No description
+   * @tags NvmfNamespace
    * @name RollbackNvmfNamespaceFromSnapshot
    * @request POST:/rollback-nvmf-namespace-from-snapshot
+   * @secure
    * @response `200` `(WithTaskNvmfNamespace)[]` Ok
    * @response `400` `string`
    */
@@ -26874,7 +28663,7 @@ export namespace RollbackNvmfNamespaceFromSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfNamespaceRollbackParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNvmfNamespace[];
   }
 }
@@ -26884,6 +28673,7 @@ export namespace CreateNvmfSubsystem {
    * No description
    * @name CreateNvmfSubsystem
    * @request POST:/create-nvmf-subsystem
+   * @secure
    * @response `200` `(WithTaskNvmfSubsystem)[]` Ok
    * @response `400` `string`
    */
@@ -26891,7 +28681,7 @@ export namespace CreateNvmfSubsystem {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfSubsystemCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNvmfSubsystem[];
   }
 }
@@ -26901,6 +28691,7 @@ export namespace UpdateNvmfSubsystem {
    * No description
    * @name UpdateNvmfSubsystem
    * @request POST:/update-nvmf-subsystem
+   * @secure
    * @response `200` `(WithTaskNvmfSubsystem)[]` Ok
    * @response `400` `string`
    */
@@ -26908,7 +28699,7 @@ export namespace UpdateNvmfSubsystem {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfSubsystemUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskNvmfSubsystem[];
   }
 }
@@ -26918,6 +28709,7 @@ export namespace DeleteNvmfSubsystem {
    * No description
    * @name DeleteNvmfSubsystem
    * @request POST:/delete-nvmf-subsystem
+   * @secure
    * @response `200` `(WithTaskDeleteNvmfSubsystem)[]` Ok
    * @response `400` `string`
    */
@@ -26925,7 +28717,7 @@ export namespace DeleteNvmfSubsystem {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = NvmfSubsystemDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteNvmfSubsystem[];
   }
 }
@@ -26933,8 +28725,10 @@ export namespace DeleteNvmfSubsystem {
 export namespace CreateOrganization {
   /**
    * No description
+   * @tags Organization
    * @name CreateOrganization
    * @request POST:/create-organization
+   * @secure
    * @response `200` `(WithTaskOrganization)[]` Ok
    * @response `400` `string`
    */
@@ -26942,7 +28736,7 @@ export namespace CreateOrganization {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = OrganizationCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskOrganization[];
   }
 }
@@ -26950,8 +28744,10 @@ export namespace CreateOrganization {
 export namespace UpdateOrganization {
   /**
    * No description
+   * @tags Organization
    * @name UpdateOrganization
    * @request POST:/update-organization
+   * @secure
    * @response `200` `(WithTaskOrganization)[]` Ok
    * @response `400` `string`
    */
@@ -26959,7 +28755,7 @@ export namespace UpdateOrganization {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = OrganizationUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskOrganization[];
   }
 }
@@ -26967,8 +28763,10 @@ export namespace UpdateOrganization {
 export namespace DeleteOrganization {
   /**
    * No description
+   * @tags Organization
    * @name DeleteOrganization
    * @request POST:/delete-organization
+   * @secure
    * @response `200` `(WithTaskDeleteOrganization)[]` Ok
    * @response `400` `string`
    */
@@ -26976,7 +28774,7 @@ export namespace DeleteOrganization {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = OrganizationDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteOrganization[];
   }
 }
@@ -26984,8 +28782,10 @@ export namespace DeleteOrganization {
 export namespace CreateRackTopo {
   /**
    * No description
+   * @tags RackTopo
    * @name CreateRackTopo
    * @request POST:/create-rack-topo
+   * @secure
    * @response `200` `(WithTaskRackTopo)[]` Ok
    * @response `400` `string`
    */
@@ -26993,7 +28793,7 @@ export namespace CreateRackTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = RackTopoCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskRackTopo[];
   }
 }
@@ -27001,8 +28801,10 @@ export namespace CreateRackTopo {
 export namespace UpdateRackTopo {
   /**
    * No description
+   * @tags RackTopo
    * @name UpdateRackTopo
    * @request POST:/update-rack-topo
+   * @secure
    * @response `200` `(WithTaskRackTopo)[]` Ok
    * @response `400` `string`
    */
@@ -27010,7 +28812,7 @@ export namespace UpdateRackTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = RackTopoUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskRackTopo[];
   }
 }
@@ -27018,8 +28820,10 @@ export namespace UpdateRackTopo {
 export namespace DeleteRackTopo {
   /**
    * No description
+   * @tags RackTopo
    * @name DeleteRackTopo
    * @request POST:/delete-rack-topo
+   * @secure
    * @response `200` `(WithTaskDeleteRackTopo)[]` Ok
    * @response `400` `string`
    */
@@ -27027,7 +28831,7 @@ export namespace DeleteRackTopo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = RackTopoDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteRackTopo[];
   }
 }
@@ -27035,8 +28839,10 @@ export namespace DeleteRackTopo {
 export namespace UpdateGlobalRecycleBinSetting {
   /**
    * No description
+   * @tags GlobalSettings
    * @name UpdateGlobalRecycleBinSetting
    * @request POST:/update-global-recycle-bin-setting
+   * @secure
    * @response `200` `WithTaskGlobalSettings` Ok
    * @response `400` `string`
    */
@@ -27044,7 +28850,7 @@ export namespace UpdateGlobalRecycleBinSetting {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = GlobalRecycleBinUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskGlobalSettings;
   }
 }
@@ -27052,8 +28858,10 @@ export namespace UpdateGlobalRecycleBinSetting {
 export namespace CreateClusterRecycleBinSetting {
   /**
    * No description
+   * @tags GlobalSettings
    * @name CreateClusterRecycleBinSetting
    * @request POST:/create-cluster-recycle-bin-setting
+   * @secure
    * @response `200` `(WithTaskClusterSettings)[]` Ok
    * @response `400` `string`
    */
@@ -27061,7 +28869,7 @@ export namespace CreateClusterRecycleBinSetting {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ClusterRecycleBinCreationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskClusterSettings[];
   }
 }
@@ -27069,8 +28877,10 @@ export namespace CreateClusterRecycleBinSetting {
 export namespace UpdateClusterRecycleBinSetting {
   /**
    * No description
+   * @tags GlobalSettings
    * @name UpdateClusterRecycleBinSetting
    * @request POST:/update-cluster-recycle-bin-setting
+   * @secure
    * @response `200` `(WithTaskClusterSettings)[]` Ok
    * @response `400` `string`
    */
@@ -27078,7 +28888,7 @@ export namespace UpdateClusterRecycleBinSetting {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ClusterRecycleBinUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskClusterSettings[];
   }
 }
@@ -27086,8 +28896,10 @@ export namespace UpdateClusterRecycleBinSetting {
 export namespace DeleteClusterRecycleBinSetting {
   /**
    * No description
+   * @tags GlobalSettings
    * @name DeleteClusterRecycleBinSetting
    * @request POST:/delete-cluster-recycle-bin-setting
+   * @secure
    * @response `200` `(WithTaskDeleteClusterRecycleBin)[]` Ok
    * @response `400` `string`
    */
@@ -27095,7 +28907,7 @@ export namespace DeleteClusterRecycleBinSetting {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ClusterRecycleBinDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteClusterRecycleBin[];
   }
 }
@@ -27103,8 +28915,10 @@ export namespace DeleteClusterRecycleBinSetting {
 export namespace CreateReportTemplate {
   /**
    * No description
+   * @tags ReportTemplate
    * @name CreateReportTemplate
    * @request POST:/create-report-template
+   * @secure
    * @response `200` `(WithTaskReportTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -27112,7 +28926,7 @@ export namespace CreateReportTemplate {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ReportTemplateCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskReportTemplate[];
   }
 }
@@ -27120,8 +28934,10 @@ export namespace CreateReportTemplate {
 export namespace UpdateReportTemplate {
   /**
    * No description
+   * @tags ReportTemplate
    * @name UpdateReportTemplate
    * @request POST:/update-report-template
+   * @secure
    * @response `200` `(WithTaskReportTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -27129,7 +28945,7 @@ export namespace UpdateReportTemplate {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ReportTemplateUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskReportTemplate[];
   }
 }
@@ -27137,8 +28953,10 @@ export namespace UpdateReportTemplate {
 export namespace GenerateFromReportTemplate {
   /**
    * No description
+   * @tags ReportTemplate
    * @name GenerateFromReportTemplate
    * @request POST:/generate-from-report-template
+   * @secure
    * @response `200` `(WithTaskReportTask)[]` Ok
    * @response `400` `string`
    */
@@ -27146,7 +28964,7 @@ export namespace GenerateFromReportTemplate {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ReporteTemplateGenerationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskReportTask[];
   }
 }
@@ -27154,8 +28972,10 @@ export namespace GenerateFromReportTemplate {
 export namespace DeleteReportTemplate {
   /**
    * No description
+   * @tags ReportTemplate
    * @name DeleteReportTemplate
    * @request POST:/delete-report-template
+   * @secure
    * @response `200` `(WithTaskDeleteReportTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -27163,7 +28983,7 @@ export namespace DeleteReportTemplate {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ReportTemplateDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteReportTemplate[];
   }
 }
@@ -27171,8 +28991,10 @@ export namespace DeleteReportTemplate {
 export namespace CreateRole {
   /**
    * No description
+   * @tags UserRoleNext
    * @name CreateRole
    * @request POST:/create-role
+   * @secure
    * @response `200` `(WithTaskUserRoleNext)[]` Ok
    * @response `400` `string`
    */
@@ -27180,7 +29002,7 @@ export namespace CreateRole {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = RoleCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskUserRoleNext[];
   }
 }
@@ -27188,8 +29010,10 @@ export namespace CreateRole {
 export namespace UpdateRole {
   /**
    * No description
+   * @tags UserRoleNext
    * @name UpdateRole
    * @request POST:/update-role
+   * @secure
    * @response `200` `(WithTaskUserRoleNext)[]` Ok
    * @response `400` `string`
    */
@@ -27197,7 +29021,7 @@ export namespace UpdateRole {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = RoleUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskUserRoleNext[];
   }
 }
@@ -27205,8 +29029,10 @@ export namespace UpdateRole {
 export namespace DeleteRole {
   /**
    * No description
+   * @tags UserRoleNext
    * @name DeleteRole
    * @request POST:/delete-role
+   * @secure
    * @response `200` `(WithTaskDeleteRole)[]` Ok
    * @response `400` `string`
    */
@@ -27214,7 +29040,7 @@ export namespace DeleteRole {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = RoleDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteRole[];
   }
 }
@@ -27222,8 +29048,10 @@ export namespace DeleteRole {
 export namespace RollbackSnapshotGroup {
   /**
    * No description
+   * @tags SnapshotGroup
    * @name RollbackSnapshotGroup
    * @request POST:/rollback-snapshot-group
+   * @secure
    * @response `200` `(WithTaskSnapshotGroup)[]` Ok
    * @response `400` `string`
    */
@@ -27231,7 +29059,7 @@ export namespace RollbackSnapshotGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotGroupRollbackParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotGroup[];
   }
 }
@@ -27239,8 +29067,10 @@ export namespace RollbackSnapshotGroup {
 export namespace CloneSnapshotGroup {
   /**
    * No description
+   * @tags SnapshotGroup
    * @name CloneSnapshotGroup
    * @request POST:/clone-snapshot-group
+   * @secure
    * @response `200` `(WithTaskSnapshotGroup)[]` Ok
    * @response `400` `string`
    */
@@ -27248,7 +29078,7 @@ export namespace CloneSnapshotGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotGroupCloneParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotGroup[];
   }
 }
@@ -27256,8 +29086,10 @@ export namespace CloneSnapshotGroup {
 export namespace KeepSnapshotGroup {
   /**
    * No description
+   * @tags SnapshotGroup
    * @name KeepSnapshotGroup
    * @request POST:/keep-snapshot-group
+   * @secure
    * @response `200` `(WithTaskSnapshotGroup)[]` Ok
    * @response `400` `string`
    */
@@ -27265,7 +29097,7 @@ export namespace KeepSnapshotGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotGroupKeepParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotGroup[];
   }
 }
@@ -27273,8 +29105,10 @@ export namespace KeepSnapshotGroup {
 export namespace DeleteSnapshotGroup {
   /**
    * No description
+   * @tags SnapshotGroup
    * @name DeleteSnapshotGroup
    * @request POST:/delete-snapshot-group
+   * @secure
    * @response `200` `(WithTaskDeleteSnapshotGroup)[]` Ok
    * @response `400` `string`
    */
@@ -27282,7 +29116,7 @@ export namespace DeleteSnapshotGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotGroupDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteSnapshotGroup[];
   }
 }
@@ -27290,8 +29124,10 @@ export namespace DeleteSnapshotGroup {
 export namespace CreateSnapshotPlan {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name CreateSnapshotPlan
    * @request POST:/create-snapshot-plan
+   * @secure
    * @response `200` `(WithTaskSnapshotPlan)[]` Ok
    * @response `400` `string`
    */
@@ -27299,7 +29135,7 @@ export namespace CreateSnapshotPlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotPlanCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotPlan[];
   }
 }
@@ -27307,8 +29143,10 @@ export namespace CreateSnapshotPlan {
 export namespace UpdateSnapshotPlan {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name UpdateSnapshotPlan
    * @request POST:/update-snapshot-plan
+   * @secure
    * @response `200` `(WithTaskSnapshotPlan)[]` Ok
    * @response `400` `string`
    */
@@ -27316,7 +29154,7 @@ export namespace UpdateSnapshotPlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotPlanUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotPlan[];
   }
 }
@@ -27324,8 +29162,10 @@ export namespace UpdateSnapshotPlan {
 export namespace DeleteSnapshotPlan {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name DeleteSnapshotPlan
    * @request POST:/delete-snapshot-plan
+   * @secure
    * @response `200` `(WithTaskDeleteSnapshotPlan)[]` Ok
    * @response `400` `string`
    */
@@ -27333,7 +29173,7 @@ export namespace DeleteSnapshotPlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotPlanDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteSnapshotPlan[];
   }
 }
@@ -27341,8 +29181,10 @@ export namespace DeleteSnapshotPlan {
 export namespace ExecuteSnapshotPlan {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name ExecuteSnapshotPlan
    * @request POST:/execute-snapshot-plan
+   * @secure
    * @response `200` `(WithTaskSnapshotPlan)[]` Ok
    * @response `400` `string`
    */
@@ -27350,7 +29192,7 @@ export namespace ExecuteSnapshotPlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotPlanExecutionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotPlan[];
   }
 }
@@ -27358,8 +29200,10 @@ export namespace ExecuteSnapshotPlan {
 export namespace SuspendSnapshotPlan {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name SuspendSnapshotPlan
    * @request POST:/suspend-snapshot-plan
+   * @secure
    * @response `200` `(WithTaskSnapshotPlan)[]` Ok
    * @response `400` `string`
    */
@@ -27367,7 +29211,7 @@ export namespace SuspendSnapshotPlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotPlanSuspendedParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotPlan[];
   }
 }
@@ -27375,8 +29219,10 @@ export namespace SuspendSnapshotPlan {
 export namespace ResumeSnapshotPlan {
   /**
    * No description
+   * @tags SnapshotPlan
    * @name ResumeSnapshotPlan
    * @request POST:/resume-snapshot-plan
+   * @secure
    * @response `200` `(WithTaskSnapshotPlan)[]` Ok
    * @response `400` `string`
    */
@@ -27384,7 +29230,7 @@ export namespace ResumeSnapshotPlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnapshotPlanResumeParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnapshotPlan[];
   }
 }
@@ -27392,8 +29238,10 @@ export namespace ResumeSnapshotPlan {
 export namespace CreateSnmpTransport {
   /**
    * No description
+   * @tags SnmpTransport
    * @name CreateSnmpTransport
    * @request POST:/create-snmp-transport
+   * @secure
    * @response `200` `(WithTaskSnmpTransport)[]` Ok
    * @response `400` `string`
    */
@@ -27401,7 +29249,7 @@ export namespace CreateSnmpTransport {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnmpTransportCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnmpTransport[];
   }
 }
@@ -27409,8 +29257,10 @@ export namespace CreateSnmpTransport {
 export namespace UpdateSnmpTransport {
   /**
    * No description
+   * @tags SnmpTransport
    * @name UpdateSnmpTransport
    * @request POST:/update-snmp-transport
+   * @secure
    * @response `200` `(WithTaskSnmpTransport)[]` Ok
    * @response `400` `string`
    */
@@ -27418,7 +29268,7 @@ export namespace UpdateSnmpTransport {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnmpTransportUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnmpTransport[];
   }
 }
@@ -27426,8 +29276,10 @@ export namespace UpdateSnmpTransport {
 export namespace DeleteSnmpTransport {
   /**
    * No description
+   * @tags SnmpTransport
    * @name DeleteSnmpTransport
    * @request POST:/delete-snmp-transport
+   * @secure
    * @response `200` `(WithTaskDeleteSnmpTransport)[]` Ok
    * @response `400` `string`
    */
@@ -27435,7 +29287,7 @@ export namespace DeleteSnmpTransport {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnmpTransportDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteSnmpTransport[];
   }
 }
@@ -27443,8 +29295,10 @@ export namespace DeleteSnmpTransport {
 export namespace CreateSnmpTrapReceiver {
   /**
    * No description
+   * @tags SnmpTrapReceiver
    * @name CreateSnmpTrapReceiver
    * @request POST:/create-snmp-trap-receiver
+   * @secure
    * @response `200` `(WithTaskSnmpTrapReceiver)[]` Ok
    * @response `400` `string`
    */
@@ -27452,7 +29306,7 @@ export namespace CreateSnmpTrapReceiver {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnmpTrapReceiverCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnmpTrapReceiver[];
   }
 }
@@ -27460,8 +29314,10 @@ export namespace CreateSnmpTrapReceiver {
 export namespace UpdateSnmpTrapReceiver {
   /**
    * No description
+   * @tags SnmpTrapReceiver
    * @name UpdateSnmpTrapReceiver
    * @request POST:/update-snmp-trap-receiver
+   * @secure
    * @response `200` `(WithTaskSnmpTrapReceiver)[]` Ok
    * @response `400` `string`
    */
@@ -27469,7 +29325,7 @@ export namespace UpdateSnmpTrapReceiver {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnmpTrapReceiverUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskSnmpTrapReceiver[];
   }
 }
@@ -27477,8 +29333,10 @@ export namespace UpdateSnmpTrapReceiver {
 export namespace DeleteSnmpTrapReceiver {
   /**
    * No description
+   * @tags SnmpTrapReceiver
    * @name DeleteSnmpTrapReceiver
    * @request POST:/delete-snmp-trap-receiver
+   * @secure
    * @response `200` `(WithTaskDeleteSnmpTrapReceiver)[]` Ok
    * @response `400` `string`
    */
@@ -27486,7 +29344,7 @@ export namespace DeleteSnmpTrapReceiver {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = SnmpTrapReceiverDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteSnmpTrapReceiver[];
   }
 }
@@ -27494,8 +29352,10 @@ export namespace DeleteSnmpTrapReceiver {
 export namespace MountUsbDevice {
   /**
    * No description
+   * @tags UsbDevice
    * @name MountUsbDevice
    * @request POST:/mount-usb-device
+   * @secure
    * @response `200` `(WithTaskUsbDevice)[]` Ok
    * @response `400` `string`
    */
@@ -27503,7 +29363,7 @@ export namespace MountUsbDevice {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = UsbDeviceMountParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskUsbDevice[];
   }
 }
@@ -27511,8 +29371,10 @@ export namespace MountUsbDevice {
 export namespace UnmountUsbDevice {
   /**
    * No description
+   * @tags UsbDevice
    * @name UnmountUsbDevice
    * @request POST:/unmount-usb-device
+   * @secure
    * @response `200` `(WithTaskUsbDevice)[]` Ok
    * @response `400` `string`
    */
@@ -27520,7 +29382,7 @@ export namespace UnmountUsbDevice {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = UsbDeviceUnmountParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskUsbDevice[];
   }
 }
@@ -27528,6 +29390,7 @@ export namespace UnmountUsbDevice {
 export namespace Login {
   /**
    * No description
+   * @tags User
    * @name Login
    * @request POST:/login
    * @response `200` `WithTaskTokenString` Ok
@@ -27537,7 +29400,7 @@ export namespace Login {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = LoginInput;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskTokenString;
   }
 }
@@ -27545,8 +29408,10 @@ export namespace Login {
 export namespace CreateUser {
   /**
    * No description
+   * @tags User
    * @name CreateUser
    * @request POST:/create-user
+   * @secure
    * @response `200` `(WithTaskUser)[]` Ok
    * @response `400` `string`
    */
@@ -27554,7 +29419,7 @@ export namespace CreateUser {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = UserCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskUser[];
   }
 }
@@ -27562,8 +29427,10 @@ export namespace CreateUser {
 export namespace UpdateUser {
   /**
    * No description
+   * @tags User
    * @name UpdateUser
    * @request POST:/update-user
+   * @secure
    * @response `200` `(WithTaskUser)[]` Ok
    * @response `400` `string`
    */
@@ -27571,7 +29438,7 @@ export namespace UpdateUser {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = UserUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskUser[];
   }
 }
@@ -27579,8 +29446,10 @@ export namespace UpdateUser {
 export namespace DeleteUser {
   /**
    * No description
+   * @tags User
    * @name DeleteUser
    * @request POST:/delete-user
+   * @secure
    * @response `200` `(WithTaskDeleteUser)[]` Ok
    * @response `400` `string`
    */
@@ -27588,7 +29457,7 @@ export namespace DeleteUser {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = UserDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteUser[];
   }
 }
@@ -27596,8 +29465,10 @@ export namespace DeleteUser {
 export namespace CreateVdsWithMigrateVlan {
   /**
    * No description
+   * @tags Vds
    * @name CreateVdsWithMigrateVlan
    * @request POST:/create-vds-with-migrate-vlan
+   * @secure
    * @response `200` `(WithTaskVds)[]` Ok
    * @response `400` `string`
    */
@@ -27605,7 +29476,7 @@ export namespace CreateVdsWithMigrateVlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VdsCreationWithMigrateVlanParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVds[];
   }
 }
@@ -27613,8 +29484,10 @@ export namespace CreateVdsWithMigrateVlan {
 export namespace CreateVdsWithAccessVlan {
   /**
    * No description
+   * @tags Vds
    * @name CreateVdsWithAccessVlan
    * @request POST:/create-vds-with-access-vlan
+   * @secure
    * @response `200` `(WithTaskVds)[]` Ok
    * @response `400` `string`
    */
@@ -27622,7 +29495,7 @@ export namespace CreateVdsWithAccessVlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VdsCreationWithMAccessVlanParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVds[];
   }
 }
@@ -27630,8 +29503,10 @@ export namespace CreateVdsWithAccessVlan {
 export namespace CreateVds {
   /**
    * No description
+   * @tags Vds
    * @name CreateVds
    * @request POST:/create-vds
+   * @secure
    * @response `200` `(WithTaskVds)[]` Ok
    * @response `400` `string`
    */
@@ -27639,7 +29514,7 @@ export namespace CreateVds {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VdsCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVds[];
   }
 }
@@ -27647,8 +29522,10 @@ export namespace CreateVds {
 export namespace UpdateVds {
   /**
    * No description
+   * @tags Vds
    * @name UpdateVds
    * @request POST:/update-vds
+   * @secure
    * @response `200` `(WithTaskVds)[]` Ok
    * @response `400` `string`
    */
@@ -27656,7 +29533,7 @@ export namespace UpdateVds {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VdsUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVds[];
   }
 }
@@ -27664,8 +29541,10 @@ export namespace UpdateVds {
 export namespace DeleteVds {
   /**
    * No description
+   * @tags Vds
    * @name DeleteVds
    * @request POST:/delete-vds
+   * @secure
    * @response `200` `(WithTaskDeleteVds)[]` Ok
    * @response `400` `string`
    */
@@ -27673,7 +29552,7 @@ export namespace DeleteVds {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VdsDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteVds[];
   }
 }
@@ -27681,8 +29560,10 @@ export namespace DeleteVds {
 export namespace CreateView {
   /**
    * No description
+   * @tags View
    * @name CreateView
    * @request POST:/create-view
+   * @secure
    * @response `200` `(WithTaskView)[]` Ok
    * @response `400` `string`
    */
@@ -27690,7 +29571,7 @@ export namespace CreateView {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ViewCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskView[];
   }
 }
@@ -27698,8 +29579,10 @@ export namespace CreateView {
 export namespace UpdateView {
   /**
    * No description
+   * @tags View
    * @name UpdateView
    * @request POST:/update-view
+   * @secure
    * @response `200` `(WithTaskView)[]` Ok
    * @response `400` `string`
    */
@@ -27707,7 +29590,7 @@ export namespace UpdateView {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ViewUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskView[];
   }
 }
@@ -27715,8 +29598,10 @@ export namespace UpdateView {
 export namespace DeleteView {
   /**
    * No description
+   * @tags View
    * @name DeleteView
    * @request POST:/delete-view
+   * @secure
    * @response `200` `(WithTaskDeleteView)[]` Ok
    * @response `400` `string`
    */
@@ -27724,7 +29609,7 @@ export namespace DeleteView {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ViewDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteView[];
   }
 }
@@ -27732,8 +29617,10 @@ export namespace DeleteView {
 export namespace CreateVmVlan {
   /**
    * No description
+   * @tags Vlan
    * @name CreateVmVlan
    * @request POST:/create-vm-vlan
+   * @secure
    * @response `200` `(WithTaskVlan)[]` Ok
    * @response `400` `string`
    */
@@ -27741,7 +29628,7 @@ export namespace CreateVmVlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmVlanCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVlan[];
   }
 }
@@ -27749,8 +29636,10 @@ export namespace CreateVmVlan {
 export namespace UpdateVmVlan {
   /**
    * No description
+   * @tags Vlan
    * @name UpdateVlan
    * @request POST:/update-vm-vlan
+   * @secure
    * @response `200` `(WithTaskVlan)[]` Ok
    * @response `400` `string`
    */
@@ -27758,7 +29647,7 @@ export namespace UpdateVmVlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmVlanUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVlan[];
   }
 }
@@ -27766,8 +29655,10 @@ export namespace UpdateVmVlan {
 export namespace UpdateManagementVlan {
   /**
    * No description
+   * @tags Vlan
    * @name UpdateManagementVlan
    * @request POST:/update-management-vlan
+   * @secure
    * @response `200` `(WithTaskVlan)[]` Ok
    * @response `400` `string`
    */
@@ -27775,7 +29666,7 @@ export namespace UpdateManagementVlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ManagementVlanUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVlan[];
   }
 }
@@ -27783,8 +29674,10 @@ export namespace UpdateManagementVlan {
 export namespace UpdateMigrationVlan {
   /**
    * No description
+   * @tags Vlan
    * @name UpdateMigrationVlan
    * @request POST:/update-migration-vlan
+   * @secure
    * @response `200` `(WithTaskVlan)[]` Ok
    * @response `400` `string`
    */
@@ -27792,7 +29685,7 @@ export namespace UpdateMigrationVlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = MigrationVlanUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVlan[];
   }
 }
@@ -27800,8 +29693,10 @@ export namespace UpdateMigrationVlan {
 export namespace DeleteVmVlan {
   /**
    * No description
+   * @tags Vlan
    * @name DeleteVlan
    * @request POST:/delete-vm-vlan
+   * @secure
    * @response `200` `(WithTaskDeleteVlan)[]` Ok
    * @response `400` `string`
    */
@@ -27809,7 +29704,7 @@ export namespace DeleteVmVlan {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VlanDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteVlan[];
   }
 }
@@ -27817,8 +29712,10 @@ export namespace DeleteVmVlan {
 export namespace CreateVmFolder {
   /**
    * No description
+   * @tags VmFolder
    * @name CreateVmFolder
    * @request POST:/create-vm-folder
+   * @secure
    * @response `200` `(WithTaskVmFolder)[]` Ok
    * @response `400` `string`
    */
@@ -27826,7 +29723,7 @@ export namespace CreateVmFolder {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmFolderCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmFolder[];
   }
 }
@@ -27834,8 +29731,10 @@ export namespace CreateVmFolder {
 export namespace UpdateVmFolder {
   /**
    * No description
+   * @tags VmFolder
    * @name UpdateVmFolder
    * @request POST:/update-vm-folder
+   * @secure
    * @response `200` `(WithTaskVmFolder)[]` Ok
    * @response `400` `string`
    */
@@ -27843,7 +29742,7 @@ export namespace UpdateVmFolder {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmFolderUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmFolder[];
   }
 }
@@ -27851,8 +29750,10 @@ export namespace UpdateVmFolder {
 export namespace DeleteVmFolder {
   /**
    * No description
+   * @tags VmFolder
    * @name DeleteVmFolder
    * @request POST:/delete-vm-folder
+   * @secure
    * @response `200` `(WithTaskDeleteVmFolder)[]` Ok
    * @response `400` `string`
    */
@@ -27860,7 +29761,7 @@ export namespace DeleteVmFolder {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmFolderDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteVmFolder[];
   }
 }
@@ -27868,8 +29769,10 @@ export namespace DeleteVmFolder {
 export namespace CreateVmPlacementGroup {
   /**
    * No description
+   * @tags VmPlacementGroup
    * @name CreateVmPlacementGroup
    * @request POST:/create-vm-placement-group
+   * @secure
    * @response `200` `(WithTaskVmPlacementGroup)[]` Ok
    * @response `400` `string`
    */
@@ -27877,7 +29780,7 @@ export namespace CreateVmPlacementGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmPlacementGroupCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmPlacementGroup[];
   }
 }
@@ -27885,8 +29788,10 @@ export namespace CreateVmPlacementGroup {
 export namespace UpdateVmPlacementGroup {
   /**
    * No description
+   * @tags VmPlacementGroup
    * @name UpdateVmPlacementGroup
    * @request POST:/update-vm-placement-group
+   * @secure
    * @response `200` `(WithTaskVmPlacementGroup)[]` Ok
    * @response `400` `string`
    */
@@ -27894,7 +29799,7 @@ export namespace UpdateVmPlacementGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmPlacementGroupUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmPlacementGroup[];
   }
 }
@@ -27902,8 +29807,10 @@ export namespace UpdateVmPlacementGroup {
 export namespace DeleteVmPlacementGroup {
   /**
    * No description
+   * @tags VmPlacementGroup
    * @name DeleteVmPlacementGroup
    * @request POST:/delete-vm-placement-group
+   * @secure
    * @response `200` `(WithTaskDeleteVmPlacementGroup)[]` Ok
    * @response `400` `string`
    */
@@ -27911,7 +29818,7 @@ export namespace DeleteVmPlacementGroup {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmPlacementGroupDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteVmPlacementGroup[];
   }
 }
@@ -27919,8 +29826,10 @@ export namespace DeleteVmPlacementGroup {
 export namespace CreateVmSnapshot {
   /**
    * No description
+   * @tags VmSnapshot
    * @name CreateVmSnapshot
    * @request POST:/create-vm-snapshot
+   * @secure
    * @response `200` `(WithTaskVmSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -27928,7 +29837,7 @@ export namespace CreateVmSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmSnapshotCreationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmSnapshot[];
   }
 }
@@ -27936,8 +29845,10 @@ export namespace CreateVmSnapshot {
 export namespace DeleteVmSnapshot {
   /**
    * No description
+   * @tags VmSnapshot
    * @name DeleteVmSnapshot
    * @request POST:/delete-vm-snapshot
+   * @secure
    * @response `200` `(WithTaskDeleteVmSnapshot)[]` Ok
    * @response `400` `string`
    */
@@ -27945,7 +29856,7 @@ export namespace DeleteVmSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmSnapshotDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteVmSnapshot[];
   }
 }
@@ -27953,8 +29864,10 @@ export namespace DeleteVmSnapshot {
 export namespace CloneVmTemplateFromVm {
   /**
    * No description
+   * @tags VmTemplate
    * @name CloneVmTemplateFromVm
    * @request POST:/clone-vm-template-from-vm
+   * @secure
    * @response `200` `(WithTaskVmTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -27962,7 +29875,7 @@ export namespace CloneVmTemplateFromVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmTemplateCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmTemplate[];
   }
 }
@@ -27970,8 +29883,10 @@ export namespace CloneVmTemplateFromVm {
 export namespace ConvertVmTemplateFromVm {
   /**
    * No description
+   * @tags VmTemplate
    * @name ConvertVmTemplateFromVm
    * @request POST:/convert-vm-template-from-vm
+   * @secure
    * @response `200` `(WithTaskVmTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -27979,7 +29894,7 @@ export namespace ConvertVmTemplateFromVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmTemplateCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmTemplate[];
   }
 }
@@ -27987,8 +29902,10 @@ export namespace ConvertVmTemplateFromVm {
 export namespace UpdateVmTemplate {
   /**
    * No description
+   * @tags VmTemplate
    * @name UpdateVmTemplateFromVm
    * @request POST:/update-vm-template
+   * @secure
    * @response `200` `(WithTaskVmTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -27996,7 +29913,7 @@ export namespace UpdateVmTemplate {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmTemplateUpdationParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmTemplate[];
   }
 }
@@ -28004,8 +29921,10 @@ export namespace UpdateVmTemplate {
 export namespace DeleteVmTemplate {
   /**
    * No description
+   * @tags VmTemplate
    * @name DeleteVmTemplateFromVm
    * @request POST:/delete-vm-template
+   * @secure
    * @response `200` `(WithTaskDeleteVmTemplate)[]` Ok
    * @response `400` `string`
    */
@@ -28013,7 +29932,7 @@ export namespace DeleteVmTemplate {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmTemplateDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteVmTemplate[];
   }
 }
@@ -28021,8 +29940,10 @@ export namespace DeleteVmTemplate {
 export namespace CreateVmVolume {
   /**
    * No description
+   * @tags VmVolume
    * @name CreateVmVolume
    * @request POST:/create-vm-volume
+   * @secure
    * @response `200` `(WithTaskVmVolume)[]` Ok
    * @response `400` `string`
    */
@@ -28030,7 +29951,7 @@ export namespace CreateVmVolume {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmVolumeCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVmVolume[];
   }
 }
@@ -28038,8 +29959,10 @@ export namespace CreateVmVolume {
 export namespace DeleteVmVolume {
   /**
    * No description
+   * @tags VmVolume
    * @name DeleteVmVolumeFromVm
    * @request POST:/delete-vm-volume
+   * @secure
    * @response `200` `(WithTaskDeleteVmVolume)[]` Ok
    * @response `400` `string`
    */
@@ -28047,7 +29970,7 @@ export namespace DeleteVmVolume {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmVolumeDeletionParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskDeleteVmVolume[];
   }
 }
@@ -28055,8 +29978,10 @@ export namespace DeleteVmVolume {
 export namespace CreateVm {
   /**
    * No description
+   * @tags Vm
    * @name CreateVm
    * @request POST:/create-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28064,7 +29989,7 @@ export namespace CreateVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmCreationParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28072,8 +29997,10 @@ export namespace CreateVm {
 export namespace CreateVmFromTemplate {
   /**
    * No description
+   * @tags Vm
    * @name CreateVmFromTemplate
    * @request POST:/create-vm-from-template
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28081,7 +30008,7 @@ export namespace CreateVmFromTemplate {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmCreateVmFromTemplateParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28089,8 +30016,10 @@ export namespace CreateVmFromTemplate {
 export namespace ConvertVmTemplateToVm {
   /**
    * No description
+   * @tags Vm
    * @name ConvertVmTemplateToVm
    * @request POST:/convert-vm-template-to-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28098,7 +30027,7 @@ export namespace ConvertVmTemplateToVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = ConvertVmTemplateToVmParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28106,8 +30035,10 @@ export namespace ConvertVmTemplateToVm {
 export namespace CloneVm {
   /**
    * No description
+   * @tags Vm
    * @name CloneVm
    * @request POST:/clone-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28115,7 +30046,7 @@ export namespace CloneVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmCloneParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28123,8 +30054,10 @@ export namespace CloneVm {
 export namespace RebuildVmFromSnapshot {
   /**
    * No description
+   * @tags Vm
    * @name RebuildVm
    * @request POST:/rebuild-vm-from-snapshot
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28132,7 +30065,7 @@ export namespace RebuildVmFromSnapshot {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmRebuildParams[];
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28140,8 +30073,10 @@ export namespace RebuildVmFromSnapshot {
 export namespace RollbackVm {
   /**
    * No description
+   * @tags Vm
    * @name RollbackVm
    * @request POST:/rollback-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28149,7 +30084,7 @@ export namespace RollbackVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmRollbackParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28157,8 +30092,10 @@ export namespace RollbackVm {
 export namespace UpdateVmBasicInfo {
   /**
    * No description
+   * @tags Vm
    * @name UpdateVm
    * @request POST:/update-vm-basic-info
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28166,7 +30103,7 @@ export namespace UpdateVmBasicInfo {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmUpdateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28174,8 +30111,10 @@ export namespace UpdateVmBasicInfo {
 export namespace MoveVmToRecycle {
   /**
    * No description
+   * @tags Vm
    * @name MoveVmToRecycleBin
    * @request POST:/move-vm-to-recycle
+   * @secure
    * @response `200` `({ task_id: string | null, data: (DeleteVm | null) })[]` Ok
    * @response `400` `string`
    */
@@ -28183,7 +30122,7 @@ export namespace MoveVmToRecycle {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = { task_id: string | null; data: DeleteVm | null }[];
   }
 }
@@ -28191,8 +30130,10 @@ export namespace MoveVmToRecycle {
 export namespace RecoverVmFromRecycle {
   /**
    * No description
+   * @tags Vm
    * @name RecoverVmFromRecycleBin
    * @request POST:/recover-vm-from-recycle
+   * @secure
    * @response `200` `({ task_id: string | null, data: (DeleteVm | null) })[]` Ok
    * @response `400` `string`
    */
@@ -28200,7 +30141,7 @@ export namespace RecoverVmFromRecycle {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = { task_id: string | null; data: DeleteVm | null }[];
   }
 }
@@ -28208,8 +30149,10 @@ export namespace RecoverVmFromRecycle {
 export namespace DeleteVm {
   /**
    * No description
+   * @tags Vm
    * @name DeleteVm
    * @request POST:/delete-vm
+   * @secure
    * @response `200` `({ task_id: string | null, data: (DeleteVm | null) })[]` Ok
    * @response `400` `string`
    */
@@ -28217,7 +30160,7 @@ export namespace DeleteVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = { task_id: string | null; data: DeleteVm | null }[];
   }
 }
@@ -28225,8 +30168,10 @@ export namespace DeleteVm {
 export namespace StartVm {
   /**
    * No description
+   * @tags Vm
    * @name StartVm
    * @request POST:/start-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28234,7 +30179,7 @@ export namespace StartVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmStartParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28242,8 +30187,10 @@ export namespace StartVm {
 export namespace RestartVm {
   /**
    * No description
+   * @tags Vm
    * @name RestartVm
    * @request POST:/restart-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28251,7 +30198,7 @@ export namespace RestartVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28259,8 +30206,10 @@ export namespace RestartVm {
 export namespace ForceRestartVm {
   /**
    * No description
+   * @tags Vm
    * @name ForceRestartVm
    * @request POST:/force-restart-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28268,7 +30217,7 @@ export namespace ForceRestartVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28276,8 +30225,10 @@ export namespace ForceRestartVm {
 export namespace ShutdownVm {
   /**
    * No description
+   * @tags Vm
    * @name ShutDownVm
    * @request POST:/shutdown-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28285,7 +30236,7 @@ export namespace ShutdownVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28293,8 +30244,10 @@ export namespace ShutdownVm {
 export namespace PoweroffVm {
   /**
    * No description
+   * @tags Vm
    * @name ForceShutDownVm
    * @request POST:/poweroff-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28302,7 +30255,7 @@ export namespace PoweroffVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28310,8 +30263,10 @@ export namespace PoweroffVm {
 export namespace SuspendVm {
   /**
    * No description
+   * @tags Vm
    * @name SuspendVm
    * @request POST:/suspend-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28319,7 +30274,7 @@ export namespace SuspendVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28327,8 +30282,10 @@ export namespace SuspendVm {
 export namespace ResumeVm {
   /**
    * No description
+   * @tags Vm
    * @name ResumeVm
    * @request POST:/resume-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28336,7 +30293,7 @@ export namespace ResumeVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28344,8 +30301,10 @@ export namespace ResumeVm {
 export namespace AddVmDisk {
   /**
    * No description
+   * @tags Vm
    * @name AddVmDisk
    * @request POST:/add-vm-disk
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28353,7 +30312,7 @@ export namespace AddVmDisk {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmAddDiskParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28361,8 +30320,10 @@ export namespace AddVmDisk {
 export namespace UpdateVmDisk {
   /**
    * No description
+   * @tags Vm
    * @name UpdateVmDisk
    * @request POST:/update-vm-disk
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28370,7 +30331,7 @@ export namespace UpdateVmDisk {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmUpdateDiskParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28378,8 +30339,10 @@ export namespace UpdateVmDisk {
 export namespace RemoveVmDisk {
   /**
    * No description
+   * @tags Vm
    * @name RemoveVmDisk
    * @request POST:/remove-vm-disk
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28387,7 +30350,7 @@ export namespace RemoveVmDisk {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmRemoveDiskParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28395,8 +30358,10 @@ export namespace RemoveVmDisk {
 export namespace AddVmCdRom {
   /**
    * No description
+   * @tags Vm
    * @name AddVmCdRom
    * @request POST:/add-vm-cd-rom
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28404,7 +30369,7 @@ export namespace AddVmCdRom {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmAddCdRomParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28412,8 +30377,10 @@ export namespace AddVmCdRom {
 export namespace RemoveVmCdRom {
   /**
    * No description
+   * @tags Vm
    * @name RemoveVmCdRom
    * @request POST:/remove-vm-cd-rom
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28421,7 +30388,7 @@ export namespace RemoveVmCdRom {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmRemoveCdRomParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28429,8 +30396,10 @@ export namespace RemoveVmCdRom {
 export namespace AddVmNic {
   /**
    * No description
+   * @tags Vm
    * @name AddVmNic
    * @request POST:/add-vm-nic
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28438,7 +30407,7 @@ export namespace AddVmNic {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmAddNicParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28446,8 +30415,10 @@ export namespace AddVmNic {
 export namespace UpdateVmNic {
   /**
    * No description
+   * @tags Vm
    * @name UpdateVmNic
    * @request POST:/update-vm-nic
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28455,7 +30426,7 @@ export namespace UpdateVmNic {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmUpdateNicParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28463,8 +30434,10 @@ export namespace UpdateVmNic {
 export namespace RemoveVmNic {
   /**
    * No description
+   * @tags Vm
    * @name RemoveVmNic
    * @request POST:/remove-vm-nic
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28472,7 +30445,7 @@ export namespace RemoveVmNic {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmRemoveNicParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28480,8 +30453,10 @@ export namespace RemoveVmNic {
 export namespace InstallVmtools {
   /**
    * No description
+   * @tags Vm
    * @name InstallVmtools
    * @request POST:/install-vmtools
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28489,7 +30464,7 @@ export namespace InstallVmtools {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = InstallVmtoolsParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28497,8 +30472,10 @@ export namespace InstallVmtools {
 export namespace MigrateVm {
   /**
    * No description
+   * @tags Vm
    * @name MigRateVm
    * @request POST:/migrate-vm
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28506,7 +30483,7 @@ export namespace MigrateVm {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmMigrateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28514,8 +30491,10 @@ export namespace MigrateVm {
 export namespace AddVmToFolder {
   /**
    * No description
+   * @tags Vm
    * @name AddVmToFolder
    * @request POST:/add-vm-to-folder
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28523,7 +30502,7 @@ export namespace AddVmToFolder {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmAddFolderParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28531,8 +30510,10 @@ export namespace AddVmToFolder {
 export namespace RemoveVmFromFolder {
   /**
    * No description
+   * @tags Vm
    * @name RemoveVmToFolder
    * @request POST:/remove-vm-from-folder
+   * @secure
    * @response `200` `(WithTaskVm)[]` Ok
    * @response `400` `string`
    */
@@ -28540,7 +30521,7 @@ export namespace RemoveVmFromFolder {
     export type RequestParams = {};
     export type RequestQuery = {};
     export type RequestBody = VmOperateParams;
-    export type RequestHeaders = {};
+    export type RequestHeaders = { "content-language"?: "zh-CN" | "en-US" };
     export type ResponseBody = WithTaskVm[];
   }
 }
@@ -28588,7 +30569,7 @@ export class HttpClient<SecurityDataType = unknown> {
   private format?: ResponseType;
 
   constructor({ securityWorker, secure, format, ...axiosConfig }: ApiConfig<SecurityDataType> = {}) {
-    this.instance = axios.create({ ...axiosConfig, baseURL: axiosConfig.baseURL || "/" });
+    this.instance = axios.create({ ...axiosConfig, baseURL: axiosConfig.baseURL || "/v2/api" });
     this.secure = secure;
     this.format = format;
     this.securityWorker = securityWorker;
@@ -28666,11 +30647,9 @@ export class HttpClient<SecurityDataType = unknown> {
 }
 
 /**
- * @title @tower/operation-api
- * @version 1.6.0
- * @license ISC
- * @baseUrl /
- * @contact Tower developers
+ * @title Tower SDK API
+ * @version 1.7.0
+ * @baseUrl /v2/api
  *
  * cloudtower operation API and SDK
  */
@@ -28679,8 +30658,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags AlertNotifier
      * @name GetAlertNotifiers
      * @request POST:/get-alert-notifiers
+     * @secure
      * @response `200` `(AlertNotifier)[]` Ok
      * @response `400` `string`
      */
@@ -28689,6 +30670,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-alert-notifiers`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28698,8 +30680,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags AlertNotifier
      * @name GetAlertNotifiersConnection
      * @request POST:/get-alert-notifiers-connection
+     * @secure
      * @response `200` `AlertNotifierConnection` Ok
      * @response `400` `string`
      */
@@ -28708,6 +30692,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-alert-notifiers-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28717,8 +30702,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags AlertRule
      * @name GetAlertRules
      * @request POST:/get-alert-rules
+     * @secure
      * @response `200` `(AlertRule)[]` Ok
      * @response `400` `string`
      */
@@ -28727,6 +30714,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-alert-rules`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28736,8 +30724,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags AlertRule
      * @name GetAlertRulesConnection
      * @request POST:/get-alert-rules-connection
+     * @secure
      * @response `200` `AlertRuleConnection` Ok
      * @response `400` `string`
      */
@@ -28746,6 +30736,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-alert-rules-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28755,8 +30746,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Alert
      * @name GetAlerts
      * @request POST:/get-alerts
+     * @secure
      * @response `200` `(Alert)[]` Ok
      * @response `400` `string`
      */
@@ -28765,6 +30758,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-alerts`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28774,8 +30768,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Alert
      * @name GetAlertsConnection
      * @request POST:/get-alerts-connection
+     * @secure
      * @response `200` `AlertConnection` Ok
      * @response `400` `string`
      */
@@ -28784,6 +30780,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-alerts-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28793,8 +30790,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Application
      * @name GetApplications
      * @request POST:/get-applications
+     * @secure
      * @response `200` `(Application)[]` Ok
      * @response `400` `string`
      */
@@ -28803,6 +30802,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-applications`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28812,8 +30812,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Application
      * @name GetApplicationsConnection
      * @request POST:/get-applications-connection
+     * @secure
      * @response `200` `ApplicationConnection` Ok
      * @response `400` `string`
      */
@@ -28822,6 +30824,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-applications-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28831,8 +30834,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags BrickTopo
      * @name GetBrickTopoes
      * @request POST:/get-brick-topoes
+     * @secure
      * @response `200` `(BrickTopo)[]` Ok
      * @response `400` `string`
      */
@@ -28841,6 +30846,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-brick-topoes`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28850,8 +30856,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags BrickTopo
      * @name GetBrickTopoesConnection
      * @request POST:/get-brick-topoes-connection
+     * @secure
      * @response `200` `BrickTopoConnection` Ok
      * @response `400` `string`
      */
@@ -28860,6 +30868,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-brick-topoes-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28869,8 +30878,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterImage
      * @name GetClusterImages
      * @request POST:/get-cluster-images
+     * @secure
      * @response `200` `(ClusterImage)[]` Ok
      * @response `400` `string`
      */
@@ -28879,6 +30890,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-images`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28888,8 +30900,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterImage
      * @name GetClusterImagesConnection
      * @request POST:/get-cluster-images-connection
+     * @secure
      * @response `200` `ClusterImageConnection` Ok
      * @response `400` `string`
      */
@@ -28898,6 +30912,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-images-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28907,8 +30922,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Cluster
      * @name GetClusters
      * @request POST:/get-clusters
+     * @secure
      * @response `200` `(Cluster)[]` Ok
      * @response `400` `string`
      */
@@ -28917,6 +30934,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-clusters`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28926,8 +30944,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Cluster
      * @name GetClustersConnection
      * @request POST:/get-clusters-connection
+     * @secure
      * @response `200` `ClusterConnection` Ok
      * @response `400` `string`
      */
@@ -28936,6 +30956,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-clusters-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28945,8 +30966,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterSettings
      * @name GetClusterSettingses
      * @request POST:/get-cluster-settingses
+     * @secure
      * @response `200` `(ClusterSettings)[]` Ok
      * @response `400` `string`
      */
@@ -28955,6 +30978,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-settingses`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28964,8 +30988,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterSettings
      * @name GetClusterSettingsesConnection
      * @request POST:/get-cluster-settingses-connection
+     * @secure
      * @response `200` `ClusterSettingsConnection` Ok
      * @response `400` `string`
      */
@@ -28974,6 +31000,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-settingses-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -28983,8 +31010,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterTopo
      * @name GetClusterTopoes
      * @request POST:/get-cluster-topoes
+     * @secure
      * @response `200` `(ClusterTopo)[]` Ok
      * @response `400` `string`
      */
@@ -28993,6 +31022,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-topoes`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29002,8 +31032,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterTopo
      * @name GetClusterTopoesConnection
      * @request POST:/get-cluster-topoes-connection
+     * @secure
      * @response `200` `ClusterTopoConnection` Ok
      * @response `400` `string`
      */
@@ -29012,6 +31044,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-topoes-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29021,8 +31054,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterUpgradeHistory
      * @name GetClusterUpgradeHistories
      * @request POST:/get-cluster-upgrade-histories
+     * @secure
      * @response `200` `(ClusterUpgradeHistory)[]` Ok
      * @response `400` `string`
      */
@@ -29031,6 +31066,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-upgrade-histories`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29040,8 +31076,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ClusterUpgradeHistory
      * @name GetClusterUpgradeHistoriesConnection
      * @request POST:/get-cluster-upgrade-histories-connection
+     * @secure
      * @response `200` `ClusterUpgradeHistoryConnection` Ok
      * @response `400` `string`
      */
@@ -29053,6 +31091,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-cluster-upgrade-histories-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29062,8 +31101,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroup
      * @name GetConsistencyGroups
      * @request POST:/get-consistency-groups
+     * @secure
      * @response `200` `(ConsistencyGroup)[]` Ok
      * @response `400` `string`
      */
@@ -29072,6 +31113,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-consistency-groups`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29081,8 +31123,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroup
      * @name GetConsistencyGroupsConnection
      * @request POST:/get-consistency-groups-connection
+     * @secure
      * @response `200` `ConsistencyGroupConnection` Ok
      * @response `400` `string`
      */
@@ -29091,6 +31135,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-consistency-groups-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29100,8 +31145,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroupSnapshot
      * @name GetConsistencyGroupSnapshots
      * @request POST:/get-consistency-group-snapshots
+     * @secure
      * @response `200` `(ConsistencyGroupSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -29110,6 +31157,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-consistency-group-snapshots`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29119,8 +31167,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroupSnapshot
      * @name GetConsistencyGroupSnapshotsConnection
      * @request POST:/get-consistency-group-snapshots-connection
+     * @secure
      * @response `200` `ConsistencyGroupSnapshotConnection` Ok
      * @response `400` `string`
      */
@@ -29132,6 +31182,54 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-consistency-group-snapshots-connection`,
         method: "POST",
         body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getContentLibraryImages = {
+    /**
+     * No description
+     *
+     * @tags ContentLibraryImage
+     * @name GetContentLibraryImages
+     * @request POST:/get-content-library-images
+     * @secure
+     * @response `200` `(ContentLibraryImage)[]` Ok
+     * @response `400` `string`
+     */
+    getContentLibraryImages: (data: GetContentLibraryImagesRequestBody, params: RequestParams = {}) =>
+      this.request<ContentLibraryImage[], string>({
+        path: `/get-content-library-images`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getContentLibraryImagesConnection = {
+    /**
+     * No description
+     *
+     * @tags ContentLibraryImage
+     * @name GetContentLibraryImagesConnection
+     * @request POST:/get-content-library-images-connection
+     * @secure
+     * @response `200` `ContentLibraryImageConnection` Ok
+     * @response `400` `string`
+     */
+    getContentLibraryImagesConnection: (
+      data: GetContentLibraryImagesConnectionRequestBody,
+      params: RequestParams = {},
+    ) =>
+      this.request<ContentLibraryImageConnection, string>({
+        path: `/get-content-library-images-connection`,
+        method: "POST",
+        body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29141,8 +31239,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Datacenter
      * @name GetDatacenters
      * @request POST:/get-datacenters
+     * @secure
      * @response `200` `(Datacenter)[]` Ok
      * @response `400` `string`
      */
@@ -29151,6 +31251,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-datacenters`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29160,8 +31261,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Datacenter
      * @name GetDatacentersConnection
      * @request POST:/get-datacenters-connection
+     * @secure
      * @response `200` `DatacenterConnection` Ok
      * @response `400` `string`
      */
@@ -29170,6 +31273,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-datacenters-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29179,8 +31283,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Deploy
      * @name GetDeploys
      * @request POST:/get-deploys
+     * @secure
      * @response `200` `(Deploy)[]` Ok
      * @response `400` `string`
      */
@@ -29189,6 +31295,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-deploys`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29198,8 +31305,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Deploy
      * @name GetDeploysConnection
      * @request POST:/get-deploys-connection
+     * @secure
      * @response `200` `DeployConnection` Ok
      * @response `400` `string`
      */
@@ -29208,6 +31317,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-deploys-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29217,8 +31327,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags DiscoveredHost
      * @name GetDiscoverHosts
      * @request POST:/get-discover-hosts
+     * @secure
      * @response `200` `(DiscoveredHost)[]` Ok
      * @response `400` `string`
      */
@@ -29227,6 +31339,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-discover-hosts`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29236,8 +31349,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Disk
      * @name GetDisks
      * @request POST:/get-disks
+     * @secure
      * @response `200` `(Disk)[]` Ok
      * @response `400` `string`
      */
@@ -29246,6 +31361,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-disks`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29255,8 +31371,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Disk
      * @name GetDisksConnection
      * @request POST:/get-disks-connection
+     * @secure
      * @response `200` `DiskConnection` Ok
      * @response `400` `string`
      */
@@ -29265,6 +31383,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-disks-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29274,8 +31393,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfDataStore
      * @name GetElfDataStores
      * @request POST:/get-elf-data-stores
+     * @secure
      * @response `200` `(ElfDataStore)[]` Ok
      * @response `400` `string`
      */
@@ -29284,6 +31405,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-elf-data-stores`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29293,8 +31415,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfDataStore
      * @name GetElfDataStoresConnection
      * @request POST:/get-elf-data-stores-connection
+     * @secure
      * @response `200` `ElfDataStoreConnection` Ok
      * @response `400` `string`
      */
@@ -29303,6 +31427,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-elf-data-stores-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29312,8 +31437,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfImage
      * @name GetElfImages
      * @request POST:/get-elf-images
+     * @secure
      * @response `200` `(ElfImage)[]` Ok
      * @response `400` `string`
      */
@@ -29322,6 +31449,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-elf-images`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29331,8 +31459,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfImage
      * @name GetElfImagesConnection
      * @request POST:/get-elf-images-connection
+     * @secure
      * @response `200` `ElfImageConnection` Ok
      * @response `400` `string`
      */
@@ -29341,6 +31471,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-elf-images-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29350,8 +31481,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfStoragePolicy
      * @name GetElfStoragePolicies
      * @request POST:/get-elf-storage-policies
+     * @secure
      * @response `200` `(ElfStoragePolicy)[]` Ok
      * @response `400` `string`
      */
@@ -29360,6 +31493,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-elf-storage-policies`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29369,8 +31503,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfStoragePolicy
      * @name GetElfStoragePoliciesConnection
      * @request POST:/get-elf-storage-policies-connection
+     * @secure
      * @response `200` `ElfStoragePolicyConnection` Ok
      * @response `400` `string`
      */
@@ -29379,6 +31515,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-elf-storage-policies-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29388,8 +31525,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags EntityFilter
      * @name GetEntityFilters
      * @request POST:/get-entity-filters
+     * @secure
      * @response `200` `(EntityFilter)[]` Ok
      * @response `400` `string`
      */
@@ -29398,6 +31537,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-entity-filters`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29407,8 +31547,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags EntityFilter
      * @name GetEntityFiltersConnection
      * @request POST:/get-entity-filters-connection
+     * @secure
      * @response `200` `EntityFilterConnection` Ok
      * @response `400` `string`
      */
@@ -29417,6 +31559,139 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-entity-filters-connection`,
         method: "POST",
         body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getEverouteClusters = {
+    /**
+     * No description
+     *
+     * @tags EverouteCluster
+     * @name GetEverouteClusters
+     * @request POST:/get-everoute-clusters
+     * @secure
+     * @response `200` `(EverouteCluster)[]` Ok
+     * @response `400` `string`
+     */
+    getEverouteClusters: (data: GetEverouteClustersRequestBody, params: RequestParams = {}) =>
+      this.request<EverouteCluster[], string>({
+        path: `/get-everoute-clusters`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getEverouteClustersConnection = {
+    /**
+     * No description
+     *
+     * @tags EverouteCluster
+     * @name GetEverouteClustersConnection
+     * @request POST:/get-everoute-clusters-connection
+     * @secure
+     * @response `200` `EverouteClusterConnection` Ok
+     * @response `400` `string`
+     */
+    getEverouteClustersConnection: (data: GetEverouteClustersConnectionRequestBody, params: RequestParams = {}) =>
+      this.request<EverouteClusterConnection, string>({
+        path: `/get-everoute-clusters-connection`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getEverouteLicenses = {
+    /**
+     * No description
+     *
+     * @tags EverouteLicense
+     * @name GetEverouteLicenses
+     * @request POST:/get-everoute-licenses
+     * @secure
+     * @response `200` `(EverouteLicense)[]` Ok
+     * @response `400` `string`
+     */
+    getEverouteLicenses: (data: GetEverouteLicensesRequestBody, params: RequestParams = {}) =>
+      this.request<EverouteLicense[], string>({
+        path: `/get-everoute-licenses`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getEverouteLicensesConnection = {
+    /**
+     * No description
+     *
+     * @tags EverouteLicense
+     * @name GetEverouteLicensesConnection
+     * @request POST:/get-everoute-licenses-connection
+     * @secure
+     * @response `200` `EverouteLicenseConnection` Ok
+     * @response `400` `string`
+     */
+    getEverouteLicensesConnection: (data: GetEverouteLicensesConnectionRequestBody, params: RequestParams = {}) =>
+      this.request<EverouteLicenseConnection, string>({
+        path: `/get-everoute-licenses-connection`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getEveroutePackages = {
+    /**
+     * No description
+     *
+     * @tags EveroutePackage
+     * @name GetEveroutePackages
+     * @request POST:/get-everoute-packages
+     * @secure
+     * @response `200` `(EveroutePackage)[]` Ok
+     * @response `400` `string`
+     */
+    getEveroutePackages: (data: GetEveroutePackagesRequestBody, params: RequestParams = {}) =>
+      this.request<EveroutePackage[], string>({
+        path: `/get-everoute-packages`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getEveroutePackagesConnection = {
+    /**
+     * No description
+     *
+     * @tags EveroutePackage
+     * @name GetEveroutePackagesConnection
+     * @request POST:/get-everoute-packages-connection
+     * @secure
+     * @response `200` `EveroutePackageConnection` Ok
+     * @response `400` `string`
+     */
+    getEveroutePackagesConnection: (data: GetEveroutePackagesConnectionRequestBody, params: RequestParams = {}) =>
+      this.request<EveroutePackageConnection, string>({
+        path: `/get-everoute-packages-connection`,
+        method: "POST",
+        body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29426,8 +31701,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalAlertRule
      * @name GetGlobalAlertRules
      * @request POST:/get-global-alert-rules
+     * @secure
      * @response `200` `(GlobalAlertRule)[]` Ok
      * @response `400` `string`
      */
@@ -29436,6 +31713,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-global-alert-rules`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29445,8 +31723,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalAlertRule
      * @name GetGlobalAlertRulesConnection
      * @request POST:/get-global-alert-rules-connection
+     * @secure
      * @response `200` `GlobalAlertRuleConnection` Ok
      * @response `400` `string`
      */
@@ -29455,6 +31735,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-global-alert-rules-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29464,8 +31745,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalSettings
      * @name GetGlobalSettingses
      * @request POST:/get-global-settingses
+     * @secure
      * @response `200` `(GlobalSettings)[]` Ok
      * @response `400` `string`
      */
@@ -29474,6 +31757,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-global-settingses`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29483,8 +31767,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalSettings
      * @name GetGlobalSettingsesConnection
      * @request POST:/get-global-settingses-connection
+     * @secure
      * @response `200` `GlobalSettingsConnection` Ok
      * @response `400` `string`
      */
@@ -29493,6 +31779,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-global-settingses-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29502,8 +31789,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Graph
      * @name GetGraphs
      * @request POST:/get-graphs
+     * @secure
      * @response `200` `(Graph)[]` Ok
      * @response `400` `string`
      */
@@ -29512,6 +31801,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-graphs`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29521,8 +31811,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Graph
      * @name GetGraphsConnection
      * @request POST:/get-graphs-connection
+     * @secure
      * @response `200` `GraphConnection` Ok
      * @response `400` `string`
      */
@@ -29531,6 +31823,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-graphs-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29540,8 +31833,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Host
      * @name GetHosts
      * @request POST:/get-hosts
+     * @secure
      * @response `200` `(Host)[]` Ok
      * @response `400` `string`
      */
@@ -29550,6 +31845,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-hosts`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29559,8 +31855,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Host
      * @name GetHostsConnection
      * @request POST:/get-hosts-connection
+     * @secure
      * @response `200` `HostConnection` Ok
      * @response `400` `string`
      */
@@ -29569,6 +31867,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-hosts-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29578,8 +31877,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ImageConnector
      * @name GetImagesConnector
      * @request POST:/get-images-connector
+     * @secure
      * @response `200` `(ImageConnector)[]` Ok
      * @response `400` `string`
      */
@@ -29588,6 +31889,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-images-connector`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29597,8 +31899,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Ipmi
      * @name GetIpmis
      * @request POST:/get-ipmis
+     * @secure
      * @response `200` `(Ipmi)[]` Ok
      * @response `400` `string`
      */
@@ -29607,6 +31911,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-ipmis`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29616,8 +31921,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiConnection
      * @name GetIscsiConnections
      * @request POST:/get-iscsi-connections
+     * @secure
      * @response `200` `(IscsiConnection)[]` Ok
      * @response `400` `string`
      */
@@ -29626,6 +31933,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-connections`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29635,8 +31943,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Iscsi
      * @name GetIscsiConnectionsConnection
      * @request POST:/get-iscsi-connections-connection
+     * @secure
      * @response `200` `IscsiConnectionConnection` Ok
      * @response `400` `string`
      */
@@ -29645,6 +31955,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-connections-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29654,8 +31965,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLun
      * @name GetIscsiLuns
      * @request POST:/get-iscsi-luns
+     * @secure
      * @response `200` `(IscsiLun)[]` Ok
      * @response `400` `string`
      */
@@ -29664,6 +31977,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-luns`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29673,8 +31987,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLun
      * @name GetIscsiLunsConnection
      * @request POST:/get-iscsi-luns-connection
+     * @secure
      * @response `200` `IscsiLunConnection` Ok
      * @response `400` `string`
      */
@@ -29683,6 +31999,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-luns-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29692,8 +32009,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLunSnapshot
      * @name GetIscsiLunSnapshots
      * @request POST:/get-iscsi-lun-snapshots
+     * @secure
      * @response `200` `(IscsiLunSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -29702,6 +32021,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-lun-snapshots`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29711,8 +32031,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLunSnapshot
      * @name GetIscsiLunSnapshotsConnection
      * @request POST:/get-iscsi-lun-snapshots-connection
+     * @secure
      * @response `200` `IscsiLunSnapshotConnection` Ok
      * @response `400` `string`
      */
@@ -29721,6 +32043,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-lun-snapshots-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29730,8 +32053,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiTarget
      * @name GetIscsiTargets
      * @request POST:/get-iscsi-targets
+     * @secure
      * @response `200` `(IscsiTarget)[]` Ok
      * @response `400` `string`
      */
@@ -29740,6 +32065,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-targets`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29749,8 +32075,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiTarget
      * @name GetIscsiTargetsConnection
      * @request POST:/get-iscsi-targets-connection
+     * @secure
      * @response `200` `IscsiTargetConnection` Ok
      * @response `400` `string`
      */
@@ -29759,6 +32087,51 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-iscsi-targets-connection`,
         method: "POST",
         body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getIsolationPolicies = {
+    /**
+     * No description
+     *
+     * @tags IsolationPolicy
+     * @name GetIsolationPolicies
+     * @request POST:/get-isolation-policies
+     * @secure
+     * @response `200` `(IsolationPolicy)[]` Ok
+     * @response `400` `string`
+     */
+    getIsolationPolicies: (data: GetIsolationPoliciesRequestBody, params: RequestParams = {}) =>
+      this.request<IsolationPolicy[], string>({
+        path: `/get-isolation-policies`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getIsolationPoliciesConnection = {
+    /**
+     * No description
+     *
+     * @tags IsolationPolicy
+     * @name GetIsolationPoliciesConnection
+     * @request POST:/get-isolation-policies-connection
+     * @secure
+     * @response `200` `IsolationPolicyConnection` Ok
+     * @response `400` `string`
+     */
+    getIsolationPoliciesConnection: (data: GetIsolationPoliciesConnectionRequestBody, params: RequestParams = {}) =>
+      this.request<IsolationPolicyConnection, string>({
+        path: `/get-isolation-policies-connection`,
+        method: "POST",
+        body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29768,8 +32141,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Label
      * @name GetLabels
      * @request POST:/get-labels
+     * @secure
      * @response `200` `(Label)[]` Ok
      * @response `400` `string`
      */
@@ -29778,6 +32153,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-labels`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29787,8 +32163,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Label
      * @name GetLabelsConnection
      * @request POST:/get-labels-connection
+     * @secure
      * @response `200` `LabelConnection` Ok
      * @response `400` `string`
      */
@@ -29797,6 +32175,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-labels-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29806,8 +32185,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags License
      * @name GetLicenses
      * @request POST:/get-licenses
+     * @secure
      * @response `200` `(License)[]` Ok
      * @response `400` `string`
      */
@@ -29816,6 +32197,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-licenses`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29825,8 +32207,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags License
      * @name GetLicensesConnection
      * @request POST:/get-licenses-connection
+     * @secure
      * @response `200` `LicenseConnection` Ok
      * @response `400` `string`
      */
@@ -29835,6 +32219,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-licenses-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29844,8 +32229,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags LogCollection
      * @name GetLogCollections
      * @request POST:/get-log-collections
+     * @secure
      * @response `200` `(LogCollection)[]` Ok
      * @response `400` `string`
      */
@@ -29854,6 +32241,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-log-collections`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29863,8 +32251,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags LogCollection
      * @name GetLogCollectionsConnection
      * @request POST:/get-log-collections-connection
+     * @secure
      * @response `200` `LogCollectionConnection` Ok
      * @response `400` `string`
      */
@@ -29873,6 +32263,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-log-collections-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29882,8 +32273,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags MigrateTransmitter
      * @name GetMigrateTransmitters
      * @request POST:/get-migrate-transmitters
+     * @secure
      * @response `200` `(MigrateTransmitter)[]` Ok
      * @response `400` `string`
      */
@@ -29892,6 +32285,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-migrate-transmitters`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29901,8 +32295,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags MigrateTransmitter
      * @name GetMigrateTransmittersConnection
      * @request POST:/get-migrate-transmitters-connection
+     * @secure
      * @response `200` `MigrateTransmitterConnection` Ok
      * @response `400` `string`
      */
@@ -29911,6 +32307,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-migrate-transmitters-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29920,8 +32317,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NamespaceGroup
      * @name GetNamespaceGroups
      * @request POST:/get-namespace-groups
+     * @secure
      * @response `200` `(NamespaceGroup)[]` Ok
      * @response `400` `string`
      */
@@ -29930,6 +32329,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-namespace-groups`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29939,8 +32339,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NamespaceGroup
      * @name GetNamespaceGroupsConnection
      * @request POST:/get-namespace-groups-connection
+     * @secure
      * @response `200` `NamespaceGroupConnection` Ok
      * @response `400` `string`
      */
@@ -29949,6 +32351,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-namespace-groups-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29958,8 +32361,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NfsExport
      * @name GetNfsExports
      * @request POST:/get-nfs-exports
+     * @secure
      * @response `200` `(NfsExport)[]` Ok
      * @response `400` `string`
      */
@@ -29968,6 +32373,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nfs-exports`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29977,8 +32383,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NfsExport
      * @name GetNfsExportsConnection
      * @request POST:/get-nfs-exports-connection
+     * @secure
      * @response `200` `NfsExportConnection` Ok
      * @response `400` `string`
      */
@@ -29987,6 +32395,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nfs-exports-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -29996,8 +32405,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NfsInode
      * @name GetNfsInodes
      * @request POST:/get-nfs-inodes
+     * @secure
      * @response `200` `(NfsInode)[]` Ok
      * @response `400` `string`
      */
@@ -30006,6 +32417,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nfs-inodes`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30015,8 +32427,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NfsInode
      * @name GetNfsInodesConnection
      * @request POST:/get-nfs-inodes-connection
+     * @secure
      * @response `200` `NfsInodeConnection` Ok
      * @response `400` `string`
      */
@@ -30025,6 +32439,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nfs-inodes-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30034,8 +32449,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Nic
      * @name GetNics
      * @request POST:/get-nics
+     * @secure
      * @response `200` `(Nic)[]` Ok
      * @response `400` `string`
      */
@@ -30044,6 +32461,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nics`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30053,8 +32471,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Nic
      * @name GetNicsConnection
      * @request POST:/get-nics-connection
+     * @secure
      * @response `200` `NicConnection` Ok
      * @response `400` `string`
      */
@@ -30063,6 +32483,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nics-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30072,8 +32493,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NodeTopo
      * @name GetNodeTopoes
      * @request POST:/get-node-topoes
+     * @secure
      * @response `200` `(NodeTopo)[]` Ok
      * @response `400` `string`
      */
@@ -30082,6 +32505,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-node-topoes`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30091,8 +32515,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NodeTopo
      * @name GetNodeTopoesConnection
      * @request POST:/get-node-topoes-connection
+     * @secure
      * @response `200` `NodeTopoConnection` Ok
      * @response `400` `string`
      */
@@ -30101,6 +32527,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-node-topoes-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30110,8 +32537,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespace
      * @name GetNvmfNamespaces
      * @request POST:/get-nvmf-namespaces
+     * @secure
      * @response `200` `(NvmfNamespace)[]` Ok
      * @response `400` `string`
      */
@@ -30120,6 +32549,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nvmf-namespaces`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30129,8 +32559,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespace
      * @name GetNvmfNamespacesConnection
      * @request POST:/get-nvmf-namespaces-connection
+     * @secure
      * @response `200` `NvmfNamespaceConnection` Ok
      * @response `400` `string`
      */
@@ -30139,6 +32571,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nvmf-namespaces-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30148,8 +32581,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespaceSnapshot
      * @name GetNvmfNamespaceSnapshots
      * @request POST:/get-nvmf-namespace-snapshots
+     * @secure
      * @response `200` `(NvmfNamespaceSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -30158,6 +32593,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nvmf-namespace-snapshots`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30167,8 +32603,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespaceSnapshot
      * @name GetNvmfNamespaceSnapshotsConnection
      * @request POST:/get-nvmf-namespace-snapshots-connection
+     * @secure
      * @response `200` `NvmfNamespaceSnapshotConnection` Ok
      * @response `400` `string`
      */
@@ -30180,6 +32618,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nvmf-namespace-snapshots-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30189,8 +32628,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfSubsystem
      * @name GetNvmfSubsystems
      * @request POST:/get-nvmf-subsystems
+     * @secure
      * @response `200` `(NvmfSubsystem)[]` Ok
      * @response `400` `string`
      */
@@ -30199,6 +32640,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nvmf-subsystems`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30208,8 +32650,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfSubsystem
      * @name GetNvmfSubsystemsConnection
      * @request POST:/get-nvmf-subsystems-connection
+     * @secure
      * @response `200` `NvmfSubsystemConnection` Ok
      * @response `400` `string`
      */
@@ -30218,6 +32662,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-nvmf-subsystems-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30227,8 +32672,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Organization
      * @name GetOrganizations
      * @request POST:/get-organizations
+     * @secure
      * @response `200` `(Organization)[]` Ok
      * @response `400` `string`
      */
@@ -30237,6 +32684,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-organizations`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30246,8 +32694,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Organization
      * @name GetOrganizationsConnection
      * @request POST:/get-organizations-connection
+     * @secure
      * @response `200` `OrganizationConnection` Ok
      * @response `400` `string`
      */
@@ -30256,6 +32706,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-organizations-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30265,8 +32716,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags PmemDimm
      * @name GetPmemDimms
      * @request POST:/get-pmem-dimms
+     * @secure
      * @response `200` `(PmemDimm)[]` Ok
      * @response `400` `string`
      */
@@ -30275,6 +32728,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-pmem-dimms`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30284,8 +32738,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags PmemDimm
      * @name GetPmemDimmsConnection
      * @request POST:/get-pmem-dimms-connection
+     * @secure
      * @response `200` `PmemDimmConnection` Ok
      * @response `400` `string`
      */
@@ -30294,6 +32750,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-pmem-dimms-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30303,8 +32760,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags RackTopo
      * @name GetRackTopoes
      * @request POST:/get-rack-topoes
+     * @secure
      * @response `200` `(RackTopo)[]` Ok
      * @response `400` `string`
      */
@@ -30313,6 +32772,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-rack-topoes`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30322,8 +32782,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags RackTopo
      * @name GetRackTopoesConnection
      * @request POST:/get-rack-topoes-connection
+     * @secure
      * @response `200` `RackTopoConnection` Ok
      * @response `400` `string`
      */
@@ -30332,6 +32794,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-rack-topoes-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30341,8 +32804,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTask
      * @name GetReportTasks
      * @request POST:/get-report-tasks
+     * @secure
      * @response `200` `(ReportTask)[]` Ok
      * @response `400` `string`
      */
@@ -30351,6 +32816,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-report-tasks`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30360,8 +32826,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTask
      * @name GetReportTasksConnection
      * @request POST:/get-report-tasks-connection
+     * @secure
      * @response `200` `ReportTaskConnection` Ok
      * @response `400` `string`
      */
@@ -30370,6 +32838,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-report-tasks-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30379,8 +32848,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTemplate
      * @name GetReportTemplates
      * @request POST:/get-report-templates
+     * @secure
      * @response `200` `(ReportTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -30389,6 +32860,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-report-templates`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30398,8 +32870,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTemplate
      * @name GetReportTemplatesConnection
      * @request POST:/get-report-templates-connection
+     * @secure
      * @response `200` `ReportTemplateConnection` Ok
      * @response `400` `string`
      */
@@ -30408,6 +32882,51 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-report-templates-connection`,
         method: "POST",
         body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getSecurityPolicies = {
+    /**
+     * No description
+     *
+     * @tags SecurityPolicy
+     * @name GetSecurityPolicies
+     * @request POST:/get-security-policies
+     * @secure
+     * @response `200` `(SecurityPolicy)[]` Ok
+     * @response `400` `string`
+     */
+    getSecurityPolicies: (data: GetSecurityPoliciesRequestBody, params: RequestParams = {}) =>
+      this.request<SecurityPolicy[], string>({
+        path: `/get-security-policies`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getSecurityPoliciesConnection = {
+    /**
+     * No description
+     *
+     * @tags SecurityPolicy
+     * @name GetSecurityPoliciesConnection
+     * @request POST:/get-security-policies-connection
+     * @secure
+     * @response `200` `SecurityPolicyConnection` Ok
+     * @response `400` `string`
+     */
+    getSecurityPoliciesConnection: (data: GetSecurityPoliciesConnectionRequestBody, params: RequestParams = {}) =>
+      this.request<SecurityPolicyConnection, string>({
+        path: `/get-security-policies-connection`,
+        method: "POST",
+        body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30417,8 +32936,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotGroup
      * @name GetSnapshotGroups
      * @request POST:/get-snapshot-groups
+     * @secure
      * @response `200` `(SnapshotGroup)[]` Ok
      * @response `400` `string`
      */
@@ -30427,6 +32948,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snapshot-groups`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30436,8 +32958,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotGroup
      * @name GetSnapshotGroupsConnection
      * @request POST:/get-snapshot-groups-connection
+     * @secure
      * @response `200` `SnapshotGroupConnection` Ok
      * @response `400` `string`
      */
@@ -30446,6 +32970,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snapshot-groups-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30455,8 +32980,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name GetSnapshotPlans
      * @request POST:/get-snapshot-plans
+     * @secure
      * @response `200` `(SnapshotPlan)[]` Ok
      * @response `400` `string`
      */
@@ -30465,6 +32992,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snapshot-plans`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30474,8 +33002,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name GetSnapshotPlansConnection
      * @request POST:/get-snapshot-plans-connection
+     * @secure
      * @response `200` `SnapshotPlanConnection` Ok
      * @response `400` `string`
      */
@@ -30484,6 +33014,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snapshot-plans-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30493,8 +33024,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlanTask
      * @name GetSnapshotPlanTasks
      * @request POST:/get-snapshot-plan-tasks
+     * @secure
      * @response `200` `(SnapshotPlanTask)[]` Ok
      * @response `400` `string`
      */
@@ -30503,6 +33036,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snapshot-plan-tasks`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30512,8 +33046,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlanTask
      * @name GetSnapshotPlanTasksConnection
      * @request POST:/get-snapshot-plan-tasks-connection
+     * @secure
      * @response `200` `SnapshotPlanTaskConnection` Ok
      * @response `400` `string`
      */
@@ -30522,6 +33058,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snapshot-plan-tasks-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30531,8 +33068,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTransport
      * @name GetSnmpTransports
      * @request POST:/get-snmp-transports
+     * @secure
      * @response `200` `(SnmpTransport)[]` Ok
      * @response `400` `string`
      */
@@ -30541,6 +33080,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snmp-transports`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30550,8 +33090,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTransport
      * @name GetSnmpTransportsConnection
      * @request POST:/get-snmp-transports-connection
+     * @secure
      * @response `200` `SnmpTransportConnection` Ok
      * @response `400` `string`
      */
@@ -30560,6 +33102,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snmp-transports-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30569,8 +33112,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTrapReceiver
      * @name GetSnmpTrapReceivers
      * @request POST:/get-snmp-trap-receivers
+     * @secure
      * @response `200` `(SnmpTrapReceiver)[]` Ok
      * @response `400` `string`
      */
@@ -30579,6 +33124,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snmp-trap-receivers`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30588,8 +33134,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTrapReceiver
      * @name GetSnmpTrapReceiversConnection
      * @request POST:/get-snmp-trap-receivers-connection
+     * @secure
      * @response `200` `SnmpTrapReceiverConnection` Ok
      * @response `400` `string`
      */
@@ -30598,6 +33146,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-snmp-trap-receivers-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30607,8 +33156,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags StoragePolicyConector
      * @name GetStoragePoliciesConnector
      * @request POST:/get-storage-policies-connector
+     * @secure
      * @response `200` `(StoragePolicyConector)[]` Ok
      * @response `400` `string`
      */
@@ -30617,6 +33168,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-storage-policies-connector`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30626,8 +33178,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SvtImage
      * @name GetSvtImages
      * @request POST:/get-svt-images
+     * @secure
      * @response `200` `(SvtImage)[]` Ok
      * @response `400` `string`
      */
@@ -30636,6 +33190,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-svt-images`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30645,8 +33200,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SvtImage
      * @name GetSvtImagesConnection
      * @request POST:/get-svt-images-connection
+     * @secure
      * @response `200` `SvtImageConnection` Ok
      * @response `400` `string`
      */
@@ -30655,6 +33212,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-svt-images-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30664,8 +33222,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SystemAuditLog
      * @name GetSystemAuditLogs
      * @request POST:/get-system-audit-logs
+     * @secure
      * @response `200` `(SystemAuditLog)[]` Ok
      * @response `400` `string`
      */
@@ -30674,6 +33234,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-system-audit-logs`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30683,8 +33244,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SystemAuditLog
      * @name GetSystemAuditLogsConnection
      * @request POST:/get-system-audit-logs-connection
+     * @secure
      * @response `200` `SystemAuditLogConnection` Ok
      * @response `400` `string`
      */
@@ -30693,6 +33256,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-system-audit-logs-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30702,8 +33266,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Task
      * @name GetTasks
      * @request POST:/get-tasks
+     * @secure
      * @response `200` `(Task)[]` Ok
      * @response `400` `string`
      */
@@ -30712,6 +33278,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-tasks`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30721,8 +33288,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Task
      * @name GetTasksConnection
      * @request POST:/get-tasks-connection
+     * @secure
      * @response `200` `TaskConnection` Ok
      * @response `400` `string`
      */
@@ -30731,6 +33300,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-tasks-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30740,8 +33310,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UploadTask
      * @name GetUploadTasks
      * @request POST:/get-upload-tasks
+     * @secure
      * @response `200` `(UploadTask)[]` Ok
      * @response `400` `string`
      */
@@ -30750,6 +33322,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-upload-tasks`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30759,8 +33332,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UploadTask
      * @name GetUploadTasksConnection
      * @request POST:/get-upload-tasks-connection
+     * @secure
      * @response `200` `UploadTaskConnection` Ok
      * @response `400` `string`
      */
@@ -30769,6 +33344,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-upload-tasks-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30778,8 +33354,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UsbDevice
      * @name GetUsbDevices
      * @request POST:/get-usb-devices
+     * @secure
      * @response `200` `(UsbDevice)[]` Ok
      * @response `400` `string`
      */
@@ -30788,6 +33366,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-usb-devices`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30797,8 +33376,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UsbDevice
      * @name GetUsbDevicesConnection
      * @request POST:/get-usb-devices-connection
+     * @secure
      * @response `200` `UsbDeviceConnection` Ok
      * @response `400` `string`
      */
@@ -30807,6 +33388,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-usb-devices-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30816,8 +33398,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UserAuditLog
      * @name GetUserAuditLogs
      * @request POST:/get-user-audit-logs
+     * @secure
      * @response `200` `(UserAuditLog)[]` Ok
      * @response `400` `string`
      */
@@ -30826,6 +33410,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-user-audit-logs`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30835,8 +33420,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UserAuditLog
      * @name GetUserAuditLogsConnection
      * @request POST:/get-user-audit-logs-connection
+     * @secure
      * @response `200` `UserAuditLogConnection` Ok
      * @response `400` `string`
      */
@@ -30845,6 +33432,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-user-audit-logs-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30854,8 +33442,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UserRoleNext
      * @name GetUserRoleNexts
      * @request POST:/get-user-role-nexts
+     * @secure
      * @response `200` `(UserRoleNext)[]` Ok
      * @response `400` `string`
      */
@@ -30864,6 +33454,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-user-role-nexts`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30873,8 +33464,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UserRoleNext
      * @name GetUserRoleNextsConnection
      * @request POST:/get-user-role-nexts-connection
+     * @secure
      * @response `200` `UserRoleNextConnection` Ok
      * @response `400` `string`
      */
@@ -30883,6 +33476,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-user-role-nexts-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30892,8 +33486,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags User
      * @name GetUsers
      * @request POST:/get-users
+     * @secure
      * @response `200` `(User)[]` Ok
      * @response `400` `string`
      */
@@ -30902,6 +33498,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-users`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30911,8 +33508,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags User
      * @name GetUsersConnection
      * @request POST:/get-users-connection
+     * @secure
      * @response `200` `UserConnection` Ok
      * @response `400` `string`
      */
@@ -30921,6 +33520,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-users-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30930,8 +33530,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VcenterAccount
      * @name GetVcenterAccounts
      * @request POST:/get-vcenter-accounts
+     * @secure
      * @response `200` `(VcenterAccount)[]` Ok
      * @response `400` `string`
      */
@@ -30940,6 +33542,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vcenter-accounts`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30949,8 +33552,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VcenterAccount
      * @name GetVcenterAccountsConnection
      * @request POST:/get-vcenter-accounts-connection
+     * @secure
      * @response `200` `VcenterAccountConnection` Ok
      * @response `400` `string`
      */
@@ -30959,6 +33564,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vcenter-accounts-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30968,8 +33574,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vds
      * @name GetVdses
      * @request POST:/get-vdses
+     * @secure
      * @response `200` `(Vds)[]` Ok
      * @response `400` `string`
      */
@@ -30978,6 +33586,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vdses`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -30987,8 +33596,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vds
      * @name GetVdsesConnection
      * @request POST:/get-vdses-connection
+     * @secure
      * @response `200` `VdsConnection` Ok
      * @response `400` `string`
      */
@@ -30997,6 +33608,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vdses-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31006,8 +33618,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags View
      * @name GetViews
      * @request POST:/get-views
+     * @secure
      * @response `200` `(View)[]` Ok
      * @response `400` `string`
      */
@@ -31016,6 +33630,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-views`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31025,8 +33640,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags View
      * @name GetViewsConnection
      * @request POST:/get-views-connection
+     * @secure
      * @response `200` `ViewConnection` Ok
      * @response `400` `string`
      */
@@ -31035,6 +33652,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-views-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31044,8 +33662,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vlan
      * @name GetVlans
      * @request POST:/get-vlans
+     * @secure
      * @response `200` `(Vlan)[]` Ok
      * @response `400` `string`
      */
@@ -31054,6 +33674,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vlans`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31063,8 +33684,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vlan
      * @name GetVlansConnection
      * @request POST:/get-vlans-connection
+     * @secure
      * @response `200` `VlanConnection` Ok
      * @response `400` `string`
      */
@@ -31073,6 +33696,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vlans-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31082,8 +33706,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmDisk
      * @name GetVmDisks
      * @request POST:/get-vm-disks
+     * @secure
      * @response `200` `(VmDisk)[]` Ok
      * @response `400` `string`
      */
@@ -31092,6 +33718,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-disks`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31101,8 +33728,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmDisk
      * @name GetVmDisksConnection
      * @request POST:/get-vm-disks-connection
+     * @secure
      * @response `200` `VmDiskConnection` Ok
      * @response `400` `string`
      */
@@ -31111,6 +33740,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-disks-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31120,8 +33750,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmEntityFilterResult
      * @name GetVmEntityFilterResults
      * @request POST:/get-vm-entity-filter-results
+     * @secure
      * @response `200` `(VmEntityFilterResult)[]` Ok
      * @response `400` `string`
      */
@@ -31130,6 +33762,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-entity-filter-results`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31139,8 +33772,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmEntityFilterResult
      * @name GetVmEntityFilterResultsConnection
      * @request POST:/get-vm-entity-filter-results-connection
+     * @secure
      * @response `200` `VmEntityFilterResultConnection` Ok
      * @response `400` `string`
      */
@@ -31152,6 +33787,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-entity-filter-results-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31161,8 +33797,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmFolder
      * @name GetVmFolders
      * @request POST:/get-vm-folders
+     * @secure
      * @response `200` `(VmFolder)[]` Ok
      * @response `400` `string`
      */
@@ -31171,6 +33809,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-folders`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31180,8 +33819,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmFolder
      * @name GetVmFoldersConnection
      * @request POST:/get-vm-folders-connection
+     * @secure
      * @response `200` `VmFolderConnection` Ok
      * @response `400` `string`
      */
@@ -31190,6 +33831,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-folders-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31199,8 +33841,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmNic
      * @name GetVmNics
      * @request POST:/get-vm-nics
+     * @secure
      * @response `200` `(VmNic)[]` Ok
      * @response `400` `string`
      */
@@ -31209,6 +33853,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-nics`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31218,8 +33863,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmNic
      * @name GetVmNicsConnection
      * @request POST:/get-vm-nics-connection
+     * @secure
      * @response `200` `VmNicConnection` Ok
      * @response `400` `string`
      */
@@ -31228,6 +33875,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-nics-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31237,8 +33885,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmPlacementGroup
      * @name GetVmPlacementGroups
      * @request POST:/get-vm-placement-groups
+     * @secure
      * @response `200` `(VmPlacementGroup)[]` Ok
      * @response `400` `string`
      */
@@ -31247,6 +33897,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-placement-groups`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31256,8 +33907,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmPlacementGroup
      * @name GetVmPlacementGroupsConnection
      * @request POST:/get-vm-placement-groups-connection
+     * @secure
      * @response `200` `VmPlacementGroupConnection` Ok
      * @response `400` `string`
      */
@@ -31266,6 +33919,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-placement-groups-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31275,8 +33929,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name GetVms
      * @request POST:/get-vms
+     * @secure
      * @response `200` `(Vm)[]` Ok
      * @response `400` `string`
      */
@@ -31285,6 +33941,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vms`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31294,8 +33951,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name GetVmsConnection
      * @request POST:/get-vms-connection
+     * @secure
      * @response `200` `VmConnection` Ok
      * @response `400` `string`
      */
@@ -31304,6 +33963,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vms-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31313,8 +33973,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmSnapshot
      * @name GetVmSnapshots
      * @request POST:/get-vm-snapshots
+     * @secure
      * @response `200` `(VmSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -31323,6 +33985,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-snapshots`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31332,8 +33995,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmSnapshot
      * @name GetVmSnapshotsConnection
      * @request POST:/get-vm-snapshots-connection
+     * @secure
      * @response `200` `VmSnapshotConnection` Ok
      * @response `400` `string`
      */
@@ -31342,6 +34007,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-snapshots-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31351,8 +34017,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmTemplate
      * @name GetVmTemplates
      * @request POST:/get-vm-templates
+     * @secure
      * @response `200` `(VmTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -31361,6 +34029,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-templates`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31370,8 +34039,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmTemplate
      * @name GetVmTemplatesConnection
      * @request POST:/get-vm-templates-connection
+     * @secure
      * @response `200` `VmTemplateConnection` Ok
      * @response `400` `string`
      */
@@ -31380,6 +34051,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-templates-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31389,8 +34061,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmVolume
      * @name GetVmVolumes
      * @request POST:/get-vm-volumes
+     * @secure
      * @response `200` `(VmVolume)[]` Ok
      * @response `400` `string`
      */
@@ -31399,6 +34073,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-volumes`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31408,8 +34083,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmVolume
      * @name GetVmVolumesConnection
      * @request POST:/get-vm-volumes-connection
+     * @secure
      * @response `200` `VmVolumeConnection` Ok
      * @response `400` `string`
      */
@@ -31418,6 +34095,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vm-volumes-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31427,8 +34105,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VsphereEsxiAccount
      * @name GetVsphereEsxiAccounts
      * @request POST:/get-vsphere-esxi-accounts
+     * @secure
      * @response `200` `(VsphereEsxiAccount)[]` Ok
      * @response `400` `string`
      */
@@ -31437,6 +34117,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vsphere-esxi-accounts`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31446,8 +34127,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VsphereEsxiAccount
      * @name GetVsphereEsxiAccountsConnection
      * @request POST:/get-vsphere-esxi-accounts-connection
+     * @secure
      * @response `200` `VsphereEsxiAccountConnection` Ok
      * @response `400` `string`
      */
@@ -31456,6 +34139,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-vsphere-esxi-accounts-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31465,8 +34149,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Witness
      * @name GetWitnesses
      * @request POST:/get-witnesses
+     * @secure
      * @response `200` `(Witness)[]` Ok
      * @response `400` `string`
      */
@@ -31475,6 +34161,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-witnesses`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31484,8 +34171,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Witness
      * @name GetWitnessesConnection
      * @request POST:/get-witnesses-connection
+     * @secure
      * @response `200` `WitnessConnection` Ok
      * @response `400` `string`
      */
@@ -31494,6 +34183,29 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-witnesses-connection`,
         method: "POST",
         body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  getWitnessServices = {
+    /**
+     * No description
+     *
+     * @tags WitnessService
+     * @name GetWitnessServices
+     * @request POST:/get-witness-services
+     * @secure
+     * @response `200` `(WitnessService)[]` Ok
+     * @response `400` `string`
+     */
+    getWitnessServices: (data: GetWitnessServicesRequestBody, params: RequestParams = {}) =>
+      this.request<WitnessService[], string>({
+        path: `/get-witness-services`,
+        method: "POST",
+        body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31503,8 +34215,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Zone
      * @name GetZones
      * @request POST:/get-zones
+     * @secure
      * @response `200` `(Zone)[]` Ok
      * @response `400` `string`
      */
@@ -31513,6 +34227,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-zones`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31522,8 +34237,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Zone
      * @name GetZonesConnection
      * @request POST:/get-zones-connection
+     * @secure
      * @response `200` `ZoneConnection` Ok
      * @response `400` `string`
      */
@@ -31532,6 +34249,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-zones-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31541,8 +34259,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ZoneTopo
      * @name GetZoneTopoes
      * @request POST:/get-zone-topoes
+     * @secure
      * @response `200` `(ZoneTopo)[]` Ok
      * @response `400` `string`
      */
@@ -31551,6 +34271,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-zone-topoes`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31560,8 +34281,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ZoneTopo
      * @name GetZoneTopoesConnection
      * @request POST:/get-zone-topoes-connection
+     * @secure
      * @response `200` `ZoneTopoConnection` Ok
      * @response `400` `string`
      */
@@ -31570,6 +34293,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/get-zone-topoes-connection`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31579,8 +34303,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalAlertRule
      * @name UpdateGlobalAlertRule
      * @request POST:/update-global-alert-rule
+     * @secure
      * @response `200` `(WithTaskGlobalAlertRule)[]` Ok
      * @response `400` `string`
      */
@@ -31589,6 +34315,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-global-alert-rule`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31598,8 +34325,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalAlertRule
      * @name UpdateCustomizeAlertRule
      * @request POST:/update-customize-alert-rule
+     * @secure
      * @response `200` `(WithTaskGlobalAlertRule)[]` Ok
      * @response `400` `string`
      */
@@ -31608,6 +34337,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-customize-alert-rule`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31617,8 +34347,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Alert
      * @name ResolveAlert
      * @request POST:/resolve-alert
+     * @secure
      * @response `200` `(WithTaskAlert)[]` Ok
      * @response `400` `string`
      */
@@ -31627,6 +34359,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/resolve-alert`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31636,8 +34369,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags BrickTopo
      * @name CreateBrickTopo
      * @request POST:/create-brick-topo
+     * @secure
      * @response `200` `(WithTaskBrickTopo)[]` Ok
      * @response `400` `string`
      */
@@ -31646,6 +34381,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-brick-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31655,8 +34391,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags BrickTopo
      * @name UpdateBrickTopo
      * @request POST:/update-brick-topo
+     * @secure
      * @response `200` `(WithTaskBrickTopo)[]` Ok
      * @response `400` `string`
      */
@@ -31665,6 +34403,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-brick-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31674,8 +34413,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags BrickTopo
      * @name MoveBrickTopo
      * @request POST:/move-brick-topo
+     * @secure
      * @response `200` `(WithTaskBrickTopo)[]` Ok
      * @response `400` `string`
      */
@@ -31684,6 +34425,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/move-brick-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31693,8 +34435,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags BrickTopo
      * @name DeleteBrickTopo
      * @request POST:/delete-brick-topo
+     * @secure
      * @response `200` `(WithTaskDeleteBrickTopo)[]` Ok
      * @response `400` `string`
      */
@@ -31703,6 +34447,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-brick-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31712,8 +34457,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Cluster
      * @name ConnectCluster
      * @request POST:/connect-cluster
+     * @secure
      * @response `200` `(WithTaskCluster)[]` Ok
      * @response `400` `string`
      */
@@ -31722,6 +34469,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/connect-cluster`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31731,8 +34479,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Cluster
      * @name UpdateCluster
      * @request POST:/update-cluster
+     * @secure
      * @response `200` `(WithTaskCluster)[]` Ok
      * @response `400` `string`
      */
@@ -31741,6 +34491,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-cluster`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31750,8 +34501,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Cluster
      * @name UpdateClusterLicense
      * @request POST:/update-cluster-license
+     * @secure
      * @response `200` `(WithTaskCluster)[]` Ok
      * @response `400` `string`
      */
@@ -31760,6 +34513,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-cluster-license`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31769,8 +34523,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Cluster
      * @name DeleteCluster
      * @request POST:/delete-cluster
+     * @secure
      * @response `200` `(WithTaskDeleteCluster)[]` Ok
      * @response `400` `string`
      */
@@ -31779,6 +34535,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-cluster`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31788,8 +34545,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroupSnapshot
      * @name CreateConsistencyGroupSnapshot
      * @request POST:/create-consistency-snapshot-group
+     * @secure
      * @response `200` `(WithTaskConsistencyGroupSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -31798,6 +34557,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-consistency-snapshot-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31807,8 +34567,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroupSnapshot
      * @name UpdateConsistencyGroupSnapshot
      * @request POST:/rollback-consistency-snapshot-group
+     * @secure
      * @response `200` `(WithTaskConsistencyGroupSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -31817,6 +34579,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/rollback-consistency-snapshot-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31826,8 +34589,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroupSnapshot
      * @name DeleteConsistencyGroupSnapshot
      * @request POST:/delete-consistency-snapshot-group
+     * @secure
      * @response `200` `(WithTaskDeleteConsistencyGroupSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -31836,6 +34601,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-consistency-snapshot-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31845,8 +34611,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroup
      * @name CreateConsistencyGroup
      * @request POST:/create-consistency-group
+     * @secure
      * @response `200` `(WithTaskConsistencyGroup)[]` Ok
      * @response `400` `string`
      */
@@ -31855,6 +34623,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-consistency-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31864,8 +34633,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroup
      * @name UpdateConsistencyGroup
      * @request POST:/update-consistency-group
+     * @secure
      * @response `200` `(WithTaskConsistencyGroup)[]` Ok
      * @response `400` `string`
      */
@@ -31874,6 +34645,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-consistency-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31883,8 +34655,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ConsistencyGroup
      * @name DeleteConsistencyGroup
      * @request POST:/delete-consistency-group
+     * @secure
      * @response `200` `(WithTaskDeleteConsistencyGroup)[]` Ok
      * @response `400` `string`
      */
@@ -31893,6 +34667,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-consistency-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31902,8 +34677,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Datacenter
      * @name CreateDatacenter
      * @request POST:/create-datacenter
+     * @secure
      * @response `200` `(WithTaskDatacenter)[]` Ok
      * @response `400` `string`
      */
@@ -31912,6 +34689,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-datacenter`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31921,8 +34699,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Datacenter
      * @name UpdateDatacenter
      * @request POST:/update-datacenter
+     * @secure
      * @response `200` `(WithTaskDatacenter)[]` Ok
      * @response `400` `string`
      */
@@ -31931,6 +34711,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-datacenter`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31940,8 +34721,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Datacenter
      * @name DeleteDatacenter
      * @request POST:/delete-datacenter
+     * @secure
      * @response `200` `(WithTaskDeleteDatacenter)[]` Ok
      * @response `400` `string`
      */
@@ -31950,6 +34733,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-datacenter`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31959,8 +34743,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Disk
      * @name MountDisk
      * @request POST:/mount-disk
+     * @secure
      * @response `200` `(WithTaskDisk)[]` Ok
      * @response `400` `string`
      */
@@ -31969,6 +34755,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/mount-disk`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31978,8 +34765,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Disk
      * @name UnmountDisk
      * @request POST:/unmount-disk
+     * @secure
      * @response `200` `(WithTaskDisk)[]` Ok
      * @response `400` `string`
      */
@@ -31988,6 +34777,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/unmount-disk`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -31997,8 +34787,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags EntityFilter
      * @name CreateEntityFilter
      * @request POST:/create-entity-filter
+     * @secure
      * @response `200` `(WithTaskEntityFilter)[]` Ok
      * @response `400` `string`
      */
@@ -32007,6 +34799,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-entity-filter`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32016,8 +34809,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags EntityFilter
      * @name UpdateEntityFilter
      * @request POST:/update-entity-filter
+     * @secure
      * @response `200` `(WithTaskEntityFilter)[]` Ok
      * @response `400` `string`
      */
@@ -32026,6 +34821,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-entity-filter`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32035,8 +34831,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags EntityFilter
      * @name DeleteEntityFilter
      * @request POST:/delete-entity-filter
+     * @secure
      * @response `200` `(WithTaskDeleteEntityFilter)[]` Ok
      * @response `400` `string`
      */
@@ -32045,6 +34843,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-entity-filter`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32054,8 +34853,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Graph
      * @name CreateGraph
      * @request POST:/create-graph
+     * @secure
      * @response `200` `(WithTaskGraph)[]` Ok
      * @response `400` `string`
      */
@@ -32064,6 +34865,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-graph`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32073,8 +34875,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Graph
      * @name UpdateGraph
      * @request POST:/update-graph
+     * @secure
      * @response `200` `(WithTaskGraph)[]` Ok
      * @response `400` `string`
      */
@@ -32083,6 +34887,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-graph`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32092,8 +34897,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Graph
      * @name DeleteGraph
      * @request POST:/delete-graph
+     * @secure
      * @response `200` `(WithTaskDeleteGraph)[]` Ok
      * @response `400` `string`
      */
@@ -32102,6 +34909,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-graph`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32111,8 +34919,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Host
      * @name CreateHost
      * @request POST:/create-host
+     * @secure
      * @response `200` `(WithTaskBatchHosts)[]` Ok
      * @response `400` `string`
      */
@@ -32121,6 +34931,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-host`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32130,8 +34941,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Host
      * @name TriggerDiskBlink
      * @request POST:/trigger-disk-blink
+     * @secure
      * @response `200` `(WithTaskHost)[]` Ok
      * @response `400` `string`
      */
@@ -32140,6 +34953,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/trigger-disk-blink`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32149,8 +34963,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Host
      * @name UpdateHost
      * @request POST:/update-host
+     * @secure
      * @response `200` `(WithTaskHost)[]` Ok
      * @response `400` `string`
      */
@@ -32159,6 +34975,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-host`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32168,8 +34985,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLunSnapshot
      * @name CreateIscsiLunSnapshot
      * @request POST:/create-iscsi-lun-snapshot
+     * @secure
      * @response `200` `(WithTaskIscsiLunSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -32178,6 +34997,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-iscsi-lun-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32187,8 +35007,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLunSnapshot
      * @name DeleteIscsiLunSnapshot
      * @request POST:/delete-iscsi-lun-snapshot
+     * @secure
      * @response `200` `(WithTaskDeleteIscsiLunSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -32197,6 +35019,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-iscsi-lun-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32206,8 +35029,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLun
      * @name CreateIscsiLun
      * @request POST:/create-iscsi-lun
+     * @secure
      * @response `200` `(WithTaskIscsiLun)[]` Ok
      * @response `400` `string`
      */
@@ -32216,6 +35041,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-iscsi-lun`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32225,8 +35051,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLun
      * @name UpdateIscsiLun
      * @request POST:/update-iscsi-lun
+     * @secure
      * @response `200` `(WithTaskIscsiLun)[]` Ok
      * @response `400` `string`
      */
@@ -32235,6 +35063,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-iscsi-lun`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32244,8 +35073,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLun
      * @name DeleteIscsiLun
      * @request POST:/delete-iscsi-lun
+     * @secure
      * @response `200` `(WithTaskDeleteIscsiLun)[]` Ok
      * @response `400` `string`
      */
@@ -32254,6 +35085,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-iscsi-lun`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32263,8 +35095,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLun
      * @name CloneIscsiLunFromSnapshot
      * @request POST:/clone-iscsi-lun-from-snapshot
+     * @secure
      * @response `200` `(WithTaskIscsiLun)[]` Ok
      * @response `400` `string`
      */
@@ -32273,6 +35107,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/clone-iscsi-lun-from-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32282,8 +35117,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiLun
      * @name RollbackIscsiLunFromSnapshot
      * @request POST:/rollback-iscsi-lun-from-snapshot
+     * @secure
      * @response `200` `(WithTaskIscsiLun)[]` Ok
      * @response `400` `string`
      */
@@ -32292,6 +35129,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/rollback-iscsi-lun-from-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32301,8 +35139,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiTarget
      * @name CreateIscsiTarget
      * @request POST:/create-iscsi-target
+     * @secure
      * @response `200` `(WithTaskIscsiTarget)[]` Ok
      * @response `400` `string`
      */
@@ -32311,6 +35151,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-iscsi-target`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32320,8 +35161,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiTarget
      * @name UpdateIscsiTarget
      * @request POST:/update-iscsi-target
+     * @secure
      * @response `200` `(WithTaskIscsiTarget)[]` Ok
      * @response `400` `string`
      */
@@ -32330,6 +35173,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-iscsi-target`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32339,8 +35183,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags IscsiTarget
      * @name DeleteIscsiTarget
      * @request POST:/delete-iscsi-target
+     * @secure
      * @response `200` `(WithTaskDeleteIscsiTarget)[]` Ok
      * @response `400` `string`
      */
@@ -32349,6 +35195,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-iscsi-target`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32358,8 +35205,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfImage
      * @name CreateElfImage
      * @request POST:/upload-elf-image
+     * @secure
      * @response `200` `(UploadTask)[]` Ok
      * @response `400` `string`
      */
@@ -32371,6 +35220,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/upload-elf-image`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.FormData,
         format: "json",
         ...params,
@@ -32380,8 +35230,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfImage
      * @name UpdateElfImage
      * @request POST:/update-elf-image
+     * @secure
      * @response `200` `(WithTaskElfImage)[]` Ok
      * @response `400` `string`
      */
@@ -32390,6 +35242,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-elf-image`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32399,8 +35252,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ElfImage
      * @name DeleteElfImage
      * @request POST:/delete-elf-image
+     * @secure
      * @response `200` `(WithTaskDeleteElfImage)[]` Ok
      * @response `400` `string`
      */
@@ -32409,6 +35264,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-elf-image`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32418,8 +35274,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Label
      * @name CreateLabel
      * @request POST:/create-label
+     * @secure
      * @response `200` `(WithTaskLabel)[]` Ok
      * @response `400` `string`
      */
@@ -32428,6 +35286,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-label`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32437,8 +35296,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Label
      * @name UpdateLabel
      * @request POST:/update-label
+     * @secure
      * @response `200` `(WithTaskLabel)[]` Ok
      * @response `400` `string`
      */
@@ -32447,6 +35308,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-label`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32456,8 +35318,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Label
      * @name AddLabelsToResources
      * @request POST:/add-labels-to-resources
+     * @secure
      * @response `200` `(WithTaskLabel)[]` Ok
      * @response `400` `string`
      */
@@ -32466,6 +35330,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/add-labels-to-resources`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32475,8 +35340,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Label
      * @name RemoveLabelsFromResources
      * @request POST:/remove-labels-from-resources
+     * @secure
      * @response `200` `(WithTaskLabel)[]` Ok
      * @response `400` `string`
      */
@@ -32485,6 +35352,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/remove-labels-from-resources`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32494,8 +35362,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Label
      * @name DeleteLabel
      * @request POST:/delete-label
+     * @secure
      * @response `200` `(WithTaskDeleteLabel)[]` Ok
      * @response `400` `string`
      */
@@ -32504,6 +35374,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-label`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32513,8 +35384,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags License
      * @name UpdateDeploy
      * @request POST:/update-license
+     * @secure
      * @response `200` `WithTaskLicense` Ok
      * @response `400` `string`
      */
@@ -32523,6 +35396,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-license`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32532,8 +35406,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NamespaceGroup
      * @name CreateNamespaceGroup
      * @request POST:/create-namespace-group
+     * @secure
      * @response `200` `(WithTaskNamespaceGroup)[]` Ok
      * @response `400` `string`
      */
@@ -32542,6 +35418,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-namespace-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32551,8 +35428,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NamespaceGroup
      * @name UpdateNamespaceGroup
      * @request POST:/update-namespace-group
+     * @secure
      * @response `200` `(WithTaskNamespaceGroup)[]` Ok
      * @response `400` `string`
      */
@@ -32561,6 +35440,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-namespace-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32570,8 +35450,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NamespaceGroup
      * @name DeleteNamespaceGroup
      * @request POST:/delete-namespace-group
+     * @secure
      * @response `200` `(WithTaskDeleteNamespaceGroup)[]` Ok
      * @response `400` `string`
      */
@@ -32580,6 +35462,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-namespace-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32589,8 +35472,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NfsExport
      * @name CreateNfsExport
      * @request POST:/create-nfs-export
+     * @secure
      * @response `200` `(WithTaskNfsExport)[]` Ok
      * @response `400` `string`
      */
@@ -32599,6 +35484,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-nfs-export`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32608,8 +35494,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NfsExport
      * @name UpdateNfsExport
      * @request POST:/update-nfs-export
+     * @secure
      * @response `200` `(WithTaskNfsExport)[]` Ok
      * @response `400` `string`
      */
@@ -32618,6 +35506,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-nfs-export`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32627,8 +35516,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NfsExport
      * @name DeleteNfsExport
      * @request POST:/delete-nfs-export
+     * @secure
      * @response `200` `(WithTaskDeleteNfsExport)[]` Ok
      * @response `400` `string`
      */
@@ -32637,6 +35528,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-nfs-export`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32646,8 +35538,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Nic
      * @name UpdateNic
      * @request POST:/update-nic
+     * @secure
      * @response `200` `(WithTaskNic)[]` Ok
      * @response `400` `string`
      */
@@ -32656,6 +35550,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-nic`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32665,8 +35560,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NodeTopo
      * @name UpdateNodeTopo
      * @request POST:/move-node-topo
+     * @secure
      * @response `200` `(WithTaskNodeTopo)[]` Ok
      * @response `400` `string`
      */
@@ -32675,6 +35572,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/move-node-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32684,8 +35582,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespaceSnapshot
      * @name CreateNvmfNamespaceSnapshot
      * @request POST:/create-nvmf-namespace-snapshot
+     * @secure
      * @response `200` `(WithTaskNvmfNamespaceSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -32694,6 +35594,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-nvmf-namespace-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32703,8 +35604,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespaceSnapshot
      * @name DeleteNvmfNamespaceSnapshot
      * @request POST:/delete-nvmf-namespace-snapshot
+     * @secure
      * @response `200` `(WithTaskDeleteNvmfNamespaceSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -32713,6 +35616,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-nvmf-namespace-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32722,8 +35626,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespace
      * @name CreateNvmfNamespace
      * @request POST:/create-nvmf-namespace
+     * @secure
      * @response `200` `(WithTaskNvmfNamespace)[]` Ok
      * @response `400` `string`
      */
@@ -32732,6 +35638,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-nvmf-namespace`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32741,8 +35648,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespace
      * @name UpdateNvmfNamespace
      * @request POST:/update-nvmf-namespace
+     * @secure
      * @response `200` `(WithTaskNvmfNamespace)[]` Ok
      * @response `400` `string`
      */
@@ -32751,6 +35660,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-nvmf-namespace`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32760,8 +35670,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespace
      * @name DeleteNvmfNamespace
      * @request POST:/delete-nvmf-namespace
+     * @secure
      * @response `200` `(WithTaskDeleteNvmfNamespace)[]` Ok
      * @response `400` `string`
      */
@@ -32770,6 +35682,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-nvmf-namespace`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32779,8 +35692,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespace
      * @name CloneNvmfNamespaceFromSnapshot
      * @request POST:/clone-nvmf-namespace-from-snapshot
+     * @secure
      * @response `200` `(WithTaskNvmfNamespace)[]` Ok
      * @response `400` `string`
      */
@@ -32789,6 +35704,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/clone-nvmf-namespace-from-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32798,8 +35714,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags NvmfNamespace
      * @name RollbackNvmfNamespaceFromSnapshot
      * @request POST:/rollback-nvmf-namespace-from-snapshot
+     * @secure
      * @response `200` `(WithTaskNvmfNamespace)[]` Ok
      * @response `400` `string`
      */
@@ -32808,6 +35726,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/rollback-nvmf-namespace-from-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32819,6 +35738,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      *
      * @name CreateNvmfSubsystem
      * @request POST:/create-nvmf-subsystem
+     * @secure
      * @response `200` `(WithTaskNvmfSubsystem)[]` Ok
      * @response `400` `string`
      */
@@ -32827,6 +35747,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-nvmf-subsystem`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32838,6 +35759,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      *
      * @name UpdateNvmfSubsystem
      * @request POST:/update-nvmf-subsystem
+     * @secure
      * @response `200` `(WithTaskNvmfSubsystem)[]` Ok
      * @response `400` `string`
      */
@@ -32846,6 +35768,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-nvmf-subsystem`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32857,6 +35780,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      *
      * @name DeleteNvmfSubsystem
      * @request POST:/delete-nvmf-subsystem
+     * @secure
      * @response `200` `(WithTaskDeleteNvmfSubsystem)[]` Ok
      * @response `400` `string`
      */
@@ -32865,6 +35789,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-nvmf-subsystem`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32874,8 +35799,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Organization
      * @name CreateOrganization
      * @request POST:/create-organization
+     * @secure
      * @response `200` `(WithTaskOrganization)[]` Ok
      * @response `400` `string`
      */
@@ -32884,6 +35811,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-organization`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32893,8 +35821,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Organization
      * @name UpdateOrganization
      * @request POST:/update-organization
+     * @secure
      * @response `200` `(WithTaskOrganization)[]` Ok
      * @response `400` `string`
      */
@@ -32903,6 +35833,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-organization`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32912,8 +35843,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Organization
      * @name DeleteOrganization
      * @request POST:/delete-organization
+     * @secure
      * @response `200` `(WithTaskDeleteOrganization)[]` Ok
      * @response `400` `string`
      */
@@ -32922,6 +35855,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-organization`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32931,8 +35865,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags RackTopo
      * @name CreateRackTopo
      * @request POST:/create-rack-topo
+     * @secure
      * @response `200` `(WithTaskRackTopo)[]` Ok
      * @response `400` `string`
      */
@@ -32941,6 +35877,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-rack-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32950,8 +35887,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags RackTopo
      * @name UpdateRackTopo
      * @request POST:/update-rack-topo
+     * @secure
      * @response `200` `(WithTaskRackTopo)[]` Ok
      * @response `400` `string`
      */
@@ -32960,6 +35899,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-rack-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32969,8 +35909,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags RackTopo
      * @name DeleteRackTopo
      * @request POST:/delete-rack-topo
+     * @secure
      * @response `200` `(WithTaskDeleteRackTopo)[]` Ok
      * @response `400` `string`
      */
@@ -32979,6 +35921,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-rack-topo`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -32988,8 +35931,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalSettings
      * @name UpdateGlobalRecycleBinSetting
      * @request POST:/update-global-recycle-bin-setting
+     * @secure
      * @response `200` `WithTaskGlobalSettings` Ok
      * @response `400` `string`
      */
@@ -32998,6 +35943,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-global-recycle-bin-setting`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33007,8 +35953,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalSettings
      * @name CreateClusterRecycleBinSetting
      * @request POST:/create-cluster-recycle-bin-setting
+     * @secure
      * @response `200` `(WithTaskClusterSettings)[]` Ok
      * @response `400` `string`
      */
@@ -33017,6 +35965,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-cluster-recycle-bin-setting`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33026,8 +35975,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalSettings
      * @name UpdateClusterRecycleBinSetting
      * @request POST:/update-cluster-recycle-bin-setting
+     * @secure
      * @response `200` `(WithTaskClusterSettings)[]` Ok
      * @response `400` `string`
      */
@@ -33036,6 +35987,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-cluster-recycle-bin-setting`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33045,8 +35997,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags GlobalSettings
      * @name DeleteClusterRecycleBinSetting
      * @request POST:/delete-cluster-recycle-bin-setting
+     * @secure
      * @response `200` `(WithTaskDeleteClusterRecycleBin)[]` Ok
      * @response `400` `string`
      */
@@ -33055,6 +36009,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-cluster-recycle-bin-setting`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33064,8 +36019,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTemplate
      * @name CreateReportTemplate
      * @request POST:/create-report-template
+     * @secure
      * @response `200` `(WithTaskReportTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -33074,6 +36031,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-report-template`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33083,8 +36041,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTemplate
      * @name UpdateReportTemplate
      * @request POST:/update-report-template
+     * @secure
      * @response `200` `(WithTaskReportTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -33093,6 +36053,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-report-template`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33102,8 +36063,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTemplate
      * @name GenerateFromReportTemplate
      * @request POST:/generate-from-report-template
+     * @secure
      * @response `200` `(WithTaskReportTask)[]` Ok
      * @response `400` `string`
      */
@@ -33112,6 +36075,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/generate-from-report-template`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33121,8 +36085,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags ReportTemplate
      * @name DeleteReportTemplate
      * @request POST:/delete-report-template
+     * @secure
      * @response `200` `(WithTaskDeleteReportTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -33131,6 +36097,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-report-template`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33140,8 +36107,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UserRoleNext
      * @name CreateRole
      * @request POST:/create-role
+     * @secure
      * @response `200` `(WithTaskUserRoleNext)[]` Ok
      * @response `400` `string`
      */
@@ -33150,6 +36119,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-role`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33159,8 +36129,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UserRoleNext
      * @name UpdateRole
      * @request POST:/update-role
+     * @secure
      * @response `200` `(WithTaskUserRoleNext)[]` Ok
      * @response `400` `string`
      */
@@ -33169,6 +36141,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-role`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33178,8 +36151,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UserRoleNext
      * @name DeleteRole
      * @request POST:/delete-role
+     * @secure
      * @response `200` `(WithTaskDeleteRole)[]` Ok
      * @response `400` `string`
      */
@@ -33188,6 +36163,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-role`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33197,8 +36173,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotGroup
      * @name RollbackSnapshotGroup
      * @request POST:/rollback-snapshot-group
+     * @secure
      * @response `200` `(WithTaskSnapshotGroup)[]` Ok
      * @response `400` `string`
      */
@@ -33207,6 +36185,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/rollback-snapshot-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33216,8 +36195,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotGroup
      * @name CloneSnapshotGroup
      * @request POST:/clone-snapshot-group
+     * @secure
      * @response `200` `(WithTaskSnapshotGroup)[]` Ok
      * @response `400` `string`
      */
@@ -33226,6 +36207,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/clone-snapshot-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33235,8 +36217,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotGroup
      * @name KeepSnapshotGroup
      * @request POST:/keep-snapshot-group
+     * @secure
      * @response `200` `(WithTaskSnapshotGroup)[]` Ok
      * @response `400` `string`
      */
@@ -33245,6 +36229,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/keep-snapshot-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33254,8 +36239,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotGroup
      * @name DeleteSnapshotGroup
      * @request POST:/delete-snapshot-group
+     * @secure
      * @response `200` `(WithTaskDeleteSnapshotGroup)[]` Ok
      * @response `400` `string`
      */
@@ -33264,6 +36251,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-snapshot-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33273,8 +36261,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name CreateSnapshotPlan
      * @request POST:/create-snapshot-plan
+     * @secure
      * @response `200` `(WithTaskSnapshotPlan)[]` Ok
      * @response `400` `string`
      */
@@ -33283,6 +36273,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-snapshot-plan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33292,8 +36283,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name UpdateSnapshotPlan
      * @request POST:/update-snapshot-plan
+     * @secure
      * @response `200` `(WithTaskSnapshotPlan)[]` Ok
      * @response `400` `string`
      */
@@ -33302,6 +36295,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-snapshot-plan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33311,8 +36305,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name DeleteSnapshotPlan
      * @request POST:/delete-snapshot-plan
+     * @secure
      * @response `200` `(WithTaskDeleteSnapshotPlan)[]` Ok
      * @response `400` `string`
      */
@@ -33321,6 +36317,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-snapshot-plan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33330,8 +36327,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name ExecuteSnapshotPlan
      * @request POST:/execute-snapshot-plan
+     * @secure
      * @response `200` `(WithTaskSnapshotPlan)[]` Ok
      * @response `400` `string`
      */
@@ -33340,6 +36339,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/execute-snapshot-plan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33349,8 +36349,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name SuspendSnapshotPlan
      * @request POST:/suspend-snapshot-plan
+     * @secure
      * @response `200` `(WithTaskSnapshotPlan)[]` Ok
      * @response `400` `string`
      */
@@ -33359,6 +36361,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/suspend-snapshot-plan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33368,8 +36371,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnapshotPlan
      * @name ResumeSnapshotPlan
      * @request POST:/resume-snapshot-plan
+     * @secure
      * @response `200` `(WithTaskSnapshotPlan)[]` Ok
      * @response `400` `string`
      */
@@ -33378,6 +36383,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/resume-snapshot-plan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33387,8 +36393,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTransport
      * @name CreateSnmpTransport
      * @request POST:/create-snmp-transport
+     * @secure
      * @response `200` `(WithTaskSnmpTransport)[]` Ok
      * @response `400` `string`
      */
@@ -33397,6 +36405,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-snmp-transport`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33406,8 +36415,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTransport
      * @name UpdateSnmpTransport
      * @request POST:/update-snmp-transport
+     * @secure
      * @response `200` `(WithTaskSnmpTransport)[]` Ok
      * @response `400` `string`
      */
@@ -33416,6 +36427,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-snmp-transport`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33425,8 +36437,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTransport
      * @name DeleteSnmpTransport
      * @request POST:/delete-snmp-transport
+     * @secure
      * @response `200` `(WithTaskDeleteSnmpTransport)[]` Ok
      * @response `400` `string`
      */
@@ -33435,6 +36449,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-snmp-transport`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33444,8 +36459,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTrapReceiver
      * @name CreateSnmpTrapReceiver
      * @request POST:/create-snmp-trap-receiver
+     * @secure
      * @response `200` `(WithTaskSnmpTrapReceiver)[]` Ok
      * @response `400` `string`
      */
@@ -33454,6 +36471,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-snmp-trap-receiver`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33463,8 +36481,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTrapReceiver
      * @name UpdateSnmpTrapReceiver
      * @request POST:/update-snmp-trap-receiver
+     * @secure
      * @response `200` `(WithTaskSnmpTrapReceiver)[]` Ok
      * @response `400` `string`
      */
@@ -33473,6 +36493,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-snmp-trap-receiver`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33482,8 +36503,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags SnmpTrapReceiver
      * @name DeleteSnmpTrapReceiver
      * @request POST:/delete-snmp-trap-receiver
+     * @secure
      * @response `200` `(WithTaskDeleteSnmpTrapReceiver)[]` Ok
      * @response `400` `string`
      */
@@ -33492,6 +36515,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-snmp-trap-receiver`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33501,8 +36525,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UsbDevice
      * @name MountUsbDevice
      * @request POST:/mount-usb-device
+     * @secure
      * @response `200` `(WithTaskUsbDevice)[]` Ok
      * @response `400` `string`
      */
@@ -33511,6 +36537,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/mount-usb-device`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33520,8 +36547,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags UsbDevice
      * @name UnmountUsbDevice
      * @request POST:/unmount-usb-device
+     * @secure
      * @response `200` `(WithTaskUsbDevice)[]` Ok
      * @response `400` `string`
      */
@@ -33530,6 +36559,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/unmount-usb-device`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33539,6 +36569,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags User
      * @name Login
      * @request POST:/login
      * @response `200` `WithTaskTokenString` Ok
@@ -33558,8 +36589,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags User
      * @name CreateUser
      * @request POST:/create-user
+     * @secure
      * @response `200` `(WithTaskUser)[]` Ok
      * @response `400` `string`
      */
@@ -33568,6 +36601,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-user`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33577,8 +36611,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags User
      * @name UpdateUser
      * @request POST:/update-user
+     * @secure
      * @response `200` `(WithTaskUser)[]` Ok
      * @response `400` `string`
      */
@@ -33587,6 +36623,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-user`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33596,8 +36633,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags User
      * @name DeleteUser
      * @request POST:/delete-user
+     * @secure
      * @response `200` `(WithTaskDeleteUser)[]` Ok
      * @response `400` `string`
      */
@@ -33606,6 +36645,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-user`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33615,8 +36655,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vds
      * @name CreateVdsWithMigrateVlan
      * @request POST:/create-vds-with-migrate-vlan
+     * @secure
      * @response `200` `(WithTaskVds)[]` Ok
      * @response `400` `string`
      */
@@ -33625,6 +36667,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vds-with-migrate-vlan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33634,8 +36677,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vds
      * @name CreateVdsWithAccessVlan
      * @request POST:/create-vds-with-access-vlan
+     * @secure
      * @response `200` `(WithTaskVds)[]` Ok
      * @response `400` `string`
      */
@@ -33644,6 +36689,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vds-with-access-vlan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33653,8 +36699,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vds
      * @name CreateVds
      * @request POST:/create-vds
+     * @secure
      * @response `200` `(WithTaskVds)[]` Ok
      * @response `400` `string`
      */
@@ -33663,6 +36711,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vds`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33672,8 +36721,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vds
      * @name UpdateVds
      * @request POST:/update-vds
+     * @secure
      * @response `200` `(WithTaskVds)[]` Ok
      * @response `400` `string`
      */
@@ -33682,6 +36733,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vds`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33691,8 +36743,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vds
      * @name DeleteVds
      * @request POST:/delete-vds
+     * @secure
      * @response `200` `(WithTaskDeleteVds)[]` Ok
      * @response `400` `string`
      */
@@ -33701,6 +36755,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vds`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33710,8 +36765,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags View
      * @name CreateView
      * @request POST:/create-view
+     * @secure
      * @response `200` `(WithTaskView)[]` Ok
      * @response `400` `string`
      */
@@ -33720,6 +36777,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-view`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33729,8 +36787,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags View
      * @name UpdateView
      * @request POST:/update-view
+     * @secure
      * @response `200` `(WithTaskView)[]` Ok
      * @response `400` `string`
      */
@@ -33739,6 +36799,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-view`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33748,8 +36809,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags View
      * @name DeleteView
      * @request POST:/delete-view
+     * @secure
      * @response `200` `(WithTaskDeleteView)[]` Ok
      * @response `400` `string`
      */
@@ -33758,6 +36821,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-view`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33767,8 +36831,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vlan
      * @name CreateVmVlan
      * @request POST:/create-vm-vlan
+     * @secure
      * @response `200` `(WithTaskVlan)[]` Ok
      * @response `400` `string`
      */
@@ -33777,6 +36843,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vm-vlan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33786,8 +36853,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vlan
      * @name UpdateVlan
      * @request POST:/update-vm-vlan
+     * @secure
      * @response `200` `(WithTaskVlan)[]` Ok
      * @response `400` `string`
      */
@@ -33796,6 +36865,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vm-vlan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33805,8 +36875,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vlan
      * @name UpdateManagementVlan
      * @request POST:/update-management-vlan
+     * @secure
      * @response `200` `(WithTaskVlan)[]` Ok
      * @response `400` `string`
      */
@@ -33815,6 +36887,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-management-vlan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33824,8 +36897,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vlan
      * @name UpdateMigrationVlan
      * @request POST:/update-migration-vlan
+     * @secure
      * @response `200` `(WithTaskVlan)[]` Ok
      * @response `400` `string`
      */
@@ -33834,6 +36909,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-migration-vlan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33843,8 +36919,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vlan
      * @name DeleteVlan
      * @request POST:/delete-vm-vlan
+     * @secure
      * @response `200` `(WithTaskDeleteVlan)[]` Ok
      * @response `400` `string`
      */
@@ -33853,6 +36931,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vm-vlan`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33862,8 +36941,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmFolder
      * @name CreateVmFolder
      * @request POST:/create-vm-folder
+     * @secure
      * @response `200` `(WithTaskVmFolder)[]` Ok
      * @response `400` `string`
      */
@@ -33872,6 +36953,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vm-folder`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33881,8 +36963,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmFolder
      * @name UpdateVmFolder
      * @request POST:/update-vm-folder
+     * @secure
      * @response `200` `(WithTaskVmFolder)[]` Ok
      * @response `400` `string`
      */
@@ -33891,6 +36975,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vm-folder`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33900,8 +36985,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmFolder
      * @name DeleteVmFolder
      * @request POST:/delete-vm-folder
+     * @secure
      * @response `200` `(WithTaskDeleteVmFolder)[]` Ok
      * @response `400` `string`
      */
@@ -33910,6 +36997,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vm-folder`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33919,8 +37007,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmPlacementGroup
      * @name CreateVmPlacementGroup
      * @request POST:/create-vm-placement-group
+     * @secure
      * @response `200` `(WithTaskVmPlacementGroup)[]` Ok
      * @response `400` `string`
      */
@@ -33929,6 +37019,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vm-placement-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33938,8 +37029,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmPlacementGroup
      * @name UpdateVmPlacementGroup
      * @request POST:/update-vm-placement-group
+     * @secure
      * @response `200` `(WithTaskVmPlacementGroup)[]` Ok
      * @response `400` `string`
      */
@@ -33948,6 +37041,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vm-placement-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33957,8 +37051,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmPlacementGroup
      * @name DeleteVmPlacementGroup
      * @request POST:/delete-vm-placement-group
+     * @secure
      * @response `200` `(WithTaskDeleteVmPlacementGroup)[]` Ok
      * @response `400` `string`
      */
@@ -33967,6 +37063,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vm-placement-group`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33976,8 +37073,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmSnapshot
      * @name CreateVmSnapshot
      * @request POST:/create-vm-snapshot
+     * @secure
      * @response `200` `(WithTaskVmSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -33986,6 +37085,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vm-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -33995,8 +37095,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmSnapshot
      * @name DeleteVmSnapshot
      * @request POST:/delete-vm-snapshot
+     * @secure
      * @response `200` `(WithTaskDeleteVmSnapshot)[]` Ok
      * @response `400` `string`
      */
@@ -34005,6 +37107,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vm-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34014,8 +37117,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmTemplate
      * @name CloneVmTemplateFromVm
      * @request POST:/clone-vm-template-from-vm
+     * @secure
      * @response `200` `(WithTaskVmTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -34024,6 +37129,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/clone-vm-template-from-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34033,8 +37139,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmTemplate
      * @name ConvertVmTemplateFromVm
      * @request POST:/convert-vm-template-from-vm
+     * @secure
      * @response `200` `(WithTaskVmTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -34043,6 +37151,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/convert-vm-template-from-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34052,8 +37161,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmTemplate
      * @name UpdateVmTemplateFromVm
      * @request POST:/update-vm-template
+     * @secure
      * @response `200` `(WithTaskVmTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -34062,6 +37173,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vm-template`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34071,8 +37183,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmTemplate
      * @name DeleteVmTemplateFromVm
      * @request POST:/delete-vm-template
+     * @secure
      * @response `200` `(WithTaskDeleteVmTemplate)[]` Ok
      * @response `400` `string`
      */
@@ -34081,6 +37195,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vm-template`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34090,8 +37205,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmVolume
      * @name CreateVmVolume
      * @request POST:/create-vm-volume
+     * @secure
      * @response `200` `(WithTaskVmVolume)[]` Ok
      * @response `400` `string`
      */
@@ -34100,6 +37217,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vm-volume`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34109,8 +37227,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags VmVolume
      * @name DeleteVmVolumeFromVm
      * @request POST:/delete-vm-volume
+     * @secure
      * @response `200` `(WithTaskDeleteVmVolume)[]` Ok
      * @response `400` `string`
      */
@@ -34119,6 +37239,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vm-volume`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34128,8 +37249,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name CreateVm
      * @request POST:/create-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34138,6 +37261,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34147,8 +37271,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name CreateVmFromTemplate
      * @request POST:/create-vm-from-template
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34157,6 +37283,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/create-vm-from-template`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34166,8 +37293,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name ConvertVmTemplateToVm
      * @request POST:/convert-vm-template-to-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34176,6 +37305,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/convert-vm-template-to-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34185,8 +37315,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name CloneVm
      * @request POST:/clone-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34195,6 +37327,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/clone-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34204,8 +37337,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RebuildVm
      * @request POST:/rebuild-vm-from-snapshot
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34214,6 +37349,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/rebuild-vm-from-snapshot`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34223,8 +37359,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RollbackVm
      * @request POST:/rollback-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34233,6 +37371,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/rollback-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34242,8 +37381,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name UpdateVm
      * @request POST:/update-vm-basic-info
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34252,6 +37393,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vm-basic-info`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34261,8 +37403,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name MoveVmToRecycleBin
      * @request POST:/move-vm-to-recycle
+     * @secure
      * @response `200` `({ task_id: string | null, data: (DeleteVm | null) })[]` Ok
      * @response `400` `string`
      */
@@ -34271,6 +37415,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/move-vm-to-recycle`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34280,8 +37425,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RecoverVmFromRecycleBin
      * @request POST:/recover-vm-from-recycle
+     * @secure
      * @response `200` `({ task_id: string | null, data: (DeleteVm | null) })[]` Ok
      * @response `400` `string`
      */
@@ -34290,6 +37437,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/recover-vm-from-recycle`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34299,8 +37447,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name DeleteVm
      * @request POST:/delete-vm
+     * @secure
      * @response `200` `({ task_id: string | null, data: (DeleteVm | null) })[]` Ok
      * @response `400` `string`
      */
@@ -34309,6 +37459,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/delete-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34318,8 +37469,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name StartVm
      * @request POST:/start-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34328,6 +37481,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/start-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34337,8 +37491,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RestartVm
      * @request POST:/restart-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34347,6 +37503,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/restart-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34356,8 +37513,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name ForceRestartVm
      * @request POST:/force-restart-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34366,6 +37525,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/force-restart-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34375,8 +37535,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name ShutDownVm
      * @request POST:/shutdown-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34385,6 +37547,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/shutdown-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34394,8 +37557,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name ForceShutDownVm
      * @request POST:/poweroff-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34404,6 +37569,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/poweroff-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34413,8 +37579,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name SuspendVm
      * @request POST:/suspend-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34423,6 +37591,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/suspend-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34432,8 +37601,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name ResumeVm
      * @request POST:/resume-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34442,6 +37613,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/resume-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34451,8 +37623,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name AddVmDisk
      * @request POST:/add-vm-disk
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34461,6 +37635,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/add-vm-disk`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34470,8 +37645,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name UpdateVmDisk
      * @request POST:/update-vm-disk
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34480,6 +37657,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vm-disk`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34489,8 +37667,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RemoveVmDisk
      * @request POST:/remove-vm-disk
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34499,6 +37679,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/remove-vm-disk`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34508,8 +37689,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name AddVmCdRom
      * @request POST:/add-vm-cd-rom
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34518,6 +37701,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/add-vm-cd-rom`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34527,8 +37711,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RemoveVmCdRom
      * @request POST:/remove-vm-cd-rom
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34537,6 +37723,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/remove-vm-cd-rom`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34546,8 +37733,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name AddVmNic
      * @request POST:/add-vm-nic
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34556,6 +37745,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/add-vm-nic`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34565,8 +37755,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name UpdateVmNic
      * @request POST:/update-vm-nic
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34575,6 +37767,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/update-vm-nic`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34584,8 +37777,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RemoveVmNic
      * @request POST:/remove-vm-nic
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34594,6 +37789,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/remove-vm-nic`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34603,8 +37799,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name InstallVmtools
      * @request POST:/install-vmtools
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34613,6 +37811,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/install-vmtools`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34622,8 +37821,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name MigRateVm
      * @request POST:/migrate-vm
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34632,6 +37833,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/migrate-vm`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34641,8 +37843,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name AddVmToFolder
      * @request POST:/add-vm-to-folder
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34651,6 +37855,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/add-vm-to-folder`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
@@ -34660,8 +37865,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     /**
      * No description
      *
+     * @tags Vm
      * @name RemoveVmToFolder
      * @request POST:/remove-vm-from-folder
+     * @secure
      * @response `200` `(WithTaskVm)[]` Ok
      * @response `400` `string`
      */
@@ -34670,6 +37877,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/remove-vm-from-folder`,
         method: "POST",
         body: data,
+        secure: true,
         type: ContentType.Json,
         format: "json",
         ...params,
