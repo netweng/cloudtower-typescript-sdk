@@ -115,10 +115,11 @@ export interface GetAlertNotifiersRequestBody {
     skip?: number | null;
     where?: AlertNotifierWhereInput | null;
 }
+export interface NestedAggregateAlertNotifier {
+    count: number;
+}
 export interface AlertNotifierConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateAlertNotifier;
 }
 export interface GetAlertNotifiersConnectionRequestBody {
     after?: string | null;
@@ -129,25 +130,28 @@ export interface GetAlertNotifiersConnectionRequestBody {
     skip?: number | null;
     where?: AlertNotifierWhereInput | null;
 }
+export interface NestedCluster {
+    id: string;
+    name: string;
+}
+export interface NestedGlobalAlertRule {
+    id: string;
+    name: string;
+}
 export declare type SeverityEnum = "CRITICAL" | "INFO" | "NOTICE" | "SEVERITY_UNSPECIFIED";
+export interface NestedThresholds {
+    quantile?: number | null;
+    severity?: SeverityEnum | null;
+    value?: number | null;
+}
 export interface AlertRule {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     customized: boolean;
     disabled: boolean;
-    global_alert_rule: {
-        name: string;
-        id: string;
-    };
+    global_alert_rule: NestedGlobalAlertRule;
     id: string;
     local_id: string;
-    thresholds: {
-        value?: number | null;
-        severity?: SeverityEnum | null;
-        quantile?: number | null;
-    }[];
+    thresholds: NestedThresholds[];
 }
 export declare type AlertRuleOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "customized_ASC" | "customized_DESC" | "disabled_ASC" | "disabled_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "thresholds_ASC" | "thresholds_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface AlertRuleWhereInput {
@@ -1801,6 +1805,17 @@ export interface LabelWhereInput {
     content_library_images_every?: ContentLibraryImageWhereInput | null;
     content_library_images_none?: ContentLibraryImageWhereInput | null;
     content_library_images_some?: ContentLibraryImageWhereInput | null;
+    content_library_vm_template_num?: number | null;
+    content_library_vm_template_num_gt?: number | null;
+    content_library_vm_template_num_gte?: number | null;
+    content_library_vm_template_num_in?: number[] | null;
+    content_library_vm_template_num_lt?: number | null;
+    content_library_vm_template_num_lte?: number | null;
+    content_library_vm_template_num_not?: number | null;
+    content_library_vm_template_num_not_in?: number[] | null;
+    content_library_vm_templates_every?: ContentLibraryVmTemplateWhereInput | null;
+    content_library_vm_templates_none?: ContentLibraryVmTemplateWhereInput | null;
+    content_library_vm_templates_some?: ContentLibraryVmTemplateWhereInput | null;
     createdAt?: string | null;
     createdAt_gt?: string | null;
     createdAt_gte?: string | null;
@@ -3562,6 +3577,14 @@ export interface HostWhereInput {
     total_cpu_hz_lte?: number | null;
     total_cpu_hz_not?: number | null;
     total_cpu_hz_not_in?: number[] | null;
+    total_cpu_sockets?: number | null;
+    total_cpu_sockets_gt?: number | null;
+    total_cpu_sockets_gte?: number | null;
+    total_cpu_sockets_in?: number[] | null;
+    total_cpu_sockets_lt?: number | null;
+    total_cpu_sockets_lte?: number | null;
+    total_cpu_sockets_not?: number | null;
+    total_cpu_sockets_not_in?: number[] | null;
     total_data_capacity?: number | null;
     total_data_capacity_gt?: number | null;
     total_data_capacity_gte?: number | null;
@@ -4404,7 +4427,7 @@ export interface EverouteClusterWhereInput {
     version_starts_with?: string | null;
 }
 export declare type GlobalPolicyAction = "ALLOW" | "DROP";
-export declare type EverouteClusterPhase = "Failed" | "Pending" | "Running" | "Terminating" | "Updating" | "Upgrading";
+export declare type EverouteClusterPhase = "Associated" | "Failed" | "Init" | "Running" | "Terminating" | "Updating" | "Upgrading";
 export interface VlanWhereInput {
     AND?: VlanWhereInput[] | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
@@ -5983,6 +6006,7 @@ export interface VmTemplateWhereInput {
     cloud_init_supported?: boolean | null;
     cloud_init_supported_not?: boolean | null;
     cluster?: ClusterWhereInput | null;
+    content_library_vm_template?: ContentLibraryVmTemplateWhereInput | null;
     cpu_model?: string | null;
     cpu_model_contains?: string | null;
     cpu_model_ends_with?: string | null;
@@ -6144,6 +6168,104 @@ export interface VmTemplateWhereInput {
     video_type_starts_with?: string | null;
     win_opt?: boolean | null;
     win_opt_not?: boolean | null;
+}
+export interface ContentLibraryVmTemplateWhereInput {
+    AND?: ContentLibraryVmTemplateWhereInput[] | null;
+    cloud_init_supported?: boolean | null;
+    cloud_init_supported_not?: boolean | null;
+    clusters_every?: ClusterWhereInput | null;
+    clusters_none?: ClusterWhereInput | null;
+    clusters_some?: ClusterWhereInput | null;
+    createdAt?: string | null;
+    createdAt_gt?: string | null;
+    createdAt_gte?: string | null;
+    createdAt_in?: string[] | null;
+    createdAt_lt?: string | null;
+    createdAt_lte?: string | null;
+    createdAt_not?: string | null;
+    createdAt_not_in?: string[] | null;
+    description?: string | null;
+    description_contains?: string | null;
+    description_ends_with?: string | null;
+    description_gt?: string | null;
+    description_gte?: string | null;
+    description_in?: string[] | null;
+    description_lt?: string | null;
+    description_lte?: string | null;
+    description_not?: string | null;
+    description_not_contains?: string | null;
+    description_not_ends_with?: string | null;
+    description_not_in?: string[] | null;
+    description_not_starts_with?: string | null;
+    description_starts_with?: string | null;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    entityAsyncStatus_in?: EntityAsyncStatus[] | null;
+    entityAsyncStatus_not?: EntityAsyncStatus | null;
+    entityAsyncStatus_not_in?: EntityAsyncStatus[] | null;
+    guest_os_type?: VmGuestsOperationSystem | null;
+    guest_os_type_in?: VmGuestsOperationSystem[] | null;
+    guest_os_type_not?: VmGuestsOperationSystem | null;
+    guest_os_type_not_in?: VmGuestsOperationSystem[] | null;
+    id?: string | null;
+    id_contains?: string | null;
+    id_ends_with?: string | null;
+    id_gt?: string | null;
+    id_gte?: string | null;
+    id_in?: string[] | null;
+    id_lt?: string | null;
+    id_lte?: string | null;
+    id_not?: string | null;
+    id_not_contains?: string | null;
+    id_not_ends_with?: string | null;
+    id_not_in?: string[] | null;
+    id_not_starts_with?: string | null;
+    id_starts_with?: string | null;
+    labels_every?: LabelWhereInput | null;
+    labels_none?: LabelWhereInput | null;
+    labels_some?: LabelWhereInput | null;
+    memory?: number | null;
+    memory_gt?: number | null;
+    memory_gte?: number | null;
+    memory_in?: number[] | null;
+    memory_lt?: number | null;
+    memory_lte?: number | null;
+    memory_not?: number | null;
+    memory_not_in?: number[] | null;
+    name?: string | null;
+    name_contains?: string | null;
+    name_ends_with?: string | null;
+    name_gt?: string | null;
+    name_gte?: string | null;
+    name_in?: string[] | null;
+    name_lt?: string | null;
+    name_lte?: string | null;
+    name_not?: string | null;
+    name_not_contains?: string | null;
+    name_not_ends_with?: string | null;
+    name_not_in?: string[] | null;
+    name_not_starts_with?: string | null;
+    name_starts_with?: string | null;
+    NOT?: ContentLibraryVmTemplateWhereInput[] | null;
+    OR?: ContentLibraryVmTemplateWhereInput[] | null;
+    size?: number | null;
+    size_gt?: number | null;
+    size_gte?: number | null;
+    size_in?: number[] | null;
+    size_lt?: number | null;
+    size_lte?: number | null;
+    size_not?: number | null;
+    size_not_in?: number[] | null;
+    vcpu?: number | null;
+    vcpu_gt?: number | null;
+    vcpu_gte?: number | null;
+    vcpu_in?: number[] | null;
+    vcpu_lt?: number | null;
+    vcpu_lte?: number | null;
+    vcpu_not?: number | null;
+    vcpu_not_in?: number[] | null;
+    vm_templates_every?: VmTemplateWhereInput | null;
+    vm_templates_none?: VmTemplateWhereInput | null;
+    vm_templates_some?: VmTemplateWhereInput | null;
 }
 export interface NamespaceGroupWhereInput {
     AND?: NamespaceGroupWhereInput[] | null;
@@ -7528,10 +7650,11 @@ export interface GetAlertRulesRequestBody {
     skip?: number | null;
     where?: AlertRuleWhereInput | null;
 }
+export interface NestedAggregateAlertRule {
+    count: number;
+}
 export interface AlertRuleConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateAlertRule;
 }
 export interface GetAlertRulesConnectionRequestBody {
     after?: string | null;
@@ -7542,24 +7665,28 @@ export interface GetAlertRulesConnectionRequestBody {
     skip?: number | null;
     where?: AlertRuleWhereInput | null;
 }
+export interface NestedAlertRule {
+    id: string;
+}
+export interface NestedDisk {
+    id: string;
+    name: string;
+}
+export interface NestedHost {
+    id: string;
+    name: string;
+}
+export interface NestedVm {
+    id: string;
+    name: string;
+}
 export interface Alert {
-    alert_rule?: {
-        id: string;
-    };
+    alert_rule?: NestedAlertRule | null;
     cause: string;
-    cluster: {
-        name: string;
-        id: string;
-    };
-    disk?: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
+    disk?: NestedDisk | null;
     ended: boolean;
-    host?: {
-        name: string;
-        id: string;
-    };
+    host?: NestedHost | null;
     id: string;
     impact: string;
     labels: object;
@@ -7573,10 +7700,7 @@ export interface Alert {
     solution: string;
     threshold: number;
     value: number;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vms?: NestedVm[] | null;
 }
 export declare type AlertOrderByInput = "cause_ASC" | "cause_DESC" | "createdAt_ASC" | "createdAt_DESC" | "ended_ASC" | "ended_DESC" | "id_ASC" | "id_DESC" | "impact_ASC" | "impact_DESC" | "labels_ASC" | "labels_DESC" | "local_create_time_ASC" | "local_create_time_DESC" | "local_end_time_ASC" | "local_end_time_DESC" | "local_id_ASC" | "local_id_DESC" | "local_start_time_ASC" | "local_start_time_DESC" | "local_update_time_ASC" | "local_update_time_DESC" | "message_ASC" | "message_DESC" | "severity_ASC" | "severity_DESC" | "solution_ASC" | "solution_DESC" | "threshold_ASC" | "threshold_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC";
 export interface AlertWhereInput {
@@ -7766,10 +7890,11 @@ export interface GetAlertsRequestBody {
     skip?: number | null;
     where?: AlertWhereInput | null;
 }
+export interface NestedAggregateAlert {
+    count: number;
+}
 export interface AlertConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateAlert;
 }
 export interface GetAlertsConnectionRequestBody {
     after?: string | null;
@@ -7781,10 +7906,7 @@ export interface GetAlertsConnectionRequestBody {
     where?: AlertWhereInput | null;
 }
 export interface Application {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     error_message?: string | null;
     id: string;
     image_name?: string | null;
@@ -7808,10 +7930,11 @@ export interface GetApplicationsRequestBody {
     skip?: number | null;
     where?: ApplicationWhereInput | null;
 }
+export interface NestedAggregateApplication {
+    count: number;
+}
 export interface ApplicationConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateApplication;
 }
 export interface GetApplicationsConnectionRequestBody {
     after?: string | null;
@@ -7822,52 +7945,56 @@ export interface GetApplicationsConnectionRequestBody {
     skip?: number | null;
     where?: ApplicationWhereInput | null;
 }
+export interface NestedCapacity {
+    column?: number | null;
+    row?: number | null;
+}
+export interface NestedClusterTopo {
+    id: string;
+    name: string;
+}
 export declare type Direction = "HORIZONTAL" | "VERTICAL";
 export declare type BrickPhaseEnum = "BACKWARD" | "FORWARD";
+export interface NestedBrickDiskLayout {
+    column: number;
+    direction: Direction;
+    phase: BrickPhaseEnum;
+    row: number;
+}
+export interface NestedNodeTopo {
+    id: string;
+    name: string;
+}
 export declare type PowerPosition = "LEFT" | "MIDDLE" | "RIGHT";
+export interface NestedBrickPower {
+    id: string;
+}
+export interface NestedRackTopo {
+    id: string;
+    name: string;
+}
+export interface NestedTagPosition {
+    column: number;
+    row: number;
+    tag: string;
+}
 export interface BrickTopo {
-    capacity: {
-        row?: number | null;
-        column?: number | null;
-    };
-    cluster: {
-        name: string;
-        id: string;
-    };
-    cluster_topo?: {
-        name: string;
-        id: string;
-    };
-    disk_layout?: {
-        row: number;
-        phase: BrickPhaseEnum;
-        direction: Direction;
-        column: number;
-    };
+    capacity: NestedCapacity;
+    cluster: NestedCluster;
+    cluster_topo?: NestedClusterTopo | null;
+    disk_layout?: NestedBrickDiskLayout | null;
     height: number;
     id: string;
     local_id: string;
     model?: string | null;
     name: string;
-    node_topoes?: {
-        name: string;
-        id: string;
-    }[] | null;
+    node_topoes?: NestedNodeTopo[] | null;
     position: number;
     power_layout?: Direction | null;
     power_position?: PowerPosition | null;
-    powers?: {
-        id: string;
-    }[] | null;
-    rack_topo?: {
-        name: string;
-        id: string;
-    };
-    tag_position_in_brick?: {
-        tag: string;
-        row: number;
-        column: number;
-    }[] | null;
+    powers?: NestedBrickPower[] | null;
+    rack_topo?: NestedRackTopo | null;
+    tag_position_in_brick?: NestedTagPosition[] | null;
 }
 export declare type BrickTopoOrderByInput = "capacity_ASC" | "capacity_DESC" | "createdAt_ASC" | "createdAt_DESC" | "disk_layout_ASC" | "disk_layout_DESC" | "height_ASC" | "height_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "model_ASC" | "model_DESC" | "name_ASC" | "name_DESC" | "position_ASC" | "position_DESC" | "power_layout_ASC" | "power_layout_DESC" | "power_position_ASC" | "power_position_DESC" | "powers_ASC" | "powers_DESC" | "tag_position_in_brick_ASC" | "tag_position_in_brick_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface BrickTopoWhereInput {
@@ -8176,10 +8303,11 @@ export interface GetBrickTopoesRequestBody {
     skip?: number | null;
     where?: BrickTopoWhereInput | null;
 }
+export interface NestedAggregateBrickTopo {
+    count: number;
+}
 export interface BrickTopoConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateBrickTopo;
 }
 export interface GetBrickTopoesConnectionRequestBody {
     after?: string | null;
@@ -8191,10 +8319,7 @@ export interface GetBrickTopoesConnectionRequestBody {
     where?: BrickTopoWhereInput | null;
 }
 export interface ClusterImage {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
     meta_name: string;
@@ -8299,10 +8424,11 @@ export interface GetClusterImagesRequestBody {
     skip?: number | null;
     where?: ClusterImageWhereInput | null;
 }
+export interface NestedAggregateClusterImage {
+    count: number;
+}
 export interface ClusterImageConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateClusterImage;
 }
 export interface GetClusterImagesConnectionRequestBody {
     after?: string | null;
@@ -8313,47 +8439,97 @@ export interface GetClusterImagesConnectionRequestBody {
     skip?: number | null;
     where?: ClusterImageWhereInput | null;
 }
+export interface NestedApplication {
+    id: string;
+}
+export interface NestedConsistencyGroup {
+    id: string;
+    name: string;
+}
+export interface NestedDatacenter {
+    id: string;
+    name: string;
+}
+export interface NestedEverouteCluster {
+    id: string;
+    name: string;
+}
+export interface NestedLabel {
+    id: string;
+}
 export declare type MetroCheckStatusEnum = "CRITICAL" | "HEALTHY" | "INFO" | "NOTICE";
+export interface NestedMetroCheckItem {
+    critical: string[];
+    info: string[];
+    key: string;
+    labels: object;
+    notice: string[];
+    status: MetroCheckStatusEnum;
+}
+export interface NestedMetroCheckResult {
+    critical: number;
+    info: number;
+    items: NestedMetroCheckItem[];
+    notice: number;
+    status: MetroCheckStatusEnum;
+}
+export interface NestedMetroAvailabilityChecklist {
+    primaryZone: NestedMetroCheckResult;
+    primaryZoneAndWitness: NestedMetroCheckResult;
+    secondaryZone: NestedMetroCheckResult;
+    secondaryZoneAndWitness: NestedMetroCheckResult;
+    witness: NestedMetroCheckResult;
+    zoneAndZone: NestedMetroCheckResult;
+}
+export interface NestedClusterSettings {
+    id: string;
+}
+export interface NestedVcenterAccount {
+    id: string;
+}
+export interface NestedVds {
+    id: string;
+    name: string;
+}
+export interface NestedVmFolder {
+    id: string;
+    name: string;
+}
+export interface NestedVmTemplate {
+    id: string;
+    name: string;
+}
+export interface NestedWitness {
+    id: string;
+    name: string;
+}
+export interface NestedZone {
+    id: string;
+}
 export interface Cluster {
-    applications?: {
-        id: string;
-    }[] | null;
+    applications?: NestedApplication[] | null;
     architecture: Architecture;
     auto_converge?: boolean | null;
     connect_state: ConnectState;
-    consistency_groups?: {
-        name: string;
-        id: string;
-    }[] | null;
+    consistency_groups?: NestedConsistencyGroup[] | null;
     current_cpu_model?: string | null;
-    datacenters?: {
-        name: string;
-        id: string;
-    }[] | null;
+    datacenters?: NestedDatacenter[] | null;
     disconnected_date?: string | null;
     disconnected_reason?: ClusterConnectorErrorCode | null;
     dns: string[];
     entityAsyncStatus?: EntityAsyncStatus | null;
-    everoute_cluster?: {
-        name: string;
-        id: string;
-    };
+    everoute_cluster?: NestedEverouteCluster | null;
     failure_data_space?: number | null;
     has_metrox?: boolean | null;
     has_remote_backup?: boolean | null;
     host_num?: number | null;
-    hosts?: {
-        name: string;
-        id: string;
-    }[] | null;
+    hosts?: NestedHost[] | null;
     hypervisor?: Hypervisor | null;
     id: string;
     ip: string;
     is_all_flash?: boolean | null;
     iscsi_vip?: string | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     license_expire_date?: string | null;
     license_serial?: string | null;
     license_sign_date?: string | null;
@@ -8365,92 +8541,7 @@ export interface Cluster {
     max_chunk_num?: number | null;
     max_physical_data_capacity?: number | null;
     max_physical_data_capacity_per_node?: number | null;
-    metro_availability_checklist?: {
-        zoneAndZone: {
-            status: MetroCheckStatusEnum;
-            notice: number;
-            items: {
-                status: MetroCheckStatusEnum;
-                notice: string[];
-                labels: object;
-                key: string;
-                info: string[];
-                critical: string[];
-            }[];
-            info: number;
-            critical: number;
-        };
-        witness: {
-            status: MetroCheckStatusEnum;
-            notice: number;
-            items: {
-                status: MetroCheckStatusEnum;
-                notice: string[];
-                labels: object;
-                key: string;
-                info: string[];
-                critical: string[];
-            }[];
-            info: number;
-            critical: number;
-        };
-        secondaryZoneAndWitness: {
-            status: MetroCheckStatusEnum;
-            notice: number;
-            items: {
-                status: MetroCheckStatusEnum;
-                notice: string[];
-                labels: object;
-                key: string;
-                info: string[];
-                critical: string[];
-            }[];
-            info: number;
-            critical: number;
-        };
-        secondaryZone: {
-            status: MetroCheckStatusEnum;
-            notice: number;
-            items: {
-                status: MetroCheckStatusEnum;
-                notice: string[];
-                labels: object;
-                key: string;
-                info: string[];
-                critical: string[];
-            }[];
-            info: number;
-            critical: number;
-        };
-        primaryZoneAndWitness: {
-            status: MetroCheckStatusEnum;
-            notice: number;
-            items: {
-                status: MetroCheckStatusEnum;
-                notice: string[];
-                labels: object;
-                key: string;
-                info: string[];
-                critical: string[];
-            }[];
-            info: number;
-            critical: number;
-        };
-        primaryZone: {
-            status: MetroCheckStatusEnum;
-            notice: number;
-            items: {
-                status: MetroCheckStatusEnum;
-                notice: string[];
-                labels: object;
-                key: string;
-                info: string[];
-                critical: string[];
-            }[];
-            info: number;
-            critical: number;
-        };
-    };
+    metro_availability_checklist?: NestedMetroAvailabilityChecklist | null;
     mgt_gateway?: string | null;
     mgt_netmask?: string | null;
     migration_data_size?: number | null;
@@ -8471,9 +8562,7 @@ export interface Cluster {
     recover_speed?: number | null;
     reserved_cpu_cores_for_system_service?: number | null;
     running_vm_num?: number | null;
-    settings?: {
-        id: string;
-    };
+    settings?: NestedClusterSettings | null;
     software_edition?: SoftwareEdition | null;
     stopped_vm_num?: number | null;
     stretch?: boolean | null;
@@ -8490,35 +8579,16 @@ export interface Cluster {
     used_data_space?: number | null;
     used_memory_bytes?: number | null;
     valid_data_space?: number | null;
-    vcenterAccount?: {
-        id: string;
-    };
-    vdses?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vcenterAccount?: NestedVcenterAccount | null;
+    vdses?: NestedVds[] | null;
     version: string;
     vhost_enabled?: boolean | null;
-    vm_folders?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_folders?: NestedVmFolder[] | null;
     vm_num?: number | null;
-    vm_templates?: {
-        name: string;
-        id: string;
-    }[] | null;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
-    witness?: {
-        name: string;
-        id: string;
-    };
-    zones?: {
-        id: string;
-    }[] | null;
+    vm_templates?: NestedVmTemplate[] | null;
+    vms?: NestedVm[] | null;
+    witness?: NestedWitness | null;
+    zones?: NestedZone[] | null;
 }
 export declare type ClusterOrderByInput = "architecture_ASC" | "architecture_DESC" | "auto_converge_ASC" | "auto_converge_DESC" | "connect_state_ASC" | "connect_state_DESC" | "createdAt_ASC" | "createdAt_DESC" | "current_cpu_model_ASC" | "current_cpu_model_DESC" | "disconnected_date_ASC" | "disconnected_date_DESC" | "disconnected_reason_ASC" | "disconnected_reason_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "failure_data_space_ASC" | "failure_data_space_DESC" | "has_metrox_ASC" | "has_metrox_DESC" | "has_remote_backup_ASC" | "has_remote_backup_DESC" | "host_num_ASC" | "host_num_DESC" | "hypervisor_ASC" | "hypervisor_DESC" | "id_ASC" | "id_DESC" | "ip_ASC" | "ip_DESC" | "is_all_flash_ASC" | "is_all_flash_DESC" | "iscsi_vip_ASC" | "iscsi_vip_DESC" | "license_expire_date_ASC" | "license_expire_date_DESC" | "license_serial_ASC" | "license_serial_DESC" | "license_sign_date_ASC" | "license_sign_date_DESC" | "license_type_ASC" | "license_type_DESC" | "local_id_ASC" | "local_id_DESC" | "maintenance_end_date_ASC" | "maintenance_end_date_DESC" | "maintenance_start_date_ASC" | "maintenance_start_date_DESC" | "management_vip_ASC" | "management_vip_DESC" | "max_chunk_num_ASC" | "max_chunk_num_DESC" | "max_physical_data_capacity_ASC" | "max_physical_data_capacity_DESC" | "max_physical_data_capacity_per_node_ASC" | "max_physical_data_capacity_per_node_DESC" | "metro_availability_checklist_ASC" | "metro_availability_checklist_DESC" | "mgt_gateway_ASC" | "mgt_gateway_DESC" | "mgt_netmask_ASC" | "mgt_netmask_DESC" | "migration_data_size_ASC" | "migration_data_size_DESC" | "migration_speed_ASC" | "migration_speed_DESC" | "name_ASC" | "name_DESC" | "ntp_mode_ASC" | "ntp_mode_DESC" | "nvmf_enabled_ASC" | "nvmf_enabled_DESC" | "password_ASC" | "password_DESC" | "pmem_enabled_ASC" | "pmem_enabled_DESC" | "provisioned_cpu_cores_ASC" | "provisioned_cpu_cores_DESC" | "provisioned_cpu_cores_for_active_vm_ASC" | "provisioned_cpu_cores_for_active_vm_DESC" | "provisioned_for_active_vm_ratio_ASC" | "provisioned_for_active_vm_ratio_DESC" | "provisioned_memory_bytes_ASC" | "provisioned_memory_bytes_DESC" | "provisioned_ratio_ASC" | "provisioned_ratio_DESC" | "rdma_enabled_ASC" | "rdma_enabled_DESC" | "recover_data_size_ASC" | "recover_data_size_DESC" | "recover_speed_ASC" | "recover_speed_DESC" | "reserved_cpu_cores_for_system_service_ASC" | "reserved_cpu_cores_for_system_service_DESC" | "running_vm_num_ASC" | "running_vm_num_DESC" | "software_edition_ASC" | "software_edition_DESC" | "stopped_vm_num_ASC" | "stopped_vm_num_DESC" | "stretch_ASC" | "stretch_DESC" | "suspended_vm_num_ASC" | "suspended_vm_num_DESC" | "total_cache_capacity_ASC" | "total_cache_capacity_DESC" | "total_cpu_cores_ASC" | "total_cpu_cores_DESC" | "total_cpu_hz_ASC" | "total_cpu_hz_DESC" | "total_cpu_sockets_ASC" | "total_cpu_sockets_DESC" | "total_data_capacity_ASC" | "total_data_capacity_DESC" | "total_memory_bytes_ASC" | "total_memory_bytes_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "used_cpu_hz_ASC" | "used_cpu_hz_DESC" | "used_data_space_ASC" | "used_data_space_DESC" | "used_memory_bytes_ASC" | "used_memory_bytes_DESC" | "username_ASC" | "username_DESC" | "valid_data_space_ASC" | "valid_data_space_DESC" | "version_ASC" | "version_DESC" | "vhost_enabled_ASC" | "vhost_enabled_DESC" | "vm_num_ASC" | "vm_num_DESC";
 export interface GetClustersRequestBody {
@@ -8530,10 +8600,11 @@ export interface GetClustersRequestBody {
     skip?: number | null;
     where?: ClusterWhereInput | null;
 }
+export interface NestedAggregateCluster {
+    count: number;
+}
 export interface ClusterConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateCluster;
 }
 export interface GetClustersConnectionRequestBody {
     after?: string | null;
@@ -8544,17 +8615,15 @@ export interface GetClustersConnectionRequestBody {
     skip?: number | null;
     where?: ClusterWhereInput | null;
 }
+export interface NestedVmRecycleBin {
+    enabled: boolean;
+    retain: number;
+}
 export interface ClusterSettings {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     default_ha?: boolean | null;
     id: string;
-    vm_recycle_bin?: {
-        retain: number;
-        enabled: boolean;
-    };
+    vm_recycle_bin?: NestedVmRecycleBin | null;
 }
 export declare type ClusterSettingsOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "default_ha_ASC" | "default_ha_DESC" | "id_ASC" | "id_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vm_recycle_bin_ASC" | "vm_recycle_bin_DESC";
 export interface GetClusterSettingsesRequestBody {
@@ -8566,10 +8635,11 @@ export interface GetClusterSettingsesRequestBody {
     skip?: number | null;
     where?: ClusterSettingsWhereInput | null;
 }
+export interface NestedAggregateClusterSettings {
+    count: number;
+}
 export interface ClusterSettingsConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateClusterSettings;
 }
 export interface GetClusterSettingsesConnectionRequestBody {
     after?: string | null;
@@ -8580,25 +8650,21 @@ export interface GetClusterSettingsesConnectionRequestBody {
     skip?: number | null;
     where?: ClusterSettingsWhereInput | null;
 }
+export interface NestedBrickTopo {
+    id: string;
+    name: string;
+}
+export interface NestedZoneTopo {
+    id: string;
+}
 export interface ClusterTopo {
-    brick_topoes?: {
-        name: string;
-        id: string;
-    }[] | null;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    brick_topoes?: NestedBrickTopo[] | null;
+    cluster: NestedCluster;
     id: string;
     local_id: string;
     name: string;
-    node_topoes?: {
-        name: string;
-        id: string;
-    }[] | null;
-    zone_topoes?: {
-        id: string;
-    }[] | null;
+    node_topoes?: NestedNodeTopo[] | null;
+    zone_topoes?: NestedZoneTopo[] | null;
 }
 export declare type ClusterTopoOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetClusterTopoesRequestBody {
@@ -8610,10 +8676,11 @@ export interface GetClusterTopoesRequestBody {
     skip?: number | null;
     where?: ClusterTopoWhereInput | null;
 }
+export interface NestedAggregateClusterTopo {
+    count: number;
+}
 export interface ClusterTopoConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateClusterTopo;
 }
 export interface GetClusterTopoesConnectionRequestBody {
     after?: string | null;
@@ -8625,10 +8692,7 @@ export interface GetClusterTopoesConnectionRequestBody {
     where?: ClusterTopoWhereInput | null;
 }
 export interface ClusterUpgradeHistory {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     date: string;
     id: string;
     local_id: string;
@@ -8731,10 +8795,11 @@ export interface GetClusterUpgradeHistoriesRequestBody {
     skip?: number | null;
     where?: ClusterUpgradeHistoryWhereInput | null;
 }
+export interface NestedAggregateClusterUpgradeHistory {
+    count: number;
+}
 export interface ClusterUpgradeHistoryConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateClusterUpgradeHistory;
 }
 export interface GetClusterUpgradeHistoriesConnectionRequestBody {
     after?: string | null;
@@ -8745,32 +8810,30 @@ export interface GetClusterUpgradeHistoriesConnectionRequestBody {
     skip?: number | null;
     where?: ClusterUpgradeHistoryWhereInput | null;
 }
+export interface NestedConsistencyGroupSnapshot {
+    id: string;
+    name: string;
+}
+export interface NestedIscsiLun {
+    id: string;
+    name: string;
+}
+export interface NestedNvmfNamespace {
+    id: string;
+    name: string;
+}
 export interface ConsistencyGroup {
-    cluster: {
-        name: string;
-        id: string;
-    };
-    consistency_group_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
+    cluster: NestedCluster;
+    consistency_group_snapshots?: NestedConsistencyGroupSnapshot[] | null;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
-    iscsi_luns?: {
-        name: string;
-        id: string;
-    }[] | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    iscsi_luns?: NestedIscsiLun[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
     name: string;
-    namespaces?: {
-        name: string;
-        id: string;
-    }[] | null;
+    namespaces?: NestedNvmfNamespace[] | null;
     unique_size: number;
 }
 export declare type ConsistencyGroupOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "unique_size_ASC" | "unique_size_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
@@ -8783,10 +8846,11 @@ export interface GetConsistencyGroupsRequestBody {
     skip?: number | null;
     where?: ConsistencyGroupWhereInput | null;
 }
+export interface NestedAggregateConsistencyGroup {
+    count: number;
+}
 export interface ConsistencyGroupConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateConsistencyGroup;
 }
 export interface GetConsistencyGroupsConnectionRequestBody {
     after?: string | null;
@@ -8797,27 +8861,24 @@ export interface GetConsistencyGroupsConnectionRequestBody {
     skip?: number | null;
     where?: ConsistencyGroupWhereInput | null;
 }
+export interface NestedIscsiLunSnapshot {
+    id: string;
+    name: string;
+}
+export interface NestedNvmfNamespaceSnapshot {
+    id: string;
+    name: string;
+}
 export interface ConsistencyGroupSnapshot {
-    consistency_group?: {
-        name: string;
-        id: string;
-    };
+    consistency_group?: NestedConsistencyGroup | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
-    Iscsi_lun_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    Iscsi_lun_snapshots?: NestedIscsiLunSnapshot[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
     name: string;
-    nvmf_namespace_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nvmf_namespace_snapshots?: NestedNvmfNamespaceSnapshot[] | null;
     unique_size: number;
 }
 export declare type ConsistencyGroupSnapshotOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "unique_size_ASC" | "unique_size_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
@@ -8830,10 +8891,11 @@ export interface GetConsistencyGroupSnapshotsRequestBody {
     skip?: number | null;
     where?: ConsistencyGroupSnapshotWhereInput | null;
 }
+export interface NestedAggregateConsistencyGroupSnapshot {
+    count: number;
+}
 export interface ConsistencyGroupSnapshotConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateConsistencyGroupSnapshot;
 }
 export interface GetConsistencyGroupSnapshotsConnectionRequestBody {
     after?: string | null;
@@ -8844,37 +8906,32 @@ export interface GetConsistencyGroupSnapshotsConnectionRequestBody {
     skip?: number | null;
     where?: ConsistencyGroupSnapshotWhereInput | null;
 }
+export interface NestedElfImage {
+    id: string;
+    name: string;
+}
+export interface NestedVmDisk {
+    id: string;
+}
+export interface NestedVmSnapshot {
+    id: string;
+    name: string;
+}
 export interface ContentLibraryImage {
-    clusters?: {
-        name: string;
-        id: string;
-    }[] | null;
+    clusters?: NestedCluster[] | null;
     createdAt: string;
     description: string;
     elf_image_uuids: string[];
-    elf_images?: {
-        name: string;
-        id: string;
-    }[] | null;
+    elf_images?: NestedElfImage[] | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     name: string;
     path: string;
     size: number;
-    vm_disks?: {
-        id: string;
-    }[] | null;
-    vm_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
-    vm_templates?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_disks?: NestedVmDisk[] | null;
+    vm_snapshots?: NestedVmSnapshot[] | null;
+    vm_templates?: NestedVmTemplate[] | null;
 }
 export declare type ContentLibraryImageOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "path_ASC" | "path_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetContentLibraryImagesRequestBody {
@@ -8886,10 +8943,11 @@ export interface GetContentLibraryImagesRequestBody {
     skip?: number | null;
     where?: ContentLibraryImageWhereInput | null;
 }
+export interface NestedAggregateContentLibraryImage {
+    count: number;
+}
 export interface ContentLibraryImageConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateContentLibraryImage;
 }
 export interface GetContentLibraryImagesConnectionRequestBody {
     after?: string | null;
@@ -8900,23 +8958,61 @@ export interface GetContentLibraryImagesConnectionRequestBody {
     skip?: number | null;
     where?: ContentLibraryImageWhereInput | null;
 }
+export interface ContentLibraryVmTemplate {
+    cloud_init_supported: boolean;
+    clusters?: NestedCluster[] | null;
+    cpu: object;
+    createdAt: string;
+    description: string;
+    entityAsyncStatus?: EntityAsyncStatus | null;
+    guest_os_type?: VmGuestsOperationSystem | null;
+    id: string;
+    labels?: NestedLabel[] | null;
+    memory: number;
+    name: string;
+    size: number;
+    vcpu: number;
+    vm_template_uuids: string[];
+    vm_templates?: NestedVmTemplate[] | null;
+}
+export declare type ContentLibraryVmTemplateOrderByInput = "cloud_init_supported_ASC" | "cloud_init_supported_DESC" | "cpu_ASC" | "cpu_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "guest_os_type_ASC" | "guest_os_type_DESC" | "id_ASC" | "id_DESC" | "memory_ASC" | "memory_DESC" | "name_ASC" | "name_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vcpu_ASC" | "vcpu_DESC";
+export interface GetContentLibraryVmTemplatesRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: ContentLibraryVmTemplateOrderByInput | null;
+    skip?: number | null;
+    where?: ContentLibraryVmTemplateWhereInput | null;
+}
+export interface NestedAggregateContentLibraryVmTemplate {
+    count: number;
+}
+export interface ContentLibraryVmTemplateConnection {
+    aggregate: NestedAggregateContentLibraryVmTemplate;
+}
+export interface GetContentLibraryVmTemplatesConnectionRequestBody {
+    after?: string | null;
+    before?: string | null;
+    first?: number | null;
+    last?: number | null;
+    orderBy?: ContentLibraryVmTemplateOrderByInput | null;
+    skip?: number | null;
+    where?: ContentLibraryVmTemplateWhereInput | null;
+}
+export interface NestedOrganization {
+    id: string;
+    name: string;
+}
 export interface Datacenter {
     cluster_num?: number | null;
-    clusters?: {
-        name: string;
-        id: string;
-    }[] | null;
+    clusters?: NestedCluster[] | null;
     failure_data_space?: number | null;
     host_num?: number | null;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     name: string;
-    organization: {
-        name: string;
-        id: string;
-    };
+    organization: NestedOrganization;
     total_cpu_hz?: number | null;
     total_data_capacity?: number | null;
     total_memory_bytes?: number | null;
@@ -8935,10 +9031,11 @@ export interface GetDatacentersRequestBody {
     skip?: number | null;
     where?: DatacenterWhereInput | null;
 }
+export interface NestedAggregateDatacenter {
+    count: number;
+}
 export interface DatacenterConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateDatacenter;
 }
 export interface GetDatacentersConnectionRequestBody {
     after?: string | null;
@@ -8949,11 +9046,12 @@ export interface GetDatacentersConnectionRequestBody {
     skip?: number | null;
     where?: DatacenterWhereInput | null;
 }
+export interface NestedLicense {
+    id: string;
+}
 export interface Deploy {
     id: string;
-    license?: {
-        id: string;
-    };
+    license?: NestedLicense | null;
     version: string;
 }
 export declare type DeployOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_ASC" | "version_DESC";
@@ -9089,10 +9187,11 @@ export interface GetDeploysRequestBody {
     skip?: number | null;
     where?: DeployWhereInput | null;
 }
+export interface NestedAggregateDeploy {
+    count: number;
+}
 export interface DeployConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateDeploy;
 }
 export interface GetDeploysConnectionRequestBody {
     after?: string | null;
@@ -9103,44 +9202,48 @@ export interface GetDeploysConnectionRequestBody {
     skip?: number | null;
     where?: DeployWhereInput | null;
 }
+export interface NestedDiscoveredHostDimms {
+    dimm_id: string;
+    fw_version: string;
+    health_status: string;
+    socket_id: string;
+}
+export interface NestedDiscoveredHostDisk {
+    dimm_ids?: string[] | null;
+    drive: string;
+    function?: DiskFunction | null;
+    model: string;
+    numa_node?: number | null;
+    persistent_memory_type?: string | null;
+    serial: string;
+    size: number;
+    type: DiskType;
+}
+export interface NestedDiscoveredHostIface {
+    ipv4?: string | null;
+    ipv6?: string | null;
+    mac_address: string;
+    mtu: number;
+    name: string;
+    pci_slot_name?: string | null;
+    rdma_enabled?: boolean | null;
+    speed?: number | null;
+    up: boolean;
+}
 export interface DiscoveredHost {
     all_flash: boolean;
     deployed?: boolean | null;
-    dimms?: {
-        socket_id: string;
-        health_status: string;
-        fw_version: string;
-        dimm_id: string;
-    }[] | null;
-    disks: {
-        type: DiskType;
-        size: number;
-        serial: string;
-        persistent_memory_type?: string | null;
-        numa_node?: number | null;
-        model: string;
-        function?: DiskFunction | null;
-        drive: string;
-        dimm_ids?: string[] | null;
-    }[];
+    dimms?: NestedDiscoveredHostDimms[] | null;
+    disks: NestedDiscoveredHostDisk[];
     host_ip: string;
     host_uuid: string;
     hostname: string;
-    ifaces: {
-        up: boolean;
-        speed?: number | null;
-        rdma_enabled?: boolean | null;
-        pci_slot_name?: string | null;
-        name: string;
-        mtu: number;
-        mac_address: string;
-        ipv6?: string | null;
-        ipv4?: string | null;
-    }[];
+    ifaces: NestedDiscoveredHostIface[];
     ipmi_ip?: string | null;
     is_os_in_raid1?: boolean | null;
     product?: string | null;
     serial: string;
+    sockets: number;
     version: string;
 }
 export interface ClusterWhereUniqueInput {
@@ -9151,50 +9254,48 @@ export interface GetDiscoverHostsRequestBody {
     cluster: ClusterWhereUniqueInput;
     host_address?: string[] | null;
 }
+export interface NestedDiskFailureInformation {
+    chunk_checksum_error?: boolean | null;
+    chunk_errflag?: boolean | null;
+    chunk_io_error?: boolean | null;
+    chunk_warnflag?: boolean | null;
+    iostat_latency?: boolean | null;
+    iostat_latency_ms?: number | null;
+    smart_check?: boolean | null;
+}
 export declare type PartitionUsage = "BOOT" | "CACHE" | "JOURNAL" | "METAD" | "PARTITION" | "SWAP" | "SYSTEM" | "UNMOUNTED" | "UNPARTED" | "ZOOKEEPER";
+export interface NestedPartition {
+    name?: string | null;
+    path?: string | null;
+    size: number;
+    usage: PartitionUsage;
+    used_size: number;
+}
+export interface NestedPmemDimm {
+    id: string;
+    name: string;
+}
 export interface Disk {
     entityAsyncStatus?: EntityAsyncStatus | null;
-    failure_information?: {
-        smart_check?: boolean | null;
-        iostat_latency_ms?: number | null;
-        iostat_latency?: boolean | null;
-        chunk_warnflag?: boolean | null;
-        chunk_io_error?: boolean | null;
-        chunk_errflag?: boolean | null;
-        chunk_checksum_error?: boolean | null;
-    };
+    failure_information?: NestedDiskFailureInformation | null;
     firmware: string;
     function?: DiskFunction | null;
     health_status?: DiskHealthStatus | null;
     healthy: boolean;
-    host: {
-        name: string;
-        id: string;
-    };
+    host: NestedHost;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     model: string;
     mounted: boolean;
     name: string;
     numa_node?: number | null;
     offline: boolean;
-    partitions: {
-        used_size: number;
-        usage: PartitionUsage;
-        size: number;
-        path?: string | null;
-        name?: string | null;
-    }[];
+    partitions: NestedPartition[];
     path: string;
     persistent_memory_type?: string | null;
     physical_slot_on_brick?: number | null;
-    pmem_dimms?: {
-        name: string;
-        id: string;
-    }[] | null;
+    pmem_dimms?: NestedPmemDimm[] | null;
     recommended_usage?: DiskUsage | null;
     remaining_life_percent?: number | null;
     serial: string;
@@ -9213,10 +9314,11 @@ export interface GetDisksRequestBody {
     skip?: number | null;
     where?: DiskWhereInput | null;
 }
+export interface NestedAggregateDisk {
+    count: number;
+}
 export interface DiskConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateDisk;
 }
 export interface GetDisksConnectionRequestBody {
     after?: string | null;
@@ -9227,31 +9329,31 @@ export interface GetDisksConnectionRequestBody {
     skip?: number | null;
     where?: DiskWhereInput | null;
 }
+export interface NestedIscsiTarget {
+    id: string;
+    name: string;
+}
+export interface NestedNfsExport {
+    id: string;
+    name: string;
+}
+export interface NestedNvmfSubsystem {
+    id: string;
+    name: string;
+}
 export declare type ElfDataStoreType = "ISCSI" | "NFS" | "NVMe";
 export interface ElfDataStore {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description: string;
     external_use: boolean;
     id: string;
     internal: boolean;
     ip_whitelist: string;
-    iscsi_target?: {
-        name: string;
-        id: string;
-    };
+    iscsi_target?: NestedIscsiTarget | null;
     local_id: string;
     name: string;
-    nfs_export?: {
-        name: string;
-        id: string;
-    };
-    nvmf_subsystem?: {
-        name: string;
-        id: string;
-    };
+    nfs_export?: NestedNfsExport | null;
+    nvmf_subsystem?: NestedNvmfSubsystem | null;
     replica_num: number;
     thin_provision: boolean;
     type: ElfDataStoreType;
@@ -9363,10 +9465,11 @@ export interface GetElfDataStoresRequestBody {
     skip?: number | null;
     where?: ElfDataStoreWhereInput | null;
 }
+export interface NestedAggregateElfDataStore {
+    count: number;
+}
 export interface ElfDataStoreConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateElfDataStore;
 }
 export interface GetElfDataStoresConnectionRequestBody {
     after?: string | null;
@@ -9377,40 +9480,29 @@ export interface GetElfDataStoresConnectionRequestBody {
     skip?: number | null;
     where?: ElfDataStoreWhereInput | null;
 }
+export interface NestedContentLibraryImage {
+    id: string;
+    name: string;
+}
+export interface NestedUploadTask {
+    id: string;
+}
 export interface ElfImage {
-    cluster?: {
-        name: string;
-        id: string;
-    };
-    content_library_image?: {
-        name: string;
-        id: string;
-    };
+    cluster?: NestedCluster | null;
+    content_library_image?: NestedContentLibraryImage | null;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
     name: string;
     path: string;
     size: number;
-    upload_task?: {
-        id: string;
-    };
-    vm_disks?: {
-        id: string;
-    }[] | null;
-    vm_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
-    vm_templates?: {
-        name: string;
-        id: string;
-    }[] | null;
+    upload_task?: NestedUploadTask | null;
+    vm_disks?: NestedVmDisk[] | null;
+    vm_snapshots?: NestedVmSnapshot[] | null;
+    vm_templates?: NestedVmTemplate[] | null;
 }
 export declare type ElfImageOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "path_ASC" | "path_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetElfImagesRequestBody {
@@ -9422,10 +9514,11 @@ export interface GetElfImagesRequestBody {
     skip?: number | null;
     where?: ElfImageWhereInput | null;
 }
+export interface NestedAggregateElfImage {
+    count: number;
+}
 export interface ElfImageConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateElfImage;
 }
 export interface GetElfImagesConnectionRequestBody {
     after?: string | null;
@@ -9437,10 +9530,7 @@ export interface GetElfImagesConnectionRequestBody {
     where?: ElfImageWhereInput | null;
 }
 export interface ElfStoragePolicy {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
@@ -9553,10 +9643,11 @@ export interface GetElfStoragePoliciesRequestBody {
     skip?: number | null;
     where?: ElfStoragePolicyWhereInput | null;
 }
+export interface NestedAggregateElfStoragePolicy {
+    count: number;
+}
 export interface ElfStoragePolicyConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateElfStoragePolicy;
 }
 export interface GetElfStoragePoliciesConnectionRequestBody {
     after?: string | null;
@@ -9570,18 +9661,20 @@ export interface GetElfStoragePoliciesConnectionRequestBody {
 export declare type FilterRuleAggregationEnum = "AVG" | "MAX" | "MIN" | "QUANTILE" | "SUM";
 export declare type FilterRuleMetricEnum = "VM_CPU_USAGE" | "VM_MEMORY_USAGE" | "VM_POWEROFF_DAYS" | "VM_POWERON_DAYS" | "VM_READWRITE_IO";
 export declare type FilterRuleOpEnum = "GT" | "GTE" | "LT" | "LTE";
+export interface NestedFilterRule {
+    aggregation: FilterRuleAggregationEnum;
+    duration: number;
+    metric: FilterRuleMetricEnum;
+    op: FilterRuleOpEnum;
+    quantile: number;
+    threshold: number;
+}
 export interface EntityFilter {
     apply_to_all_clusters?: boolean | null;
-    clusters?: {
-        name: string;
-        id: string;
-    }[] | null;
+    clusters?: NestedCluster[] | null;
     entity_type: EntityType;
     exclude_ids: string[];
-    exec_failed_cluster?: {
-        name: string;
-        id: string;
-    }[] | null;
+    exec_failed_cluster?: NestedCluster[] | null;
     filter_error: string[];
     filter_status: FilterStatus;
     id: string;
@@ -9589,14 +9682,7 @@ export interface EntityFilter {
     last_executed_at?: string | null;
     name: string;
     preset?: string | null;
-    rules: {
-        threshold: number;
-        quantile: number;
-        op: FilterRuleOpEnum;
-        metric: FilterRuleMetricEnum;
-        duration: number;
-        aggregation: FilterRuleAggregationEnum;
-    }[];
+    rules: NestedFilterRule[];
 }
 export declare type EntityFilterOrderByInput = "apply_to_all_clusters_ASC" | "apply_to_all_clusters_DESC" | "createdAt_ASC" | "createdAt_DESC" | "entity_type_ASC" | "entity_type_DESC" | "filter_status_ASC" | "filter_status_DESC" | "id_ASC" | "id_DESC" | "last_executed_at_ASC" | "last_executed_at_DESC" | "name_ASC" | "name_DESC" | "preset_ASC" | "preset_DESC" | "rules_ASC" | "rules_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetEntityFiltersRequestBody {
@@ -9608,10 +9694,11 @@ export interface GetEntityFiltersRequestBody {
     skip?: number | null;
     where?: EntityFilterWhereInput | null;
 }
+export interface NestedAggregateEntityFilter {
+    count: number;
+}
 export interface EntityFilterConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateEntityFilter;
 }
 export interface GetEntityFiltersConnectionRequestBody {
     after?: string | null;
@@ -9622,95 +9709,90 @@ export interface GetEntityFiltersConnectionRequestBody {
     skip?: number | null;
     where?: EntityFilterWhereInput | null;
 }
+export interface NestedEverouteControllerInstance {
+    ipAddr: string;
+    vlan: string;
+}
+export interface NestedEverouteControllerTemplate {
+    cluster: string;
+    gateway: string;
+    memory: number;
+    netmask: string;
+    size: number;
+    vcpu: number;
+}
+export interface NestedEverouteAgentStatus {
+    host: NestedHost;
+    hostID: string;
+    ipAddr: string;
+    isHealth: boolean;
+    message: string;
+    phase?: EverouteClusterPhase | null;
+    reason: string;
+}
+export interface NestedEverouteManageVDSStatus {
+    message: string;
+    phase?: EverouteClusterPhase | null;
+    reason: string;
+    retryCount: number;
+    vds: NestedVds;
+    vdsID: string;
+}
+export interface NestedEverouteClusterAgentStatus {
+    currentNumber: number;
+    elfClusterNumber: number;
+    expectNumber: number;
+    instances?: NestedEverouteAgentStatus[] | null;
+    manageVDSes?: NestedEverouteManageVDSStatus[] | null;
+    numberHealth: number;
+}
+export interface NestedEverouteClusterCondition {
+    lastProbeTime: string;
+    type: string;
+}
+export interface NestedEverouteClusterVMMetrics {
+    cpuUsage: number;
+    dataVolumeUsage: number;
+    lastAcquisitionTime: string;
+    memoryUsage: number;
+}
+export interface NestedEverouteControllerStatus {
+    ipAddr: string;
+    isHealth: boolean;
+    message: string;
+    metrics?: NestedEverouteClusterVMMetrics | null;
+    phase?: EverouteClusterPhase | null;
+    reason: string;
+    vm: NestedVm;
+    vmID: string;
+}
+export interface NestedEverouteClusterControllerStatus {
+    currentNumber: number;
+    elfClusterNumber: number;
+    expectNumber: number;
+    instances?: NestedEverouteControllerStatus[] | null;
+    numberHealth: number;
+}
+export interface NestedEverouteClusterStatus {
+    agents?: NestedEverouteClusterAgentStatus | null;
+    conditions?: NestedEverouteClusterCondition[] | null;
+    controllers?: NestedEverouteClusterControllerStatus | null;
+    message: string;
+    phase?: EverouteClusterPhase | null;
+    reason: string;
+    retryCount: number;
+    version: string;
+}
 export interface EverouteCluster {
-    agent_elf_clusters?: {
-        name: string;
-        id: string;
-    }[] | null;
-    agent_elf_vdses?: {
-        name: string;
-        id: string;
-    }[] | null;
-    controller_instances: {
-        vlan: string;
-        ipAddr: string;
-    }[];
-    controller_template: {
-        vcpu: number;
-        size: number;
-        netmask: string;
-        memory: number;
-        gateway: string;
-        cluster: string;
-    };
+    agent_elf_clusters?: NestedCluster[] | null;
+    agent_elf_vdses?: NestedVds[] | null;
+    controller_instances: NestedEverouteControllerInstance[];
+    controller_template: NestedEverouteControllerTemplate;
     global_default_action: GlobalPolicyAction;
     id: string;
     name: string;
     phase?: EverouteClusterPhase | null;
-    status: {
-        version: string;
-        retryCount: number;
-        reason: string;
-        phase?: EverouteClusterPhase | null;
-        message: string;
-        controllers?: {
-            numberHealth: number;
-            manageVDSes?: {
-                vdsID: string;
-                vds: {
-                    name: string;
-                    id: string;
-                };
-                retryCount: number;
-                reason: string;
-                phase?: EverouteClusterPhase | null;
-                message: string;
-            }[];
-            instances?: {
-                vmID: string;
-                vm: {
-                    name: string;
-                    id: string;
-                };
-                reason: string;
-                phase?: EverouteClusterPhase | null;
-                metrics?: {
-                    memoryUsage: number;
-                    lastAcquisitionTime: string;
-                    dataVolumeUsage: number;
-                    cpuUsage: number;
-                };
-                message: string;
-                isHealth: boolean;
-                ipAddr: string;
-            }[];
-            expectNumber: number;
-            elfClusterNumber: number;
-            currentNumber: number;
-        };
-        conditions?: {
-            type: string;
-            lastProbeTime: string;
-        }[] | null;
-        agents?: {
-            numberHealth: number;
-            instances?: {
-                reason: string;
-                phase?: EverouteClusterPhase | null;
-                message: string;
-                isHealth: boolean;
-                ipAddr: string;
-                hostID: string;
-                host: {
-                    name: string;
-                    id: string;
-                };
-            }[];
-            expectNumber: number;
-            elfClusterNumber: number;
-            currentNumber: number;
-        };
-    };
+    status: NestedEverouteClusterStatus;
     version: string;
 }
 export declare type EverouteClusterOrderByInput = "controller_instances_ASC" | "controller_instances_DESC" | "controller_template_ASC" | "controller_template_DESC" | "createdAt_ASC" | "createdAt_DESC" | "global_default_action_ASC" | "global_default_action_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "phase_ASC" | "phase_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_ASC" | "version_DESC";
@@ -9723,10 +9805,11 @@ export interface GetEverouteClustersRequestBody {
     skip?: number | null;
     where?: EverouteClusterWhereInput | null;
 }
+export interface NestedAggregateEverouteCluster {
+    count: number;
+}
 export interface EverouteClusterConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateEverouteCluster;
 }
 export interface GetEverouteClustersConnectionRequestBody {
     after?: string | null;
@@ -9737,10 +9820,11 @@ export interface GetEverouteClustersConnectionRequestBody {
     skip?: number | null;
     where?: EverouteClusterWhereInput | null;
 }
+export interface NestedDeploy {
+    id: string;
+}
 export interface EverouteLicense {
-    cloud_tower: {
-        id: string;
-    };
+    cloud_tower: NestedDeploy;
     expire_date: string;
     id: string;
     license_serial: string;
@@ -9825,10 +9909,11 @@ export interface GetEverouteLicensesRequestBody {
     skip?: number | null;
     where?: EverouteLicenseWhereInput | null;
 }
+export interface NestedAggregateEverouteLicense {
+    count: number;
+}
 export interface EverouteLicenseConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateEverouteLicense;
 }
 export interface GetEverouteLicensesConnectionRequestBody {
     after?: string | null;
@@ -9848,9 +9933,7 @@ export interface EveroutePackage {
     name: string;
     package_info: object;
     size: number;
-    upload_task?: {
-        id: string;
-    };
+    upload_task?: NestedUploadTask | null;
     version: string;
 }
 export declare type EveroutePackageOrderByInput = "arch_ASC" | "arch_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "name_ASC" | "name_DESC" | "package_info_ASC" | "package_info_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_ASC" | "version_DESC";
@@ -9948,10 +10031,11 @@ export interface GetEveroutePackagesRequestBody {
     skip?: number | null;
     where?: EveroutePackageWhereInput | null;
 }
+export interface NestedAggregateEveroutePackage {
+    count: number;
+}
 export interface EveroutePackageConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateEveroutePackage;
 }
 export interface GetEveroutePackagesConnectionRequestBody {
     after?: string | null;
@@ -9963,16 +10047,10 @@ export interface GetEveroutePackagesConnectionRequestBody {
     where?: EveroutePackageWhereInput | null;
 }
 export interface GlobalAlertRule {
-    alert_rules?: {
-        id: string;
-    }[] | null;
+    alert_rules?: NestedAlertRule[] | null;
     boolean: boolean;
     cause: string;
-    default_thresholds: {
-        value?: number | null;
-        severity?: SeverityEnum | null;
-        quantile?: number | null;
-    }[];
+    default_thresholds: NestedThresholds[];
     disabled: boolean;
     id: string;
     impact: string;
@@ -9981,11 +10059,7 @@ export interface GlobalAlertRule {
     object?: AlertRuleObject | null;
     operator: string;
     solution: string;
-    thresholds: {
-        value?: number | null;
-        severity?: SeverityEnum | null;
-        quantile?: number | null;
-    }[];
+    thresholds: NestedThresholds[];
     unit: AlertRuleUnit;
 }
 export declare type GlobalAlertRuleOrderByInput = "boolean_ASC" | "boolean_DESC" | "cause_ASC" | "cause_DESC" | "createdAt_ASC" | "createdAt_DESC" | "default_thresholds_ASC" | "default_thresholds_DESC" | "disabled_ASC" | "disabled_DESC" | "id_ASC" | "id_DESC" | "impact_ASC" | "impact_DESC" | "message_ASC" | "message_DESC" | "name_ASC" | "name_DESC" | "object_ASC" | "object_DESC" | "operator_ASC" | "operator_DESC" | "solution_ASC" | "solution_DESC" | "thresholds_ASC" | "thresholds_DESC" | "unit_ASC" | "unit_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
@@ -9998,10 +10072,11 @@ export interface GetGlobalAlertRulesRequestBody {
     skip?: number | null;
     where?: GlobalAlertRuleWhereInput | null;
 }
+export interface NestedAggregateGlobalAlertRule {
+    count: number;
+}
 export interface GlobalAlertRuleConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateGlobalAlertRule;
 }
 export interface GetGlobalAlertRulesConnectionRequestBody {
     after?: string | null;
@@ -10014,10 +10089,7 @@ export interface GetGlobalAlertRulesConnectionRequestBody {
 }
 export interface GlobalSettings {
     id: string;
-    vm_recycle_bin: {
-        retain: number;
-        enabled: boolean;
-    };
+    vm_recycle_bin: NestedVmRecycleBin;
 }
 export declare type GlobalSettingsOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vm_recycle_bin_ASC" | "vm_recycle_bin_DESC";
 export interface GlobalSettingsWhereInput {
@@ -10048,10 +10120,11 @@ export interface GetGlobalSettingsesRequestBody {
     skip?: number | null;
     where?: GlobalSettingsWhereInput | null;
 }
+export interface NestedAggregateGlobalSettings {
+    count: number;
+}
 export interface GlobalSettingsConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateGlobalSettings;
 }
 export interface GetGlobalSettingsesConnectionRequestBody {
     after?: string | null;
@@ -10063,67 +10136,48 @@ export interface GetGlobalSettingsesConnectionRequestBody {
     where?: GlobalSettingsWhereInput | null;
 }
 export declare type MetricType = "BOTTOMK" | "NORMAL" | "TOPK";
+export interface NestedNic {
+    id: string;
+    name: string;
+}
 export declare type GraphType = "AREA" | "STACK";
+export interface NestedView {
+    id: string;
+    name: string;
+}
+export interface NestedVmNic {
+    id: string;
+}
+export interface NestedVmVolume {
+    id: string;
+    name: string;
+}
 export interface Graph {
-    cluster?: {
-        name: string;
-        id: string;
-    };
-    disks?: {
-        name: string;
-        id: string;
-    }[] | null;
+    cluster?: NestedCluster | null;
+    disks?: NestedDisk[] | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
-    hosts?: {
-        name: string;
-        id: string;
-    }[] | null;
+    hosts?: NestedHost[] | null;
     id: string;
     instance_ids: string[];
     local_id: string;
-    luns?: {
-        name: string;
-        id: string;
-    }[] | null;
+    luns?: NestedIscsiLun[] | null;
     metric_count: number;
     metric_name: string;
     metric_type: MetricType;
-    namespaces?: {
-        name: string;
-        id: string;
-    }[] | null;
+    namespaces?: NestedNvmfNamespace[] | null;
     network?: NetworkType | null;
-    nics?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nics?: NestedNic[] | null;
     resource_type: string;
     service?: string | null;
     targets: object;
     title: string;
     type: GraphType;
-    view: {
-        name: string;
-        id: string;
-    };
-    vmNics?: {
-        id: string;
-    }[] | null;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
-    vmVolumes?: {
-        name: string;
-        id: string;
-    }[] | null;
-    witnesses?: {
-        name: string;
-        id: string;
-    }[] | null;
-    zones?: {
-        id: string;
-    }[] | null;
+    view: NestedView;
+    vmNics?: NestedVmNic[] | null;
+    vms?: NestedVm[] | null;
+    vmVolumes?: NestedVmVolume[] | null;
+    witnesses?: NestedWitness[] | null;
+    zones?: NestedZone[] | null;
 }
 export declare type GraphOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "metric_count_ASC" | "metric_count_DESC" | "metric_name_ASC" | "metric_name_DESC" | "metric_type_ASC" | "metric_type_DESC" | "network_ASC" | "network_DESC" | "resource_type_ASC" | "resource_type_DESC" | "service_ASC" | "service_DESC" | "targets_ASC" | "targets_DESC" | "title_ASC" | "title_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GraphWhereInput {
@@ -10348,10 +10402,11 @@ export interface GetGraphsRequestBody {
     skip?: number | null;
     where?: GraphWhereInput | null;
 }
+export interface NestedAggregateGraph {
+    count: number;
+}
 export interface GraphConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateGraph;
 }
 export interface GetGraphsConnectionRequestBody {
     after?: string | null;
@@ -10362,14 +10417,21 @@ export interface GetGraphsConnectionRequestBody {
     skip?: number | null;
     where?: GraphWhereInput | null;
 }
+export interface NestedIpmi {
+    id: string;
+}
+export interface NestedUsbDevice {
+    id: string;
+    name: string;
+}
+export interface NestedVsphereEsxiAccount {
+    id: string;
+}
 export interface Host {
     access_ip?: string | null;
     allocatable_memory_bytes: number;
     chunk_id: string;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     compatible_cpu_models: string[];
     cpu_brand: string;
     cpu_fan_speed: number[];
@@ -10378,21 +10440,14 @@ export interface Host {
     cpu_model: string;
     cpu_temperature_celsius: number[];
     data_ip?: string | null;
-    disks?: {
-        name: string;
-        id: string;
-    }[] | null;
+    disks?: NestedDisk[] | null;
     failure_data_space: number;
     hdd_data_capacity: number;
     hdd_disk_count: number;
     id: string;
-    ipmi?: {
-        id: string;
-    };
+    ipmi?: NestedIpmi | null;
     is_os_in_raid1?: boolean | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     lsm_cap_disk_safe_umount: boolean;
     management_ip: string;
@@ -10400,19 +10455,13 @@ export interface Host {
     name: string;
     nested_virtualization: boolean;
     nic_count: number;
-    nics?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nics?: NestedNic[] | null;
     node_topo_local_id?: string | null;
     os_memory_bytes: number;
     os_version?: string | null;
     pmem_dimm_capacity: number;
     pmem_dimm_count: number;
-    pmem_dimms?: {
-        name: string;
-        id: string;
-    }[] | null;
+    pmem_dimms?: NestedPmemDimm[] | null;
     pmem_disk_count: number;
     provisioned_cpu_cores: number;
     provisioned_memory_bytes: number;
@@ -10431,30 +10480,21 @@ export interface Host {
     total_cache_capacity?: number | null;
     total_cpu_cores: number;
     total_cpu_hz: number;
+    total_cpu_sockets?: number | null;
     total_data_capacity: number;
     total_memory_bytes: number;
-    usb_devices?: {
-        name: string;
-        id: string;
-    }[] | null;
+    usb_devices?: NestedUsbDevice[] | null;
     used_cpu_hz?: number | null;
     used_data_space: number;
     used_memory_bytes?: number | null;
     vm_num?: number | null;
     vmotion_ip?: string | null;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
-    vsphereEsxiAccount?: {
-        id: string;
-    };
+    vms?: NestedVm[] | null;
+    vsphereEsxiAccount?: NestedVsphereEsxiAccount | null;
     with_faster_ssd_as_cache?: boolean | null;
-    zone?: {
-        id: string;
-    };
+    zone?: NestedZone | null;
 }
-export declare type HostOrderByInput = "access_ip_ASC" | "access_ip_DESC" | "allocatable_memory_bytes_ASC" | "allocatable_memory_bytes_DESC" | "chunk_id_ASC" | "chunk_id_DESC" | "cpu_brand_ASC" | "cpu_brand_DESC" | "cpu_fan_speed_unit_ASC" | "cpu_fan_speed_unit_DESC" | "cpu_hz_per_core_ASC" | "cpu_hz_per_core_DESC" | "cpu_model_ASC" | "cpu_model_DESC" | "createdAt_ASC" | "createdAt_DESC" | "data_ip_ASC" | "data_ip_DESC" | "failure_data_space_ASC" | "failure_data_space_DESC" | "hdd_data_capacity_ASC" | "hdd_data_capacity_DESC" | "hdd_disk_count_ASC" | "hdd_disk_count_DESC" | "id_ASC" | "id_DESC" | "is_os_in_raid1_ASC" | "is_os_in_raid1_DESC" | "local_id_ASC" | "local_id_DESC" | "lsm_cap_disk_safe_umount_ASC" | "lsm_cap_disk_safe_umount_DESC" | "management_ip_ASC" | "management_ip_DESC" | "model_ASC" | "model_DESC" | "name_ASC" | "name_DESC" | "nested_virtualization_ASC" | "nested_virtualization_DESC" | "nic_count_ASC" | "nic_count_DESC" | "node_topo_local_id_ASC" | "node_topo_local_id_DESC" | "os_memory_bytes_ASC" | "os_memory_bytes_DESC" | "os_version_ASC" | "os_version_DESC" | "pmem_dimm_capacity_ASC" | "pmem_dimm_capacity_DESC" | "pmem_dimm_count_ASC" | "pmem_dimm_count_DESC" | "pmem_disk_count_ASC" | "pmem_disk_count_DESC" | "provisioned_cpu_cores_ASC" | "provisioned_cpu_cores_DESC" | "provisioned_memory_bytes_ASC" | "provisioned_memory_bytes_DESC" | "running_pause_vm_memory_bytes_ASC" | "running_pause_vm_memory_bytes_DESC" | "running_vm_num_ASC" | "running_vm_num_DESC" | "scvm_cpu_ASC" | "scvm_cpu_DESC" | "scvm_memory_ASC" | "scvm_memory_DESC" | "scvm_name_ASC" | "scvm_name_DESC" | "serial_ASC" | "serial_DESC" | "ssd_data_capacity_ASC" | "ssd_data_capacity_DESC" | "ssd_disk_count_ASC" | "ssd_disk_count_DESC" | "state_ASC" | "state_DESC" | "status_ASC" | "status_DESC" | "stopped_vm_num_ASC" | "stopped_vm_num_DESC" | "suspended_vm_num_ASC" | "suspended_vm_num_DESC" | "total_cache_capacity_ASC" | "total_cache_capacity_DESC" | "total_cpu_cores_ASC" | "total_cpu_cores_DESC" | "total_cpu_hz_ASC" | "total_cpu_hz_DESC" | "total_data_capacity_ASC" | "total_data_capacity_DESC" | "total_memory_bytes_ASC" | "total_memory_bytes_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "used_cpu_hz_ASC" | "used_cpu_hz_DESC" | "used_data_space_ASC" | "used_data_space_DESC" | "used_memory_bytes_ASC" | "used_memory_bytes_DESC" | "vm_num_ASC" | "vm_num_DESC" | "vmotion_ip_ASC" | "vmotion_ip_DESC" | "with_faster_ssd_as_cache_ASC" | "with_faster_ssd_as_cache_DESC";
+export declare type HostOrderByInput = "access_ip_ASC" | "access_ip_DESC" | "allocatable_memory_bytes_ASC" | "allocatable_memory_bytes_DESC" | "chunk_id_ASC" | "chunk_id_DESC" | "cpu_brand_ASC" | "cpu_brand_DESC" | "cpu_fan_speed_unit_ASC" | "cpu_fan_speed_unit_DESC" | "cpu_hz_per_core_ASC" | "cpu_hz_per_core_DESC" | "cpu_model_ASC" | "cpu_model_DESC" | "createdAt_ASC" | "createdAt_DESC" | "data_ip_ASC" | "data_ip_DESC" | "failure_data_space_ASC" | "failure_data_space_DESC" | "hdd_data_capacity_ASC" | "hdd_data_capacity_DESC" | "hdd_disk_count_ASC" | "hdd_disk_count_DESC" | "id_ASC" | "id_DESC" | "is_os_in_raid1_ASC" | "is_os_in_raid1_DESC" | "local_id_ASC" | "local_id_DESC" | "lsm_cap_disk_safe_umount_ASC" | "lsm_cap_disk_safe_umount_DESC" | "management_ip_ASC" | "management_ip_DESC" | "model_ASC" | "model_DESC" | "name_ASC" | "name_DESC" | "nested_virtualization_ASC" | "nested_virtualization_DESC" | "nic_count_ASC" | "nic_count_DESC" | "node_topo_local_id_ASC" | "node_topo_local_id_DESC" | "os_memory_bytes_ASC" | "os_memory_bytes_DESC" | "os_version_ASC" | "os_version_DESC" | "pmem_dimm_capacity_ASC" | "pmem_dimm_capacity_DESC" | "pmem_dimm_count_ASC" | "pmem_dimm_count_DESC" | "pmem_disk_count_ASC" | "pmem_disk_count_DESC" | "provisioned_cpu_cores_ASC" | "provisioned_cpu_cores_DESC" | "provisioned_memory_bytes_ASC" | "provisioned_memory_bytes_DESC" | "running_pause_vm_memory_bytes_ASC" | "running_pause_vm_memory_bytes_DESC" | "running_vm_num_ASC" | "running_vm_num_DESC" | "scvm_cpu_ASC" | "scvm_cpu_DESC" | "scvm_memory_ASC" | "scvm_memory_DESC" | "scvm_name_ASC" | "scvm_name_DESC" | "serial_ASC" | "serial_DESC" | "ssd_data_capacity_ASC" | "ssd_data_capacity_DESC" | "ssd_disk_count_ASC" | "ssd_disk_count_DESC" | "state_ASC" | "state_DESC" | "status_ASC" | "status_DESC" | "stopped_vm_num_ASC" | "stopped_vm_num_DESC" | "suspended_vm_num_ASC" | "suspended_vm_num_DESC" | "total_cache_capacity_ASC" | "total_cache_capacity_DESC" | "total_cpu_cores_ASC" | "total_cpu_cores_DESC" | "total_cpu_hz_ASC" | "total_cpu_hz_DESC" | "total_cpu_sockets_ASC" | "total_cpu_sockets_DESC" | "total_data_capacity_ASC" | "total_data_capacity_DESC" | "total_memory_bytes_ASC" | "total_memory_bytes_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "used_cpu_hz_ASC" | "used_cpu_hz_DESC" | "used_data_space_ASC" | "used_data_space_DESC" | "used_memory_bytes_ASC" | "used_memory_bytes_DESC" | "vm_num_ASC" | "vm_num_DESC" | "vmotion_ip_ASC" | "vmotion_ip_DESC" | "with_faster_ssd_as_cache_ASC" | "with_faster_ssd_as_cache_DESC";
 export interface GetHostsRequestBody {
     after?: string | null;
     before?: string | null;
@@ -10464,10 +10504,11 @@ export interface GetHostsRequestBody {
     skip?: number | null;
     where?: HostWhereInput | null;
 }
+export interface NestedAggregateHost {
+    count: number;
+}
 export interface HostConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateHost;
 }
 export interface GetHostsConnectionRequestBody {
     after?: string | null;
@@ -10487,10 +10528,7 @@ export interface GetImagesConnectorRequestBody {
     cluster: ClusterWhereUniqueInput;
 }
 export interface Ipmi {
-    host: {
-        name: string;
-        id: string;
-    };
+    host: NestedHost;
     id: string;
     ip: string;
     local_id: string;
@@ -10510,24 +10548,12 @@ export interface GetIpmisRequestBody {
 export declare type StoreConnectionType = "ISCSI" | "NVMe";
 export interface IscsiConnection {
     client_port: number;
-    cluster: {
-        name: string;
-        id: string;
-    };
-    host: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
+    host: NestedHost;
     id: string;
     initiator_ip: string;
-    iscsi_target?: {
-        name: string;
-        id: string;
-    };
-    nvmf_subsystem?: {
-        name: string;
-        id: string;
-    };
+    iscsi_target?: NestedIscsiTarget | null;
+    nvmf_subsystem?: NestedNvmfSubsystem | null;
     type: StoreConnectionType;
 }
 export declare type IscsiConnectionOrderByInput = "client_port_ASC" | "client_port_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "initiator_ip_ASC" | "initiator_ip_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
@@ -10589,10 +10615,11 @@ export interface GetIscsiConnectionsRequestBody {
     skip?: number | null;
     where?: IscsiConnectionWhereInput | null;
 }
+export interface NestedAggregateIscsiConnection {
+    count: number;
+}
 export interface IscsiConnectionConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateIscsiConnection;
 }
 export interface GetIscsiConnectionsConnectionRequestBody {
     after?: string | null;
@@ -10615,10 +10642,7 @@ export interface IscsiLun {
     bps_wr: number;
     bps_wr_max: number;
     bps_wr_max_length: number;
-    consistency_group?: {
-        name: string;
-        id: string;
-    };
+    consistency_group?: NestedConsistencyGroup | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
     io_size: number;
@@ -10631,13 +10655,8 @@ export interface IscsiLun {
     iops_wr: number;
     iops_wr_max: number;
     iops_wr_max_length: number;
-    iscsi_target: {
-        name: string;
-        id: string;
-    };
-    labels?: {
-        id: string;
-    }[] | null;
+    iscsi_target: NestedIscsiTarget;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
     lun_id: number;
@@ -10661,10 +10680,11 @@ export interface GetIscsiLunsRequestBody {
     skip?: number | null;
     where?: IscsiLunWhereInput | null;
 }
+export interface NestedAggregateIscsiLun {
+    count: number;
+}
 export interface IscsiLunConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateIscsiLun;
 }
 export interface GetIscsiLunsConnectionRequestBody {
     after?: string | null;
@@ -10676,23 +10696,12 @@ export interface GetIscsiLunsConnectionRequestBody {
     where?: IscsiLunWhereInput | null;
 }
 export interface IscsiLunSnapshot {
-    consistency_group_snapshot?: {
-        name: string;
-        id: string;
-    };
+    consistency_group_snapshot?: NestedConsistencyGroupSnapshot | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
-    iscsi_lun?: {
-        name: string;
-        id: string;
-    };
-    iscsi_target: {
-        name: string;
-        id: string;
-    };
-    labels?: {
-        id: string;
-    }[] | null;
+    iscsi_lun?: NestedIscsiLun | null;
+    iscsi_target: NestedIscsiTarget;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
     name: string;
@@ -10708,10 +10717,11 @@ export interface GetIscsiLunSnapshotsRequestBody {
     skip?: number | null;
     where?: IscsiLunSnapshotWhereInput | null;
 }
+export interface NestedAggregateIscsiLunSnapshot {
+    count: number;
+}
 export interface IscsiLunSnapshotConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateIscsiLunSnapshot;
 }
 export interface GetIscsiLunSnapshotsConnectionRequestBody {
     after?: string | null;
@@ -10721,6 +10731,11 @@ export interface GetIscsiLunSnapshotsConnectionRequestBody {
     orderBy?: IscsiLunSnapshotOrderByInput | null;
     skip?: number | null;
     where?: IscsiLunSnapshotWhereInput | null;
+}
+export interface NestedInitiatorChap {
+    chap_name: string;
+    chap_secret: string;
+    initiator_iqn: string;
 }
 export interface IscsiTarget {
     bps?: number | null;
@@ -10735,19 +10750,12 @@ export interface IscsiTarget {
     chap_enabled: boolean;
     chap_name?: string | null;
     chap_secret?: string | null;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
     external_use: boolean;
     id: string;
-    initiator_chaps?: {
-        initiator_iqn: string;
-        chap_secret: string;
-        chap_name: string;
-    }[] | null;
+    initiator_chaps?: NestedInitiatorChap[] | null;
     internal: boolean;
     io_size?: number | null;
     iops?: number | null;
@@ -10762,14 +10770,9 @@ export interface IscsiTarget {
     ip_whitelist: string;
     iqn_name: string;
     iqn_whitelist: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
-    luns?: {
-        name: string;
-        id: string;
-    }[] | null;
+    luns?: NestedIscsiLun[] | null;
     name: string;
     replica_num: number;
     stripe_num: number;
@@ -10786,10 +10789,11 @@ export interface GetIscsiTargetsRequestBody {
     skip?: number | null;
     where?: IscsiTargetWhereInput | null;
 }
+export interface NestedAggregateIscsiTarget {
+    count: number;
+}
 export interface IscsiTargetConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateIscsiTarget;
 }
 export interface GetIscsiTargetsConnectionRequestBody {
     after?: string | null;
@@ -10801,45 +10805,26 @@ export interface GetIscsiTargetsConnectionRequestBody {
     where?: IscsiTargetWhereInput | null;
 }
 export declare type NetworkPolicyRulePortProtocol = "ICMP" | "TCP" | "UDP";
+export interface NestedNetworkPolicyRulePort {
+    port?: string | null;
+    protocol: NetworkPolicyRulePortProtocol;
+}
 export declare type NetworkPolicyRuleType = "ALL" | "IP_BLOCK" | "SELECTOR";
+export interface NestedNetworkPolicyRule {
+    ip_block?: string | null;
+    ports?: NestedNetworkPolicyRulePort[] | null;
+    selector?: NestedLabel[] | null;
+    selector_ids?: string[] | null;
+    type: NetworkPolicyRuleType;
+}
 export interface IsolationPolicy {
-    egress?: {
-        type: NetworkPolicyRuleType;
-        selector_ids?: string[] | null;
-        selector?: {
-            id: string;
-        }[] | null;
-        ports?: {
-            protocol: NetworkPolicyRulePortProtocol;
-            port?: string | null;
-        }[];
-        ip_block?: string | null;
-    }[];
-    everoute_cluster: {
-        name: string;
-        id: string;
-    };
+    egress?: NestedNetworkPolicyRule[] | null;
+    everoute_cluster: NestedEverouteCluster;
     id: string;
-    ingress?: {
-        type: NetworkPolicyRuleType;
-        selector_ids?: string[] | null;
-        selector?: {
-            id: string;
-        }[] | null;
-        ports?: {
-            protocol: NetworkPolicyRulePortProtocol;
-            port?: string | null;
-        }[];
-        ip_block?: string | null;
-    }[];
-    labels?: {
-        id: string;
-    }[] | null;
+    ingress?: NestedNetworkPolicyRule[] | null;
+    labels?: NestedLabel[] | null;
     mode: IsolationMode;
-    vm: {
-        name: string;
-        id: string;
-    };
+    vm: NestedVm;
 }
 export declare type IsolationPolicyOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "egress_ASC" | "egress_DESC" | "id_ASC" | "id_DESC" | "ingress_ASC" | "ingress_DESC" | "mode_ASC" | "mode_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetIsolationPoliciesRequestBody {
@@ -10851,10 +10836,11 @@ export interface GetIsolationPoliciesRequestBody {
     skip?: number | null;
     where?: IsolationPolicyWhereInput | null;
 }
+export interface NestedAggregateIsolationPolicy {
+    count: number;
+}
 export interface IsolationPolicyConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateIsolationPolicy;
 }
 export interface GetIsolationPoliciesConnectionRequestBody {
     after?: string | null;
@@ -10865,144 +10851,92 @@ export interface GetIsolationPoliciesConnectionRequestBody {
     skip?: number | null;
     where?: IsolationPolicyWhereInput | null;
 }
+export interface NestedContentLibraryVmTemplate {
+    id: string;
+    name: string;
+}
+export interface NestedIsolationPolicy {
+    id: string;
+}
+export interface NestedNamespaceGroup {
+    id: string;
+    name: string;
+}
+export interface NestedNfsInode {
+    id: string;
+    name: string;
+}
+export interface NestedSecurityPolicy {
+    id: string;
+    name: string;
+}
+export interface NestedVlan {
+    id: string;
+    name: string;
+}
 export interface Label {
     cluster_num?: number | null;
-    clusters?: {
-        name: string;
-        id: string;
-    }[] | null;
+    clusters?: NestedCluster[] | null;
     consistency_group_num?: number | null;
     consistency_group_snapshot_num?: number | null;
-    consistency_group_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
-    consistency_groups?: {
-        name: string;
-        id: string;
-    }[] | null;
+    consistency_group_snapshots?: NestedConsistencyGroupSnapshot[] | null;
+    consistency_groups?: NestedConsistencyGroup[] | null;
     content_library_image_num?: number | null;
-    content_library_images?: {
-        name: string;
-        id: string;
-    }[] | null;
+    content_library_images?: NestedContentLibraryImage[] | null;
+    content_library_vm_template_num?: number | null;
+    content_library_vm_templates?: NestedContentLibraryVmTemplate[] | null;
     createdAt: string;
     datacenter_num?: number | null;
-    datacenters?: {
-        name: string;
-        id: string;
-    }[] | null;
+    datacenters?: NestedDatacenter[] | null;
     disk_num?: number | null;
-    disks?: {
-        name: string;
-        id: string;
-    }[] | null;
+    disks?: NestedDisk[] | null;
     elf_image_num?: number | null;
-    elf_images?: {
-        name: string;
-        id: string;
-    }[] | null;
+    elf_images?: NestedElfImage[] | null;
     host_num?: number | null;
-    hosts?: {
-        name: string;
-        id: string;
-    }[] | null;
+    hosts?: NestedHost[] | null;
     id: string;
     iscsi_lun_num?: number | null;
     iscsi_lun_snapshot_num?: number | null;
-    iscsi_lun_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
-    iscsi_luns?: {
-        name: string;
-        id: string;
-    }[] | null;
+    iscsi_lun_snapshots?: NestedIscsiLunSnapshot[] | null;
+    iscsi_luns?: NestedIscsiLun[] | null;
     iscsi_target_num?: number | null;
-    iscsi_targets?: {
-        name: string;
-        id: string;
-    }[] | null;
-    isolation_policies?: {
-        id: string;
-    }[] | null;
+    iscsi_targets?: NestedIscsiTarget[] | null;
+    isolation_policies?: NestedIsolationPolicy[] | null;
     isolation_policy_num?: number | null;
     key: string;
     namespace_group_num?: number | null;
-    namespace_groups?: {
-        name: string;
-        id: string;
-    }[] | null;
+    namespace_groups?: NestedNamespaceGroup[] | null;
     nfs_export_num?: number | null;
-    nfs_exports?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nfs_exports?: NestedNfsExport[] | null;
     nfs_inode_num?: number | null;
-    nfs_inodes?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nfs_inodes?: NestedNfsInode[] | null;
     nic_num?: number | null;
-    nics?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nics?: NestedNic[] | null;
     nvmf_namespace_num?: number | null;
     nvmf_namespace_snapshot_num?: number | null;
-    nvmf_namespace_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
-    nvmf_namespaces?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nvmf_namespace_snapshots?: NestedNvmfNamespaceSnapshot[] | null;
+    nvmf_namespaces?: NestedNvmfNamespace[] | null;
     nvmf_subsystem_num?: number | null;
-    nvmf_subsystems?: {
-        name: string;
-        id: string;
-    }[] | null;
-    security_policies?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nvmf_subsystems?: NestedNvmfSubsystem[] | null;
+    security_policies?: NestedSecurityPolicy[] | null;
     security_policy_num?: number | null;
     system_vlan_num?: number | null;
     total_num?: number | null;
     value?: string | null;
     vds_num?: number | null;
-    vdses?: {
-        name: string;
-        id: string;
-    }[] | null;
-    vlans?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vdses?: NestedVds[] | null;
+    vlans?: NestedVlan[] | null;
     vm_num?: number | null;
     vm_snapshot_num?: number | null;
-    vm_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_snapshots?: NestedVmSnapshot[] | null;
     vm_template_num?: number | null;
-    vm_templates?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_templates?: NestedVmTemplate[] | null;
     vm_vlan_num?: number | null;
     vm_volume_num?: number | null;
-    vm_volumes?: {
-        name: string;
-        id: string;
-    }[] | null;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_volumes?: NestedVmVolume[] | null;
+    vms?: NestedVm[] | null;
 }
-export declare type LabelOrderByInput = "cluster_num_ASC" | "cluster_num_DESC" | "consistency_group_num_ASC" | "consistency_group_num_DESC" | "consistency_group_snapshot_num_ASC" | "consistency_group_snapshot_num_DESC" | "content_library_image_num_ASC" | "content_library_image_num_DESC" | "createdAt_ASC" | "createdAt_DESC" | "datacenter_num_ASC" | "datacenter_num_DESC" | "disk_num_ASC" | "disk_num_DESC" | "elf_image_num_ASC" | "elf_image_num_DESC" | "host_num_ASC" | "host_num_DESC" | "id_ASC" | "id_DESC" | "iscsi_lun_num_ASC" | "iscsi_lun_num_DESC" | "iscsi_lun_snapshot_num_ASC" | "iscsi_lun_snapshot_num_DESC" | "iscsi_target_num_ASC" | "iscsi_target_num_DESC" | "isolation_policy_num_ASC" | "isolation_policy_num_DESC" | "key_ASC" | "key_DESC" | "namespace_group_num_ASC" | "namespace_group_num_DESC" | "nfs_export_num_ASC" | "nfs_export_num_DESC" | "nfs_inode_num_ASC" | "nfs_inode_num_DESC" | "nic_num_ASC" | "nic_num_DESC" | "nvmf_namespace_num_ASC" | "nvmf_namespace_num_DESC" | "nvmf_namespace_snapshot_num_ASC" | "nvmf_namespace_snapshot_num_DESC" | "nvmf_subsystem_num_ASC" | "nvmf_subsystem_num_DESC" | "security_policy_num_ASC" | "security_policy_num_DESC" | "system_vlan_num_ASC" | "system_vlan_num_DESC" | "total_num_ASC" | "total_num_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC" | "vds_num_ASC" | "vds_num_DESC" | "vm_num_ASC" | "vm_num_DESC" | "vm_snapshot_num_ASC" | "vm_snapshot_num_DESC" | "vm_template_num_ASC" | "vm_template_num_DESC" | "vm_vlan_num_ASC" | "vm_vlan_num_DESC" | "vm_volume_num_ASC" | "vm_volume_num_DESC";
+export declare type LabelOrderByInput = "cluster_num_ASC" | "cluster_num_DESC" | "consistency_group_num_ASC" | "consistency_group_num_DESC" | "consistency_group_snapshot_num_ASC" | "consistency_group_snapshot_num_DESC" | "content_library_image_num_ASC" | "content_library_image_num_DESC" | "content_library_vm_template_num_ASC" | "content_library_vm_template_num_DESC" | "createdAt_ASC" | "createdAt_DESC" | "datacenter_num_ASC" | "datacenter_num_DESC" | "disk_num_ASC" | "disk_num_DESC" | "elf_image_num_ASC" | "elf_image_num_DESC" | "host_num_ASC" | "host_num_DESC" | "id_ASC" | "id_DESC" | "iscsi_lun_num_ASC" | "iscsi_lun_num_DESC" | "iscsi_lun_snapshot_num_ASC" | "iscsi_lun_snapshot_num_DESC" | "iscsi_target_num_ASC" | "iscsi_target_num_DESC" | "isolation_policy_num_ASC" | "isolation_policy_num_DESC" | "key_ASC" | "key_DESC" | "namespace_group_num_ASC" | "namespace_group_num_DESC" | "nfs_export_num_ASC" | "nfs_export_num_DESC" | "nfs_inode_num_ASC" | "nfs_inode_num_DESC" | "nic_num_ASC" | "nic_num_DESC" | "nvmf_namespace_num_ASC" | "nvmf_namespace_num_DESC" | "nvmf_namespace_snapshot_num_ASC" | "nvmf_namespace_snapshot_num_DESC" | "nvmf_subsystem_num_ASC" | "nvmf_subsystem_num_DESC" | "security_policy_num_ASC" | "security_policy_num_DESC" | "system_vlan_num_ASC" | "system_vlan_num_DESC" | "total_num_ASC" | "total_num_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "value_ASC" | "value_DESC" | "vds_num_ASC" | "vds_num_DESC" | "vm_num_ASC" | "vm_num_DESC" | "vm_snapshot_num_ASC" | "vm_snapshot_num_DESC" | "vm_template_num_ASC" | "vm_template_num_DESC" | "vm_vlan_num_ASC" | "vm_vlan_num_DESC" | "vm_volume_num_ASC" | "vm_volume_num_DESC";
 export interface GetLabelsRequestBody {
     after?: string | null;
     before?: string | null;
@@ -11012,10 +10946,11 @@ export interface GetLabelsRequestBody {
     skip?: number | null;
     where?: LabelWhereInput | null;
 }
+export interface NestedAggregateLabel {
+    count: number;
+}
 export interface LabelConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateLabel;
 }
 export interface GetLabelsConnectionRequestBody {
     after?: string | null;
@@ -11048,10 +10983,11 @@ export interface GetLicensesRequestBody {
     skip?: number | null;
     where?: LicenseWhereInput | null;
 }
+export interface NestedAggregateLicense {
+    count: number;
+}
 export interface LicenseConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateLicense;
 }
 export interface GetLicensesConnectionRequestBody {
     after?: string | null;
@@ -11064,14 +11000,8 @@ export interface GetLicensesConnectionRequestBody {
 }
 export declare type LogCollectionStatus = "EXECUTING" | "FAILED" | "STOPPING" | "SUCCESSED";
 export interface LogCollection {
-    cluster: {
-        name: string;
-        id: string;
-    };
-    hosts?: {
-        name: string;
-        id: string;
-    }[] | null;
+    cluster: NestedCluster;
+    hosts?: NestedHost[] | null;
     id: string;
     local_id: string;
     log_ended_at: string;
@@ -11202,10 +11132,11 @@ export interface GetLogCollectionsRequestBody {
     skip?: number | null;
     where?: LogCollectionWhereInput | null;
 }
+export interface NestedAggregateLogCollection {
+    count: number;
+}
 export interface LogCollectionConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateLogCollection;
 }
 export interface GetLogCollectionsConnectionRequestBody {
     after?: string | null;
@@ -11323,10 +11254,11 @@ export interface GetMigrateTransmittersRequestBody {
     skip?: number | null;
     where?: MigrateTransmitterWhereInput | null;
 }
+export interface NestedAggregateMigrateTransmitter {
+    count: number;
+}
 export interface MigrateTransmitterConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateMigrateTransmitter;
 }
 export interface GetMigrateTransmittersConnectionRequestBody {
     after?: string | null;
@@ -11340,20 +11272,12 @@ export interface GetMigrateTransmittersConnectionRequestBody {
 export interface NamespaceGroup {
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_create_time: string;
     local_id: string;
     name: string;
-    namespaces?: {
-        name: string;
-        id: string;
-    }[] | null;
-    nvmf_subsystem: {
-        name: string;
-        id: string;
-    };
+    namespaces?: NestedNvmfNamespace[] | null;
+    nvmf_subsystem: NestedNvmfSubsystem;
 }
 export declare type NamespaceGroupOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_create_time_ASC" | "local_create_time_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetNamespaceGroupsRequestBody {
@@ -11365,10 +11289,11 @@ export interface GetNamespaceGroupsRequestBody {
     skip?: number | null;
     where?: NamespaceGroupWhereInput | null;
 }
+export interface NestedAggregateNamespaceGroup {
+    count: number;
+}
 export interface NamespaceGroupConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNamespaceGroup;
 }
 export interface GetNamespaceGroupsConnectionRequestBody {
     after?: string | null;
@@ -11380,23 +11305,15 @@ export interface GetNamespaceGroupsConnectionRequestBody {
     where?: NamespaceGroupWhereInput | null;
 }
 export interface NfsExport {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
     export_inode_id: string;
     id: string;
-    inodes?: {
-        name: string;
-        id: string;
-    }[] | null;
+    inodes?: NestedNfsInode[] | null;
     internal: boolean;
     ip_whitelist: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     name: string;
     replica_num: number;
@@ -11412,10 +11329,11 @@ export interface GetNfsExportsRequestBody {
     skip?: number | null;
     where?: NfsExportWhereInput | null;
 }
+export interface NestedAggregateNfsExport {
+    count: number;
+}
 export interface NfsExportConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNfsExport;
 }
 export interface GetNfsExportsConnectionRequestBody {
     after?: string | null;
@@ -11431,16 +11349,11 @@ export interface NfsInode {
     entityAsyncStatus?: EntityAsyncStatus | null;
     file: boolean;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     local_updated_at: string;
     name: string;
-    nfs_export: {
-        name: string;
-        id: string;
-    };
+    nfs_export: NestedNfsExport;
     parent_id: string;
     shared_size: number;
     snapshot_num: number;
@@ -11456,10 +11369,11 @@ export interface GetNfsInodesRequestBody {
     skip?: number | null;
     where?: NfsInodeWhereInput | null;
 }
+export interface NestedAggregateNfsInode {
+    count: number;
+}
 export interface NfsInodeConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNfsInode;
 }
 export interface GetNfsInodesConnectionRequestBody {
     after?: string | null;
@@ -11474,17 +11388,12 @@ export interface Nic {
     driver?: string | null;
     driver_state?: NicDriverState | null;
     gateway_ip?: string | null;
-    host: {
-        name: string;
-        id: string;
-    };
+    host: NestedHost;
     ibdev?: string | null;
     id: string;
     ip_address?: string | null;
     is_sriov?: boolean | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     mac_address: string;
     max_vf_num?: number | null;
@@ -11501,10 +11410,7 @@ export interface Nic {
     type?: NetworkType | null;
     up: boolean;
     used_vf_num?: number | null;
-    vds?: {
-        name: string;
-        id: string;
-    };
+    vds?: NestedVds | null;
 }
 export declare type NicOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "driver_ASC" | "driver_DESC" | "driver_state_ASC" | "driver_state_DESC" | "gateway_ip_ASC" | "gateway_ip_DESC" | "ibdev_ASC" | "ibdev_DESC" | "id_ASC" | "id_DESC" | "ip_address_ASC" | "ip_address_DESC" | "is_sriov_ASC" | "is_sriov_DESC" | "local_id_ASC" | "local_id_DESC" | "mac_address_ASC" | "mac_address_DESC" | "max_vf_num_ASC" | "max_vf_num_DESC" | "model_ASC" | "model_DESC" | "mtu_ASC" | "mtu_DESC" | "name_ASC" | "name_DESC" | "nic_uuid_ASC" | "nic_uuid_DESC" | "physical_ASC" | "physical_DESC" | "rdma_enabled_ASC" | "rdma_enabled_DESC" | "running_ASC" | "running_DESC" | "speed_ASC" | "speed_DESC" | "subnet_mask_ASC" | "subnet_mask_DESC" | "total_vf_num_ASC" | "total_vf_num_DESC" | "type_ASC" | "type_DESC" | "up_ASC" | "up_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "used_vf_num_ASC" | "used_vf_num_DESC";
 export interface GetNicsRequestBody {
@@ -11516,10 +11422,11 @@ export interface GetNicsRequestBody {
     skip?: number | null;
     where?: NicWhereInput | null;
 }
+export interface NestedAggregateNic {
+    count: number;
+}
 export interface NicConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNic;
 }
 export interface GetNicsConnectionRequestBody {
     after?: string | null;
@@ -11530,30 +11437,19 @@ export interface GetNicsConnectionRequestBody {
     skip?: number | null;
     where?: NicWhereInput | null;
 }
+export interface NestedPosition {
+    column?: number | null;
+    row?: number | null;
+}
 export interface NodeTopo {
-    brick_topo?: {
-        name: string;
-        id: string;
-    };
-    cluster: {
-        name: string;
-        id: string;
-    };
-    cluster_topo?: {
-        name: string;
-        id: string;
-    };
-    host: {
-        name: string;
-        id: string;
-    };
+    brick_topo?: NestedBrickTopo | null;
+    cluster: NestedCluster;
+    cluster_topo?: NestedClusterTopo | null;
+    host: NestedHost;
     id: string;
     local_id: string;
     name: string;
-    position: {
-        row?: number | null;
-        column?: number | null;
-    };
+    position: NestedPosition;
 }
 export declare type NodeTopoOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "position_ASC" | "position_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetNodeTopoesRequestBody {
@@ -11565,10 +11461,11 @@ export interface GetNodeTopoesRequestBody {
     skip?: number | null;
     where?: NodeTopoWhereInput | null;
 }
+export interface NestedAggregateNodeTopo {
+    count: number;
+}
 export interface NodeTopoConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNodeTopo;
 }
 export interface GetNodeTopoesConnectionRequestBody {
     after?: string | null;
@@ -11590,10 +11487,7 @@ export interface NvmfNamespace {
     bps_wr: number;
     bps_wr_max: number;
     bps_wr_max_length: number;
-    consistency_group?: {
-        name: string;
-        id: string;
-    };
+    consistency_group?: NestedConsistencyGroup | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
     io_size: number;
@@ -11607,22 +11501,14 @@ export interface NvmfNamespace {
     iops_wr_max: number;
     iops_wr_max_length: number;
     is_shared: boolean;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
     name: string;
-    namespace_group?: {
-        name: string;
-        id: string;
-    };
+    namespace_group?: NestedNamespaceGroup | null;
     namespace_id: number;
     nqn_whitelist: string;
-    nvmf_subsystem: {
-        name: string;
-        id: string;
-    };
+    nvmf_subsystem: NestedNvmfSubsystem;
     replica_num: number;
     shared_size: number;
     snapshot_num: number;
@@ -11642,10 +11528,11 @@ export interface GetNvmfNamespacesRequestBody {
     skip?: number | null;
     where?: NvmfNamespaceWhereInput | null;
 }
+export interface NestedAggregateNvmfNamespace {
+    count: number;
+}
 export interface NvmfNamespaceConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNvmfNamespace;
 }
 export interface GetNvmfNamespacesConnectionRequestBody {
     after?: string | null;
@@ -11657,26 +11544,15 @@ export interface GetNvmfNamespacesConnectionRequestBody {
     where?: NvmfNamespaceWhereInput | null;
 }
 export interface NvmfNamespaceSnapshot {
-    consistency_group_snapshot?: {
-        name: string;
-        id: string;
-    };
+    consistency_group_snapshot?: NestedConsistencyGroupSnapshot | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
     name: string;
-    nvmf_namespace?: {
-        name: string;
-        id: string;
-    };
-    nvmf_subsystem: {
-        name: string;
-        id: string;
-    };
+    nvmf_namespace?: NestedNvmfNamespace | null;
+    nvmf_subsystem: NestedNvmfSubsystem;
     unique_size: number;
 }
 export declare type NvmfNamespaceSnapshotOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "unique_size_ASC" | "unique_size_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
@@ -11689,10 +11565,11 @@ export interface GetNvmfNamespaceSnapshotsRequestBody {
     skip?: number | null;
     where?: NvmfNamespaceSnapshotWhereInput | null;
 }
+export interface NestedAggregateNvmfNamespaceSnapshot {
+    count: number;
+}
 export interface NvmfNamespaceSnapshotConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNvmfNamespaceSnapshot;
 }
 export interface GetNvmfNamespaceSnapshotsConnectionRequestBody {
     after?: string | null;
@@ -11713,10 +11590,7 @@ export interface NvmfSubsystem {
     bps_wr?: number | null;
     bps_wr_max?: number | null;
     bps_wr_max_length?: number | null;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
     external_use: boolean;
@@ -11733,19 +11607,11 @@ export interface NvmfSubsystem {
     iops_wr_max?: number | null;
     iops_wr_max_length?: number | null;
     ip_whitelist: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     name: string;
-    namespace_groups?: {
-        name: string;
-        id: string;
-    }[] | null;
-    namespaces?: {
-        name: string;
-        id: string;
-    }[] | null;
+    namespace_groups?: NestedNamespaceGroup[] | null;
+    namespaces?: NestedNvmfNamespace[] | null;
     nqn_name: string;
     nqn_whitelist: string;
     policy: NvmfSubsystemPolicyType;
@@ -11764,10 +11630,11 @@ export interface GetNvmfSubsystemsRequestBody {
     skip?: number | null;
     where?: NvmfSubsystemWhereInput | null;
 }
+export interface NestedAggregateNvmfSubsystem {
+    count: number;
+}
 export interface NvmfSubsystemConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateNvmfSubsystem;
 }
 export interface GetNvmfSubsystemsConnectionRequestBody {
     after?: string | null;
@@ -11779,10 +11646,7 @@ export interface GetNvmfSubsystemsConnectionRequestBody {
     where?: NvmfSubsystemWhereInput | null;
 }
 export interface Organization {
-    datacenters?: {
-        name: string;
-        id: string;
-    }[] | null;
+    datacenters?: NestedDatacenter[] | null;
     id: string;
     name: string;
 }
@@ -11796,10 +11660,11 @@ export interface GetOrganizationsRequestBody {
     skip?: number | null;
     where?: OrganizationWhereInput | null;
 }
+export interface NestedAggregateOrganization {
+    count: number;
+}
 export interface OrganizationConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateOrganization;
 }
 export interface GetOrganizationsConnectionRequestBody {
     after?: string | null;
@@ -11813,15 +11678,9 @@ export interface GetOrganizationsConnectionRequestBody {
 export interface PmemDimm {
     capacity: number;
     device_locator: string;
-    disk?: {
-        name: string;
-        id: string;
-    };
+    disk?: NestedDisk | null;
     health_status?: DiskHealthStatus | null;
-    host: {
-        name: string;
-        id: string;
-    };
+    host: NestedHost;
     id: string;
     local_id?: string | null;
     name: string;
@@ -11840,10 +11699,11 @@ export interface GetPmemDimmsRequestBody {
     skip?: number | null;
     where?: PmemDimmWhereInput | null;
 }
+export interface NestedAggregatePmemDimm {
+    count: number;
+}
 export interface PmemDimmConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregatePmemDimm;
 }
 export interface GetPmemDimmsConnectionRequestBody {
     after?: string | null;
@@ -11855,21 +11715,13 @@ export interface GetPmemDimmsConnectionRequestBody {
     where?: PmemDimmWhereInput | null;
 }
 export interface RackTopo {
-    brick_topoes?: {
-        name: string;
-        id: string;
-    }[] | null;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    brick_topoes?: NestedBrickTopo[] | null;
+    cluster: NestedCluster;
     height: number;
     id: string;
     local_id: string;
     name: string;
-    zone_topo: {
-        id: string;
-    };
+    zone_topo: NestedZoneTopo;
 }
 export declare type RackTopoOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "height_ASC" | "height_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetRackTopoesRequestBody {
@@ -11881,10 +11733,11 @@ export interface GetRackTopoesRequestBody {
     skip?: number | null;
     where?: RackTopoWhereInput | null;
 }
+export interface NestedAggregateRackTopo {
+    count: number;
+}
 export interface RackTopoConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateRackTopo;
 }
 export interface GetRackTopoesConnectionRequestBody {
     after?: string | null;
@@ -11896,6 +11749,10 @@ export interface GetRackTopoesConnectionRequestBody {
     where?: RackTopoWhereInput | null;
 }
 export declare type TaskStatus = "EXECUTING" | "FAILED" | "PENDING" | "SUCCESSED";
+export interface NestedReportTemplate {
+    id: string;
+    name: string;
+}
 export interface ReportTask {
     createdAt: string;
     id: string;
@@ -11903,10 +11760,7 @@ export interface ReportTask {
     name: string;
     plan_id?: string | null;
     status: TaskStatus;
-    template: {
-        name: string;
-        id: string;
-    };
+    template: NestedReportTemplate;
 }
 export declare type ReportTaskOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "name_ASC" | "name_DESC" | "plan_id_ASC" | "plan_id_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface ReportTaskWhereInput {
@@ -12060,10 +11914,11 @@ export interface GetReportTasksRequestBody {
     skip?: number | null;
     where?: ReportTaskWhereInput | null;
 }
+export interface NestedAggregateReportTask {
+    count: number;
+}
 export interface ReportTaskConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateReportTask;
 }
 export interface GetReportTasksConnectionRequestBody {
     after?: string | null;
@@ -12074,27 +11929,30 @@ export interface GetReportTasksConnectionRequestBody {
     skip?: number | null;
     where?: ReportTaskWhereInput | null;
 }
+export interface NestedExecutePlan {
+    id: string;
+}
 export declare type ReportResourceInputEnum = "ALERT" | "ALL" | "CLUSTER" | "DATA_CENTER" | "DISK" | "ELF_IMAGE" | "ENTITY_FILTERS" | "GLOBAL_ALERT_RULE" | "HOST" | "TASK" | "VDS" | "VLAN" | "VM" | "VM_TEMPLATE";
+export interface NestedResourceMeta {
+    fields: string[];
+    filter: object;
+    name: string;
+    type: ReportResourceInputEnum;
+}
+export interface NestedReportTask {
+    id: string;
+    name: string;
+}
 export interface ReportTemplate {
     createdAt: string;
     description: string;
-    execute_plan: {
-        id: string;
-    }[];
+    execute_plan: NestedExecutePlan[];
     id: string;
     name: string;
     preset?: string | null;
-    resource_meta: {
-        type: ReportResourceInputEnum;
-        name: string;
-        filter: object;
-        fields: string[];
-    }[];
+    resource_meta: NestedResourceMeta[];
     task_num: number;
-    tasks?: {
-        name: string;
-        id: string;
-    }[] | null;
+    tasks?: NestedReportTask[] | null;
 }
 export declare type ReportTemplateOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "execute_plan_ASC" | "execute_plan_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "preset_ASC" | "preset_DESC" | "resource_meta_ASC" | "resource_meta_DESC" | "task_num_ASC" | "task_num_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetReportTemplatesRequestBody {
@@ -12106,10 +11964,11 @@ export interface GetReportTemplatesRequestBody {
     skip?: number | null;
     where?: ReportTemplateWhereInput | null;
 }
+export interface NestedAggregateReportTemplate {
+    count: number;
+}
 export interface ReportTemplateConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateReportTemplate;
 }
 export interface GetReportTemplatesConnectionRequestBody {
     after?: string | null;
@@ -12120,44 +11979,18 @@ export interface GetReportTemplatesConnectionRequestBody {
     skip?: number | null;
     where?: ReportTemplateWhereInput | null;
 }
+export interface NestedSecurityPolicyApply {
+    communicable: boolean;
+    selector: NestedLabel[];
+    selector_ids: string[];
+}
 export interface SecurityPolicy {
-    apply_to: {
-        selector_ids: string[];
-        selector: {
-            id: string;
-        }[];
-        communicable: boolean;
-    }[];
+    apply_to: NestedSecurityPolicyApply[];
     description: string;
-    egress?: {
-        type: NetworkPolicyRuleType;
-        selector_ids?: string[] | null;
-        selector?: {
-            id: string;
-        }[] | null;
-        ports?: {
-            protocol: NetworkPolicyRulePortProtocol;
-            port?: string | null;
-        }[];
-        ip_block?: string | null;
-    }[];
-    everoute_cluster: {
-        name: string;
-        id: string;
-    };
+    egress?: NestedNetworkPolicyRule[] | null;
+    everoute_cluster: NestedEverouteCluster;
     id: string;
-    ingress?: {
-        type: NetworkPolicyRuleType;
-        selector_ids?: string[] | null;
-        selector?: {
-            id: string;
-        }[] | null;
-        ports?: {
-            protocol: NetworkPolicyRulePortProtocol;
-            port?: string | null;
-        }[];
-        ip_block?: string | null;
-    }[];
+    ingress?: NestedNetworkPolicyRule[] | null;
     name: string;
 }
 export declare type SecurityPolicyOrderByInput = "apply_to_ASC" | "apply_to_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "egress_ASC" | "egress_DESC" | "id_ASC" | "id_DESC" | "ingress_ASC" | "ingress_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
@@ -12170,10 +12003,11 @@ export interface GetSecurityPoliciesRequestBody {
     skip?: number | null;
     where?: SecurityPolicyWhereInput | null;
 }
+export interface NestedAggregateSecurityPolicy {
+    count: number;
+}
 export interface SecurityPolicyConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSecurityPolicy;
 }
 export interface GetSecurityPoliciesConnectionRequestBody {
     after?: string | null;
@@ -12184,12 +12018,22 @@ export interface GetSecurityPoliciesConnectionRequestBody {
     skip?: number | null;
     where?: SecurityPolicyWhereInput | null;
 }
+export interface NestedSnapshotPlanTask {
+    id: string;
+}
 export declare type ProtectSnapshotStatus = "PROTECT_SNAPSHOT_STATUS_CREATED" | "PROTECT_SNAPSHOT_STATUS_CREATING" | "PROTECT_SNAPSHOT_STATUS_DELETED" | "PROTECT_SNAPSHOT_STATUS_FAILED";
+export interface NestedSnapshotGroupVmDiskInfo {
+    disk_id: string;
+    disk_snapshot_status: ProtectSnapshotStatus;
+}
+export interface NestedSnapshotGroupVmInfo {
+    disks: NestedSnapshotGroupVmDiskInfo[];
+    vm_id: string;
+    vm_name: string;
+    vm_snapshot_status: ProtectSnapshotStatus;
+}
 export interface SnapshotGroup {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     deleted: boolean;
     entityAsyncStatus?: EntityAsyncStatus | null;
     estimated_recycling_time?: string | null;
@@ -12201,22 +12045,9 @@ export interface SnapshotGroup {
     logical_size_bytes: number;
     name: string;
     object_num: number;
-    snapshotPlanTask: {
-        id: string;
-    };
-    vm_info: {
-        vm_snapshot_status: ProtectSnapshotStatus;
-        vm_name: string;
-        vm_id: string;
-        disks: {
-            disk_snapshot_status: ProtectSnapshotStatus;
-            disk_id: string;
-        }[];
-    }[];
-    vm_snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
+    snapshotPlanTask: NestedSnapshotPlanTask;
+    vm_info: NestedSnapshotGroupVmInfo[];
+    vm_snapshots?: NestedVmSnapshot[] | null;
 }
 export declare type SnapshotGroupOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "deleted_ASC" | "deleted_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "estimated_recycling_time_ASC" | "estimated_recycling_time_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "keep_ASC" | "keep_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "logical_size_bytes_ASC" | "logical_size_bytes_DESC" | "name_ASC" | "name_DESC" | "object_num_ASC" | "object_num_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vm_info_ASC" | "vm_info_DESC";
 export interface GetSnapshotGroupsRequestBody {
@@ -12228,10 +12059,11 @@ export interface GetSnapshotGroupsRequestBody {
     skip?: number | null;
     where?: SnapshotGroupWhereInput | null;
 }
+export interface NestedAggregateSnapshotGroup {
+    count: number;
+}
 export interface SnapshotGroupConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSnapshotGroup;
 }
 export interface GetSnapshotGroupsConnectionRequestBody {
     after?: string | null;
@@ -12245,19 +12077,14 @@ export interface GetSnapshotGroupsConnectionRequestBody {
 export interface SnapshotPlan {
     auto_delete_num: number;
     auto_execute_num: number;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description: string;
     end_time?: string | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     exec_h_m?: object | null;
     execute_intervals: number[];
     execute_plan_type: SnapshotPlanExecuteType;
-    execution_tasks?: {
-        id: string;
-    }[] | null;
+    execution_tasks?: NestedSnapshotPlanTask[] | null;
     healthy: boolean;
     id: string;
     last_execute_end_time?: string | null;
@@ -12276,10 +12103,7 @@ export interface SnapshotPlan {
     snapshot_group_num: number;
     start_time: string;
     status: SnapshotPlanStatus;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vms?: NestedVm[] | null;
 }
 export declare type SnapshotPlanOrderByInput = "auto_delete_num_ASC" | "auto_delete_num_DESC" | "auto_execute_num_ASC" | "auto_execute_num_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "end_time_ASC" | "end_time_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "exec_h_m_ASC" | "exec_h_m_DESC" | "execute_plan_type_ASC" | "execute_plan_type_DESC" | "healthy_ASC" | "healthy_DESC" | "id_ASC" | "id_DESC" | "last_execute_end_time_ASC" | "last_execute_end_time_DESC" | "last_execute_status_ASC" | "last_execute_status_DESC" | "last_execute_time_ASC" | "last_execute_time_DESC" | "local_id_ASC" | "local_id_DESC" | "logical_size_bytes_ASC" | "logical_size_bytes_DESC" | "manual_delete_num_ASC" | "manual_delete_num_DESC" | "manual_execute_num_ASC" | "manual_execute_num_DESC" | "mirror_ASC" | "mirror_DESC" | "name_ASC" | "name_DESC" | "next_execute_time_ASC" | "next_execute_time_DESC" | "object_num_ASC" | "object_num_DESC" | "physical_size_bytes_ASC" | "physical_size_bytes_DESC" | "remain_snapshot_num_ASC" | "remain_snapshot_num_DESC" | "snapshot_group_num_ASC" | "snapshot_group_num_DESC" | "start_time_ASC" | "start_time_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetSnapshotPlansRequestBody {
@@ -12291,10 +12115,11 @@ export interface GetSnapshotPlansRequestBody {
     skip?: number | null;
     where?: SnapshotPlanWhereInput | null;
 }
+export interface NestedAggregateSnapshotPlan {
+    count: number;
+}
 export interface SnapshotPlanConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSnapshotPlan;
 }
 export interface GetSnapshotPlansConnectionRequestBody {
     after?: string | null;
@@ -12305,24 +12130,23 @@ export interface GetSnapshotPlansConnectionRequestBody {
     skip?: number | null;
     where?: SnapshotPlanWhereInput | null;
 }
+export interface NestedSnapshotGroup {
+    id: string;
+    name: string;
+}
+export interface NestedSnapshotPlan {
+    id: string;
+    name: string;
+}
 export interface SnapshotPlanTask {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     end_time?: string | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
     internal?: boolean | null;
     local_id: string;
-    snapshotGroup?: {
-        name: string;
-        id: string;
-    };
-    snapshotPlan: {
-        name: string;
-        id: string;
-    };
+    snapshotGroup?: NestedSnapshotGroup | null;
+    snapshotPlan: NestedSnapshotPlan;
     start_time: string;
     status: SnapshotPlanExecuteStatus;
     type: SnapshotPlanTaskType;
@@ -12337,10 +12161,11 @@ export interface GetSnapshotPlanTasksRequestBody {
     skip?: number | null;
     where?: SnapshotPlanTaskWhereInput | null;
 }
+export interface NestedAggregateSnapshotPlanTask {
+    count: number;
+}
 export interface SnapshotPlanTaskConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSnapshotPlanTask;
 }
 export interface GetSnapshotPlanTasksConnectionRequestBody {
     after?: string | null;
@@ -12358,10 +12183,7 @@ export declare type SnmpVersion = "V2C" | "V3";
 export interface SnmpTransport {
     auth_pass_phrase?: string | null;
     auth_protocol?: SnmpAuthProtocol | null;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     community?: string | null;
     disabled: boolean;
     entityAsyncStatus?: EntityAsyncStatus | null;
@@ -12519,10 +12341,11 @@ export interface GetSnmpTransportsRequestBody {
     skip?: number | null;
     where?: SnmpTransportWhereInput | null;
 }
+export interface NestedAggregateSnmpTransport {
+    count: number;
+}
 export interface SnmpTransportConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSnmpTransport;
 }
 export interface GetSnmpTransportsConnectionRequestBody {
     after?: string | null;
@@ -12537,10 +12360,7 @@ export declare type SnmpLanguageCode = "EN_US" | "ZH_CN";
 export interface SnmpTrapReceiver {
     auth_pass_phrase?: string | null;
     auth_protocol?: SnmpAuthProtocol | null;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     community?: string | null;
     disabled: boolean;
     engine_id?: string | null;
@@ -12736,10 +12556,11 @@ export interface GetSnmpTrapReceiversRequestBody {
     skip?: number | null;
     where?: SnmpTrapReceiverWhereInput | null;
 }
+export interface NestedAggregateSnmpTrapReceiver {
+    count: number;
+}
 export interface SnmpTrapReceiverConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSnmpTrapReceiver;
 }
 export interface GetSnmpTrapReceiversConnectionRequestBody {
     after?: string | null;
@@ -12760,10 +12581,7 @@ export interface GetStoragePoliciesConnectorRequestBody {
     cluster: ClusterWhereUniqueInput;
 }
 export interface SvtImage {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     entityAsyncStatus?: EntityAsyncStatus | null;
     id: string;
     local_created_at: string;
@@ -12772,9 +12590,7 @@ export interface SvtImage {
     path: string;
     size: number;
     version: number;
-    vm_disks?: {
-        id: string;
-    }[] | null;
+    vm_disks?: NestedVmDisk[] | null;
 }
 export declare type SvtImageOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "path_ASC" | "path_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "version_ASC" | "version_DESC";
 export interface GetSvtImagesRequestBody {
@@ -12786,10 +12602,11 @@ export interface GetSvtImagesRequestBody {
     skip?: number | null;
     where?: SvtImageWhereInput | null;
 }
+export interface NestedAggregateSvtImage {
+    count: number;
+}
 export interface SvtImageConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSvtImage;
 }
 export interface GetSvtImagesConnectionRequestBody {
     after?: string | null;
@@ -12803,10 +12620,7 @@ export interface GetSvtImagesConnectionRequestBody {
 export declare type UserAuditLogStatus = "FAILED" | "SUCCESSED";
 export interface SystemAuditLog {
     action: string;
-    cluster?: {
-        name: string;
-        id: string;
-    };
+    cluster?: NestedCluster | null;
     finished_at?: string | null;
     id: string;
     local_created_at?: string | null;
@@ -12921,10 +12735,11 @@ export interface GetSystemAuditLogsRequestBody {
     skip?: number | null;
     where?: SystemAuditLogWhereInput | null;
 }
+export interface NestedAggregateSystemAuditLog {
+    count: number;
+}
 export interface SystemAuditLogConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateSystemAuditLog;
 }
 export interface GetSystemAuditLogsConnectionRequestBody {
     after?: string | null;
@@ -12936,12 +12751,21 @@ export interface GetSystemAuditLogsConnectionRequestBody {
     where?: SystemAuditLogWhereInput | null;
 }
 export declare type StepUnit = "BIT" | "BYTE" | "COUNT" | "PERCENT";
+export interface NestedStep {
+    current?: number | null;
+    finished?: boolean | null;
+    key?: string | null;
+    per_second?: number | null;
+    total?: number | null;
+    unit?: StepUnit | null;
+}
+export interface NestedUser {
+    id: string;
+    name: string;
+}
 export interface Task {
     args: object;
-    cluster?: {
-        name: string;
-        id: string;
-    };
+    cluster?: NestedCluster | null;
     description: string;
     error_code?: string | null;
     error_message?: string | null;
@@ -12953,25 +12777,16 @@ export interface Task {
     resource_id?: string | null;
     resource_mutation?: string | null;
     resource_rollback_error?: string | null;
+    resource_rollback_retry_count?: number | null;
     resource_rollbacked?: boolean | null;
     resource_type?: string | null;
     snapshot: string;
     started_at?: string | null;
     status: TaskStatus;
-    steps: {
-        unit?: StepUnit | null;
-        total?: number | null;
-        per_second?: number | null;
-        key?: string | null;
-        finished?: boolean | null;
-        current?: number | null;
-    }[];
-    user?: {
-        name: string;
-        id: string;
-    };
+    steps: NestedStep[];
+    user?: NestedUser | null;
 }
-export declare type TaskOrderByInput = "args_ASC" | "args_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "error_code_ASC" | "error_code_DESC" | "error_message_ASC" | "error_message_DESC" | "finished_at_ASC" | "finished_at_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "progress_ASC" | "progress_DESC" | "resource_id_ASC" | "resource_id_DESC" | "resource_mutation_ASC" | "resource_mutation_DESC" | "resource_rollback_error_ASC" | "resource_rollback_error_DESC" | "resource_rollbacked_ASC" | "resource_rollbacked_DESC" | "resource_type_ASC" | "resource_type_DESC" | "snapshot_ASC" | "snapshot_DESC" | "started_at_ASC" | "started_at_DESC" | "status_ASC" | "status_DESC" | "steps_ASC" | "steps_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
+export declare type TaskOrderByInput = "args_ASC" | "args_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "error_code_ASC" | "error_code_DESC" | "error_message_ASC" | "error_message_DESC" | "finished_at_ASC" | "finished_at_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "progress_ASC" | "progress_DESC" | "resource_id_ASC" | "resource_id_DESC" | "resource_mutation_ASC" | "resource_mutation_DESC" | "resource_rollback_error_ASC" | "resource_rollback_error_DESC" | "resource_rollback_retry_count_ASC" | "resource_rollback_retry_count_DESC" | "resource_rollbacked_ASC" | "resource_rollbacked_DESC" | "resource_type_ASC" | "resource_type_DESC" | "snapshot_ASC" | "snapshot_DESC" | "started_at_ASC" | "started_at_DESC" | "status_ASC" | "status_DESC" | "steps_ASC" | "steps_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface TaskWhereInput {
     AND?: TaskWhereInput[] | null;
     cluster?: ClusterWhereInput | null;
@@ -13101,6 +12916,14 @@ export interface TaskWhereInput {
     resource_rollback_error_not_in?: string[] | null;
     resource_rollback_error_not_starts_with?: string | null;
     resource_rollback_error_starts_with?: string | null;
+    resource_rollback_retry_count?: number | null;
+    resource_rollback_retry_count_gt?: number | null;
+    resource_rollback_retry_count_gte?: number | null;
+    resource_rollback_retry_count_in?: number[] | null;
+    resource_rollback_retry_count_lt?: number | null;
+    resource_rollback_retry_count_lte?: number | null;
+    resource_rollback_retry_count_not?: number | null;
+    resource_rollback_retry_count_not_in?: number[] | null;
     resource_rollbacked?: boolean | null;
     resource_rollbacked_not?: boolean | null;
     resource_type?: string | null;
@@ -13318,10 +13141,11 @@ export interface GetTasksRequestBody {
     skip?: number | null;
     where?: TaskWhereInput | null;
 }
+export interface NestedAggregateTask {
+    count: number;
+}
 export interface TaskConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateTask;
 }
 export interface GetTasksConnectionRequestBody {
     after?: string | null;
@@ -13431,10 +13255,11 @@ export interface GetUploadTasksRequestBody {
     skip?: number | null;
     where?: UploadTaskWhereInput | null;
 }
+export interface NestedAggregateUploadTask {
+    count: number;
+}
 export interface UploadTaskConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateUploadTask;
 }
 export interface GetUploadTasksConnectionRequestBody {
     after?: string | null;
@@ -13448,10 +13273,7 @@ export interface GetUploadTasksConnectionRequestBody {
 export interface UsbDevice {
     binded: boolean;
     description: string;
-    host: {
-        name: string;
-        id: string;
-    };
+    host: NestedHost;
     id: string;
     local_created_at: string;
     local_id: string;
@@ -13460,10 +13282,7 @@ export interface UsbDevice {
     size: number;
     status: UsbDeviceStatus;
     usb_type: string;
-    vm?: {
-        name: string;
-        id: string;
-    };
+    vm?: NestedVm | null;
 }
 export declare type UsbDeviceOrderByInput = "binded_ASC" | "binded_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "manufacturer_ASC" | "manufacturer_DESC" | "name_ASC" | "name_DESC" | "size_ASC" | "size_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "usb_type_ASC" | "usb_type_DESC";
 export interface GetUsbDevicesRequestBody {
@@ -13475,10 +13294,11 @@ export interface GetUsbDevicesRequestBody {
     skip?: number | null;
     where?: UsbDeviceWhereInput | null;
 }
+export interface NestedAggregateUsbDevice {
+    count: number;
+}
 export interface UsbDeviceConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateUsbDevice;
 }
 export interface GetUsbDevicesConnectionRequestBody {
     after?: string | null;
@@ -13491,10 +13311,7 @@ export interface GetUsbDevicesConnectionRequestBody {
 }
 export interface UserAuditLog {
     action: string;
-    cluster?: {
-        name: string;
-        id: string;
-    };
+    cluster?: NestedCluster | null;
     createdAt: string;
     finished_at?: string | null;
     id: string;
@@ -13503,10 +13320,7 @@ export interface UserAuditLog {
     resource_id?: string | null;
     resource_type?: string | null;
     status?: UserAuditLogStatus | null;
-    user?: {
-        name: string;
-        id: string;
-    };
+    user?: NestedUser | null;
 }
 export declare type UserAuditLogOrderByInput = "action_ASC" | "action_DESC" | "createdAt_ASC" | "createdAt_DESC" | "finished_at_ASC" | "finished_at_DESC" | "id_ASC" | "id_DESC" | "ip_address_ASC" | "ip_address_DESC" | "message_ASC" | "message_DESC" | "resource_id_ASC" | "resource_id_DESC" | "resource_type_ASC" | "resource_type_DESC" | "status_ASC" | "status_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface UserAuditLogWhereInput {
@@ -13629,10 +13443,11 @@ export interface GetUserAuditLogsRequestBody {
     skip?: number | null;
     where?: UserAuditLogWhereInput | null;
 }
+export interface NestedAggregateUserAuditLog {
+    count: number;
+}
 export interface UserAuditLogConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateUserAuditLog;
 }
 export interface GetUserAuditLogsConnectionRequestBody {
     after?: string | null;
@@ -13649,10 +13464,7 @@ export interface UserRoleNext {
     name: string;
     platform: UserRolePlatform;
     preset?: UserRolePreset | null;
-    users?: {
-        name: string;
-        id: string;
-    }[] | null;
+    users?: NestedUser[] | null;
 }
 export declare type UserRoleNextOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "platform_ASC" | "platform_DESC" | "preset_ASC" | "preset_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetUserRoleNextsRequestBody {
@@ -13664,10 +13476,11 @@ export interface GetUserRoleNextsRequestBody {
     skip?: number | null;
     where?: UserRoleNextWhereInput | null;
 }
+export interface NestedAggregateUserRoleNext {
+    count: number;
+}
 export interface UserRoleNextConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateUserRoleNext;
 }
 export interface GetUserRoleNextsConnectionRequestBody {
     after?: string | null;
@@ -13678,6 +13491,10 @@ export interface GetUserRoleNextsConnectionRequestBody {
     skip?: number | null;
     where?: UserRoleNextWhereInput | null;
 }
+export interface NestedUserRoleNext {
+    id: string;
+    name: string;
+}
 export interface User {
     email_address?: string | null;
     id: string;
@@ -13686,10 +13503,7 @@ export interface User {
     mobile_phone?: string | null;
     name: string;
     role?: UserRole | null;
-    roles?: {
-        name: string;
-        id: string;
-    }[] | null;
+    roles?: NestedUserRoleNext[] | null;
     source: UserSource;
     username: string;
 }
@@ -13703,10 +13517,11 @@ export interface GetUsersRequestBody {
     skip?: number | null;
     where?: UserWhereInput | null;
 }
+export interface NestedAggregateUser {
+    count: number;
+}
 export interface UserConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateUser;
 }
 export interface GetUsersConnectionRequestBody {
     after?: string | null;
@@ -13718,10 +13533,7 @@ export interface GetUsersConnectionRequestBody {
     where?: UserWhereInput | null;
 }
 export interface VcenterAccount {
-    cluster?: {
-        name: string;
-        id: string;
-    };
+    cluster?: NestedCluster | null;
     id: string;
     ip: string;
     is_valid: boolean;
@@ -13740,10 +13552,11 @@ export interface GetVcenterAccountsRequestBody {
     skip?: number | null;
     where?: VcenterAccountWhereInput | null;
 }
+export interface NestedAggregateVcenterAccount {
+    count: number;
+}
 export interface VcenterAccountConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVcenterAccount;
 }
 export interface GetVcenterAccountsConnectionRequestBody {
     after?: string | null;
@@ -13756,32 +13569,18 @@ export interface GetVcenterAccountsConnectionRequestBody {
 }
 export interface Vds {
     bond_mode: string;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     entityAsyncStatus?: EntityAsyncStatus | null;
-    everoute_cluster?: {
-        name: string;
-        id: string;
-    };
+    everoute_cluster?: NestedEverouteCluster | null;
     id: string;
     internal: boolean;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     name: string;
-    nics?: {
-        name: string;
-        id: string;
-    }[] | null;
+    nics?: NestedNic[] | null;
     ovsbr_name: string;
     type: NetworkType;
-    vlans?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vlans?: NestedVlan[] | null;
     vlans_num: number;
 }
 export declare type VdsOrderByInput = "bond_mode_ASC" | "bond_mode_DESC" | "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "internal_ASC" | "internal_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "ovsbr_name_ASC" | "ovsbr_name_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vlans_num_ASC" | "vlans_num_DESC";
@@ -13794,10 +13593,11 @@ export interface GetVdsesRequestBody {
     skip?: number | null;
     where?: VdsWhereInput | null;
 }
+export interface NestedAggregateVds {
+    count: number;
+}
 export interface VdsConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVds;
 }
 export interface GetVdsesConnectionRequestBody {
     after?: string | null;
@@ -13808,15 +13608,13 @@ export interface GetVdsesConnectionRequestBody {
     skip?: number | null;
     where?: VdsWhereInput | null;
 }
+export interface NestedGraph {
+    id: string;
+}
 export interface View {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     entityAsyncStatus?: EntityAsyncStatus | null;
-    graphs?: {
-        id: string;
-    }[] | null;
+    graphs?: NestedGraph[] | null;
     id: string;
     local_id: string;
     name: string;
@@ -13833,10 +13631,11 @@ export interface GetViewsRequestBody {
     skip?: number | null;
     where?: ViewWhereInput | null;
 }
+export interface NestedAggregateView {
+    count: number;
+}
 export interface ViewConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateView;
 }
 export interface GetViewsConnectionRequestBody {
     after?: string | null;
@@ -13852,21 +13651,14 @@ export interface Vlan {
     gateway_ip?: string | null;
     gateway_subnetmask?: string | null;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_id: string;
     name: string;
     subnetmask?: string | null;
     type: NetworkType;
-    vds: {
-        name: string;
-        id: string;
-    };
+    vds: NestedVds;
     vlan_id: number;
-    vm_nics?: {
-        id: string;
-    }[] | null;
+    vm_nics?: NestedVmNic[] | null;
 }
 export declare type VlanOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "gateway_ip_ASC" | "gateway_ip_DESC" | "gateway_subnetmask_ASC" | "gateway_subnetmask_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "subnetmask_ASC" | "subnetmask_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vlan_id_ASC" | "vlan_id_DESC";
 export interface GetVlansRequestBody {
@@ -13878,10 +13670,11 @@ export interface GetVlansRequestBody {
     skip?: number | null;
     where?: VlanWhereInput | null;
 }
+export interface NestedAggregateVlan {
+    count: number;
+}
 export interface VlanConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVlan;
 }
 export interface GetVlansConnectionRequestBody {
     after?: string | null;
@@ -13892,6 +13685,10 @@ export interface GetVlansConnectionRequestBody {
     skip?: number | null;
     where?: VlanWhereInput | null;
 }
+export interface NestedSvtImage {
+    id: string;
+    name: string;
+}
 export interface VmDisk {
     boot: number;
     bus: Bus;
@@ -13899,10 +13696,7 @@ export interface VmDisk {
     cloud_init_image_path?: string | null;
     device?: string | null;
     disabled?: boolean | null;
-    elf_image?: {
-        name: string;
-        id: string;
-    };
+    elf_image?: NestedElfImage | null;
     id: string;
     key?: number | null;
     max_bandwidth?: number | null;
@@ -13910,22 +13704,13 @@ export interface VmDisk {
     max_iops?: number | null;
     max_iops_policy?: VmDiskIoRestrictType | null;
     serial?: string | null;
-    svt_image?: {
-        name: string;
-        id: string;
-    };
+    svt_image?: NestedSvtImage | null;
     type: VmDiskType;
     unsafe_image_path?: string | null;
     unsafe_image_uuid?: string | null;
     unsafe_provision?: string | null;
-    vm: {
-        name: string;
-        id: string;
-    };
-    vm_volume?: {
-        name: string;
-        id: string;
-    };
+    vm: NestedVm;
+    vm_volume?: NestedVmVolume | null;
 }
 export declare type VmDiskOrderByInput = "boot_ASC" | "boot_DESC" | "bus_ASC" | "bus_DESC" | "cloud_init_image_name_ASC" | "cloud_init_image_name_DESC" | "cloud_init_image_path_ASC" | "cloud_init_image_path_DESC" | "createdAt_ASC" | "createdAt_DESC" | "device_ASC" | "device_DESC" | "disabled_ASC" | "disabled_DESC" | "id_ASC" | "id_DESC" | "key_ASC" | "key_DESC" | "max_bandwidth_ASC" | "max_bandwidth_DESC" | "max_bandwidth_policy_ASC" | "max_bandwidth_policy_DESC" | "max_iops_ASC" | "max_iops_DESC" | "max_iops_policy_ASC" | "max_iops_policy_DESC" | "serial_ASC" | "serial_DESC" | "type_ASC" | "type_DESC" | "unsafe_image_path_ASC" | "unsafe_image_path_DESC" | "unsafe_image_uuid_ASC" | "unsafe_image_uuid_DESC" | "unsafe_provision_ASC" | "unsafe_provision_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetVmDisksRequestBody {
@@ -13937,10 +13722,11 @@ export interface GetVmDisksRequestBody {
     skip?: number | null;
     where?: VmDiskWhereInput | null;
 }
+export interface NestedAggregateVmDisk {
+    count: number;
+}
 export interface VmDiskConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmDisk;
 }
 export interface GetVmDisksConnectionRequestBody {
     after?: string | null;
@@ -13951,17 +13737,15 @@ export interface GetVmDisksConnectionRequestBody {
     skip?: number | null;
     where?: VmDiskWhereInput | null;
 }
+export interface NestedEntityFilter {
+    id: string;
+    name: string;
+}
 export interface VmEntityFilterResult {
-    entityFilter: {
-        name: string;
-        id: string;
-    };
+    entityFilter: NestedEntityFilter;
     id: string;
     result: number[];
-    vm: {
-        name: string;
-        id: string;
-    };
+    vm: NestedVm;
 }
 export declare type VmEntityFilterResultOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetVmEntityFilterResultsRequestBody {
@@ -13973,10 +13757,11 @@ export interface GetVmEntityFilterResultsRequestBody {
     skip?: number | null;
     where?: VmEntityFilterResultWhereInput | null;
 }
+export interface NestedAggregateVmEntityFilterResult {
+    count: number;
+}
 export interface VmEntityFilterResultConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmEntityFilterResult;
 }
 export interface GetVmEntityFilterResultsConnectionRequestBody {
     after?: string | null;
@@ -13988,18 +13773,12 @@ export interface GetVmEntityFilterResultsConnectionRequestBody {
     where?: VmEntityFilterResultWhereInput | null;
 }
 export interface VmFolder {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     id: string;
     local_id?: string | null;
     name: string;
     vm_num?: number | null;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vms?: NestedVm[] | null;
 }
 export declare type VmFolderOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vm_num_ASC" | "vm_num_DESC";
 export interface GetVmFoldersRequestBody {
@@ -14011,10 +13790,11 @@ export interface GetVmFoldersRequestBody {
     skip?: number | null;
     where?: VmFolderWhereInput | null;
 }
+export interface NestedAggregateVmFolder {
+    count: number;
+}
 export interface VmFolderConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmFolder;
 }
 export interface GetVmFoldersConnectionRequestBody {
     after?: string | null;
@@ -14035,20 +13815,11 @@ export interface VmNic {
     mac_address?: string | null;
     mirror?: boolean | null;
     model?: VmNicModel | null;
-    nic?: {
-        name: string;
-        id: string;
-    };
+    nic?: NestedNic | null;
     order?: number | null;
     subnet_mask?: string | null;
-    vlan?: {
-        name: string;
-        id: string;
-    };
-    vm: {
-        name: string;
-        id: string;
-    };
+    vlan?: NestedVlan | null;
+    vm: NestedVm;
 }
 export declare type VmNicOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "enabled_ASC" | "enabled_DESC" | "gateway_ASC" | "gateway_DESC" | "id_ASC" | "id_DESC" | "interface_id_ASC" | "interface_id_DESC" | "ip_address_ASC" | "ip_address_DESC" | "local_id_ASC" | "local_id_DESC" | "mac_address_ASC" | "mac_address_DESC" | "mirror_ASC" | "mirror_DESC" | "model_ASC" | "model_DESC" | "order_ASC" | "order_DESC" | "subnet_mask_ASC" | "subnet_mask_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetVmNicsRequestBody {
@@ -14060,10 +13831,11 @@ export interface GetVmNicsRequestBody {
     skip?: number | null;
     where?: VmNicWhereInput | null;
 }
+export interface NestedAggregateVmNic {
+    count: number;
+}
 export interface VmNicConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmNic;
 }
 export interface GetVmNicsConnectionRequestBody {
     after?: string | null;
@@ -14075,10 +13847,7 @@ export interface GetVmNicsConnectionRequestBody {
     where?: VmNicWhereInput | null;
 }
 export interface VmPlacementGroup {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description: string;
     enabled: boolean;
     entityAsyncStatus?: EntityAsyncStatus | null;
@@ -14088,23 +13857,14 @@ export interface VmPlacementGroup {
     local_updated_at: string;
     name: string;
     vm_host_must_enabled: boolean;
-    vm_host_must_host_uuids?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_host_must_host_uuids?: NestedHost[] | null;
     vm_host_must_policy: boolean;
     vm_host_prefer_enabled: boolean;
-    vm_host_prefer_host_uuids?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_host_prefer_host_uuids?: NestedHost[] | null;
     vm_host_prefer_policy: boolean;
     vm_vm_policy: VmVmPolicy;
     vm_vm_policy_enabled: boolean;
-    vms?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vms?: NestedVm[] | null;
 }
 export declare type VmPlacementGroupOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "enabled_ASC" | "enabled_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "local_updated_at_ASC" | "local_updated_at_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vm_host_must_enabled_ASC" | "vm_host_must_enabled_DESC" | "vm_host_must_policy_ASC" | "vm_host_must_policy_DESC" | "vm_host_prefer_enabled_ASC" | "vm_host_prefer_enabled_DESC" | "vm_host_prefer_policy_ASC" | "vm_host_prefer_policy_DESC" | "vm_vm_policy_ASC" | "vm_vm_policy_DESC" | "vm_vm_policy_enabled_ASC" | "vm_vm_policy_enabled_DESC";
 export interface GetVmPlacementGroupsRequestBody {
@@ -14116,10 +13876,11 @@ export interface GetVmPlacementGroupsRequestBody {
     skip?: number | null;
     where?: VmPlacementGroupWhereInput | null;
 }
+export interface NestedAggregateVmPlacementGroup {
+    count: number;
+}
 export interface VmPlacementGroupConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmPlacementGroup;
 }
 export interface GetVmPlacementGroupsConnectionRequestBody {
     after?: string | null;
@@ -14130,52 +13891,45 @@ export interface GetVmPlacementGroupsConnectionRequestBody {
     skip?: number | null;
     where?: VmPlacementGroupWhereInput | null;
 }
+export interface NestedCpu {
+    cores: number;
+    sockets: number;
+}
+export interface NestedVmEntityFilterResult {
+    id: string;
+}
+export interface NestedVmPlacementGroup {
+    id: string;
+    name: string;
+}
 export interface Vm {
     clock_offset: VmClockOffset;
-    cluster?: {
-        name: string;
-        id: string;
-    };
-    cpu: {
-        sockets: number;
-        cores: number;
-    };
+    cluster?: NestedCluster | null;
+    cpu: NestedCpu;
     cpu_model: string;
     cpu_usage?: number | null;
     deleted_at?: string | null;
     description: string;
     dns_servers?: string | null;
-    entity_filter_results?: {
-        id: string;
-    }[] | null;
+    entity_filter_results?: NestedVmEntityFilterResult[] | null;
     entityAsyncStatus?: EntityAsyncStatus | null;
     firmware: VmFirmware;
-    folder?: {
-        name: string;
-        id: string;
-    };
+    folder?: NestedVmFolder | null;
     guest_cpu_model?: string | null;
     guest_os_type?: VmGuestsOperationSystem | null;
     guest_size_usage?: number | null;
     guest_used_size?: number | null;
     ha: boolean;
-    host?: {
-        name: string;
-        id: string;
-    };
+    host?: NestedHost | null;
     hostname?: string | null;
     id: string;
     in_recycle_bin: boolean;
     internal: boolean;
     io_policy?: VmDiskIoPolicy | null;
     ips: string;
-    isolation_policy?: {
-        id: string;
-    };
+    isolation_policy?: NestedIsolationPolicy | null;
     kernel_info?: string | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     last_shutdown_time?: string | null;
     local_created_at?: string | null;
     local_id: string;
@@ -14195,32 +13949,16 @@ export interface Vm {
     protected: boolean;
     provisioned_size?: number | null;
     size?: number | null;
-    snapshot_plan?: {
-        name: string;
-        id: string;
-    };
-    snapshots?: {
-        name: string;
-        id: string;
-    }[] | null;
+    snapshot_plan?: NestedSnapshotPlan | null;
+    snapshots?: NestedVmSnapshot[] | null;
     status: VmStatus;
     unique_size?: number | null;
-    usb_devices?: {
-        name: string;
-        id: string;
-    }[] | null;
+    usb_devices?: NestedUsbDevice[] | null;
     vcpu: number;
     video_type?: VmVideoType | null;
-    vm_disks?: {
-        id: string;
-    }[] | null;
-    vm_nics?: {
-        id: string;
-    }[] | null;
-    vm_placement_group?: {
-        name: string;
-        id: string;
-    }[] | null;
+    vm_disks?: NestedVmDisk[] | null;
+    vm_nics?: NestedVmNic[] | null;
+    vm_placement_group?: NestedVmPlacementGroup[] | null;
     vm_tools_status: VmToolsStatus;
     vm_tools_version?: string | null;
     vm_usage?: VmUsage | null;
@@ -14236,10 +13974,11 @@ export interface GetVmsRequestBody {
     skip?: number | null;
     where?: VmWhereInput | null;
 }
+export interface NestedAggregateVm {
+    count: number;
+}
 export interface VmConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVm;
 }
 export interface GetVmsConnectionRequestBody {
     after?: string | null;
@@ -14250,17 +13989,49 @@ export interface GetVmsConnectionRequestBody {
     skip?: number | null;
     where?: VmWhereInput | null;
 }
+export interface NestedFrozenDisks {
+    boot: number;
+    bus: Bus;
+    disabled?: boolean | null;
+    disk_name?: string | null;
+    elf_image_local_id: string;
+    image_name?: string | null;
+    index: number;
+    key?: number | null;
+    max_bandwidth?: number | null;
+    max_bandwidth_policy?: VmDiskIoRestrictType | null;
+    max_iops?: number | null;
+    max_iops_policy?: VmDiskIoRestrictType | null;
+    path: string;
+    size: number;
+    snapshot_local_id?: string | null;
+    storage_policy_uuid: string;
+    svt_image_local_id: string;
+    type: VmDiskType;
+    vm_volume_local_id: string;
+}
+export interface NestedFrozenVlan {
+    name: string;
+    vds_ovs: string;
+    vlan_id: number;
+    vlan_local_id: string;
+}
+export interface NestedFrozenNic {
+    enabled?: boolean | null;
+    gateway: string;
+    index: number;
+    ip_address: string;
+    mac_address: string;
+    mirror?: boolean | null;
+    model?: VmNicModel | null;
+    subnet_mask: string;
+    vlan: NestedFrozenVlan;
+}
 export interface VmSnapshot {
     clock_offset: VmClockOffset;
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     consistent_type: ConsistentType;
-    cpu: {
-        sockets: number;
-        cores: number;
-    };
+    cpu: NestedCpu;
     cpu_model: string;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
@@ -14268,9 +14039,7 @@ export interface VmSnapshot {
     ha: boolean;
     id: string;
     io_policy?: VmDiskIoPolicy | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at?: string | null;
     local_id: string;
     max_bandwidth?: number | null;
@@ -14280,52 +14049,11 @@ export interface VmSnapshot {
     memory: number;
     name: string;
     size: number;
-    snapshot_group?: {
-        name: string;
-        id: string;
-    };
+    snapshot_group?: NestedSnapshotGroup | null;
     vcpu: number;
-    vm?: {
-        name: string;
-        id: string;
-    };
-    vm_disks?: {
-        vm_volume_local_id: string;
-        type: VmDiskType;
-        svt_image_local_id: string;
-        storage_policy_uuid: string;
-        snapshot_local_id?: string | null;
-        size: number;
-        path: string;
-        max_iops_policy?: VmDiskIoRestrictType | null;
-        max_iops?: number | null;
-        max_bandwidth_policy?: VmDiskIoRestrictType | null;
-        max_bandwidth?: number | null;
-        key?: number | null;
-        index: number;
-        image_name?: string | null;
-        elf_image_local_id: string;
-        disk_name?: string | null;
-        disabled?: boolean | null;
-        bus: Bus;
-        boot: number;
-    }[];
-    vm_nics?: {
-        vlan: {
-            vlan_local_id: string;
-            vlan_id: number;
-            vds_ovs: string;
-            name: string;
-        };
-        subnet_mask: string;
-        model?: VmNicModel | null;
-        mirror?: boolean | null;
-        mac_address: string;
-        ip_address: string;
-        index: number;
-        gateway: string;
-        enabled?: boolean | null;
-    }[];
+    vm?: NestedVm | null;
+    vm_disks?: NestedFrozenDisks[] | null;
+    vm_nics?: NestedFrozenNic[] | null;
     win_opt: boolean;
 }
 export declare type VmSnapshotOrderByInput = "clock_offset_ASC" | "clock_offset_DESC" | "consistent_type_ASC" | "consistent_type_DESC" | "cpu_ASC" | "cpu_DESC" | "cpu_model_ASC" | "cpu_model_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "firmware_ASC" | "firmware_DESC" | "ha_ASC" | "ha_DESC" | "id_ASC" | "id_DESC" | "io_policy_ASC" | "io_policy_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "max_bandwidth_ASC" | "max_bandwidth_DESC" | "max_bandwidth_policy_ASC" | "max_bandwidth_policy_DESC" | "max_iops_ASC" | "max_iops_DESC" | "max_iops_policy_ASC" | "max_iops_policy_DESC" | "memory_ASC" | "memory_DESC" | "name_ASC" | "name_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vcpu_ASC" | "vcpu_DESC" | "vm_disks_ASC" | "vm_disks_DESC" | "vm_nics_ASC" | "vm_nics_DESC" | "win_opt_ASC" | "win_opt_DESC";
@@ -14338,10 +14066,11 @@ export interface GetVmSnapshotsRequestBody {
     skip?: number | null;
     where?: VmSnapshotWhereInput | null;
 }
+export interface NestedAggregateVmSnapshot {
+    count: number;
+}
 export interface VmSnapshotConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmSnapshot;
 }
 export interface GetVmSnapshotsConnectionRequestBody {
     after?: string | null;
@@ -14352,17 +14081,21 @@ export interface GetVmSnapshotsConnectionRequestBody {
     skip?: number | null;
     where?: VmSnapshotWhereInput | null;
 }
+export interface NestedTemplateNic {
+    enabled?: boolean | null;
+    index: number;
+    ip_address?: string | null;
+    mac_address?: string | null;
+    mirror?: boolean | null;
+    model?: VmNicModel | null;
+    vlan: NestedFrozenVlan;
+}
 export interface VmTemplate {
     clock_offset: VmClockOffset;
     cloud_init_supported: boolean;
-    cluster: {
-        name: string;
-        id: string;
-    };
-    cpu: {
-        sockets: number;
-        cores: number;
-    };
+    cluster: NestedCluster;
+    content_library_vm_template?: NestedContentLibraryVmTemplate | null;
+    cpu: NestedCpu;
     cpu_model: string;
     description: string;
     entityAsyncStatus?: EntityAsyncStatus | null;
@@ -14370,9 +14103,7 @@ export interface VmTemplate {
     ha: boolean;
     id: string;
     io_policy?: VmDiskIoPolicy | null;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at?: string | null;
     local_id: string;
     max_bandwidth?: number | null;
@@ -14384,41 +14115,8 @@ export interface VmTemplate {
     size: number;
     vcpu: number;
     video_type?: string | null;
-    vm_disks?: {
-        vm_volume_local_id: string;
-        type: VmDiskType;
-        svt_image_local_id: string;
-        storage_policy_uuid: string;
-        snapshot_local_id?: string | null;
-        size: number;
-        path: string;
-        max_iops_policy?: VmDiskIoRestrictType | null;
-        max_iops?: number | null;
-        max_bandwidth_policy?: VmDiskIoRestrictType | null;
-        max_bandwidth?: number | null;
-        key?: number | null;
-        index: number;
-        image_name?: string | null;
-        elf_image_local_id: string;
-        disk_name?: string | null;
-        disabled?: boolean | null;
-        bus: Bus;
-        boot: number;
-    }[];
-    vm_nics?: {
-        vlan: {
-            vlan_local_id: string;
-            vlan_id: number;
-            vds_ovs: string;
-            name: string;
-        };
-        model?: VmNicModel | null;
-        mirror?: boolean | null;
-        mac_address?: string | null;
-        ip_address?: string | null;
-        index: number;
-        enabled?: boolean | null;
-    }[];
+    vm_disks?: NestedFrozenDisks[] | null;
+    vm_nics?: NestedTemplateNic[] | null;
     win_opt: boolean;
 }
 export declare type VmTemplateOrderByInput = "clock_offset_ASC" | "clock_offset_DESC" | "cloud_init_supported_ASC" | "cloud_init_supported_DESC" | "cpu_ASC" | "cpu_DESC" | "cpu_model_ASC" | "cpu_model_DESC" | "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "entityAsyncStatus_ASC" | "entityAsyncStatus_DESC" | "firmware_ASC" | "firmware_DESC" | "ha_ASC" | "ha_DESC" | "id_ASC" | "id_DESC" | "io_policy_ASC" | "io_policy_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "max_bandwidth_ASC" | "max_bandwidth_DESC" | "max_bandwidth_policy_ASC" | "max_bandwidth_policy_DESC" | "max_iops_ASC" | "max_iops_DESC" | "max_iops_policy_ASC" | "max_iops_policy_DESC" | "memory_ASC" | "memory_DESC" | "name_ASC" | "name_DESC" | "size_ASC" | "size_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "vcpu_ASC" | "vcpu_DESC" | "video_type_ASC" | "video_type_DESC" | "vm_disks_ASC" | "vm_disks_DESC" | "vm_nics_ASC" | "vm_nics_DESC" | "win_opt_ASC" | "win_opt_DESC";
@@ -14431,10 +14129,11 @@ export interface GetVmTemplatesRequestBody {
     skip?: number | null;
     where?: VmTemplateWhereInput | null;
 }
+export interface NestedAggregateVmTemplate {
+    count: number;
+}
 export interface VmTemplateConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmTemplate;
 }
 export interface GetVmTemplatesConnectionRequestBody {
     after?: string | null;
@@ -14446,33 +14145,23 @@ export interface GetVmTemplatesConnectionRequestBody {
     where?: VmTemplateWhereInput | null;
 }
 export interface VmVolume {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     description?: string | null;
     elf_storage_policy: VmVolumeElfStoragePolicyType;
     guest_size_usage?: number | null;
     guest_used_size?: number | null;
     id: string;
-    labels?: {
-        id: string;
-    }[] | null;
+    labels?: NestedLabel[] | null;
     local_created_at: string;
     local_id: string;
-    lun?: {
-        name: string;
-        id: string;
-    };
+    lun?: NestedIscsiLun | null;
     mounting: boolean;
     name: string;
     path: string;
     sharing: boolean;
     size: number;
     unique_size?: number | null;
-    vm_disks?: {
-        id: string;
-    }[] | null;
+    vm_disks?: NestedVmDisk[] | null;
 }
 export declare type VmVolumeOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "description_ASC" | "description_DESC" | "elf_storage_policy_ASC" | "elf_storage_policy_DESC" | "guest_size_usage_ASC" | "guest_size_usage_DESC" | "guest_used_size_ASC" | "guest_used_size_DESC" | "id_ASC" | "id_DESC" | "local_created_at_ASC" | "local_created_at_DESC" | "local_id_ASC" | "local_id_DESC" | "mounting_ASC" | "mounting_DESC" | "name_ASC" | "name_DESC" | "path_ASC" | "path_DESC" | "sharing_ASC" | "sharing_DESC" | "size_ASC" | "size_DESC" | "unique_size_ASC" | "unique_size_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetVmVolumesRequestBody {
@@ -14484,10 +14173,11 @@ export interface GetVmVolumesRequestBody {
     skip?: number | null;
     where?: VmVolumeWhereInput | null;
 }
+export interface NestedAggregateVmVolume {
+    count: number;
+}
 export interface VmVolumeConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVmVolume;
 }
 export interface GetVmVolumesConnectionRequestBody {
     after?: string | null;
@@ -14499,10 +14189,7 @@ export interface GetVmVolumesConnectionRequestBody {
     where?: VmVolumeWhereInput | null;
 }
 export interface VsphereEsxiAccount {
-    host: {
-        name: string;
-        id: string;
-    };
+    host: NestedHost;
     id: string;
     ip: string;
     is_valid: boolean;
@@ -14521,10 +14208,11 @@ export interface GetVsphereEsxiAccountsRequestBody {
     skip?: number | null;
     where?: VsphereEsxiAccountWhereInput | null;
 }
+export interface NestedAggregateVsphereEsxiAccount {
+    count: number;
+}
 export interface VsphereEsxiAccountConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateVsphereEsxiAccount;
 }
 export interface GetVsphereEsxiAccountsConnectionRequestBody {
     after?: string | null;
@@ -14536,10 +14224,7 @@ export interface GetVsphereEsxiAccountsConnectionRequestBody {
     where?: VsphereEsxiAccountWhereInput | null;
 }
 export interface Witness {
-    cluster: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
     cpu_hz_per_core: number;
     data_ip: string;
     id: string;
@@ -14561,10 +14246,11 @@ export interface GetWitnessesRequestBody {
     skip?: number | null;
     where?: WitnessWhereInput | null;
 }
+export interface NestedAggregateWitness {
+    count: number;
+}
 export interface WitnessConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateWitness;
 }
 export interface GetWitnessesConnectionRequestBody {
     after?: string | null;
@@ -14590,20 +14276,11 @@ export interface GetWitnessServicesRequestBody {
     where: WitnessWhereUniqueInput;
 }
 export interface Zone {
-    cluster: {
-        name: string;
-        id: string;
-    };
-    datacenter: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
+    datacenter: NestedDatacenter;
     failure_data_space?: number | null;
     host_num?: number | null;
-    hosts?: {
-        name: string;
-        id: string;
-    }[] | null;
+    hosts?: NestedHost[] | null;
     id: string;
     is_preferred: boolean;
     local_id?: string | null;
@@ -14633,10 +14310,11 @@ export interface GetZonesRequestBody {
     skip?: number | null;
     where?: ZoneWhereInput | null;
 }
+export interface NestedAggregateZone {
+    count: number;
+}
 export interface ZoneConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateZone;
 }
 export interface GetZonesConnectionRequestBody {
     after?: string | null;
@@ -14648,20 +14326,11 @@ export interface GetZonesConnectionRequestBody {
     where?: ZoneWhereInput | null;
 }
 export interface ZoneTopo {
-    cluster: {
-        name: string;
-        id: string;
-    };
-    cluster_topo: {
-        name: string;
-        id: string;
-    };
+    cluster: NestedCluster;
+    cluster_topo: NestedClusterTopo;
     id: string;
     local_id: string;
-    rack_topoes?: {
-        name: string;
-        id: string;
-    }[] | null;
+    rack_topoes?: NestedRackTopo[] | null;
 }
 export declare type ZoneTopoOrderByInput = "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "local_id_ASC" | "local_id_DESC" | "updatedAt_ASC" | "updatedAt_DESC";
 export interface GetZoneTopoesRequestBody {
@@ -14673,10 +14342,11 @@ export interface GetZoneTopoesRequestBody {
     skip?: number | null;
     where?: ZoneTopoWhereInput | null;
 }
+export interface NestedAggregateZoneTopo {
+    count: number;
+}
 export interface ZoneTopoConnection {
-    aggregate: {
-        count: number;
-    };
+    aggregate: NestedAggregateZoneTopo;
 }
 export interface GetZoneTopoesConnectionRequestBody {
     after?: string | null;
@@ -14722,17 +14392,10 @@ export interface WithTaskBrickTopo {
     data: BrickTopo;
 }
 export interface BrickTopoCreationParams {
-    tag_position_in_brick?: {
-        tag: string;
-        row: number;
-        column: number;
-    }[] | null;
+    tag_position_in_brick?: NestedTagPosition[] | null;
     node_topoes?: NodeTopoWhereInput;
     rack_topo_id?: string;
-    capacity?: {
-        row?: number | null;
-        column?: number | null;
-    };
+    capacity?: NestedCapacity;
     cluster_id: string;
     height: number;
     name: string;
@@ -14740,16 +14403,9 @@ export interface BrickTopoCreationParams {
 }
 export interface BrickTopoUpdationParams {
     data: {
-        tag_position_in_brick?: {
-            tag: string;
-            row: number;
-            column: number;
-        }[] | null;
+        tag_position_in_brick?: NestedTagPosition[] | null;
         node_topoes?: NodeTopoWhereInput;
-        capacity?: {
-            row?: number | null;
-            column?: number | null;
-        };
+        capacity?: NestedCapacity;
         height?: number;
         name?: string;
         position?: number;
@@ -16757,6 +16413,28 @@ export declare namespace GetContentLibraryImagesConnection {
             "content-language"?: "zh-CN" | "en-US";
         };
         type ResponseBody = ContentLibraryImageConnection;
+    }
+}
+export declare namespace GetContentLibraryVmTemplates {
+    namespace GetContentLibraryVmTemplates {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetContentLibraryVmTemplatesRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = ContentLibraryVmTemplate[];
+    }
+}
+export declare namespace GetContentLibraryVmTemplatesConnection {
+    namespace GetContentLibraryVmTemplatesConnection {
+        type RequestParams = {};
+        type RequestQuery = {};
+        type RequestBody = GetContentLibraryVmTemplatesConnectionRequestBody;
+        type RequestHeaders = {
+            "content-language"?: "zh-CN" | "en-US";
+        };
+        type ResponseBody = ContentLibraryVmTemplateConnection;
     }
 }
 export declare namespace GetDatacenters {
@@ -19726,7 +19404,7 @@ export declare namespace ConvertVmTemplateFromVm {
     }
 }
 export declare namespace UpdateVmTemplate {
-    namespace UpdateVmTemplateFromVm {
+    namespace UpdateVmTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmTemplateUpdationParams;
@@ -19737,7 +19415,7 @@ export declare namespace UpdateVmTemplate {
     }
 }
 export declare namespace DeleteVmTemplate {
-    namespace DeleteVmTemplateFromVm {
+    namespace DeleteVmTemplate {
         type RequestParams = {};
         type RequestQuery = {};
         type RequestBody = VmTemplateDeletionParams;
@@ -20208,6 +19886,12 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
     };
     getContentLibraryImagesConnection: {
         getContentLibraryImagesConnection: (data: GetContentLibraryImagesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<ContentLibraryImageConnection>>;
+    };
+    getContentLibraryVmTemplates: {
+        getContentLibraryVmTemplates: (data: GetContentLibraryVmTemplatesRequestBody, params?: RequestParams) => Promise<AxiosResponse<ContentLibraryVmTemplate[]>>;
+    };
+    getContentLibraryVmTemplatesConnection: {
+        getContentLibraryVmTemplatesConnection: (data: GetContentLibraryVmTemplatesConnectionRequestBody, params?: RequestParams) => Promise<AxiosResponse<ContentLibraryVmTemplateConnection>>;
     };
     getDatacenters: {
         getDatacenters: (data: GetDatacentersRequestBody, params?: RequestParams) => Promise<AxiosResponse<Datacenter[]>>;
@@ -21024,10 +20708,10 @@ export declare class Api<SecurityDataType extends unknown> extends HttpClient<Se
         convertVmTemplateFromVm: (data: VmTemplateCreationParams[], params?: RequestParams) => Promise<AxiosResponse<WithTaskVmTemplate[]>>;
     };
     updateVmTemplate: {
-        updateVmTemplateFromVm: (data: VmTemplateUpdationParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVmTemplate[]>>;
+        updateVmTemplate: (data: VmTemplateUpdationParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskVmTemplate[]>>;
     };
     deleteVmTemplate: {
-        deleteVmTemplateFromVm: (data: VmTemplateDeletionParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskDeleteVmTemplate[]>>;
+        deleteVmTemplate: (data: VmTemplateDeletionParams, params?: RequestParams) => Promise<AxiosResponse<WithTaskDeleteVmTemplate[]>>;
     };
     createVmVolume: {
         createVmVolume: (data: VmVolumeCreationParams[], params?: RequestParams) => Promise<AxiosResponse<WithTaskVmVolume[]>>;
